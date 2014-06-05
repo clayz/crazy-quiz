@@ -5,7 +5,7 @@ CQ.Page.Index = {
         console.info('Initial index page');
 
         setTimeout(function () {
-            CQ.App.open('main');
+            CQ.Page.open(CQ.Page.Main);
         }, 3000);
     },
 

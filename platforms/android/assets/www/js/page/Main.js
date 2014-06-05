@@ -5,30 +5,30 @@ CQ.Page.Main = {
         console.info('Initial main page');
 
         $('#main-level1-btn').click(function () {
-            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 1 });
+            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 1 });
         });
         $('#main-level2-btn').click(function () {
-            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 2 });
+            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 2 });
         });
         $('#main-level3-btn').click(function () {
-            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 3 });
+            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 3 });
         });
         $('#main-level4-btn').click(function () {
-            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 4 });
+            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 4 });
         });
         $('#main-level5-btn').click(function () {
-            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 5 });
+            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 5 });
         });
         $('#main-level6-btn').click(function () {
-            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 6 });
+            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 6 });
         });
 
         $('#main-buy-btn').click(function () {
-            CQ.App.open('purchase');
+            CQ.Page.open(CQ.Page.Purchase);
         });
 
         $('#main-exchange-btn').click(function () {
-            CQ.App.open('exchange');
+            CQ.Page.open(CQ.Page.Exchange);
         });
 
         $('#main-clear-btn').click(function () {
@@ -43,7 +43,7 @@ CQ.Page.Main = {
         });
 
         $('#dialog-exit-no').click(function () {
-            CQ.App.open('main');
+            CQ.Page.open(CQ.Page.Main);
         });
 
         $('#main-share-btn').click(CQ.SNS.share);

@@ -12,11 +12,11 @@ CQ.Page.Game = {
 
         // bind all button events
         $('#game-gem-purchase-btn').on('vclick', function () {
-            CQ.App.open('purchase', { from: CQ.Page.Game.name });
+            CQ.Page.Game.open(CQ.Page.Purchase);
         });
 
         $('#game-coin-exchange-btn').on('vclick', function () {
-            CQ.App.open('exchange', { from: CQ.Page.Game.name });
+            CQ.Page.Game.open(CQ.Page.Exchange);
         });
 
         $('#game-back-btn').on('vclick', this.back);
