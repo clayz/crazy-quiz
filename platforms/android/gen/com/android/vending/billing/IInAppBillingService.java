@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /Users/zhong_jie/Work/CrazyQuiz/crazy-quiz/platforms/android/src/com/android/vending/billing/IInAppBillingService.aidl
+ * Original file: /Users/zhong_jie/Source/crazy-quiz/platforms/android/src/com/android/vending/billing/IInAppBillingService.aidl
  */
 package com.android.vending.billing;
 /**
