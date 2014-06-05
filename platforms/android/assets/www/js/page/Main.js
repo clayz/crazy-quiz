@@ -5,22 +5,22 @@ CQ.Page.Main = {
         console.info('Initial main page');
 
         $('#main-level1-btn').click(function () {
-            CQ.App.open('game', { album: CQ.Album.Default, level: 1 });
+            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 1 });
         });
         $('#main-level2-btn').click(function () {
-            CQ.App.open('game', { album: CQ.Album.Default, level: 2 });
+            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 2 });
         });
         $('#main-level3-btn').click(function () {
-            CQ.App.open('game', { album: CQ.Album.Default, level: 3 });
+            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 3 });
         });
         $('#main-level4-btn').click(function () {
-            CQ.App.open('game', { album: CQ.Album.Default, level: 4 });
+            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 4 });
         });
         $('#main-level5-btn').click(function () {
-            CQ.App.open('game', { album: CQ.Album.Default, level: 5 });
+            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 5 });
         });
         $('#main-level6-btn').click(function () {
-            CQ.App.open('game', { album: CQ.Album.Default, level: 6 });
+            CQ.App.open(CQ.Page.Game.name, { album: CQ.Album.Default.id, level: 6 });
         });
 
         $('#main-buy-btn').click(function () {

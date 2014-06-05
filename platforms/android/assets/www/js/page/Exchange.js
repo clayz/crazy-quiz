@@ -28,10 +28,9 @@ CQ.Page.Exchange = {
         if (CQ.Currency.checkGem(goods)) {
             CQ.Currency.exchange(goods);
             CQ.Page.Game.refreshCurrency();
-            alert('Exchange success, add coin: ' + goods.coin);
+            $('#exchange-popup-success').popup('open');
         } else {
-            // CQ.Page.Exchange.showGemNotEnough();
-            $('#exchange-gem-not-enough').popup('open');
+            CQ.Page.Exchange.showGemNotEnough();
         }
     }
 };

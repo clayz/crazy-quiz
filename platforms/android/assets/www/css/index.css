@@ -235,8 +235,14 @@ h1 {
     margin: 2px !important;
 }
 
-/* Recharge page */
+/* Exchange page */
 
-#recharge {
+#exchange {
+    text-align: center;
+}
+
+/* Purchase page */
+
+#purchase {
     text-align: center;
 }

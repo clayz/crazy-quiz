@@ -37,6 +37,6 @@ CQ.Page.Purchase = {
         CQ.Page.Game.refreshCurrency();
         CQ.PlayBilling.buy('v1_gem_001');
 
-        alert('Purchase success, add gem: ' + goods.gem);
+        $('#purchase-popup-success').popup('open');
     }
 };

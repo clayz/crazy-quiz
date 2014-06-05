@@ -5,19 +5,34 @@ if (typeof(CQ) == 'undefined' || !CQ) {
 CQ.Page = {
     params: null,
 
-    showCoinNotEnough: function () {
-        $('#popup-gem-not-enough').popup('open');
-    },
-
-    showGemNotEnough: function () {
-        $('#popup-gem-not-enough').popup('open');
-    },
-
     back: function () {
         if (this.name == CQ.Page.Main.name)
             $('#dialog-exit-link').click();
-        else
-            CQ.App.open((this.params && this.params.from) ? this.params.from : 'main');
+        else {
+            var from = (this.params && this.params.from) ? this.params.from : 'main',
+                fromParams = (this.params && this.params.fromParams) ? this.params.fromParams : {};
+            CQ.App.open(from, fromParams);
+        }
+    },
+
+    showCoinNotEnough: function () {
+        var page = this.name,
+            params = this.params;
+
+        $('#' + page + '-popup-coin-not-enough').popup('open');
+        $('#' + page + '-popup-coin-exchange-btn').on('vclick', function () {
+            CQ.App.open(CQ.Page.Exchange.name, { from: page, fromParams: params });
+        });
+    },
+
+    showGemNotEnough: function () {
+        var page = this.name,
+            params = this.params;
+
+        $('#' + page + '-popup-gem-not-enough').popup('open');
+        $('#' + page + '-popup-gem-buy-btn').on('vclick', function () {
+            CQ.App.open(CQ.Page.Purchase.name, { from: page, fromParams: params });
+        });
     }
 };
 
@@ -60,7 +75,7 @@ CQ.App = {
     },
 
     open: function (name, params) {
-        console.log('Open page: {0}, params: {1}'.format(name, params));
+        console.log('Open page: {0}, params: {1}'.format(name, CQ.Utils.toString(params)));
 
         this.currentPage = name;
         var page = CQ.Page[name.charAt(0).toUpperCase() + name.slice(1)];

@@ -8,11 +8,20 @@ CQ.Album = {
         Celebrity: { id: 6, name: '有名人' }
     },
 
-    getId: function (level, index) {
+    getPicture: function (id) {
+        var levelAndIndex = this.getPictureLevelAndIndex(id);
+        return this[levelAndIndex.level][levelAndIndex.index];
+    },
+
+    getPictureId: function (level, index) {
         return parseInt(level.toString() + (index >= 10 ? index : '0' + index));
     },
 
-    getLevelAndIndex: function (id) {
+    getPicturePath: function (id) {
+        return '{0}{1}.jpg'.format(this.path, id);
+    },
+
+    getPictureLevelAndIndex: function (id) {
         var idString = id.toString();
         return {
             level: 'level' + idString.charAt(0),
@@ -20,9 +29,13 @@ CQ.Album = {
         }
     },
 
-    getPicture: function (id) {
-        var levelAndIndex = this.getLevelAndIndex(id);
-        return this[levelAndIndex.level][levelAndIndex.index];
+    getAlbum: function (id) {
+        switch (id) {
+            case CQ.Album.Default.id:
+                return CQ.Album.Default;
+            default:
+                throw 'Album not found for id: {0}'.format(id);
+        }
     },
 
     getFirstPicture: function (level) {
@@ -30,12 +43,8 @@ CQ.Album = {
     },
 
     getNextPicture: function (id) {
-        var levelAndIndex = this.getLevelAndIndex(id);
+        var levelAndIndex = this.getPictureLevelAndIndex(id);
         return levelAndIndex.index >= this[levelAndIndex.level].length ? null : this[levelAndIndex.level][levelAndIndex.index + 1];
-    },
-
-    getPicturePath: function (id) {
-        return '{0}{1}.jpg'.format(this.path, id);
     },
 
     getAlternativeAnswerChars: function (pictureId, length) {
@@ -70,7 +79,7 @@ CQ.Album = {
                 // generate random picture id which does not been used
                 var randomLevel = Math.floor(Math.random() * 6) + 1;
                 var randomIndex = Math.floor(Math.random() * this['level' + randomLevel].length);
-                var randomId = this.getId(randomLevel, randomIndex);
+                var randomId = this.getPictureId(randomLevel, randomIndex);
 
                 if ($.inArray(randomId, alternativeAnswers) == -1) {
                     var randomName = this.getPicture(randomId).name;

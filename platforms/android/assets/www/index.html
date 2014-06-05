@@ -159,9 +159,18 @@
         </div>
     </div>
 
+    <!-- answer correct popup -->
+    <div data-role="popup" id="game-popup-answer-correct" data-dismissible="false">
+        <p>Answer is correct, +3 Coin.</p>
+
+        <div>
+            <button id="game-popup-next-btn" class="ui-btn ui-btn-inline">Play Next</button>
+        </div>
+    </div>
+
     <!-- coin not enough popup -->
     <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" style="max-width:280px" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 
         <p>
             You do not have enough coin for this operation.<br/>
@@ -169,7 +178,7 @@
         </p>
 
         <div>
-            <button id="game-popup-exchange-btn" class="ui-btn ui-btn-inline">Exchange</button>
+            <button id="game-popup-coin-exchange-btn" class="ui-btn ui-btn-inline">Exchange</button>
         </div>
     </div>
 </div>
@@ -187,6 +196,10 @@
         <button id="purchase-products-btn" class="ui-btn">Available products in inventory</button>
         <button id="purchase-owned-btn" class="ui-btn">Owned products in inventory</button>
     </div>
+
+    <div data-role="popup" id="purchase-popup-success">
+        <p>Purchase success.</p>
+    </div>
 </div>
 
 <!-- exchange page -->
@@ -203,7 +216,7 @@
 
     <!-- gem not enough popup -->
     <div data-role="popup" id="exchange-popup-gem-not-enough" class="ui-content" style="max-width:280px" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 
         <p>
             You do not have enough gem for this operation.<br/>
@@ -211,18 +224,12 @@
         </p>
 
         <div>
-            <button id="exchange-popup-buy-btn" class="ui-btn ui-btn-inline">Buy</button>
+            <button id="exchange-popup-gem-buy-btn" class="ui-btn ui-btn-inline">Buy</button>
         </div>
     </div>
-</div>
-
-<!-- correct answer dialog -->
-<a id="dialog-correct-link" href="#dialog-correct" data-rel="dialog" data-transition="pop" style="display:none;"></a>
-
-<div data-role="page" id="dialog-correct">
-    <h1>Answer is correct, +3 Coin.</h1>
-    <br/>
-    <a id="dialog-next-btn" data-role="button">Play next picture</a>
+    <div data-role="popup" id="exchange-popup-success">
+        <p>Exchange success.</p>
+    </div>
 </div>
 
 <!-- exit app confirm dialog -->

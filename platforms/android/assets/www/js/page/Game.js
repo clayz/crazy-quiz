@@ -29,7 +29,7 @@ CQ.Page.Game = {
         this.bindAnswerEvents();
 
         // play next picture click event
-        $('#dialog-next-btn').click(function () {
+        $('#game-popup-next-btn').click(function () {
             var game = CQ.Page.Game,
                 nextPicture = game.album.getNextPicture(game.picture.id);
 
@@ -42,6 +42,7 @@ CQ.Page.Game = {
                 $('#game-correct-answer').text(game.picture.name);
 
                 game.load();
+                $('#game-popup-answer-correct').popup('close');
             } else {
                 alert('You already finished all quiz.');
             }
@@ -53,14 +54,14 @@ CQ.Page.Game = {
 
         if (params) {
             this.params = params;
-            this.album = params.album;
+            this.album = CQ.Album.getAlbum(params.album);
             this.level = params.level;
         }
 
         var lastPictureId = CQ.Datastore.getLastPictureId(this.album.id, this.level);
         console.info('Album: {0}, level: {1}, last picture: {2}'.format(this.album.id, this.level, lastPictureId));
         this.picture = lastPictureId ? this.album.getNextPicture(lastPictureId) : this.album.getFirstPicture(this.level);
-        var levelAndIndex = this.album.getLevelAndIndex(this.picture.id);
+        var levelAndIndex = this.album.getPictureLevelAndIndex(this.picture.id);
 
         $('#game-title-text').text('第{0}問'.format(levelAndIndex.index + 1));
         $('#game-picture').css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)));
@@ -247,7 +248,7 @@ CQ.Page.Game = {
     answerCorrect: function () {
         CQ.Datastore.setLastPictureId(this.album.id, this.level, this.picture.id);
         CQ.Currency.earn(CQ.Currency.Earn.Quiz);
-        $('#dialog-correct-link').click();
+        $('#game-popup-answer-correct').popup('open');
     },
 
     removeChar: function (char) {
