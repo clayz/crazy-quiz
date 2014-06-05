@@ -34,7 +34,7 @@ CQ.Page.Purchase = {
         console.log('Start transaction, goods id: ' + goods.id);
 
         CQ.Currency.purchase(goods);
-        CQ.Page.Game.refreshCurrency();
+        CQ.Page.refreshCurrency();
         CQ.PlayBilling.buy('v1_gem_001');
 
         $('#purchase-popup-success').popup('open');

@@ -3,6 +3,7 @@ CQ.Page.Main = {
 
     init: function () {
         console.info('Initial main page');
+        this.initCommon(this);
 
         $('#main-level1-btn').click(function () {
             CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 1 });
@@ -53,5 +54,6 @@ CQ.Page.Main = {
     },
 
     load: function () {
+        this.refreshCurrency();
     }
 };

@@ -5,6 +5,28 @@ if (typeof(CQ) == 'undefined' || !CQ) {
 CQ.Page = {
     params: null,
 
+    initCommon: function (page) {
+        var pageName = page.name;
+
+        // initial all common buttons
+        $('#' + pageName + '-back-btn').click({page: page}, function (event) {
+            event.data.page.back();
+        });
+
+        $('#' + pageName + '-gem-purchase-btn').click(function () {
+            page.open(CQ.Page.Purchase);
+        });
+
+        $('#' + pageName + '-coin-exchange-btn').click(function () {
+            page.open(CQ.Page.Exchange);
+        });
+    },
+
+    refreshCurrency: function () {
+        $('.header-current-gem').text(CQ.Currency.account.gem);
+        $('.header-current-coin').text(CQ.Currency.account.coin);
+    },
+
     get: function (name) {
         return CQ.Page[CQ.Utils.getCapitalName(name)];
     },

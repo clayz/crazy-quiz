@@ -27,7 +27,7 @@ CQ.Page.Exchange = {
 
         if (CQ.Currency.checkGem(goods)) {
             CQ.Currency.exchange(goods);
-            CQ.Page.Game.refreshCurrency();
+            CQ.Page.refreshCurrency();
             $('#exchange-popup-success').popup('open');
         } else {
             CQ.Page.Exchange.showGemNotEnough();

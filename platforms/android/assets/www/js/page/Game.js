@@ -9,17 +9,9 @@ CQ.Page.Game = {
 
     init: function () {
         console.info('Initial game page');
+        this.initCommon(this);
 
         // bind all button events
-        $('#game-gem-purchase-btn').on('vclick', function () {
-            CQ.Page.Game.open(CQ.Page.Purchase);
-        });
-
-        $('#game-coin-exchange-btn').on('vclick', function () {
-            CQ.Page.Game.open(CQ.Page.Exchange);
-        });
-
-        $('#game-back-btn').on('vclick', this.back);
         $('#game-cutdown-btn').on('vclick', this.removeOneIncorrectAnswer);
         $('#game-getchar-btn').on('vclick', this.getOneCorrectChar);
         $('#game-prompt-btn').on('vclick', this.getPrompt);
@@ -280,10 +272,5 @@ CQ.Page.Game = {
 
     removeCharText: function (id) {
         $('#' + id).text('');
-    },
-
-    refreshCurrency: function () {
-        $('#game-current-gem').text(CQ.Currency.account.gem);
-        $('#game-current-coin').text(CQ.Currency.account.coin);
     }
 };

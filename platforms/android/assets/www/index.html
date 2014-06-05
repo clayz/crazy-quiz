@@ -40,8 +40,25 @@
     </div>
 </div>
 
-<!-- main page -->
+<!-- album main page -->
 <div data-role="page" id="main">
+    <!-- page header -->
+    <div id="main-header">
+        <div id="main-back-div" class="header-back-div">
+            <button id="main-back-btn" class="ui-btn ui-btn-inline">Back</button>
+        </div>
+        <div id="main-currency-div" class="header-currency-div">
+            <div id="main-gem-div" class="header-gem-div">
+                Gem <span id="main-current-gem" class="header-current-gem">0</span>
+                <button id="main-gem-purchase-btn" class="ui-btn ui-btn-inline">+</button>
+            </div>
+            <div id="main-coin-div" class="header-coin-div">
+                Coin <span id="main-current-coin" class="header-current-coin">0</span>
+                <button id="main-coin-exchange-btn" class="ui-btn ui-btn-inline">+</button>
+            </div>
+        </div>
+    </div>
+
     <button id="main-level1-btn">Start play level 1</button>
     <button id="main-level2-btn">Start play level 2</button>
     <button id="main-level3-btn">Start play level 3</button>
@@ -61,16 +78,16 @@
 <div data-role="page" id="game">
     <!-- page header -->
     <div id="game-header">
-        <div id="game-back-div">
+        <div id="game-back-div" class="header-back-div">
             <button id="game-back-btn" class="ui-btn ui-btn-inline">Back</button>
         </div>
-        <div id="game-currency-div">
-            <div id="game-gem-div">
-                Gem <span id="game-current-gem">0</span>
+        <div id="game-currency-div" class="header-currency-div">
+            <div id="game-gem-div" class="header-gem-div">
+                Gem <span id="game-current-gem" class="header-current-gem">0</span>
                 <button id="game-gem-purchase-btn" class="ui-btn ui-btn-inline">+</button>
             </div>
-            <div id="game-coin-div">
-                Coin <span id="game-current-coin">0</span>
+            <div id="game-coin-div" class="header-coin-div">
+                Coin <span id="game-current-coin" class="header-current-coin">0</span>
                 <button id="game-coin-exchange-btn" class="ui-btn ui-btn-inline">+</button>
             </div>
         </div>

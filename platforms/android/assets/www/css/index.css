@@ -116,26 +116,32 @@ h1 {
     clear: both;
 }
 
+.header-back-div {
+    display: inline;
+}
+
+.header-currency-div {
+    display: inline;
+}
+
+.header-gem-div {
+    display: inline;
+}
+
+.header-coin-div {
+    display: inline;
+}
+
+/* Main page */
+
+#main {
+    text-align: center;
+}
+
 /* Game page */
 
 #game {
     text-align: center;
-}
-
-#game-back-div {
-    display: inline;
-}
-
-#game-currency-div {
-    display: inline;
-}
-
-#game-gem-div {
-    display: inline;
-}
-
-#game-coin-div {
-    display: inline;
 }
 
 #game-property-left {
