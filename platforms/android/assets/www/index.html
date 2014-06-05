@@ -1,0 +1,239 @@
+<html>
+<head>
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="SocialSharing.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inappbilling.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/app/App.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Utils.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Album.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Datastore.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Currency.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/PlayBilling.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/SNS.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Index.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Game.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Purchase.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Exchange.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
+
+    <script type="text/javascript">
+        CQ.App.init();
+    </script>
+</head>
+<body>
+
+<!-- index page -->
+<div data-role="page" id="index">
+    <div class="app center">
+        <h1>Welcome<br/>Crazy Quiz</h1>
+    </div>
+</div>
+
+<!-- main page -->
+<div data-role="page" id="main">
+    <button id="main-level1-btn">Start play level 1</button>
+    <button id="main-level2-btn">Start play level 2</button>
+    <button id="main-level3-btn">Start play level 3</button>
+    <button id="main-level4-btn">Start play level 4</button>
+    <button id="main-level5-btn">Start play level 5</button>
+    <button id="main-level6-btn">Start play level 6</button>
+    <button id="main-buy-btn">Buy Gem</button>
+    <button id="main-exchange-btn">Exchange Coin</button>
+    <button id="main-clear-btn">Clear all play history</button>
+    <button id="main-share-btn">Share</button>
+    <button id="main-share-fb-btn">Share Facebook</button>
+    <button id="main-share-tw-btn">Share Twitter</button>
+    <button id="main-share-line-btn">Share Line</button>
+</div>
+
+<!-- play game page -->
+<div data-role="page" id="game">
+    <!-- page header -->
+    <div id="game-header">
+        <div id="game-back-div">
+            <button id="game-back-btn" class="ui-btn ui-btn-inline">Back</button>
+        </div>
+        <div id="game-currency-div">
+            <div id="game-gem-div">
+                Gem <span id="game-current-gem">0</span>
+                <button id="game-gem-purchase-btn" class="ui-btn ui-btn-inline">+</button>
+            </div>
+            <div id="game-coin-div">
+                Coin <span id="game-current-coin">0</span>
+                <button id="game-coin-exchange-btn" class="ui-btn ui-btn-inline">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- page body -->
+    <div id="game-body">
+        <div id="game-title-div">
+            <h1><span id="game-title-text">第0問</span></h1>
+        </div>
+        <div id="game-content-div">
+            <div id="game-property-left">
+                <div class="game-property">
+                    <button id="game-getchar-btn" class="ui-btn ui-btn-inline game-property-left-btn">Get Char</button>
+                </div>
+                <div class="game-property">
+                    <button id="game-cutdown-btn" class="ui-btn ui-btn-inline game-property-left-btn">Cut down</button>
+                </div>
+            </div>
+            <div id="game-picture-div">
+                <div id="game-picture">
+                    <div id="game-prompt-div">Prompt Info</div>
+                    <div id="game-correct-answer">Answer</div>
+                </div>
+            </div>
+            <div id="game-property-right">
+                <div class="game-property">
+                    <button id="game-prompt-btn" class="ui-btn ui-btn-inline game-property-right-btn">Prompt</button>
+                </div>
+                <div class="game-property">
+                    <button id="game-share-btn" class="ui-btn ui-btn-inline game-property-right-btn">Share</button>
+                </div>
+            </div>
+        </div>
+        <div id="game-answer-div">
+            <button id="answer-btn-0" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-1" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-2" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-3" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-4" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-5" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-6" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-7" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-8" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-9" class="ui-btn ui-btn-inline answer-btn"></button>
+        </div>
+        <div id="game-char-div">
+            <div class="game-char-line-div">
+                <button id="char-btn-0" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-1" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-2" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-3" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-4" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-5" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-6" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-7" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-8" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-9" class="ui-btn ui-btn-inline char-btn"></button>
+            </div>
+
+            <div class="game-char-line-div">
+                <button id="char-btn-10" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-11" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-12" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-13" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-14" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-15" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-16" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-17" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-18" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-19" class="ui-btn ui-btn-inline char-btn"></button>
+            </div>
+
+            <div class="game-char-line-div">
+                <button id="char-btn-20" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-21" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-22" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-23" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-24" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-25" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-26" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-27" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-28" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-29" class="ui-btn ui-btn-inline char-btn"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- coin not enough popup -->
+    <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" style="max-width:280px" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+
+        <p>
+            You do not have enough coin for this operation.<br/>
+            Do you want to get some by exchanging gem?
+        </p>
+
+        <div>
+            <button id="game-popup-exchange-btn" class="ui-btn ui-btn-inline">Exchange</button>
+        </div>
+    </div>
+</div>
+
+<!-- purchase page -->
+<div data-role="page" id="purchase">
+    <h1>Gem Purchase</h1>
+
+    <div>
+        <button id="purchase-btn-1" class="ui-btn"></button>
+        <button id="purchase-btn-2" class="ui-btn"></button>
+        <button id="purchase-btn-3" class="ui-btn"></button>
+        <button id="purchase-btn-4" class="ui-btn"></button>
+        <button id="purchase-btn-5" class="ui-btn"></button>
+        <button id="purchase-products-btn" class="ui-btn">Available products in inventory</button>
+        <button id="purchase-owned-btn" class="ui-btn">Owned products in inventory</button>
+    </div>
+</div>
+
+<!-- exchange page -->
+<div data-role="page" id="exchange">
+    <h1>Coin Exchange</h1>
+
+    <div>
+        <button id="exchange-btn-1" class="ui-btn"></button>
+        <button id="exchange-btn-2" class="ui-btn"></button>
+        <button id="exchange-btn-3" class="ui-btn"></button>
+        <button id="exchange-btn-4" class="ui-btn"></button>
+        <button id="exchange-btn-5" class="ui-btn"></button>
+    </div>
+
+    <!-- gem not enough popup -->
+    <div data-role="popup" id="exchange-popup-gem-not-enough" class="ui-content" style="max-width:280px" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+
+        <p>
+            You do not have enough gem for this operation.<br/>
+            Do you want to buy some?
+        </p>
+
+        <div>
+            <button id="exchange-popup-buy-btn" class="ui-btn ui-btn-inline">Buy</button>
+        </div>
+    </div>
+</div>
+
+<!-- correct answer dialog -->
+<a id="dialog-correct-link" href="#dialog-correct" data-rel="dialog" data-transition="pop" style="display:none;"></a>
+
+<div data-role="page" id="dialog-correct">
+    <h1>Answer is correct, +3 Coin.</h1>
+    <br/>
+    <a id="dialog-next-btn" data-role="button">Play next picture</a>
+</div>
+
+<!-- exit app confirm dialog -->
+<a id="dialog-exit-link" href="#dialog-exit" data-rel="dialog" data-transition="pop" style="display:none;"></a>
+
+<div data-role="page" id="dialog-exit">
+    <h1>Are you sure exit?</h1>
+    <br/>
+    <a id="dialog-exit-yes" data-role="button">Exit</a>
+    <a id="dialog-exit-no" data-role="button">Stay</a>
+</div>
+
+</body>
+</html>
