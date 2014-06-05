@@ -138,6 +138,27 @@ h1 {
     text-align: center;
 }
 
+#main-album-div {
+    margin: 0 2em;
+    background-color: #bababa;
+}
+
+#main-album-previous-div {
+    width: 20%;
+}
+
+#main-album-title-div {
+    width: 60%;
+}
+
+#main-album-next-div {
+    width: 20%;
+}
+
+#main-footer-buttons-div {
+    margin: 0 4em;
+}
+
 /* Game page */
 
 #game {
