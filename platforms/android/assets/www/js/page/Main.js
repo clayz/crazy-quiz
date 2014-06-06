@@ -24,14 +24,6 @@ CQ.Page.Main = {
             CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 6 });
         });
 
-        $('#main-buy-btn').click(function () {
-            CQ.Page.open(CQ.Page.Purchase);
-        });
-
-        $('#main-exchange-btn').click(function () {
-            CQ.Page.open(CQ.Page.Exchange);
-        });
-
         $('#main-clear-btn').click(function () {
             CQ.Datastore.clear();
             CQ.Page.Game.picture = null;
@@ -47,10 +39,30 @@ CQ.Page.Main = {
             CQ.Page.open(CQ.Page.Main);
         });
 
-        $('#main-share-btn').click(CQ.SNS.share);
-        $('#main-share-fb-btn').click(CQ.SNS.Facebook.share);
-        $('#main-share-tw-btn').click(CQ.SNS.Twitter.share);
-        $('#main-share-line-btn').click(CQ.SNS.Line.share);
+        $('#main-rating-btn').click(function () {
+            alert('go to play store.');
+        });
+
+        $('#main-other-btn').click(function () {
+            alert('open other info page.');
+        });
+
+        // share buttons
+        $('#main-share-fb-btn').click(function () {
+            CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
+        });
+
+        $('#main-share-tw-btn').click(function () {
+            CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
+        });
+
+        $('#main-share-line-btn').click(function () {
+            CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
+        });
+
+        $('#main-share-other-btn').click(function () {
+            CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
+        });
     },
 
     load: function () {

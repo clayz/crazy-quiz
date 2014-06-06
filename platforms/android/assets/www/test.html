@@ -12,80 +12,17 @@
 </head>
 <body>
 
-<!-- album main page -->
-<div data-role="page" id="main">
-    <!-- page header -->
-    <div id="main-header">
-        <div id="main-back-div" class="header-back-div">
-            <button id="main-back-btn" class="ui-btn ui-btn-inline">Back</button>
-        </div>
-        <div id="main-currency-div" class="header-currency-div">
-            <div id="main-gem-div" class="header-gem-div">
-                Gem <span id="main-current-gem" class="header-current-gem">0</span>
-                <button id="main-gem-purchase-btn" class="ui-btn ui-btn-inline">+</button>
-            </div>
-            <div id="main-coin-div" class="header-coin-div">
-                Coin <span id="main-current-coin" class="header-current-coin">0</span>
-                <button id="main-coin-exchange-btn" class="ui-btn ui-btn-inline">+</button>
-            </div>
-        </div>
+<a href="#main-popup-share" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>
+
+<div data-role="popup" id="main-popup-share" class="ui-content" data-dismissible="false">
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <p>毎日シェアする、楽しみに3コインを獲得します。</p>
+    <div class="ui-grid-c">
+        <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
+        <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
+        <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
+        <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
     </div>
-
-    <!-- album info -->
-    <div id="main-album-div">
-        <div id="main-album-header-div" class="ui-grid-b">
-            <div id="main-album-previous-div" class="ui-block-a">
-                <button id="main-album-previous-btn" class="ui-btn ui-btn-inline header-back-btn"><</button>
-            </div>
-            <div id="main-album-title-div" class="ui-block-b">
-                <h1>Default Album</h1>
-            </div>
-            <div id="main-album-next-div" class="ui-block-c">
-                <button id="main-album-next-btn" class="ui-btn ui-btn-inline header-back-btn">></button>
-            </div>
-        </div>
-
-        <div id="main-album-level-div" class="ui-grid-b">
-            <div class="ui-block-a">
-                <button id="main-level1-btn" class="ui-btn ui-btn-inline header-back-btn">Level 1</button>
-            </div>
-            <div class="ui-block-b">
-                <button id="main-level2-btn" class="ui-btn ui-btn-inline header-back-btn">Level 2</button>
-            </div>
-            <div class="ui-block-c">
-                <button id="main-level3-btn" class="ui-btn ui-btn-inline header-back-btn">Level 3</button>
-            </div>
-            <div class="ui-block-a">
-                <button id="main-level4-btn" class="ui-btn ui-btn-inline header-back-btn">Level 4</button>
-            </div>
-            <div class="ui-block-b">
-                <button id="main-level5-btn" class="ui-btn ui-btn-inline header-back-btn">Level 5</button>
-            </div>
-            <div class="ui-block-c">
-                <button id="main-level6-btn" class="ui-btn ui-btn-inline header-back-btn">Level 6</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer buttons -->
-    <div id="main-footer">
-        <div id="main-footer-buttons-div" class="ui-grid-b">
-            <div class="ui-block-a">
-                <button id="main-rating-btn" class="ui-btn ui-btn-inline header-back-btn">Rating</button>
-            </div>
-            <div class="ui-block-b">
-                <button id="main-share-btn" class="ui-btn ui-btn-inline header-back-btn">Share</button>
-            </div>
-            <div class="ui-block-c">
-                <button id="main-other-btn" class="ui-btn ui-btn-inline header-back-btn">Other</button>
-            </div>
-        </div>
-    </div>
-
-    <button id="main-clear-btn">Clear all play history</button>
-    <button id="main-share-fb-btn">Share Facebook</button>
-    <button id="main-share-tw-btn">Share Twitter</button>
-    <button id="main-share-line-btn">Share Line</button>
 </div>
 
 </body>

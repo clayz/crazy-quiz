@@ -1,55 +1,86 @@
 CQ.SNS = {
-    share: function () {
-        window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl');
+    Message: {
+        MAIN_PAGE: 'Join crazy quiz, come to play with me.'
+    },
+
+    PLAY_STORE_URL: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
+
+    share: function (message) {
+        CQ.Page.showLoader();
+
+        // parameters: message, subject, file, url, successCallback, errorCallback
+        window.plugins.socialsharing.share(
+            message,
+            null,
+            null,
+            this.PLAY_STORE_URL,
+            CQ.SNS.shareFinish,
+            CQ.SNS.shareError
+        );
+    },
+
+    shareFinish: function (isSuccess) {
+        console.log('Share finished, result: ' + isSuccess);
+
+        CQ.Currency.earn(CQ.Currency.Earn.Share);
+        CQ.Page.closeShare();
+        CQ.Page.hideLoader();
+        CQ.Page.refreshCurrency();
+    },
+
+    shareError: function (error) {
+        console.error('Share failed, error: ' + error);
+
+        CQ.Currency.earn(CQ.Currency.Earn.Share);
+        CQ.Page.closeShare();
+        CQ.Page.hideLoader();
+        CQ.Page.refreshCurrency();
     }
 };
 
 CQ.SNS.Facebook = {
-    share: function () {
-        // shareViaFacebook parameters: message, image, url, successCallback, errorCallback
+    share: function (message, image) {
+        CQ.Page.showLoader();
+
+        // parameters: message, image, url, successCallback, errorCallback
         window.plugins.socialsharing.shareViaFacebook(
-            'Message and link via Facebook',
-            'www/img/album/default/1.jpg',
-            'https://play.google.com/store/apps/details?id=com.cyberagent.jra',
-            function (isSuccess) {
-                console.log('Facebook share success: ' + isSuccess);
-            },
-            function (error) {
-                console.error('Facebook share failed: ' + error);
-            });
+            message,
+            image,
+            CQ.SNS.PLAY_STORE_URL,
+            CQ.SNS.shareFinish,
+            CQ.SNS.shareError
+        );
     }
 };
 
 CQ.SNS.Twitter = {
-    share: function () {
-        // shareViaFacebook parameters: message, image, url, successCallback, errorCallback
+    share: function (message, image) {
+        CQ.Page.showLoader();
+
+        // parameters: message, image, url, successCallback, errorCallback
         window.plugins.socialsharing.shareViaTwitter(
-            'Message and link via Twitter',
-            'www/img/album/default/1.jpg',
-            'https://play.google.com/store/apps/details?id=com.cyberagent.jra',
-            function (isSuccess) {
-                console.log('Twitter share success: ' + isSuccess);
-            },
-            function (error) {
-                console.error('Twitter share failed: ' + error);
-            });
+            message,
+            image,
+            CQ.SNS.PLAY_STORE_URL,
+            CQ.SNS.shareFinish,
+            CQ.SNS.shareError
+        );
     }
 };
 
 CQ.SNS.Line = {
-    share: function () {
-        // shareVia parameters: via, message, subject, image, url, successCallback, errorCallback
+    share: function (message, subject, image) {
+        CQ.Page.showLoader();
+
+        // parameters: via, message, subject, image, url, successCallback, errorCallback
         window.plugins.socialsharing.shareVia(
             'line',
-            'Message and link via Line',
-            'this is subject',
-            'www/img/album/default/1.jpg',
-            'https://play.google.com/store/apps/details?id=com.cyberagent.jra',
-            function (isSuccess) {
-                console.log('Line share success: ' + isSuccess);
-            },
-            function (error) {
-                console.error('Line share failed: ' + error);
-            });
+            message,
+            subject,
+            image,
+            CQ.SNS.PLAY_STORE_URL,
+            CQ.SNS.shareFinish,
+            CQ.SNS.shareError
+        );
     }
 };

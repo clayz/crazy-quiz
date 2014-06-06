@@ -9,9 +9,9 @@ CQ.Currency = {
 
     Earn: {
         Login: { id: 1, coin: 1 },
-        Share: { id: 2, coin: 5 },
+        Share: { id: 2, coin: 3 },
         Rating: { id: 3, coin: 100 },
-        Quiz: { id: 4, coin: 5 },
+        Quiz: { id: 4, coin: 3 },
         Level: {id: 5, coin: 50},
         Album: { id: 6, coin: 100 }
     },
@@ -73,6 +73,20 @@ CQ.Currency = {
 
     earn: function (type) {
         console.info('Earn coin, type: {0}'.format(type.id));
+
+        // validation
+        if (type.id == this.Earn.Share.id) {
+            var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.getLastShareDate();
+
+            if (lastShareDate && (lastShareDate == today)) {
+                console.info('Already get share coin today: {0}'.format(today));
+                return false;
+            } else {
+                CQ.Datastore.setLastShareDate(today);
+            }
+        }
+
+        // update account and save into data store
         this.updateAccount(0, type.coin);
 
         // save operation history

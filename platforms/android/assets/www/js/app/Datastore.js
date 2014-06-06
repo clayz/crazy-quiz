@@ -34,7 +34,9 @@ CQ.Datastore = {
         EARN_HISTORY: 'EARN_HISTORY',
         CONSUME_HISTORY: 'CONSUME_HISTORY',
         PURCHASE_HISTORY: 'PURCHASE_HISTORY',
-        EXCHANGE_HISTORY: 'EXCHANGE_HISTORY'
+        EXCHANGE_HISTORY: 'EXCHANGE_HISTORY',
+
+        LAST_SHARE_DATE: 'LAST_SHARE_DATE'
     },
 
     /**
@@ -78,5 +80,13 @@ CQ.Datastore = {
         if (history.consume) this.setObject(this.Key.CONSUME_HISTORY, history.consume);
         if (history.purchase) this.setObject(this.Key.PURCHASE_HISTORY, history.purchase);
         if (history.exchange) this.setObject(this.Key.EXCHANGE_HISTORY, history.exchange);
+    },
+
+    getLastShareDate: function () {
+        return this.get(this.Key.LAST_SHARE_DATE);
+    },
+
+    setLastShareDate: function (date) {
+        this.set(this.Key.LAST_SHARE_DATE, date);
     }
 };
