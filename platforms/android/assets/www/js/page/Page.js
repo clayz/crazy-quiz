@@ -48,7 +48,9 @@ CQ.Page = {
         if (CQ.Session.CURRENT_OPEN_POPUP) {
             $('#' + CQ.Session.CURRENT_OPEN_POPUP).popup('close');
             CQ.Session.CURRENT_OPEN_POPUP = null;
-        } else if (this.name == CQ.Page.Main.name) {
+        } else if ((CQ.Page.Loading.name == this.name) || (CQ.Page.Index.name == this.name)) {
+            navigator.app.exitApp();
+        } else if (CQ.Page.Main.name == this.name) {
             $('#main-popup-exit').popup('open');
         } else {
             var from = (this.params && this.params.from) ? this.params.from : 'main';
@@ -92,10 +94,5 @@ CQ.Page = {
         var id = '{0}-popup-share'.format(this.name);
         CQ.Session.CURRENT_OPEN_POPUP = id;
         $('#' + id).popup('open');
-    },
-
-    closeShare: function () {
-        CQ.Session.CURRENT_OPEN_POPUP = null;
-        $('#{0}-popup-share'.format(CQ.Session.CURRENT_PAGE)).popup('close');
     }
 };

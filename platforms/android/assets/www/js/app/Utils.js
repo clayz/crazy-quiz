@@ -7,6 +7,12 @@ if (!String.prototype.format) {
     };
 }
 
+if (!String.prototype.trim) {
+    String.prototype.trim = function () {
+        return String(this).replace(/^\s+|\s+$/g, '');
+    };
+}
+
 /**
  * http://blog.stevenlevithan.com/archives/date-time-format
  */

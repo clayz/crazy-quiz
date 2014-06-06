@@ -23,7 +23,6 @@ CQ.SNS = {
         console.log('Share finished, result: ' + isSuccess);
 
         CQ.Currency.earn(CQ.Currency.Earn.Share);
-        CQ.Page.closeShare();
         CQ.Page.hideLoader();
         CQ.Page.refreshCurrency();
     },
@@ -32,7 +31,6 @@ CQ.SNS = {
         console.error('Share failed, error: ' + error);
 
         CQ.Currency.earn(CQ.Currency.Earn.Share);
-        CQ.Page.closeShare();
         CQ.Page.hideLoader();
         CQ.Page.refreshCurrency();
     }

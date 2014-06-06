@@ -14,6 +14,7 @@ CQ.App = {
     ready: function () {
         // implement classes inherit
         $.extend(CQ.Album.Default, CQ.Album);
+        $.extend(CQ.Page.Loading, CQ.Page);
         $.extend(CQ.Page.Index, CQ.Page);
         $.extend(CQ.Page.Main, CQ.Page);
         $.extend(CQ.Page.Game, CQ.Page);
@@ -24,6 +25,7 @@ CQ.App = {
         CQ.Currency.init();
         CQ.PlayBilling.init();
         CQ.GA.init();
+        CQ.Page.Loading.init();
         CQ.Page.Index.init();
         CQ.Page.Main.init();
         CQ.Page.Game.init();
@@ -44,6 +46,8 @@ CQ.App = {
 };
 
 CQ.Session = {
-    CURRENT_PAGE: 'index',
-    CURRENT_OPEN_POPUP: null
+    CURRENT_PAGE: 'loading',
+    CURRENT_OPEN_POPUP: null,
+
+    USERNAME: ''
 };

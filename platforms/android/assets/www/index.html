@@ -21,6 +21,7 @@
     <script type="text/javascript" charset="utf-8" src="js/app/PlayBilling.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/SNS.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Loading.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Index.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Main.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Game.js"></script>
@@ -34,14 +35,35 @@
 </head>
 <body>
 
-<!-- index page -->
-<div data-role="page" id="index">
+<!------------------------------------------------------------------>
+<!-- Loading Page -->
+<!------------------------------------------------------------------>
+<div data-role="page" id="loading">
     <div class="app center">
         <h1>Welcome<br/>Crazy Quiz</h1>
     </div>
 </div>
 
-<!-- album main page -->
+<!------------------------------------------------------------------>
+<!-- Index Page -->
+<!------------------------------------------------------------------>
+<div data-role="page" id="index">
+    <div id="index-body" role="main" class="ui-content">
+        <div>
+            <label for="index-name-input">Please enter your name:</label>
+        </div>
+        <div id="index-name-input-div">
+            <input id="index-name-input" type="text" data-clear-btn="true" maxlength="20" value=""/>
+        </div>
+        <div>
+            <button id="index-start-btn">Start</button>
+        </div>
+    </div>
+</div>
+
+<!------------------------------------------------------------------>
+<!-- Album Page -->
+<!------------------------------------------------------------------>
 <div data-role="page" id="main">
     <!-- page header -->
     <div id="main-header" data-role="header">
@@ -116,7 +138,7 @@
     </div>
 
     <!-- share popup -->
-    <div data-role="popup" id="main-popup-share" class="ui-content" data-dismissible="false">
+    <div data-role="popup" id="main-popup-share" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>毎日シェアする、楽しみに3コインを獲得します。</p>
         <div class="ui-grid-c">
@@ -143,7 +165,9 @@
     </div>
 </div>
 
-<!-- play game page -->
+<!------------------------------------------------------------------>
+<!-- Game Page -->
+<!------------------------------------------------------------------>
 <div data-role="page" id="game">
     <!-- page header -->
     <div id="game-header" data-role="header">
@@ -246,7 +270,7 @@
     </div>
 
     <!-- answer correct popup -->
-    <div data-role="popup" id="game-popup-answer-correct" data-dismissible="false">
+    <div data-role="popup" id="game-popup-answer-correct" data-overlay-theme="b" data-dismissible="false">
         <p>Answer is correct, +3 Coin.</p>
         <div>
             <button id="game-popup-next-btn" class="ui-btn ui-btn-inline">Play Next</button>
@@ -254,7 +278,7 @@
     </div>
 
     <!-- coin not enough popup -->
-    <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" data-dismissible="false">
+    <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>You do not have enough coin for this operation.<br/>Do you want to get some by exchanging gem?</p>
         <div>
@@ -263,7 +287,7 @@
     </div>
 
     <!-- share popup -->
-    <div data-role="popup" id="game-popup-share" class="ui-content" data-dismissible="false">
+    <div data-role="popup" id="game-popup-share" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>毎日シェアする、楽しみに3コインを獲得します。</p>
         <div class="ui-grid-c">
@@ -275,7 +299,9 @@
     </div>
 </div>
 
-<!-- purchase page -->
+<!------------------------------------------------------------------>
+<!-- Purchase Page -->
+<!------------------------------------------------------------------>
 <div data-role="page" id="purchase">
     <h1>Gem Purchase</h1>
 
@@ -294,7 +320,9 @@
     </div>
 </div>
 
-<!-- exchange page -->
+<!------------------------------------------------------------------>
+<!-- Exchange Page -->
+<!------------------------------------------------------------------>
 <div data-role="page" id="exchange">
     <h1>Coin Exchange</h1>
 
@@ -307,7 +335,7 @@
     </div>
 
     <!-- gem not enough popup -->
-    <div data-role="popup" id="exchange-popup-gem-not-enough" class="ui-content" data-dismissible="false">
+    <div data-role="popup" id="exchange-popup-gem-not-enough" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>You do not have enough gem for this operation.<br/>Do you want to buy some?</p>
         <div>
@@ -320,7 +348,9 @@
     </div>
 </div>
 
-<!-- loading div -->
+<!------------------------------------------------------------------>
+<!-- Placeholder DIV -->
+<!------------------------------------------------------------------>
 <div class="ui-loader-background"></div>
 
 </body>

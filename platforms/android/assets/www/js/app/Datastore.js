@@ -28,6 +28,8 @@ CQ.Datastore = {
     },
 
     Key: {
+        USERNAME: 'USERNAME',
+
         LAST_PICTURE: 'PICTURE_{0}_{1}',
 
         ACCOUNT: 'ACCOUNT',
@@ -37,6 +39,17 @@ CQ.Datastore = {
         EXCHANGE_HISTORY: 'EXCHANGE_HISTORY',
 
         LAST_SHARE_DATE: 'LAST_SHARE_DATE'
+    },
+
+    /**
+     * User module data storage.
+     */
+    getUsername: function () {
+        return this.get(this.Key.USERNAME);
+    },
+
+    setUsername: function (username) {
+        this.set(this.Key.USERNAME, username);
     },
 
     /**

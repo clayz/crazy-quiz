@@ -15,10 +15,26 @@ CQ.Page.Game = {
         $('#game-cutdown-btn').on('vclick', this.removeOneIncorrectAnswer);
         $('#game-getchar-btn').on('vclick', this.getOneCorrectChar);
         $('#game-prompt-btn').on('vclick', this.getPrompt);
-        $('#game-share-btn').on('vclick', this.share);
 
         this.bindCharEvents();
         this.bindAnswerEvents();
+
+        // bind share buttons
+        $('#game-share-fb-btn').click(function () {
+            CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
+        });
+
+        $('#game-share-tw-btn').click(function () {
+            CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
+        });
+
+        $('#game-share-line-btn').click(function () {
+            CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
+        });
+
+        $('#game-share-other-btn').click(function () {
+            CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
+        });
 
         // play next picture click event
         $('#game-popup-next-btn').click(function () {
@@ -53,8 +69,14 @@ CQ.Page.Game = {
         var lastPictureId = CQ.Datastore.getLastPictureId(this.album.id, this.level);
         console.info('Album: {0}, level: {1}, last picture: {2}'.format(this.album.id, this.level, lastPictureId));
         this.picture = lastPictureId ? this.album.getNextPicture(lastPictureId) : this.album.getFirstPicture(this.level);
-        var levelAndIndex = this.album.getPictureLevelAndIndex(this.picture.id);
 
+        if (this.picture == null) {
+            // user already finished all pictures in this level.
+            alert('Already finished this level.');
+            this.open(CQ.Page.Main);
+        }
+
+        var levelAndIndex = this.album.getPictureLevelAndIndex(this.picture.id);
         $('#game-title-text').text('第{0}問'.format(levelAndIndex.index + 1));
         $('#game-picture').css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)));
         $('#game-prompt-div').hide();
@@ -213,10 +235,6 @@ CQ.Page.Game = {
                 page.showCoinNotEnough();
             }
         }
-    },
-
-    share: function () {
-        alert('Display share types.');
     },
 
     checkAnswer: function () {

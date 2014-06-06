@@ -2,17 +2,16 @@ CQ.Page.Index = {
     name: 'index',
 
     init: function () {
-        console.info('Initial index page');
+        $('#index-start-btn').click(function () {
+            var username = $('#index-name-input').val();
 
-        setTimeout(function () {
-            CQ.Page.open(CQ.Page.Main);
-        }, 3000);
+            if (username && (username.trim() != '')) {
+                CQ.Datastore.setUsername(username);
+                CQ.Page.open(CQ.Page.Main);
+            }
+        });
     },
 
     load: function () {
-    },
-
-    back: function () {
-        navigator.app.exitApp();
     }
 };

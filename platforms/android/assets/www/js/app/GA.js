@@ -3,7 +3,7 @@ CQ.GA = {
     gaPlugin: null,
 
     Category: {
-        Index: CQ.Utils.getCapitalName(CQ.Page.Index.name),
+        Index: CQ.Utils.getCapitalName(CQ.Page.Loading.name),
         Main: CQ.Utils.getCapitalName(CQ.Page.Main.name),
         Game: CQ.Utils.getCapitalName(CQ.Page.Game.name),
         Purchase: CQ.Utils.getCapitalName(CQ.Page.Purchase.name)
