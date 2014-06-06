@@ -6,9 +6,9 @@ CQ.Page.Loading = {
 
         setTimeout(function () {
             if (CQ.Datastore.getUsername()) {
-                this.open(CQ.Page.Main);
+                CQ.Page.open(CQ.Page.Main);
             } else {
-                this.open(CQ.Page.Index);
+                CQ.Page.open(CQ.Page.Index);
             }
         }, 3000);
     },
