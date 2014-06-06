@@ -135,6 +135,10 @@ h1 {
     clear: both;
 }
 
+.button {
+    width: 3em;
+}
+
 .header-back-div {
     display: inline;
 }

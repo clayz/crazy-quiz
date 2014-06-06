@@ -126,6 +126,21 @@
             <div id="main-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
         </div>
     </div>
+
+    <!-- Exit confirm popup -->
+    <div data-role="popup" id="main-popup-exit" data-overlay-theme="b" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <h3 class="ui-title">アプリを終了しますか？</h3>
+            <div class="ui-grid-a">
+                <div class="ui-block-a center">
+                    <a href="#" id="main-popup-exit-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button">はい</a>
+                </div>
+                <div class="ui-block-b center">
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- play game page -->
@@ -303,16 +318,6 @@
     <div data-role="popup" id="exchange-popup-success">
         <p>Exchange success.</p>
     </div>
-</div>
-
-<!-- exit app confirm dialog -->
-<a id="dialog-exit-link" href="#dialog-exit" data-rel="dialog" data-transition="pop" style="display:none;"></a>
-
-<div data-role="page" id="dialog-exit">
-    <h1>Are you sure exit?</h1>
-    <br/>
-    <a id="dialog-exit-yes" data-role="button">Exit</a>
-    <a id="dialog-exit-no" data-role="button">Stay</a>
 </div>
 
 <!-- loading div -->

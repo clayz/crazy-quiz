@@ -49,7 +49,7 @@ CQ.Page = {
             $('#' + CQ.Session.CURRENT_OPEN_POPUP).popup('close');
             CQ.Session.CURRENT_OPEN_POPUP = null;
         } else if (this.name == CQ.Page.Main.name) {
-            $('#dialog-exit-link').click();
+            $('#main-popup-exit').popup('open');
         } else {
             var from = (this.params && this.params.from) ? this.params.from : 'main';
             console.log('Back to page: {0}'.format(from));
@@ -97,9 +97,5 @@ CQ.Page = {
     closeShare: function () {
         CQ.Session.CURRENT_OPEN_POPUP = null;
         $('#{0}-popup-share'.format(CQ.Session.CURRENT_PAGE)).popup('close');
-    },
-
-    showShareSuccess: function () {
-        $('#{0}-popup-share-success'.format(CQ.Session.CURRENT_PAGE)).popup('open');
     }
 };

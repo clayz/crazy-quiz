@@ -12,16 +12,20 @@
 </head>
 <body>
 
-<a href="#main-popup-share" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>
+<a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+   class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Delete page...</a>
 
-<div data-role="popup" id="main-popup-share" class="ui-content" data-dismissible="false">
-    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-    <p>毎日シェアする、楽しみに3コインを獲得します。</p>
-    <div class="ui-grid-c">
-        <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
-        <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
-        <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
-        <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
+<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-dismissible="false">
+    <div role="main" class="ui-content">
+        <h3 class="ui-title">アプリを終了しますか？</h3>
+        <div class="ui-grid-a">
+            <div class="ui-block-a center">
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">はい</a>
+            </div>
+            <div class="ui-block-b center">
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
+            </div>
+        </div>
     </div>
 </div>
 

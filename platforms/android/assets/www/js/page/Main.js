@@ -31,14 +31,11 @@ CQ.Page.Main = {
             alert("Cleared data in storage.");
         });
 
-        $('#dialog-exit-yes').click(function () {
+        $('#main-popup-exit-yes').click(function () {
             navigator.app.exitApp();
         });
 
-        $('#dialog-exit-no').click(function () {
-            CQ.Page.open(CQ.Page.Main);
-        });
-
+        // footer buttons
         $('#main-rating-btn').click(function () {
             alert('go to play store.');
         });
