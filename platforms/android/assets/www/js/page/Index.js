@@ -2,7 +2,7 @@ CQ.Page.Index = {
     name: 'index',
 
     init: function() {
-        $(CQ.Id.Index.$START).click(function() {
+        $(CQ.Id.Index.$START).tap(function() {
             var username = $(CQ.Id.Index.$NAME_INPUT).val();
 
             if (username && (username.trim() != '')) {

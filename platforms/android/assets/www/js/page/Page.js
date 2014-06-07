@@ -49,21 +49,21 @@ CQ.Page = {
         var page = this.name;
 
         // header buttons
-        $(CQ.Id.$HEADER_BACK.format(page)).click({page: page}, function(event) {
+        $(CQ.Id.$HEADER_BACK.format(page)).tap({page: page}, function(event) {
             CQ.Page.get(event.data.page).back();
         });
 
-        $(CQ.Id.$HEADER_GEM_PURCHASE.format(page)).click({page: page}, function(event) {
+        $(CQ.Id.$HEADER_GEM_PURCHASE.format(page)).tap({page: page}, function(event) {
             CQ.Page.get(event.data.page).open(CQ.Page.Purchase);
         });
 
-        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(page)).click({page: page}, function(event) {
+        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(page)).tap({page: page}, function(event) {
             CQ.Page.get(event.data.page).open(CQ.Page.Exchange);
         });
 
         // common popup and buttons
         $(CQ.Id.$POPUP_SHARE.format(page)).bind(this.popupEvents);
-        $(CQ.Id.$SHARE.format(page)).click({page: page}, function(event) {
+        $(CQ.Id.$SHARE.format(page)).tap({page: page}, function(event) {
             CQ.Page.get(event.data.page).showShare();
         });
 

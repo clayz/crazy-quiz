@@ -20,24 +20,24 @@ CQ.Page.Game = {
         this.bindAnswerEvents();
 
         // bind share buttons
-        $(CQ.Id.$SHARE_FB.format(this.name)).click(function() {
+        $(CQ.Id.$SHARE_FB.format(this.name)).tap(function() {
             CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
         });
 
-        $(CQ.Id.$SHARE_TW.format(this.name)).click(function() {
+        $(CQ.Id.$SHARE_TW.format(this.name)).tap(function() {
             CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
         });
 
-        $(CQ.Id.$SHARE_LINE.format(this.name)).click(function() {
+        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(function() {
             CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
         });
 
-        $(CQ.Id.$SHARE_OTHER.format(this.name)).click(function() {
+        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(function() {
             CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
         });
 
         // play next picture click event
-        $(CQ.Id.Game.$POPUP_NEXT).click(function() {
+        $(CQ.Id.Game.$POPUP_NEXT).tap(function() {
             var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
 
             if (nextPicture) {
