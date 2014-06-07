@@ -65,6 +65,7 @@ CQ.Page = {
         $(CQ.Id.$POPUP_SHARE.format(name)).bind(this.popupEvents);
         $(CQ.Id.$SHARE.format(name)).click(function() {
             page.showShare();
+            CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
         });
 
         $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).bind(this.popupEvents);

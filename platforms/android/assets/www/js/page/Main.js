@@ -4,25 +4,16 @@ CQ.Page.Main = {
     init: function() {
         console.info('Initial main page');
         this.initCommon();
+        var pageName = CQ.Utils.getCapitalName(this.name);
 
-        $(CQ.Id.Main.$LEVEL_1).tap(function() {
-            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 1 });
-        });
-        $(CQ.Id.Main.$LEVEL_2).tap(function() {
-            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 2 });
-        });
-        $(CQ.Id.Main.$LEVEL_3).tap(function() {
-            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 3 });
-        });
-        $(CQ.Id.Main.$LEVEL_4).tap(function() {
-            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 4 });
-        });
-        $(CQ.Id.Main.$LEVEL_5).tap(function() {
-            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 5 });
-        });
-        $(CQ.Id.Main.$LEVEL_6).tap(function() {
-            CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: 6 });
-        });
+        for (var i = 1; i <= 6; i++) {
+            (function(level) {
+                $(CQ.Id.Main['$LEVEL_' + level]).tap(function() {
+                    CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: level });
+                    CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(CQ.Album.Default.id, level));
+                })
+            })(i);
+        }
 
         $(CQ.Id.Main.$CLEAR_HISTORY).tap(function() {
             CQ.Datastore.clear();
@@ -38,6 +29,7 @@ CQ.Page.Main = {
 
         // footer buttons
         $(CQ.Id.Main.$RATING).tap(function() {
+            CQ.GA.trackPage('PlayStore');
             window.open("market://details?id=com.cyberagent.jra");
         });
 
@@ -48,18 +40,22 @@ CQ.Page.Main = {
         // share buttons
         $(CQ.Id.$SHARE_FB.format(this.name)).tap(function() {
             CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
+            CQ.GA.track(CQ.GA.Share.FB, pageName);
         });
 
         $(CQ.Id.$SHARE_TW.format(this.name)).tap(function() {
             CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
+            CQ.GA.track(CQ.GA.Share.TW, pageName);
         });
 
         $(CQ.Id.$SHARE_LINE.format(this.name)).tap(function() {
             CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
+            CQ.GA.track(CQ.GA.Share.Line, pageName);
         });
 
         $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(function() {
             CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
+            CQ.GA.track(CQ.GA.Share.Other, pageName);
         });
     },
 

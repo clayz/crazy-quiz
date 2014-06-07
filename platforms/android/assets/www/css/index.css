@@ -223,24 +223,24 @@ h1 {
     text-align: center;
 }
 
-#game-property-left {
+#game-props-left {
     float: left;
     width: 20%;
 }
 
-#game-property-right {
+#game-props-right {
     float: right;
     width: 20%;
 }
 
-.game-property-left-btn {
+.game-props-left-btn {
     width: 100% !important;
     height: 30px !important;
     padding: 1px 1px !important;
     font-size: 12px;
 }
 
-.game-property-right-btn {
+.game-props-right-btn {
     width: 100% !important;
     height: 30px !important;
     padding: 1px 1px !important;
@@ -284,7 +284,7 @@ h1 {
     bottom: 0;
 }
 
-.game-property {
+.game-props {
     padding: 2em 0 2em 0;
 }
 

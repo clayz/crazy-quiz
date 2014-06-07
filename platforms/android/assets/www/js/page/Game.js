@@ -12,9 +12,9 @@ CQ.Page.Game = {
         this.initCommon();
 
         // bind all button events
-        $(CQ.Id.Game.$CUT_DOWN).tap(this.removeOneIncorrectAnswer);
-        $(CQ.Id.Game.$GET_CHAR).tap(this.getOneCorrectChar);
-        $(CQ.Id.Game.$PROMPT).tap(this.getPrompt);
+        $(CQ.Id.Game.$CUT_DOWN).tap(this.cutdown);
+        $(CQ.Id.Game.$GET_CHAR).tap(this.getchar);
+        $(CQ.Id.Game.$PROMPT).tap(this.prompt);
 
         this.bindCharEvents();
         this.bindAnswerEvents();
@@ -114,6 +114,8 @@ CQ.Page.Game = {
             $('#' + character.id).text(character.text);
             this.options[i] = character;
         }
+
+        CQ.GA.track(CQ.GA.Picture.Play, CQ.GA.Picture.Play.label.format(this.picture.id));
     },
 
     bindCharEvents: function() {
@@ -152,10 +154,9 @@ CQ.Page.Game = {
         });
     },
 
-    removeOneIncorrectAnswer: function() {
+    cutdown: function() {
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.CutDown)) {
             console.info('Start cutdown one answer transaction.');
-
             var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
 
             for (var i = 0; i < usedPictures.length; i++) {
@@ -173,15 +174,16 @@ CQ.Page.Game = {
                     break;
                 }
             }
+
+            CQ.GA.track(CQ.GA.Props.Cutdown, CQ.GA.Props.Cutdown.label.format(page.picture.id));
         } else {
             CQ.Page.Game.showCoinNotEnough();
         }
     },
 
-    getOneCorrectChar: function() {
+    getchar: function() {
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.GetChar)) {
             console.info('Start get one character transaction.');
-
             var page = CQ.Page.Game, name = page.picture.name.split('');
 
             for (var i = 0; i < name.length; i++) {
@@ -204,13 +206,14 @@ CQ.Page.Game = {
                 }
             }
 
+            CQ.GA.track(CQ.GA.Props.Getchar, CQ.GA.Props.Getchar.label.format(page.picture.id));
             page.checkAnswer();
         } else {
             CQ.Page.Game.showCoinNotEnough();
         }
     },
 
-    getPrompt: function() {
+    prompt: function() {
         var $prompt = $(CQ.Id.Game.$PROMPT_DIV), page = CQ.Page.Game;
 
         if ($prompt.is(":hidden")) {
@@ -221,6 +224,8 @@ CQ.Page.Game = {
                 $prompt.show();
                 CQ.Currency.consume(CQ.Currency.Consume.Prompt, page.album.id, page.picture.id);
                 page.refreshCurrency();
+
+                CQ.GA.track(CQ.GA.Props.Prompt, CQ.GA.Props.Prompt.label.format(page.picture.id));
             } else {
                 page.showCoinNotEnough();
             }
@@ -249,6 +254,8 @@ CQ.Page.Game = {
         CQ.Datastore.setLastPictureId(this.album.id, this.level, this.picture.id);
         CQ.Currency.earn(CQ.Currency.Earn.Quiz);
         $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('open');
+
+        CQ.GA.track(CQ.GA.Picture.Pass, CQ.GA.Picture.Pass.label.format(this.picture.id));
     },
 
     removeChar: function(char) {
