@@ -46,35 +46,35 @@ CQ.Page = {
     },
 
     initCommon: function() {
-        var page = this.name;
+        var page = this, name = this.name;
 
         // header buttons
-        $(CQ.Id.$HEADER_BACK.format(page)).tap({page: page}, function(event) {
-            CQ.Page.get(event.data.page).back();
+        $(CQ.Id.$HEADER_BACK.format(name)).click(function() {
+            page.back();
         });
 
-        $(CQ.Id.$HEADER_GEM_PURCHASE.format(page)).tap({page: page}, function(event) {
-            CQ.Page.get(event.data.page).open(CQ.Page.Purchase);
+        $(CQ.Id.$HEADER_GEM_PURCHASE.format(name)).tap(function() {
+            page.open(CQ.Page.Purchase);
         });
 
-        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(page)).tap({page: page}, function(event) {
-            CQ.Page.get(event.data.page).open(CQ.Page.Exchange);
+        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(name)).tap(function() {
+            page.open(CQ.Page.Exchange);
         });
 
         // common popup and buttons
-        $(CQ.Id.$POPUP_SHARE.format(page)).bind(this.popupEvents);
-        $(CQ.Id.$SHARE.format(page)).tap({page: page}, function(event) {
-            CQ.Page.get(event.data.page).showShare();
+        $(CQ.Id.$POPUP_SHARE.format(name)).bind(this.popupEvents);
+        $(CQ.Id.$SHARE.format(name)).click(function() {
+            page.showShare();
         });
 
-        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(page)).bind(this.popupEvents);
-        $(CQ.Id.$POPUP_COIN_EXCHANGE.format(page)).tap(function() {
-            CQ.Page.get(page).open(CQ.Page.Exchange);
+        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).bind(this.popupEvents);
+        $(CQ.Id.$POPUP_COIN_EXCHANGE.format(name)).tap(function() {
+            page.open(CQ.Page.Exchange);
         });
 
-        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(page)).bind(this.popupEvents);
-        $(CQ.Id.$POPUP_GEM_BUY.format(page)).tap(function() {
-            CQ.Page.get(page).open(CQ.Page.Purchase);
+        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name)).bind(this.popupEvents);
+        $(CQ.Id.$POPUP_GEM_BUY.format(name)).tap(function() {
+            page.open(CQ.Page.Purchase);
         });
     },
 

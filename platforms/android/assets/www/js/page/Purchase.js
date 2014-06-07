@@ -11,11 +11,11 @@ CQ.Page.Purchase = {
             goods4 = CQ.Currency.Purchase.Goods4,
             goods5 = CQ.Currency.Purchase.Goods5;
 
-        $(CQ.Id.Purchase.$PURCHASE.format(goods1.id)).text('{0} gem, ¥{1}'.format(goods1.gem, goods1.cost)).tap({goods: goods1}, this.buy);
-        $(CQ.Id.Purchase.$PURCHASE.format(goods2.id)).text('{0} gem, ¥{1}'.format(goods2.gem, goods2.cost)).tap({goods: goods2}, this.buy);
-        $(CQ.Id.Purchase.$PURCHASE.format(goods3.id)).text('{0} gem, ¥{1}'.format(goods3.gem, goods3.cost)).tap({goods: goods3}, this.buy);
-        $(CQ.Id.Purchase.$PURCHASE.format(goods4.id)).text('{0} gem, ¥{1}'.format(goods4.gem, goods4.cost)).tap({goods: goods4}, this.buy);
-        $(CQ.Id.Purchase.$PURCHASE.format(goods5.id)).text('{0} gem, ¥{1}'.format(goods5.gem, goods5.cost)).tap({goods: goods5}, this.buy);
+        $(CQ.Id.Purchase.$PURCHASE.format(goods1.id)).text('{0} gem, ¥{1}'.format(goods1.gem, goods1.cost)).click({goods: goods1}, this.buy);
+        $(CQ.Id.Purchase.$PURCHASE.format(goods2.id)).text('{0} gem, ¥{1}'.format(goods2.gem, goods2.cost)).click({goods: goods2}, this.buy);
+        $(CQ.Id.Purchase.$PURCHASE.format(goods3.id)).text('{0} gem, ¥{1}'.format(goods3.gem, goods3.cost)).click({goods: goods3}, this.buy);
+        $(CQ.Id.Purchase.$PURCHASE.format(goods4.id)).text('{0} gem, ¥{1}'.format(goods4.gem, goods4.cost)).click({goods: goods4}, this.buy);
+        $(CQ.Id.Purchase.$PURCHASE.format(goods5.id)).text('{0} gem, ¥{1}'.format(goods5.gem, goods5.cost)).click({goods: goods5}, this.buy);
 
         $('#purchase-products-btn').tap(function() {
             CQ.PlayBilling.getAvailable();

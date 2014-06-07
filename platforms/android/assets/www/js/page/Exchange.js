@@ -11,11 +11,11 @@ CQ.Page.Exchange = {
             goods4 = CQ.Currency.Exchange.Goods4,
             goods5 = CQ.Currency.Exchange.Goods5;
 
-        $(CQ.Id.Exchange.$EXCHANGE.format(goods1.id)).text('{0} gem, {1} coin'.format(goods1.gem, goods1.coin)).tap({goods: goods1}, this.exchange);
-        $(CQ.Id.Exchange.$EXCHANGE.format(goods2.id)).text('{0} gem, {1} coin'.format(goods2.gem, goods2.coin)).tap({goods: goods2}, this.exchange);
-        $(CQ.Id.Exchange.$EXCHANGE.format(goods3.id)).text('{0} gem, {1} coin'.format(goods3.gem, goods3.coin)).tap({goods: goods3}, this.exchange);
-        $(CQ.Id.Exchange.$EXCHANGE.format(goods4.id)).text('{0} gem, {1} coin'.format(goods4.gem, goods4.coin)).tap({goods: goods4}, this.exchange);
-        $(CQ.Id.Exchange.$EXCHANGE.format(goods5.id)).text('{0} gem, {1} coin'.format(goods5.gem, goods5.coin)).tap({goods: goods5}, this.exchange);
+        $(CQ.Id.Exchange.$EXCHANGE.format(goods1.id)).text('{0} gem, {1} coin'.format(goods1.gem, goods1.coin)).click({goods: goods1}, this.exchange);
+        $(CQ.Id.Exchange.$EXCHANGE.format(goods2.id)).text('{0} gem, {1} coin'.format(goods2.gem, goods2.coin)).click({goods: goods2}, this.exchange);
+        $(CQ.Id.Exchange.$EXCHANGE.format(goods3.id)).text('{0} gem, {1} coin'.format(goods3.gem, goods3.coin)).click({goods: goods3}, this.exchange);
+        $(CQ.Id.Exchange.$EXCHANGE.format(goods4.id)).text('{0} gem, {1} coin'.format(goods4.gem, goods4.coin)).click({goods: goods4}, this.exchange);
+        $(CQ.Id.Exchange.$EXCHANGE.format(goods5.id)).text('{0} gem, {1} coin'.format(goods5.gem, goods5.coin)).click({goods: goods5}, this.exchange);
     },
 
     load: function(params) {
