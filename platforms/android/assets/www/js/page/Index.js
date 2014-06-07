@@ -1,9 +1,9 @@
 CQ.Page.Index = {
     name: 'index',
 
-    init: function () {
-        $('#index-start-btn').click(function () {
-            var username = $('#index-name-input').val();
+    init: function() {
+        $(CQ.Id.Index.$START).click(function() {
+            var username = $(CQ.Id.Index.$NAME_INPUT).val();
 
             if (username && (username.trim() != '')) {
                 CQ.Datastore.setUsername(username);
@@ -12,7 +12,7 @@ CQ.Page.Index = {
         });
     },
 
-    load: function () {
+    load: function() {
     }
 };
 

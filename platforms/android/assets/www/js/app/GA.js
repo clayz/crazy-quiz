@@ -13,12 +13,12 @@ CQ.GA = {
         View: 'View'
     },
 
-    init: function () {
+    init: function() {
         this.gaPlugin = window.plugins.gaPlugin;
         this.gaPlugin.init(CQ.GA.successHandler, CQ.GA.errorHandler, CQ.GA.trackingId, 10);
     },
 
-    trackPage: function (page) {
+    trackPage: function(page) {
         if (!this.gaPlugin) {
             console.error('Google analytics instance is not initialized.');
             return;
@@ -28,7 +28,7 @@ CQ.GA = {
         this.gaPlugin.trackPage(this.nativePluginResultHandler, this.nativePluginErrorHandler, CQ.Utils.getCapitalName(page));
     },
 
-    trackEvent: function (category, action, label, value) {
+    trackEvent: function(category, action, label, value) {
         if (!this.gaPlugin) {
             console.error('Google analytics instance is not initialized.');
             return;
@@ -38,19 +38,19 @@ CQ.GA = {
         this.gaPlugin.trackEvent(this.nativePluginResultHandler, this.nativePluginErrorHandler, category, action, label, value);
     },
 
-    successHandler: function () {
+    successHandler: function() {
         console.info('Google analytics initial success.');
     },
 
-    errorHandler: function () {
+    errorHandler: function() {
         console.error('Google analytics initial failed.');
     },
 
-    nativePluginResultHandler: function () {
+    nativePluginResultHandler: function() {
         console.info('Send GA tracking info success.');
     },
 
-    nativePluginErrorHandler: function () {
+    nativePluginErrorHandler: function() {
         console.error('Send GA tracking info failed.');
     }
 };

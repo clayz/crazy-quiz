@@ -2,28 +2,28 @@ CQ.Datastore = {
     /**
      * HTML5 Key-Value data store operations.
      */
-    get: function (key) {
+    get: function(key) {
         return window.localStorage.getItem(key);
     },
 
-    getObject: function (key) {
+    getObject: function(key) {
         var value = this.get(key);
         return value && JSON.parse(value);
     },
 
-    set: function (key, value) {
+    set: function(key, value) {
         window.localStorage.setItem(key, value);
     },
 
-    setObject: function (key, value) {
+    setObject: function(key, value) {
         window.localStorage.setItem(key, JSON.stringify(value));
     },
 
-    remove: function (key) {
+    remove: function(key) {
         window.localStorage.removeItem(key);
     },
 
-    clear: function () {
+    clear: function() {
         window.localStorage.clear();
     },
 
@@ -44,37 +44,37 @@ CQ.Datastore = {
     /**
      * User module data storage.
      */
-    getUsername: function () {
+    getUsername: function() {
         return this.get(this.Key.USERNAME);
     },
 
-    setUsername: function (username) {
+    setUsername: function(username) {
         this.set(this.Key.USERNAME, username);
     },
 
     /**
      * Picture module data storage.
      */
-    getLastPictureId: function (albumId, level) {
+    getLastPictureId: function(albumId, level) {
         return this.get(this.Key.LAST_PICTURE.format(albumId, level));
     },
 
-    setLastPictureId: function (albumId, level, pictureId) {
+    setLastPictureId: function(albumId, level, pictureId) {
         this.set(this.Key.LAST_PICTURE.format(albumId, level), pictureId);
     },
 
     /**
      * Currency module data storage.
      */
-    getAccount: function () {
+    getAccount: function() {
         return this.getObject(this.Key.ACCOUNT);
     },
 
-    setAccount: function (account) {
+    setAccount: function(account) {
         this.setObject(this.Key.ACCOUNT, account);
     },
 
-    getHistory: function () {
+    getHistory: function() {
         var earn = this.getObject(this.Key.EARN_HISTORY),
             consume = this.getObject(this.Key.CONSUME_HISTORY),
             purchase = this.getObject(this.Key.PURCHASE_HISTORY),
@@ -88,18 +88,18 @@ CQ.Datastore = {
         } : null;
     },
 
-    setHistory: function (history) {
+    setHistory: function(history) {
         if (history.earn) this.setObject(this.Key.EARN_HISTORY, history.earn);
         if (history.consume) this.setObject(this.Key.CONSUME_HISTORY, history.consume);
         if (history.purchase) this.setObject(this.Key.PURCHASE_HISTORY, history.purchase);
         if (history.exchange) this.setObject(this.Key.EXCHANGE_HISTORY, history.exchange);
     },
 
-    getLastShareDate: function () {
+    getLastShareDate: function() {
         return this.get(this.Key.LAST_SHARE_DATE);
     },
 
-    setLastShareDate: function (date) {
+    setLastShareDate: function(date) {
         this.set(this.Key.LAST_SHARE_DATE, date);
     }
 };

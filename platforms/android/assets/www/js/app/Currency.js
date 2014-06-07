@@ -38,7 +38,7 @@ CQ.Currency = {
         Goods5: { id: 5, gem: 200, coin: 28000 }
     },
 
-    init: function () {
+    init: function() {
         console.info('Initial currency module');
 
         var account = CQ.Datastore.getAccount();
@@ -56,22 +56,22 @@ CQ.Currency = {
         console.info('Exchange history: {0}'.format(CQ.Utils.toString(this.history.exchange)));
     },
 
-    updateAccount: function (gem, coin) {
+    updateAccount: function(gem, coin) {
         console.info('Update account, gem: {0}, coin: {1}'.format(gem, coin));
         this.account.gem += gem;
         this.account.coin += coin;
         CQ.Datastore.setAccount(this.account);
     },
 
-    checkCoin: function (goods) {
+    checkCoin: function(goods) {
         return this.account.coin >= goods.coin;
     },
 
-    checkGem: function (goods) {
+    checkGem: function(goods) {
         return this.account.gem >= goods.gem;
     },
 
-    earn: function (type) {
+    earn: function(type) {
         console.info('Earn coin, type: {0}'.format(type.id));
 
         // validation
@@ -99,7 +99,7 @@ CQ.Currency = {
         CQ.Datastore.setObject(CQ.Datastore.Key.EARN_HISTORY, this.history.earn);
     },
 
-    consume: function (type, album, picture) {
+    consume: function(type, album, picture) {
         console.info('Consume coin, type: {0}'.format(type.id));
 
         if (this.account.coin >= type.coin) {
@@ -122,7 +122,7 @@ CQ.Currency = {
         }
     },
 
-    purchase: function (goods) {
+    purchase: function(goods) {
         console.info('Purchase gem, goods: {0}'.format(goods.id));
         this.updateAccount(goods.gem, 0);
 
@@ -137,7 +137,7 @@ CQ.Currency = {
         CQ.Datastore.setObject(CQ.Datastore.Key.PURCHASE_HISTORY, this.history.purchase);
     },
 
-    exchange: function (goods) {
+    exchange: function(goods) {
         console.info('Exchange coin, goods: {0}'.format(goods.id));
 
         if (this.account.gem >= goods.gem) {

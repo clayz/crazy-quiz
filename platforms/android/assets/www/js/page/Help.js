@@ -1,10 +1,10 @@
 CQ.Page.Help = {
     name: 'help',
 
-    init: function () {
+    init: function() {
     },
 
-    load: function () {
+    load: function() {
     }
 };
 

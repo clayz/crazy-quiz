@@ -1,10 +1,10 @@
 CQ.Page.Loading = {
     name: 'loading',
 
-    init: function () {
+    init: function() {
         console.info('Initial loading page');
 
-        setTimeout(function () {
+        setTimeout(function() {
             if (CQ.Datastore.getUsername()) {
                 CQ.Page.open(CQ.Page.Main);
             } else {
@@ -13,10 +13,10 @@ CQ.Page.Loading = {
         }, 3000);
     },
 
-    load: function () {
+    load: function() {
     },
 
-    back: function () {
+    back: function() {
         navigator.app.exitApp();
     }
 };

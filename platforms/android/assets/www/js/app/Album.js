@@ -8,20 +8,20 @@ CQ.Album = {
         Celebrity: { id: 6, name: '有名人' }
     },
 
-    getPicture: function (id) {
+    getPicture: function(id) {
         var levelAndIndex = this.getPictureLevelAndIndex(id);
         return this[levelAndIndex.level][levelAndIndex.index];
     },
 
-    getPictureId: function (level, index) {
+    getPictureId: function(level, index) {
         return parseInt(level.toString() + (index >= 10 ? index : '0' + index));
     },
 
-    getPicturePath: function (id) {
+    getPicturePath: function(id) {
         return '{0}{1}.jpg'.format(this.path, id);
     },
 
-    getPictureLevelAndIndex: function (id) {
+    getPictureLevelAndIndex: function(id) {
         var idString = id.toString();
         return {
             level: 'level' + idString.charAt(0),
@@ -29,7 +29,7 @@ CQ.Album = {
         }
     },
 
-    getAlbum: function (id) {
+    getAlbum: function(id) {
         switch (id) {
             case CQ.Album.Default.id:
                 return CQ.Album.Default;
@@ -38,16 +38,16 @@ CQ.Album = {
         }
     },
 
-    getFirstPicture: function (level) {
+    getFirstPicture: function(level) {
         return this['level' + level][0];
     },
 
-    getNextPicture: function (id) {
+    getNextPicture: function(id) {
         var levelAndIndex = this.getPictureLevelAndIndex(id);
         return levelAndIndex.index >= this[levelAndIndex.level].length ? null : this[levelAndIndex.level][levelAndIndex.index + 1];
     },
 
-    getAlternativeAnswerChars: function (pictureId, length) {
+    getAlternativeAnswerChars: function(pictureId, length) {
         var picture = this.getPicture(pictureId),
             chars = picture.name.split(''),
             answerIds = picture.answers,
@@ -109,7 +109,7 @@ CQ.Album = {
         };
     },
 
-    shuffle: function (arr) {
+    shuffle: function(arr) {
         for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
         return arr;
     }

@@ -7,57 +7,55 @@ CQ.Page.Game = {
     answers: new Array(10),
     answersData: null,
 
-    init: function () {
+    init: function() {
         console.info('Initial game page');
-        this.initCommon(this);
+        this.initCommon();
 
         // bind all button events
-        $('#game-cutdown-btn').tap(this.removeOneIncorrectAnswer);
-        $('#game-getchar-btn').tap(this.getOneCorrectChar);
-        $('#game-prompt-btn').tap(this.getPrompt);
+        $(CQ.Id.Game.$CUT_DOWN).tap(this.removeOneIncorrectAnswer);
+        $(CQ.Id.Game.$GET_CHAR).tap(this.getOneCorrectChar);
+        $(CQ.Id.Game.$PROMPT).tap(this.getPrompt);
 
         this.bindCharEvents();
         this.bindAnswerEvents();
 
         // bind share buttons
-        $('#game-share-fb-btn').click(function () {
+        $(CQ.Id.$SHARE_FB.format(this.name)).click(function() {
             CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
         });
 
-        $('#game-share-tw-btn').click(function () {
+        $(CQ.Id.$SHARE_TW.format(this.name)).click(function() {
             CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
         });
 
-        $('#game-share-line-btn').click(function () {
+        $(CQ.Id.$SHARE_LINE.format(this.name)).click(function() {
             CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
         });
 
-        $('#game-share-other-btn').click(function () {
+        $(CQ.Id.$SHARE_OTHER.format(this.name)).click(function() {
             CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
         });
 
         // play next picture click event
-        $('#game-popup-next-btn').click(function () {
-            var game = CQ.Page.Game,
-                nextPicture = game.album.getNextPicture(game.picture.id);
+        $(CQ.Id.Game.$POPUP_NEXT).click(function() {
+            var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
 
             if (nextPicture) {
                 console.info('Play next picture: ' + nextPicture.id);
                 game.picture = nextPicture;
-                $('#dialog-correct').dialog('close');
 
                 // TODO debug only, remove it before release
-                $('#game-correct-answer').text(game.picture.name);
+                $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
 
                 game.load();
-                $('#game-popup-answer-correct').popup('close');
+                $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('close');
             } else {
                 alert('You already finished all quiz.');
             }
         });
     },
 
-    load: function (params) {
+    load: function(params) {
         this.refreshCurrency();
 
         if (params) {
@@ -77,17 +75,16 @@ CQ.Page.Game = {
         }
 
         var levelAndIndex = this.album.getPictureLevelAndIndex(this.picture.id);
-        $('#game-title-text').text('第{0}問'.format(levelAndIndex.index + 1));
-        $('#game-picture').css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)));
-        $('#game-prompt-div').hide();
+        $(CQ.Id.Game.$TITLE_TEXT).text('第{0}問'.format(levelAndIndex.index + 1));
+        $(CQ.Id.Game.$PICTURE).css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)));
+        $(CQ.Id.Game.$PROMPT_DIV).hide();
 
         // TODO debug only, remove it before release
-        $('#game-correct-answer').text(this.picture.name);
+        $(CQ.Id.Game.$CORRECT_ANSWER).text(this.picture.name);
 
         // clean and create all answer elements
         for (i = 0; i < this.answers.length; i++) {
-            var id = 'answer-btn-' + i,
-                $id = $('#' + id).text('').css('color', 'black');
+            var id = CQ.Id.Game.ANSWER_BTN.format(i), $id = $('#' + id).text('').css('color', 'black');
 
             if (i < this.picture.name.length) {
                 var answer = {
@@ -110,7 +107,7 @@ CQ.Page.Game = {
 
         for (var i = 0; i < chars.length; i++) {
             var character = {
-                id: 'char-btn-' + i,
+                id: CQ.Id.Game.CHAR_BTN.format(i),
                 text: chars[i]
             };
 
@@ -119,8 +116,8 @@ CQ.Page.Game = {
         }
     },
 
-    bindCharEvents: function () {
-        $('[id^=char-btn-]').tap(function () {
+    bindCharEvents: function() {
+        $('[id^=char-btn-]').tap(function() {
             var $btn = $(this);
 
             if ($btn.text()) {
@@ -142,12 +139,9 @@ CQ.Page.Game = {
         });
     },
 
-    bindAnswerEvents: function () {
-        $('[id^=answer-btn-]').tap(function () {
-            var $btn = $(this),
-                id = $btn.attr('id'),
-                index = id.charAt(id.length - 1),
-                answer = CQ.Page.Game.answers[index];
+    bindAnswerEvents: function() {
+        $('[id^=answer-btn-]').tap(function() {
+            var $btn = $(this), id = $btn.attr('id'), index = id.charAt(id.length - 1), answer = CQ.Page.Game.answers[index];
 
             if (answer && answer.text && answer.clickable) {
                 $('#' + answer.charBtn).text(answer.text);
@@ -158,17 +152,15 @@ CQ.Page.Game = {
         });
     },
 
-    removeOneIncorrectAnswer: function () {
+    removeOneIncorrectAnswer: function() {
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.CutDown)) {
             console.info('Start cutdown one answer transaction.');
 
-            var page = CQ.Page.Game,
-                usedPictures = page.answersData.alternativeAnswers;
+            var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
 
             for (var i = 0; i < usedPictures.length; i++) {
                 if (usedPictures[i] && (usedPictures[i] != page.picture.id)) {
-                    var removePicture = page.album.getPicture(usedPictures[i]),
-                        name = removePicture.name.split('');
+                    var removePicture = page.album.getPicture(usedPictures[i]), name = removePicture.name.split('');
                     console.log('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
 
                     for (var j = 0; j < name.length; j++) {
@@ -186,12 +178,11 @@ CQ.Page.Game = {
         }
     },
 
-    getOneCorrectChar: function () {
+    getOneCorrectChar: function() {
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.GetChar)) {
             console.info('Start get one character transaction.');
 
-            var page = CQ.Page.Game,
-                name = page.picture.name.split('');
+            var page = CQ.Page.Game, name = page.picture.name.split('');
 
             for (var i = 0; i < name.length; i++) {
                 var answer = page.answers[i];
@@ -219,9 +210,8 @@ CQ.Page.Game = {
         }
     },
 
-    getPrompt: function () {
-        var $prompt = $('#game-prompt-div'),
-            page = CQ.Page.Game;
+    getPrompt: function() {
+        var $prompt = $(CQ.Id.Game.$PROMPT_DIV), page = CQ.Page.Game;
 
         if ($prompt.is(":hidden")) {
             if (CQ.Currency.checkCoin(CQ.Currency.Consume.Prompt)) {
@@ -237,7 +227,7 @@ CQ.Page.Game = {
         }
     },
 
-    checkAnswer: function () {
+    checkAnswer: function() {
         var name = this.picture.name;
         var isCorrect = true;
 
@@ -255,13 +245,13 @@ CQ.Page.Game = {
         if (isCorrect) this.answerCorrect();
     },
 
-    answerCorrect: function () {
+    answerCorrect: function() {
         CQ.Datastore.setLastPictureId(this.album.id, this.level, this.picture.id);
         CQ.Currency.earn(CQ.Currency.Earn.Quiz);
-        $('#game-popup-answer-correct').popup('open');
+        $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('open');
     },
 
-    removeChar: function (char) {
+    removeChar: function(char) {
         console.info('Remove character: ' + char);
 
         // remove char from random char fields
@@ -288,7 +278,7 @@ CQ.Page.Game = {
         console.warn('Remove character not found: ' + char);
     },
 
-    removeCharText: function (id) {
+    removeCharText: function(id) {
         $('#' + id).text('');
     }
 };
