@@ -12,9 +12,9 @@ CQ.Page.Game = {
         this.initCommon(this);
 
         // bind all button events
-        $('#game-cutdown-btn').on('vclick', this.removeOneIncorrectAnswer);
-        $('#game-getchar-btn').on('vclick', this.getOneCorrectChar);
-        $('#game-prompt-btn').on('vclick', this.getPrompt);
+        $('#game-cutdown-btn').tap(this.removeOneIncorrectAnswer);
+        $('#game-getchar-btn').tap(this.getOneCorrectChar);
+        $('#game-prompt-btn').tap(this.getPrompt);
 
         this.bindCharEvents();
         this.bindAnswerEvents();
@@ -120,7 +120,7 @@ CQ.Page.Game = {
     },
 
     bindCharEvents: function () {
-        $('[id^=char-btn-]').on('vclick', function () {
+        $('[id^=char-btn-]').tap(function () {
             var $btn = $(this);
 
             if ($btn.text()) {
@@ -143,7 +143,7 @@ CQ.Page.Game = {
     },
 
     bindAnswerEvents: function () {
-        $('[id^=answer-btn-]').on('vclick', function () {
+        $('[id^=answer-btn-]').tap(function () {
             var $btn = $(this),
                 id = $btn.attr('id'),
                 index = id.charAt(id.length - 1),
@@ -292,3 +292,6 @@ CQ.Page.Game = {
         $('#' + id).text('');
     }
 };
+
+CQ.App.inherits(CQ.Page.Game, CQ.Page);
+CQ.App.register(CQ.Page.Game);

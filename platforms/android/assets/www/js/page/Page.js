@@ -52,6 +52,7 @@ CQ.Page = {
             navigator.app.exitApp();
         } else if (CQ.Page.Main.name == this.name) {
             $('#main-popup-exit').popup('open');
+            CQ.Session.CURRENT_OPEN_POPUP = 'main-popup-exit';
         } else {
             var from = (this.params && this.params.from) ? this.params.from : 'main';
             console.log('Back to page: {0}'.format(from));
@@ -75,7 +76,7 @@ CQ.Page = {
         CQ.Session.CURRENT_OPEN_POPUP = id;
 
         $('#' + id).popup('open');
-        $('#' + page + '-popup-coin-exchange-btn').on('vclick', function () {
+        $('#{0}-popup-coin-exchange-btn'.format(page)).tap(function () {
             CQ.Page.get(page).open(CQ.Page.Exchange);
         });
     },
@@ -85,7 +86,7 @@ CQ.Page = {
         CQ.Session.CURRENT_OPEN_POPUP = id;
 
         $('#' + id).popup('open');
-        $('#' + page + '-popup-gem-buy-btn').on('vclick', function () {
+        $('#{0}-popup-gem-buy-btn'.format(page)).tap(function () {
             CQ.Page.get(page).open(CQ.Page.Purchase);
         });
     },

@@ -40,3 +40,6 @@ CQ.Page.Purchase = {
         $('#purchase-popup-success').popup('open');
     }
 };
+
+CQ.App.inherits(CQ.Page.Purchase, CQ.Page);
+CQ.App.register(CQ.Page.Purchase);

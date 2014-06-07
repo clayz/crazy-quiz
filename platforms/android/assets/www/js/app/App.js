@@ -3,6 +3,9 @@ if (typeof(CQ) == 'undefined' || !CQ) {
 }
 
 CQ.App = {
+    inheritsClasses: [],
+    registerClasses: [],
+
     init: function () {
         this.bindEvents();
     },
@@ -12,25 +15,16 @@ CQ.App = {
     },
 
     ready: function () {
-        // implement classes inherit
-        $.extend(CQ.Album.Default, CQ.Album);
-        $.extend(CQ.Page.Loading, CQ.Page);
-        $.extend(CQ.Page.Index, CQ.Page);
-        $.extend(CQ.Page.Main, CQ.Page);
-        $.extend(CQ.Page.Game, CQ.Page);
-        $.extend(CQ.Page.Purchase, CQ.Page);
-        $.extend(CQ.Page.Exchange, CQ.Page);
+        console.log('PhoneGap is ready, start app initialization.');
 
-        // initialize all modules and pages
-        CQ.Currency.init();
-        CQ.PlayBilling.init();
-        CQ.GA.init();
-        CQ.Page.Loading.init();
-        CQ.Page.Index.init();
-        CQ.Page.Main.init();
-        CQ.Page.Game.init();
-        CQ.Page.Purchase.init();
-        CQ.Page.Exchange.init();
+        // implement classes inherit and initialize register classes
+        $.each(CQ.App.inheritsClasses, function (index, value) {
+            $.extend(value.child, value.parent);
+        });
+
+        $.each(CQ.App.registerClasses, function (index, value) {
+            if (value.init) value.init();
+        });
 
         // modify jQuery default settings
         $.mobile.defaultPageTransition = 'none';
@@ -38,6 +32,18 @@ CQ.App = {
         $.mobile.buttonMarkup.hoverDelay = 0;
 
         document.addEventListener('backbutton', CQ.App.back, false);
+        console.log('App initialization finished.');
+    },
+
+    inherits: function (child, parent) {
+        this.inheritsClasses.push({
+            child: child,
+            parent: parent
+        });
+    },
+
+    register: function (clazz) {
+        this.registerClasses.push(clazz);
     },
 
     back: function () {

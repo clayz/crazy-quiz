@@ -54,3 +54,5 @@ CQ.GA = {
         console.error('Send GA tracking info failed.');
     }
 };
+
+CQ.App.register(CQ.GA);

@@ -34,3 +34,6 @@ CQ.Page.Exchange = {
         }
     }
 };
+
+CQ.App.inherits(CQ.Page.Exchange, CQ.Page);
+CQ.App.register(CQ.Page.Exchange);

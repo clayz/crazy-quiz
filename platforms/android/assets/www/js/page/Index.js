@@ -15,3 +15,6 @@ CQ.Page.Index = {
     load: function () {
     }
 };
+
+CQ.App.inherits(CQ.Page.Index, CQ.Page);
+CQ.App.register(CQ.Page.Index);

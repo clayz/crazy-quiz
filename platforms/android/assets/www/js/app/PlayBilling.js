@@ -66,3 +66,5 @@ CQ.PlayBilling = {
         console.info('Billing failed, error: {0}'.format(error));
     }
 };
+
+CQ.App.register(CQ.PlayBilling);

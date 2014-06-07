@@ -172,3 +172,5 @@ CQ.Album.Default = {
         { id: 600, name: 'ベッカム', category: CQ.Album.Category.Celebrity, answers: [] }
     ]
 };
+
+CQ.App.inherits(CQ.Album.Default, CQ.Album);

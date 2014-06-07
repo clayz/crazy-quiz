@@ -159,3 +159,5 @@ CQ.Currency = {
         }
     }
 };
+
+CQ.App.register(CQ.Currency);

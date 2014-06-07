@@ -20,3 +20,6 @@ CQ.Page.Loading = {
         navigator.app.exitApp();
     }
 };
+
+CQ.App.inherits(CQ.Page.Loading, CQ.Page);
+CQ.App.register(CQ.Page.Loading);
