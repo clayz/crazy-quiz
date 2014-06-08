@@ -40,8 +40,8 @@ CQ.PlayBilling = {
     /**
      * Subscribe to an item.
      */
-    subscribe: function(subcriptionId) {
-        this.inAppBillingPlugin.subscribe(this.successHandler, this.errorHandler, subcriptionId);
+    subscribe: function(subscriptionId) {
+        this.inAppBillingPlugin.subscribe(this.successHandler, this.errorHandler, subscriptionId);
     },
 
     /**

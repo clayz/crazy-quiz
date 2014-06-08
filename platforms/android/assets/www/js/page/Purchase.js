@@ -32,6 +32,7 @@ CQ.Page.Purchase = {
 
     buy: function(event) {
         var goods = event.data.goods;
+        CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
         console.log('Start transaction, goods id: ' + goods.id);
 
         CQ.Currency.purchase(goods);

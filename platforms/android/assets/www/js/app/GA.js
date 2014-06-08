@@ -2,6 +2,10 @@ CQ.GA = {
     trackingId: 'UA-50843267-1',
     gaPlugin: null,
 
+    Page: {
+        Picture: 'Album {0} - Picture {1}'
+    },
+
     Album: {
         Pass: { category: 'Album', action: 'Pass' },
         Unlock: { category: 'Album', action: 'Unlock' }
@@ -9,35 +13,33 @@ CQ.GA = {
 
     Level: {
         Play: { category: 'Level', action: 'Play', label: 'Album {0} - Level {1}' },
-        Back: { category: 'Level', action: 'Back' },
-        Pass: { category: 'Level', action: 'Pass' },
-        Unlock: { category: 'Level', action: 'Unlock' }
+        Pass: { category: 'Level', action: 'Pass', label: 'Album {0} - Level {1}' },
+        Unlock: { category: 'Level', action: 'Unlock', label: 'Album {0} - Level {1}' }
     },
 
     Picture: {
-        Play: { category: 'Picture', action: 'Play', label: 'Picture: {0}' },
-        Back: { category: 'Picture', action: 'Back', label: 'Picture: {0}' },
-        Pass: { category: 'Picture', action: 'Pass', label: 'Picture: {0}' }
+        Play: { category: 'Picture', action: 'Play', label: 'Album {0} - Picture {1}' },
+        Pass: { category: 'Picture', action: 'Pass', label: 'Album {0} - Picture {1}' }
     },
 
     Share: {
         Click: { category: 'Share', action: 'Click' },
-        FB: { category: 'Share', action: 'Facebook' },
-        TW: { category: 'Share', action: 'Twitter' },
-        Line: { category: 'Share', action: 'Line' },
-        Other: { category: 'Share', action: 'Other' }
+        FB: { category: 'Share', action: 'Facebook', label: 'Album {0} - Picture {1}' },
+        TW: { category: 'Share', action: 'Twitter', label: 'Album {0} - Picture {1}' },
+        Line: { category: 'Share', action: 'Line', label: 'Album {0} - Picture {1}' },
+        Other: { category: 'Share', action: 'Other', label: 'Album {0} - Picture {1}' }
     },
 
     Shop: {
-        Click: { category: 'Shop', action: 'Click' },
-        Buy: { category: 'Shop', action: 'Buy' },
-        Exchange: { category: 'Shop', action: 'Exchange' }
+        Click: { category: 'Shop', action: 'Click', label: '{0} - Goods {1}' },
+        Purchase: { category: 'Shop', action: 'Purchase', label: 'Goods {0}' },
+        Exchange: { category: 'Shop', action: 'Exchange', label: 'Goods {0}' }
     },
 
     Props: {
-        Getchar: { category: 'Props', action: 'Getchar', label: 'Picture: {0}' },
-        Cutdown: { category: 'Props', action: 'Cutdown', label: 'Picture: {0}' },
-        Prompt: { category: 'Props', action: 'Prompt', label: 'Picture: {0}' }
+        Getchar: { category: 'Props', action: 'Getchar', label: 'Album {0} - Picture {1}' },
+        Cutdown: { category: 'Props', action: 'Cutdown', label: 'Album {0} - Picture {1}' },
+        Prompt: { category: 'Props', action: 'Prompt', label: 'Album {0} - Picture {1}' }
     },
 
     init: function() {

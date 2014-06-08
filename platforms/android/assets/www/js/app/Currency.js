@@ -17,9 +17,14 @@ CQ.Currency = {
     },
 
     Consume: {
+        // coin
         CutDown: { id: 1, coin: 30 },
         GetChar: { id: 2, coin: 50 },
-        Prompt: { id: 3, coin: 10 }
+        Prompt: { id: 3, coin: 10 },
+
+        // gem
+        UnlockLevel: { id: 101, gem: 1 },
+        UnlockAlbum: { id: 102, gem: 3 }
     },
 
     Purchase: {

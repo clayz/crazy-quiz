@@ -122,6 +122,9 @@ CQ.Id = {
 
     Exchange: {
         $EXCHANGE: '#exchange-btn-{0}',
+
+        $POPUP_CONFIRM: '#exchange-popup-confirm',
+        $POPUP_CONFIRM_YES: '#exchange-popup-confirm-yes',
         $POPUP_SUCCESS: '#exchange-popup-success'
     },
 

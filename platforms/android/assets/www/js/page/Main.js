@@ -8,7 +8,7 @@ CQ.Page.Main = {
 
         for (var i = 1; i <= 6; i++) {
             (function(level) {
-                $(CQ.Id.Main['$LEVEL_' + level]).tap(function() {
+                $(CQ.Id.Main['$LEVEL_' + level]).click(function() {
                     CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: level });
                     CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(CQ.Album.Default.id, level));
                 })

@@ -19,11 +19,13 @@ CQ.Page = {
         wrappedParams.from = this.name;
         console.log('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
 
-        page.load(wrappedParams);
+        var result = page.load(wrappedParams);
         CQ.Session.CURRENT_PAGE = pageName;
-        $.mobile.changePage('#' + pageName);
 
-        CQ.GA.trackPage(pageName);
+        if (!result || !result.terminate) {
+            $.mobile.changePage('#' + pageName);
+            CQ.GA.trackPage((result && result.gaPageName) ? result.gaPageName : pageName);
+        }
     },
 
     back: function() {
