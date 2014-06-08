@@ -27,6 +27,7 @@ body {
     margin: 0px;
     padding: 0px;
     width: 100%;
+    background-color: #f5eda4;
 }
 
 /*******************************************************************/
@@ -137,6 +138,18 @@ h1 {
     display: none;
 }
 
+.inline {
+    display: inline;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 .clear-both {
     clear: both;
 }
@@ -145,20 +158,71 @@ h1 {
     width: 3em;
 }
 
-.header-back-div {
+.page {
+    height: 100%;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    height: 8.5em;
+    background: url(../img/layout/header-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.header-back {
+    float: left;
+    padding: .5em;
+}
+
+.header-back-btn {
+    width: 5em;
+    height: 5em;
+}
+
+.header-currency {
+    float: right;
+    padding: 1.5em .5em;
+}
+
+.header-gem {
     display: inline;
 }
 
-.header-currency-div {
+.header-gem-btn {
+    width: 3em;
+    height: 3em;
+}
+
+.header-gem-add-btn {
+    width: 3em;
+    height: 3em;
+}
+
+.header-coin {
     display: inline;
 }
 
-.header-gem-div {
-    display: inline;
+.header-coin-btn {
+    width: 3em;
+    height: 3em;
+    padding-left: 1em;
 }
 
-.header-coin-div {
-    display: inline;
+.header-coin-add-btn {
+    width: 3em;
+    height: 3em;
+}
+
+.header-current-currency {
+    width: 4em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.body {
+    /*height: 100%;*/
 }
 
 .popup-share-btn {
@@ -169,11 +233,6 @@ h1 {
 /*******************************************************************/
 /* Index Page */
 /*******************************************************************/
-
-#index {
-    text-align: center;
-}
-
 #index-start-btn {
     width: 6em;
     margin: auto;
@@ -192,8 +251,7 @@ h1 {
 /*******************************************************************/
 /* Main Page */
 /*******************************************************************/
-#main {
-    text-align: center;
+#main-body {
 }
 
 #main-album-div {
@@ -217,10 +275,18 @@ h1 {
     margin: 0 4em;
 }
 
+/*******************************************************************/
 /* Game page */
-
+/*******************************************************************/
 #game {
-    text-align: center;
+    background-color: #f5eda4;
+}
+
+#game-body {
+    height: 83%;
+    margin: 0 .5em 0 .5em;
+    background: url(../img/layout/game-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 #game-props-left {
@@ -323,13 +389,7 @@ h1 {
 /*******************************************************************/
 /* Exchange Page */
 /*******************************************************************/
-#exchange {
-    text-align: center;
-}
 
 /*******************************************************************/
 /* Purchase Page */
 /*******************************************************************/
-#purchase {
-    text-align: center;
-}

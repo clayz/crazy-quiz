@@ -53,14 +53,26 @@ CQ.Page = {
         // header buttons
         $(CQ.Id.$HEADER_BACK.format(name)).click(function() {
             page.back();
+        }).bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.HEADER_BACK_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.HEADER_BACK);
         });
 
-        $(CQ.Id.$HEADER_GEM_PURCHASE.format(name)).tap(function() {
+        $(CQ.Id.$HEADER_GEM_PURCHASE.format(name)).click(function() {
             page.open(CQ.Page.Purchase);
+        }).bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD);
         });
 
-        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(name)).tap(function() {
+        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(name)).click(function() {
             page.open(CQ.Page.Exchange);
+        }).bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD);
         });
 
         // common popup and buttons

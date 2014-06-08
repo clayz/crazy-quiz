@@ -3,7 +3,7 @@
     <title>Crazy Quiz</title>
     <meta charset="utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.0.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
@@ -39,7 +39,7 @@
 <!------------------------------------------------------------------>
 <!-- Loading Page -->
 <!------------------------------------------------------------------>
-<div data-role="page" id="loading">
+<div data-role="page" id="loading" class="page">
     <div class="app center">
         <h1>Welcome<br/>Crazy Quiz</h1>
     </div>
@@ -48,7 +48,7 @@
 <!------------------------------------------------------------------>
 <!-- Index Page -->
 <!------------------------------------------------------------------>
-<div data-role="page" id="index">
+<div data-role="page" id="index" class="page">
     <div id="index-body" role="main" class="ui-content">
         <div>
             <label for="index-name-input">Please enter your name:</label>
@@ -65,25 +65,39 @@
 <!------------------------------------------------------------------>
 <!-- Album Page -->
 <!------------------------------------------------------------------>
-<div data-role="page" id="main">
+<div data-role="page" id="main" class="page">
     <!-- page header -->
-    <div id="main-header" data-role="header">
-        <div id="main-back-div" class="header-back-div">
-            <button id="main-back-btn" class="ui-btn ui-btn-inline">Back</button>
+    <div id="main-header" class="header">
+        <div id="main-back" class="header-back">
+            <img id="main-back-btn" class="header-back-btn" src="img/button/header-back.png"/>
         </div>
-        <div id="main-currency-div" class="header-currency-div">
-            <div id="main-gem-div" class="header-gem-div">
-                Gem <span id="main-current-gem" class="header-current-gem">0</span>
-                <button id="main-gem-purchase-btn" class="ui-btn ui-btn-inline">+</button>
+        <div id="main-currency" class="header-currency">
+            <div id="main-gem" class="header-gem">
+                <div class="left">
+                    <img class="header-gem-btn" src="img/icon/gem.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span id="main-current-gem" class="header-gem-current">0</span>
+                </div>
+                <div class="left">
+                    <img id="main-gem-purchase-btn" class="header-gem-add-btn" src="img/button/currency-add.png">
+                </div>
             </div>
-            <div id="main-coin-div" class="header-coin-div">
-                Coin <span id="main-current-coin" class="header-current-coin">0</span>
-                <button id="main-coin-exchange-btn" class="ui-btn ui-btn-inline">+</button>
+            <div id="main-coin" class="header-coin">
+                <div class="left">
+                    <img class="header-coin-btn" src="img/icon/coin.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span id="main-current-coin" class="header-coin-current">0</span>
+                </div>
+                <div class="left">
+                    <img id="main-coin-exchange-btn" class="header-coin-add-btn" src="img/button/currency-add.png">
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="main-body" role="main" class="ui-content">
+    <div id="main-body">
         <!-- album info -->
         <div id="main-album-div">
             <div id="main-album-header-div" class="ui-grid-b">
@@ -169,26 +183,40 @@
 <!------------------------------------------------------------------>
 <!-- Game Page -->
 <!------------------------------------------------------------------>
-<div data-role="page" id="game">
+<div data-role="page" id="game" class="page">
     <!-- page header -->
-    <div id="game-header" data-role="header">
-        <div id="game-back-div" class="header-back-div">
-            <button id="game-back-btn" class="ui-btn ui-btn-inline">Back</button>
+    <div id="game-header" class="header">
+        <div id="game-back" class="header-back">
+            <img id="game-back-btn" class="header-back-btn" src="img/button/header-back.png"/>
         </div>
-        <div id="game-currency-div" class="header-currency-div">
-            <div id="game-gem-div" class="header-gem-div">
-                Gem <span id="game-current-gem" class="header-current-gem">0</span>
-                <button id="game-gem-purchase-btn" class="ui-btn ui-btn-inline">+</button>
+        <div id="game-currency" class="header-currency">
+            <div id="game-gem" class="header-gem">
+                <div class="left">
+                    <img class="header-gem-btn" src="img/icon/gem.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span id="game-current-gem" class="header-gem-current">0</span>
+                </div>
+                <div class="left">
+                    <img id="game-gem-purchase-btn" class="header-gem-add-btn" src="img/button/currency-add.png">
+                </div>
             </div>
-            <div id="game-coin-div" class="header-coin-div">
-                Coin <span id="game-current-coin" class="header-current-coin">0</span>
-                <button id="game-coin-exchange-btn" class="ui-btn ui-btn-inline">+</button>
+            <div id="game-coin" class="header-coin">
+                <div class="left">
+                    <img class="header-coin-btn" src="img/icon/coin.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span id="game-current-coin" class="header-coin-current">0</span>
+                </div>
+                <div class="left">
+                    <img id="game-coin-exchange-btn" class="header-coin-add-btn" src="img/button/currency-add.png">
+                </div>
             </div>
         </div>
     </div>
 
     <!-- page body -->
-    <div id="game-body" role="main" class="ui-content">
+    <div id="game-body">
         <div id="game-title-div">
             <h1><span id="game-title-text">第0問</span></h1>
         </div>
@@ -303,7 +331,7 @@
 <!------------------------------------------------------------------>
 <!-- Purchase Page -->
 <!------------------------------------------------------------------>
-<div data-role="page" id="purchase">
+<div data-role="page" id="purchase" class="page">
     <h1>Gem Purchase</h1>
 
     <div>
@@ -324,7 +352,7 @@
 <!------------------------------------------------------------------>
 <!-- Exchange Page -->
 <!------------------------------------------------------------------>
-<div data-role="page" id="exchange">
+<div data-role="page" id="exchange" class="page">
     <h1>Coin Exchange</h1>
 
     <div>
@@ -368,7 +396,7 @@
 <!-- Help Page -->
 <!------------------------------------------------------------------>
 
-<div data-role="page" id="help">
+<div data-role="page" id="help" class="page">
     <h1>This is help page</h1>
 </div>
 

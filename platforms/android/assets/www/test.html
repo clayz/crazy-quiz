@@ -12,16 +12,147 @@
 </head>
 <body>
 
-<div data-role="page" id="index">
-    <div id="index-body" role="main" class="ui-content">
-        <div>
-            <h2>Enter your nickname:</h2>
+<div data-role="page" id="game" class="page">
+    <!-- page header -->
+    <div id="game-header" class="header">
+        <div id="game-back" class="header-back">
+            <img id="game-back-btn" class="header-back-btn" src="img/button/header-back.png"/>
         </div>
-        <div id="index-name-input-div">
-            <input id="index-name-input" type="text" data-clear-btn="true" maxlength="20" value=""/>
+        <div id="game-currency" class="header-currency">
+            <div id="game-gem" class="header-gem">
+                <div class="left">
+                    <img class="header-gem-btn" src="img/icon/gem.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span id="game-current-gem" class="header-gem-current">0</span>
+                </div>
+                <div class="left">
+                    <img id="game-gem-purchase-btn" class="header-gem-add-btn" src="img/button/currency-add.png">
+                </div>
+            </div>
+            <div id="game-coin" class="header-coin">
+                <div class="left">
+                    <img class="header-coin-btn" src="img/icon/coin.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span id="game-current-coin" class="header-coin-current">0</span>
+                </div>
+                <div class="left">
+                    <img id="game-coin-exchange-btn" class="header-coin-add-btn" src="img/button/currency-add.png">
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- page body -->
+    <div id="game-body">
+        <div id="game-title-div">
+            <h1><span id="game-title-text">第0問</span></h1>
+        </div>
+        <div id="game-content-div">
+            <div id="game-props-left">
+                <div class="game-props">
+                    <button id="game-getchar-btn" class="ui-btn ui-btn-inline game-props-left-btn">Get Char</button>
+                </div>
+                <div class="game-props">
+                    <button id="game-cutdown-btn" class="ui-btn ui-btn-inline game-props-left-btn">Cut down</button>
+                </div>
+            </div>
+            <div id="game-picture-div">
+                <div id="game-picture">
+                    <div id="game-prompt-div">Prompt Info</div>
+                    <div id="game-correct-answer">Answer</div>
+                </div>
+            </div>
+            <div id="game-props-right">
+                <div class="game-props">
+                    <button id="game-prompt-btn" class="ui-btn ui-btn-inline game-props-right-btn">Prompt</button>
+                </div>
+                <div class="game-props">
+                    <button id="game-share-btn" class="ui-btn ui-btn-inline game-props-right-btn">Share</button>
+                </div>
+            </div>
+        </div>
+        <div id="game-answer-div">
+            <button id="answer-btn-0" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-1" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-2" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-3" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-4" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-5" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-6" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-7" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-8" class="ui-btn ui-btn-inline answer-btn"></button>
+            <button id="answer-btn-9" class="ui-btn ui-btn-inline answer-btn"></button>
+        </div>
+        <div id="game-char-div">
+            <div class="game-char-line-div">
+                <button id="char-btn-0" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-1" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-2" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-3" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-4" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-5" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-6" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-7" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-8" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-9" class="ui-btn ui-btn-inline char-btn"></button>
+            </div>
+
+            <div class="game-char-line-div">
+                <button id="char-btn-10" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-11" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-12" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-13" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-14" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-15" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-16" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-17" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-18" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-19" class="ui-btn ui-btn-inline char-btn"></button>
+            </div>
+
+            <div class="game-char-line-div">
+                <button id="char-btn-20" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-21" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-22" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-23" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-24" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-25" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-26" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-27" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-28" class="ui-btn ui-btn-inline char-btn"></button>
+                <button id="char-btn-29" class="ui-btn ui-btn-inline char-btn"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- answer correct popup -->
+    <div data-role="popup" id="game-popup-answer-correct" data-overlay-theme="b" data-dismissible="false">
+        <p>Answer is correct, +3 Coin.</p>
         <div>
-            <button id="index-start-btn">Start</button>
+            <button id="game-popup-next-btn" class="ui-btn ui-btn-inline">Play Next</button>
+        </div>
+    </div>
+
+    <!-- coin not enough popup -->
+    <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>You do not have enough coin for this operation.<br/>Do you want to get some by exchanging gem?</p>
+        <div>
+            <button id="game-popup-coin-exchange-btn" class="ui-btn ui-btn-inline">Exchange</button>
+        </div>
+    </div>
+
+    <!-- share popup -->
+    <div data-role="popup" id="game-popup-share" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>毎日シェアする、楽しみに3コインを獲得します。</p>
+        <div class="ui-grid-c">
+            <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
+            <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
+            <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
+            <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
         </div>
     </div>
 </div>

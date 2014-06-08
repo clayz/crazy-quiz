@@ -78,8 +78,16 @@ CQ.Id = {
     $POPUP_GEM_BUY: '#{0}-popup-gem-buy-btn',
 
     CSS: {
-        $HEADER_CURRENT_GEM: '.header-current-gem',
-        $HEADER_CURRENT_COIN: '.header-current-coin'
+        $HEADER_CURRENT_GEM: '.header-gem-current',
+        $HEADER_CURRENT_COIN: '.header-coin-current'
+    },
+
+    Image: {
+        HEADER_BACK: 'img/button/header-back.png',
+        HEADER_BACK_TAP: 'img/button/header-back-tap.png',
+
+        CURRENCY_ADD: 'img/button/currency-add.png',
+        CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png'
     },
 
     Index: {
