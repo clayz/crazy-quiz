@@ -41,34 +41,7 @@ CQ.Page.Game = {
         });
 
         // play next picture click event
-        $(CQ.Id.Game.$POPUP_NEXT).tap(function() {
-            var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
-
-            if (nextPicture) {
-                console.info('Play next picture: ' + nextPicture.id);
-
-                game.picture = nextPicture;
-                game.load();
-                $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('close');
-
-                CQ.GA.trackPage(CQ.GA.Page.Picture.format(game.album.id, game.picture.id));
-
-                // TODO debug only, remove it before release
-                $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
-            } else {
-                if (game.level == CQ.Album.levels) {
-                    // finish all levels in current album
-                    CQ.Datastore.setLastAlbumId(game.album.id + 1);
-                    CQ.Page.open(CQ.Page.AlbumPass);
-                    CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(game.album.id));
-                } else {
-                    // finish current level
-                    CQ.Album.unlockLevel(game.album.id, game.level + 1);
-                    CQ.Page.open(CQ.Page.LevelPass);
-                    CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(game.album.id, game.level));
-                }
-            }
-        });
+        $(CQ.Id.Game.$POPUP_NEXT).tap(CQ.Game.clickNext);
     },
 
     load: function(params) {
@@ -277,6 +250,34 @@ CQ.Page.Game = {
         $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('open');
 
         CQ.GA.track(CQ.GA.Picture.Pass, CQ.GA.Picture.Pass.label.format(this.album.id, this.picture.id));
+    },
+
+    clickNext: function() {
+        var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
+
+        if (nextPicture) {
+            console.info('Play next picture: ' + nextPicture.id);
+
+            game.picture = nextPicture;
+            game.load();
+            $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('close');
+            CQ.GA.trackPage(CQ.GA.Page.Picture.format(game.album.id, game.picture.id));
+
+            // TODO debug only, remove it before release
+            $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
+        } else {
+            if (game.level == CQ.Album.levels) {
+                // finish all levels in current album
+                CQ.Datastore.setLastAlbumId(game.album.id + 1);
+                CQ.Page.open(CQ.Page.AlbumPass);
+                CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(game.album.id));
+            } else {
+                // finish current level
+                CQ.Album.unlockLevel(game.album.id, game.level + 1);
+                CQ.Page.open(CQ.Page.LevelPass);
+                CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(game.album.id, game.level));
+            }
+        }
     },
 
     removeChar: function(char) {

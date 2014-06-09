@@ -108,6 +108,7 @@ CQ.Id = {
 //        $LEVEL_5: '#main-level5-btn',
 //        $LEVEL_6: '#main-level6-btn',
 
+        $ALBUM: '#main-album',
         $ALBUM_LEVEL: '#main-album{0}-level{1}',
 
         $CLEAR_HISTORY: '#main-clear-btn',
