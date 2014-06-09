@@ -81,7 +81,10 @@ CQ.Id = {
         $HEADER_GEM_CURRENT: '.header-gem-current',
         $HEADER_GEM_PURCHASE: '.header-gem-add-btn',
         $HEADER_COIN_CURRENT: '.header-coin-current',
-        $HEADER_COIN_EXCHANGE: '.header-coin-add-btn'
+        $HEADER_COIN_EXCHANGE: '.header-coin-add-btn',
+
+        $MAIN_ALBUM_LEVEL: '.main-album-level',
+        $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked'
     },
 
     Image: {
@@ -98,12 +101,14 @@ CQ.Id = {
     },
 
     Main: {
-        $LEVEL_1: '#main-level1-btn',
-        $LEVEL_2: '#main-level2-btn',
-        $LEVEL_3: '#main-level3-btn',
-        $LEVEL_4: '#main-level4-btn',
-        $LEVEL_5: '#main-level5-btn',
-        $LEVEL_6: '#main-level6-btn',
+//        $LEVEL_1: '#main-level1-btn',
+//        $LEVEL_2: '#main-level2-btn',
+//        $LEVEL_3: '#main-level3-btn',
+//        $LEVEL_4: '#main-level4-btn',
+//        $LEVEL_5: '#main-level5-btn',
+//        $LEVEL_6: '#main-level6-btn',
+
+        $ALBUM_LEVEL: '#main-album{0}-level{1}',
 
         $CLEAR_HISTORY: '#main-clear-btn',
         $RATING: '#main-rating-btn',

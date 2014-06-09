@@ -6,36 +6,59 @@ CQ.Page.Main = {
     init: function() {
         console.info('Initial main page');
         this.initCommon({ header: true });
-        var pageName = CQ.Utils.getCapitalName(this.name);
+        var pageName = CQ.Utils.getCapitalName(this.name),
+            lastAlbumId = CQ.Datastore.getLastAlbumId() || 1;
 
-        for (var i = 1; i <= CQ.Album.TOTAL_LEVEL_PER_ALBUM; i++) {
-            (function(level) {
-                $(CQ.Id.Main['$LEVEL_' + level]).click(function() {
-                    var lastLevel = CQ.Datastore.getLastLevel(CQ.Album.Default.id) || 1;
+        // initial all albums and levels
+        for (var i = 1; i <= CQ.Album.TOTAL_ALBUM; i++) {
+            var album = CQ.Album.getAlbum(i);
 
-                    if (level <= lastLevel) {
-                        CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: level });
-                        CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(CQ.Album.Default.id, level));
-                    } else if (level == (lastLevel + 1)) {
-                        if (CQ.Currency.account.gem > 0) {
-                            $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('open');
-                            CQ.Page.Main.selectedUnlockLevel = {
-                                album: CQ.Album.Default,
-                                level: level
-                            };
+            if (i <= lastAlbumId) {
+                // album is unlocked
+                for (var j = 1; j <= album.levels; j++) {
+                    (function(album, level) {
+                        var lastLevel = CQ.Datastore.getLastLevel(album.id) || 1,
+                            levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
+                            $levelButton = $(CQ.Id.Main.$ALBUM_LEVEL.format(album.id, level));
+
+                        if (level <= lastLevel) {
+                            $levelButton.addClass(CQ.Id.CSS.$MAIN_ALBUM_LEVEL)
+                                .css('background', 'url(../www/{0}) no-repeat'.format(levelPicturePath))
+                                .click(function() {
+                                    CQ.Page.open(CQ.Page.Game, { album: album.id, level: level });
+                                    CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(album.id, level));
+                                });
+                        } else if (level == (lastLevel + 1)) {
+                            $levelButton.addClass(CQ.Id.CSS.$MAIN_ALBUM_LEVEL_LOCKED)
+                                .click(function() {
+                                    if (CQ.Currency.account.gem > 0) {
+                                        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('open');
+                                        CQ.Page.Main.selectedUnlockLevel = {
+                                            album: CQ.Album.Default.id,
+                                            level: level
+                                        };
+                                    } else {
+                                        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('open');
+                                    }
+                                });
                         } else {
-                            $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('open');
+                            $levelButton.addClass(CQ.Id.CSS.$MAIN_ALBUM_LEVEL_LOCKED)
+                                .click(function() {
+                                    $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('open');
+                                });
                         }
-                    } else {
-                        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('open');
-                    }
-                })
-            })(i);
+                    })(album, j);
+                }
+            } else {
+                // album is locked
+
+            }
         }
 
         $(CQ.Id.Main.$CLEAR_HISTORY).tap(function() {
             CQ.Datastore.clear();
             CQ.Page.Game.picture = null;
+            CQ.Currency.reset();
             CQ.Currency.init();
             alert("Cleared data in storage.");
         });
@@ -91,6 +114,16 @@ CQ.Page.Main = {
 
     load: function() {
         this.refreshCurrency();
+    },
+
+    refreshLevel: function(albumId, level) {
+        $(CQ.Id.Main.$ALBUM_LEVEL.format(albumId, level)).unbind('click')
+            .removeClass(CQ.Id.CSS.$MAIN_ALBUM_LEVEL_LOCKED)
+            .addClass(CQ.Id.CSS.$MAIN_ALBUM_LEVEL)
+            .click(function() {
+                CQ.Page.open(CQ.Page.Game, { album: albumId, level: level });
+                CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(albumId, level));
+            });
     }
 };
 

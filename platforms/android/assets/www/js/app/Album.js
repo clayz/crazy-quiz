@@ -1,5 +1,5 @@
 CQ.Album = {
-    TOTAL_LEVEL_PER_ALBUM: 6,
+    TOTAL_ALBUM: 3,
 
     Category: {
         Film: { id: 1, name: '映画' },
@@ -14,22 +14,27 @@ CQ.Album = {
         switch (id) {
             case CQ.Album.Default.id:
                 return CQ.Album.Default;
+            case CQ.Album.Test.id:
+                return CQ.Album.Test;
+            case CQ.Album.Test2.id:
+                return CQ.Album.Test2;
             default:
                 throw 'Album not found for id: {0}'.format(id);
         }
     },
 
-    unlockLevel: function(album, level) {
-        console.log('Unlock album {0} level {1}'.format(album, level));
-        var lastLevel = CQ.Datastore.getLastLevel(album);
+    unlockLevel: function(albumId, level) {
+        console.log('Unlock album {0} level {1}'.format(albumId, level));
+        var lastLevel = CQ.Datastore.getLastLevel(albumId);
 
         if (level != (lastLevel + 1)) {
             console.error('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
             return false;
         }
 
-        if (CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, album, level)) {
-            CQ.Datastore.setLastLevel(album, level);
+        if (CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, albumId, level)) {
+            CQ.Datastore.setLastLevel(albumId, level);
+            CQ.Page.Main.refreshLevel(albumId, level);
             return true;
         } else return false;
     },
@@ -136,12 +141,129 @@ CQ.Album.Default = {
     id: 1,
     name: 'Default',
     path: 'img/album/default/',
+    levels: 6,
     active: true,
 
     level1: [
-        { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [
+        { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
+        { id: 101, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
+        { id: 102, name: 'ビッグバンセオリー', category: CQ.Album.Category.Series, answers: [] },
+        { id: 103, name: 'ブレイブハート', category: CQ.Album.Category.Film, answers: [] },
+        { id: 104, name: 'ダヴィンチコード', category: CQ.Album.Category.Film, answers: [] },
+        { id: 105, name: 'ドラゴンボール', category: CQ.Album.Category.Cartoon, answers: [] }
+    ],
 
-        ] },
+    level2: [
+        { id: 200, name: 'ヒックとドラゴン', category: CQ.Album.Category.Film, answers: [] },
+        { id: 201, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 202, name: 'インセプション', category: CQ.Album.Category.Film, answers: [] },
+        { id: 203, name: 'インデペンデンスデイ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 204, name: 'ベストキッド', category: CQ.Album.Category.Film, answers: [] },
+        { id: 205, name: 'キングコング', category: CQ.Album.Category.Film, answers: [] }
+    ],
+
+    level3: [
+        { id: 300, name: 'マダガスカル', category: CQ.Album.Category.Film, answers: [] },
+        { id: 301, name: 'ジュラシックパーク', category: CQ.Album.Category.Film, answers: [] },
+        { id: 302, name: 'ジョーズ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 303, name: 'ワーナーブラザーズ', category: CQ.Album.Category.Brand, answers: [] },
+        { id: 304, name: '鉄腕アトム', category: CQ.Album.Category.Cartoon, answers: [] },
+        { id: 305, name: 'フレンズ', category: CQ.Album.Category.Series, answers: [] }
+    ],
+
+    level4: [
+        { id: 400, name: 'アインシュタイン', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 401, name: 'モダン石器時代', category: CQ.Album.Category.Film, answers: [] },
+        { id: 402, name: 'グラディエーター', category: CQ.Album.Category.Film, answers: [] },
+        { id: 403, name: 'ゴシップガール', category: CQ.Album.Category.Series, answers: [] },
+        { id: 404, name: '機動戦士ガンダム', category: CQ.Album.Category.Cartoon, answers: [] }
+    ],
+
+    level5: [
+        { id: 500, name: 'スマーフ', category: CQ.Album.Category.Cartoon, answers: [] },
+        { id: 501, name: 'カンフーパンダ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 502, name: 'ライオンキング', category: CQ.Album.Category.Film, answers: [] },
+        { id: 503, name: 'ロードオブザリング', category: CQ.Album.Category.Film, answers: [] },
+        { id: 504, name: 'フェラーリ', category: CQ.Album.Category.Brand, answers: [] }
+    ],
+
+    level6: [
+        { id: 600, name: 'ベッカム', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 601, name: 'アカデミー賞', category: CQ.Album.Category.Brand, answers: [] },
+        { id: 602, name: '金正恩', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 603, name: '毛沢東', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 604, name: 'ブルー初めての空へ', category: CQ.Album.Category.Film, answers: [] }
+    ]
+};
+
+CQ.Album.Test = {
+    id: 2,
+    name: 'Test',
+    path: 'img/album/test/',
+    levels: 6,
+    active: true,
+
+    level1: [
+        { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
+        { id: 101, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
+        { id: 102, name: 'ビッグバンセオリー', category: CQ.Album.Category.Series, answers: [] },
+        { id: 103, name: 'ブレイブハート', category: CQ.Album.Category.Film, answers: [] },
+        { id: 104, name: 'ダヴィンチコード', category: CQ.Album.Category.Film, answers: [] },
+        { id: 105, name: 'ドラゴンボール', category: CQ.Album.Category.Cartoon, answers: [] }
+    ],
+
+    level2: [
+        { id: 200, name: 'ヒックとドラゴン', category: CQ.Album.Category.Film, answers: [] },
+        { id: 201, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 202, name: 'インセプション', category: CQ.Album.Category.Film, answers: [] },
+        { id: 203, name: 'インデペンデンスデイ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 204, name: 'ベストキッド', category: CQ.Album.Category.Film, answers: [] },
+        { id: 205, name: 'キングコング', category: CQ.Album.Category.Film, answers: [] }
+    ],
+
+    level3: [
+        { id: 300, name: 'マダガスカル', category: CQ.Album.Category.Film, answers: [] },
+        { id: 301, name: 'ジュラシックパーク', category: CQ.Album.Category.Film, answers: [] },
+        { id: 302, name: 'ジョーズ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 303, name: 'ワーナーブラザーズ', category: CQ.Album.Category.Brand, answers: [] },
+        { id: 304, name: '鉄腕アトム', category: CQ.Album.Category.Cartoon, answers: [] },
+        { id: 305, name: 'フレンズ', category: CQ.Album.Category.Series, answers: [] }
+    ],
+
+    level4: [
+        { id: 400, name: 'アインシュタイン', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 401, name: 'モダン石器時代', category: CQ.Album.Category.Film, answers: [] },
+        { id: 402, name: 'グラディエーター', category: CQ.Album.Category.Film, answers: [] },
+        { id: 403, name: 'ゴシップガール', category: CQ.Album.Category.Series, answers: [] },
+        { id: 404, name: '機動戦士ガンダム', category: CQ.Album.Category.Cartoon, answers: [] }
+    ],
+
+    level5: [
+        { id: 500, name: 'スマーフ', category: CQ.Album.Category.Cartoon, answers: [] },
+        { id: 501, name: 'カンフーパンダ', category: CQ.Album.Category.Film, answers: [] },
+        { id: 502, name: 'ライオンキング', category: CQ.Album.Category.Film, answers: [] },
+        { id: 503, name: 'ロードオブザリング', category: CQ.Album.Category.Film, answers: [] },
+        { id: 504, name: 'フェラーリ', category: CQ.Album.Category.Brand, answers: [] }
+    ],
+
+    level6: [
+        { id: 600, name: 'ベッカム', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 601, name: 'アカデミー賞', category: CQ.Album.Category.Brand, answers: [] },
+        { id: 602, name: '金正恩', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 603, name: '毛沢東', category: CQ.Album.Category.Celebrity, answers: [] },
+        { id: 604, name: 'ブルー初めての空へ', category: CQ.Album.Category.Film, answers: [] }
+    ]
+};
+
+CQ.Album.Test2 = {
+    id: 3,
+    name: 'Test 2',
+    path: 'img/album/test2/',
+    levels: 6,
+    active: true,
+
+    level1: [
+        { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
         { id: 101, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
         { id: 102, name: 'ビッグバンセオリー', category: CQ.Album.Category.Series, answers: [] },
         { id: 103, name: 'ブレイブハート', category: CQ.Album.Category.Film, answers: [] },
