@@ -34,7 +34,8 @@ CQ.Album = {
 
         if (CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, albumId, level)) {
             CQ.Datastore.setLastLevel(albumId, level);
-            CQ.Page.Main.refreshLevel(albumId, level);
+            CQ.Page.Main.refreshCurrency();
+            CQ.Page.Main.enableLevel(albumId, level);
             return true;
         } else return false;
     },

@@ -41,7 +41,7 @@ CQ.Page.Game = {
         });
 
         // play next picture click event
-        $(CQ.Id.Game.$POPUP_NEXT).tap(CQ.Game.clickNext);
+        $(CQ.Id.Game.$POPUP_NEXT).tap(CQ.Page.Game.clickNext);
     },
 
     load: function(params) {

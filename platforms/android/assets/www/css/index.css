@@ -56,7 +56,7 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     font-weight: normal;
     margin: 0;
     overflow: visible;
@@ -65,7 +65,7 @@ h1 {
 }
 
 p {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: normal;
 }
 
@@ -170,24 +170,24 @@ p {
 
 .header {
     width: 100%;
-    height: 8.5em;
+    height: 7.5em;
     background: url(../img/layout/header-bg.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .header-back {
     float: left;
-    padding: .5em;
+    padding: .8em;
 }
 
 .header-back-btn {
-    width: 5em;
-    height: 5em;
+    width: 4em;
+    height: 4em;
 }
 
 .header-currency {
     float: right;
-    padding: 1.5em .5em;
+    padding: 1.3em .5em;
 }
 
 .header-gem {
@@ -257,46 +257,71 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
+    height: 85%;
+    margin: 0 .5em 0 .5em;
+    background: url(../img/layout/game-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
-#main-album-div {
+#main-welcome {
+    height: 10em;
+}
+
+#main-album-container {
     margin: 0 2em;
     background-color: #bababa;
 }
 
-#main-album-previous-div {
+#main-album-previous {
     width: 20%;
 }
 
-#main-album-title-div {
+#main-album-title {
     width: 60%;
 }
 
-#main-album-next-div {
+#main-album-next {
     width: 20%;
 }
 
-#main-footer-buttons-div {
-    margin: 0 4em;
+#main-album {
+    padding: 1em 2em 1em 2em;
 }
 
 .main-album-level {
-
+    display: inline-block;
+    width: 6em;
+    height: 6em;
+    margin: 1em 0em 1em 0em;
+    /*background: url(../img/album/default/100.jpg) no-repeat;*/
+    background-size: 100% 100%;
 }
 
 .main-album-level-locked {
-    background: grey;
+    z-index: 1 !important;
+    background-color: black;
+    -khtml-opacity: 0.3; /* khtml, old safari */
+    -moz-opacity: 0.3; /* mozilla, netscape */
+    opacity: 0.3;
+}
+
+#main-footer {
+    padding-top: 1em;
+}
+
+#main-footer-buttons {
+    margin: 0 4em;
 }
 
 /*******************************************************************/
 /* Game page */
 /*******************************************************************/
 #game {
-    background-color: #f5eda4;
+
 }
 
 #game-body {
-    height: 83%;
+    height: 85%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;

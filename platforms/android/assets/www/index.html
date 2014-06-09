@@ -69,86 +69,108 @@
 <!------------------------------------------------------------------>
 <div data-role="page" id="main" class="page">
     <div id="main-body">
+        <div id="main-welcome">
+            Welcome, Clay
+        </div>
+
         <!-- album info -->
-        <div id="main-album-div">
-            <div id="main-album-header-div" class="ui-grid-b">
-                <div id="main-album-previous-div" class="ui-block-a">
-                    <button id="main-album-previous-btn" class="ui-btn ui-btn-inline header-back-btn"><</button>
+        <div id="main-album-container">
+            <div id="main-album-header" class="ui-grid-b">
+                <div id="main-album-previous" class="ui-block-a">
+                    <button id="main-album-previous-btn" class="ui-btn ui-btn-inline"><</button>
                 </div>
-                <div id="main-album-title-div" class="ui-block-b">
-                    <h1>Default Album</h1>
+                <div id="main-album-title" class="ui-block-b">
+                    <h1 id="main-album-name"></h1>
                 </div>
-                <div id="main-album-next-div" class="ui-block-c">
-                    <button id="main-album-next-btn" class="ui-btn ui-btn-inline header-back-btn">></button>
+                <div id="main-album-next" class="ui-block-c">
+                    <button id="main-album-next-btn" class="ui-btn ui-btn-inline">></button>
                 </div>
             </div>
 
             <div id="main-album">
                 <div id="main-album1" class="ui-grid-b">
-                    <div id="main-album1-level1" class="ui-block-a">
-                        <!--<button id="main-level1-btn" class="ui-btn ui-btn-inline header-back-btn">Level 1</button>-->
+                    <div class="ui-block-a">
+                        <div id="main-album1-level1" class="main-album-level"></div>
                     </div>
-                    <div id="main-album1-level2" class="ui-block-b">
-                        <!--<button id="main-level2-btn" class="ui-btn ui-btn-inline header-back-btn">Level 2</button>-->
+                    <div class="ui-block-b">
+                        <div id="main-album1-level2" class="main-album-level"></div>
                     </div>
-                    <div id="main-album1-level3" class="ui-block-c">
-                        <!--<button id="main-level3-btn" class="ui-btn ui-btn-inline header-back-btn">Level 3</button>-->
+                    <div class="ui-block-c">
+                        <div id="main-album1-level3" class="main-album-level"></div>
                     </div>
-                    <div id="main-album1-level4" class="ui-block-a">
-                        <!--<button id="main-level4-btn" class="ui-btn ui-btn-inline header-back-btn">Level 4</button>-->
+                    <div class="ui-block-a">
+                        <div id="main-album1-level4" class="main-album-level"></div>
                     </div>
-                    <div id="main-album1-level5" class="ui-block-b">
-                        <!--<button id="main-level5-btn" class="ui-btn ui-btn-inline header-back-btn">Level 5</button>-->
+                    <div class="ui-block-b">
+                        <div id="main-album1-level5" class="main-album-level"></div>
                     </div>
-                    <div id="main-album1-level6" class="ui-block-c">
-                        <!--<button id="main-level6-btn" class="ui-btn ui-btn-inline header-back-btn">Level 6</button>-->
+                    <div class="ui-block-c">
+                        <div id="main-album1-level6" class="main-album-level"></div>
                     </div>
                 </div>
+
                 <div id="main-album2" class="ui-grid-b hidden">
-                    <div id="main-album2-level1" class="ui-block-a hidden">
+                    <div class="ui-block-a">
+                        <div id="main-album2-level1" class="main-album-level"></div>
                     </div>
-                    <div id="main-album2-level2" class="ui-block-b hidden">
+                    <div class="ui-block-b">
+                        <div id="main-album2-level2" class="main-album-level"></div>
                     </div>
-                    <div id="main-album2-level3" class="ui-block-c hidden">
+                    <div class="ui-block-c">
+                        <div id="main-album2-level3" class="main-album-level"></div>
                     </div>
-                    <div id="main-album2-level4" class="ui-block-a hidden">
+                    <div class="ui-block-a">
+                        <div id="main-album2-level4" class="main-album-level"></div>
                     </div>
-                    <div id="main-album2-level5" class="ui-block-b hidden">
+                    <div class="ui-block-b">
+                        <div id="main-album2-level5" class="main-album-level"></div>
                     </div>
-                    <div id="main-album2-level6" class="ui-block-c hidden">
+                    <div class="ui-block-c">
+                        <div id="main-album2-level6" class="main-album-level"></div>
                     </div>
                 </div>
+                <div id="main-album2-locked" class="hidden">This album is locked</div>
+
                 <div id="main-album3" class="ui-grid-b hidden">
-                    <div id="main-album3-level1" class="ui-block-a hidden">
+                    <div class="ui-block-a">
+                        <div id="main-album3-level1" class="main-album-level"></div>
                     </div>
-                    <div id="main-album3-level2" class="ui-block-b hidden">
+                    <div class="ui-block-b">
+                        <div id="main-album3-level2" class="main-album-level"></div>
                     </div>
-                    <div id="main-album3-level3" class="ui-block-c hidden">
+                    <div class="ui-block-c">
+                        <div id="main-album3-level3" class="main-album-level"></div>
                     </div>
-                    <div id="main-album3-level4" class="ui-block-a hidden">
+                    <div class="ui-block-a">
+                        <div id="main-album3-level4" class="main-album-level"></div>
                     </div>
-                    <div id="main-album3-level5" class="ui-block-b hidden">
+                    <div class="ui-block-b">
+                        <div id="main-album3-level5" class="main-album-level"></div>
                     </div>
-                    <div id="main-album3-level6" class="ui-block-c hidden">
+                    <div class="ui-block-c">
+                        <div id="main-album3-level6" class="main-album-level"></div>
                     </div>
                 </div>
+                <div id="main-album3-locked" class="hidden">This album is locked</div>
+            </div>
+
+            <div>
+                ....
             </div>
         </div>
 
-        <button id="main-clear-btn">Clear all play history</button>
-    </div>
-
-    <!-- footer buttons -->
-    <div id="main-footer" data-role="footer">
-        <div id="main-footer-buttons-div" class="ui-grid-b">
-            <div class="ui-block-a">
-                <button id="main-rating-btn" class="ui-btn ui-btn-inline header-back-btn">Rating</button>
-            </div>
-            <div class="ui-block-b">
-                <button id="main-share-btn" class="ui-btn ui-btn-inline header-back-btn">Share</button>
-            </div>
-            <div class="ui-block-c">
-                <button id="main-other-btn" class="ui-btn ui-btn-inline header-back-btn">Other</button>
+        <!-- footer buttons -->
+        <div id="main-footer">
+            <div id="main-footer-buttons" class="ui-grid-b">
+                <div class="ui-block-a">
+                    <button id="main-clear-btn" class="ui-btn ui-btn-inline header-back-btn">Clear</button>
+                </div>
+                <div class="ui-block-b">
+                    <button id="main-share-btn" class="ui-btn ui-btn-inline header-back-btn">Share</button>
+                </div>
+                <div class="ui-block-c">
+                    <button id="main-other-btn" class="ui-btn ui-btn-inline header-back-btn">Other</button>
+                </div>
             </div>
         </div>
     </div>

@@ -57,28 +57,28 @@ CQ.Datastore = {
     /**
      * Album and picture module data storage.
      */
-    getLastPictureId: function(albumId, level) {
-        return this.get(this.Key.LAST_PICTURE.format(albumId, level));
+    getLastAlbumId: function() {
+        return parseInt(this.get(this.Key.LAST_ALBUM)) || 1;
     },
 
-    setLastPictureId: function(albumId, level, pictureId) {
-        this.set(this.Key.LAST_PICTURE.format(albumId, level), pictureId);
+    setLastAlbumId: function(albumId) {
+        this.set(this.Key.LAST_ALBUM, albumId);
     },
 
     getLastLevel: function(albumId) {
-        return this.get(this.Key.LAST_LEVEL.format(albumId));
+        return parseInt(this.get(this.Key.LAST_LEVEL.format(albumId))) || 1;
     },
 
     setLastLevel: function(albumId, level) {
         this.set(this.Key.LAST_LEVEL.format(albumId), level);
     },
 
-    getLastAlbumId: function() {
-        return this.get(this.Key.LAST_ALBUM);
+    getLastPictureId: function(albumId, level) {
+        return parseInt(this.get(this.Key.LAST_PICTURE.format(albumId, level)));
     },
 
-    setLastAlbumId: function(albumId) {
-        this.set(this.Key.LAST_ALBUM, albumId);
+    setLastPictureId: function(albumId, level, pictureId) {
+        this.set(this.Key.LAST_PICTURE.format(albumId, level), pictureId);
     },
 
     /**

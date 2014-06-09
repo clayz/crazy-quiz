@@ -83,7 +83,9 @@ CQ.Id = {
         $HEADER_COIN_CURRENT: '.header-coin-current',
         $HEADER_COIN_EXCHANGE: '.header-coin-add-btn',
 
+        MAIN_ALBUM_LEVEL: 'main-album-level',
         $MAIN_ALBUM_LEVEL: '.main-album-level',
+        MAIN_ALBUM_LEVEL_LOCKED: 'main-album-level-locked',
         $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked'
     },
 
@@ -101,15 +103,10 @@ CQ.Id = {
     },
 
     Main: {
-//        $LEVEL_1: '#main-level1-btn',
-//        $LEVEL_2: '#main-level2-btn',
-//        $LEVEL_3: '#main-level3-btn',
-//        $LEVEL_4: '#main-level4-btn',
-//        $LEVEL_5: '#main-level5-btn',
-//        $LEVEL_6: '#main-level6-btn',
-
         $ALBUM: '#main-album',
         $ALBUM_LEVEL: '#main-album{0}-level{1}',
+        $ALBUM_EACH: '#main-album{0}',
+        $ALBUM_NAME: '#main-album-name',
 
         $CLEAR_HISTORY: '#main-clear-btn',
         $RATING: '#main-rating-btn',
