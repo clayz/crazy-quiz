@@ -56,12 +56,17 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 2.5em;
     font-weight: normal;
-    margin: 0px;
+    margin: 0;
     overflow: visible;
-    padding: 0px;
+    padding: 0;
     text-align: center;
+}
+
+p {
+    font-size: 2em;
+    font-weight: normal;
 }
 
 .event {

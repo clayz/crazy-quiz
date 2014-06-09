@@ -110,7 +110,15 @@ CQ.Id = {
         $OTHER: '#main-other-btn',
 
         $POPUP_EXIT: '#main-popup-exit',
-        $POPUP_EXIT_YES: '#main-popup-exit-yes'
+        $POPUP_EXIT_YES: '#main-popup-exit-yes',
+
+        $POPUP_LEVEL_UNLOCK: '#main-popup-level-unlock',
+        $POPUP_LEVEL_UNLOCK_YES: '#main-popup-level-unlock-btn',
+
+        $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
+        $POPUP_LEVEL_PURCHASE_YES: '#main-popup-level-purchase-btn',
+
+        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-cannot-unlock'
     },
 
     Game: {

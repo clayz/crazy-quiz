@@ -104,26 +104,51 @@ CQ.Currency = {
         CQ.Datastore.setObject(CQ.Datastore.Key.EARN_HISTORY, this.history.earn);
     },
 
-    consume: function(type, album, picture) {
-        console.info('Consume coin, type: {0}'.format(type.id));
+    consume: function(type, album, level, picture) {
+        console.info('Consume {0}'.format(CQ.Utils.toString(type)));
 
-        if (this.account.coin >= type.coin) {
-            this.updateAccount(0, -type.coin);
+        if (type.coin) {
+            if (this.account.coin >= type.coin) {
+                this.updateAccount(0, -type.coin);
 
-            // save operation history
-            this.history.consume.push({
-                type: type.id,
-                coin: type.coin,
-                album: album,
-                picture: picture,
-                date: new Date().getTime()
-            });
+                // save operation history
+                this.history.consume.push({
+                    type: type.id,
+                    coin: type.coin,
+                    album: album,
+                    level: level,
+                    picture: picture,
+                    date: new Date().getTime()
+                });
 
-            CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
-            return true;
+                CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
+                return true;
+            } else {
+                console.info('No enough coin, current coin: {0}'.format(this.account.coin));
+                return false;
+            }
+        } else if (type.gem) {
+            if (this.account.gem >= type.gem) {
+                this.updateAccount(-type.gem, 0);
+
+                // save operation history
+                this.history.consume.push({
+                    type: type.id,
+                    gem: type.gem,
+                    album: album,
+                    level: level,
+                    picture: picture,
+                    date: new Date().getTime()
+                });
+
+                CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
+                return true;
+            } else {
+                console.info('No enough gem, current gem: {0}'.format(this.account.gem));
+                return false;
+            }
         } else {
-            console.info('No enough coin, current coin: {0}'.format(this.account.coin));
-            return false;
+            throw 'Unknown consume type {0}'.format(CQ.Utils.toString(type));
         }
     },
 

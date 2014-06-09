@@ -190,7 +190,7 @@ CQ.Page.Game = {
                     }
 
                     usedPictures[i] = null;
-                    CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.picture.id);
+                    CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.level, page.picture.id);
                     page.refreshCurrency();
                     break;
                 }
@@ -221,7 +221,7 @@ CQ.Page.Game = {
                     answer.charBtn = null;
                     answer.clickable = false;
 
-                    CQ.Currency.consume(CQ.Currency.Consume.GetChar, page.album.id, page.picture.id);
+                    CQ.Currency.consume(CQ.Currency.Consume.GetChar, page.album.id, page.level, page.picture.id);
                     page.refreshCurrency();
                     break;
                 }
@@ -243,7 +243,7 @@ CQ.Page.Game = {
 
                 $prompt.text(page.picture.category.name);
                 $prompt.show();
-                CQ.Currency.consume(CQ.Currency.Consume.Prompt, page.album.id, page.picture.id);
+                CQ.Currency.consume(CQ.Currency.Consume.Prompt, page.album.id, page.level, page.picture.id);
                 page.refreshCurrency();
 
                 CQ.GA.track(CQ.GA.Props.Prompt, CQ.GA.Props.Prompt.label.format(page.album.id, page.picture.id));

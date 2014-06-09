@@ -135,6 +135,34 @@
         </div>
     </div>
 
+    <!-- unlock level confirm popup -->
+    <div data-role="popup" id="main-popup-level-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>You have to pass last level in order to play this level.<br>Or you can just use one gem to unlock it.</p>
+        <div>
+            <button id="main-popup-level-unlock-btn" class="ui-btn ui-btn-inline">Unlock</button>
+        </div>
+    </div>
+
+    <!-- unlock level purchase popup -->
+    <div data-role="popup" id="main-popup-level-purchase" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>
+            You have to pass last level in order to play this level.<br>
+            Or you can just use one gem to unlock it.<br/>
+            You do not have enough gem now, do you want to buy some?
+        </p>
+        <div>
+            <button id="main-popup-level-purchase-btn" class="ui-btn ui-btn-inline">Buy</button>
+        </div>
+    </div>
+
+    <!-- level cannot unlock popup -->
+    <div data-role="popup" id="main-popup-level-cannot-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>You have to finish all levels before this one in order to unlock it.</p>
+    </div>
+
     <!-- Exit confirm popup -->
     <div data-role="popup" id="main-popup-exit" data-overlay-theme="b" data-dismissible="false">
         <div role="main" class="ui-content">
@@ -341,7 +369,7 @@
 </div>
 
 <!------------------------------------------------------------------>
-<!-- Help Page -->
+<!-- Level Pass Page -->
 <!------------------------------------------------------------------>
 
 <div data-role="page" id="levelPass" class="page">

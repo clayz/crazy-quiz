@@ -1,5 +1,7 @@
 CQ.Page.Main = {
     name: 'main',
+    selectedUnlockAlbum: null,
+    selectedUnlockLevel: null,
 
     init: function() {
         console.info('Initial main page');
@@ -15,9 +17,17 @@ CQ.Page.Main = {
                         CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: level });
                         CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(CQ.Album.Default.id, level));
                     } else if (level == (lastLevel + 1)) {
-                        alert('You can use one jem to unlock.');
+                        if (CQ.Currency.account.gem > 0) {
+                            $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('open');
+                            CQ.Page.Main.selectedUnlockLevel = {
+                                album: CQ.Album.Default,
+                                level: level
+                            };
+                        } else {
+                            $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('open');
+                        }
                     } else {
-                        alert('Please unlock all levels before this one first.');
+                        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('open');
                     }
                 })
             })(i);
@@ -33,6 +43,18 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
         $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
             navigator.app.exitApp();
+        });
+
+        // level popup buttons
+        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_YES).click(function() {
+            if (CQ.Page.Main.selectedUnlockLevel) {
+                CQ.Album.unlockLevel(CQ.Page.Main.selectedUnlockLevel.album, CQ.Page.Main.selectedUnlockLevel.level);
+                CQ.Page.Main.selectedUnlockLevel = null;
+            }
+        });
+
+        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_YES).click(function() {
+            CQ.Page.Main.open(CQ.Page.Purchase);
         });
 
         // footer buttons
