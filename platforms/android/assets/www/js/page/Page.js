@@ -22,7 +22,9 @@ CQ.Page = {
         var result = page.load(wrappedParams);
         CQ.Session.CURRENT_PAGE = pageName;
 
-        if (!result || !result.terminate) {
+        if (result && result.redirect) {
+            this.open(result.redirect);
+        } else {
             $.mobile.changePage('#' + pageName);
             CQ.GA.trackPage((result && result.gaPageName) ? result.gaPageName : pageName);
         }
@@ -47,11 +49,15 @@ CQ.Page = {
         }
     },
 
-    initCommon: function() {
+    initCommon: function(config) {
         var page = this, name = this.name;
 
+        // add common page header
+        if (config && config.header)
+            $('#' + name).prepend($('{0} {1}'.format(CQ.Id.$SCRATCH, CQ.Id.CSS.$HEADER)).clone());
+
         // header buttons
-        $(CQ.Id.$HEADER_BACK.format(name)).click(function() {
+        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).click(function() {
             page.back();
         }).bind('touchstart', function() {
             $(this).attr('src', CQ.Id.Image.HEADER_BACK_TAP);
@@ -59,7 +65,7 @@ CQ.Page = {
             $(this).attr('src', CQ.Id.Image.HEADER_BACK);
         });
 
-        $(CQ.Id.$HEADER_GEM_PURCHASE.format(name)).click(function() {
+        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE)).click(function() {
             page.open(CQ.Page.Purchase);
         }).bind('touchstart', function() {
             $(this).attr('src', CQ.Id.Image.CURRENCY_ADD_TAP);
@@ -67,7 +73,7 @@ CQ.Page = {
             $(this).attr('src', CQ.Id.Image.CURRENCY_ADD);
         });
 
-        $(CQ.Id.$HEADER_COIN_EXCHANGE.format(name)).click(function() {
+        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE)).click(function() {
             page.open(CQ.Page.Exchange);
         }).bind('touchstart', function() {
             $(this).attr('src', CQ.Id.Image.CURRENCY_ADD_TAP);
@@ -94,8 +100,8 @@ CQ.Page = {
     },
 
     refreshCurrency: function() {
-        $(CQ.Id.CSS.$HEADER_CURRENT_GEM).text(CQ.Currency.account.gem);
-        $(CQ.Id.CSS.$HEADER_CURRENT_COIN).text(CQ.Currency.account.coin);
+        $(CQ.Id.CSS.$HEADER_GEM_CURRENT).text(CQ.Currency.account.gem);
+        $(CQ.Id.CSS.$HEADER_COIN_CURRENT).text(CQ.Currency.account.coin);
     },
 
     showCoinNotEnough: function() {

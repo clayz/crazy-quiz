@@ -27,6 +27,8 @@
     <script type="text/javascript" charset="utf-8" src="js/page/Game.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Purchase.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Exchange.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/AlbumPass.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/LevelPass.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Help.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
 
@@ -66,37 +68,6 @@
 <!-- Album Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="main" class="page">
-    <!-- page header -->
-    <div id="main-header" class="header">
-        <div id="main-back" class="header-back">
-            <img id="main-back-btn" class="header-back-btn" src="img/button/header-back.png"/>
-        </div>
-        <div id="main-currency" class="header-currency">
-            <div id="main-gem" class="header-gem">
-                <div class="left">
-                    <img class="header-gem-btn" src="img/icon/gem.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span id="main-current-gem" class="header-gem-current">0</span>
-                </div>
-                <div class="left">
-                    <img id="main-gem-purchase-btn" class="header-gem-add-btn" src="img/button/currency-add.png">
-                </div>
-            </div>
-            <div id="main-coin" class="header-coin">
-                <div class="left">
-                    <img class="header-coin-btn" src="img/icon/coin.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span id="main-current-coin" class="header-coin-current">0</span>
-                </div>
-                <div class="left">
-                    <img id="main-coin-exchange-btn" class="header-coin-add-btn" src="img/button/currency-add.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="main-body">
         <!-- album info -->
         <div id="main-album-div">
@@ -184,37 +155,6 @@
 <!-- Game Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="game" class="page">
-    <!-- page header -->
-    <div id="game-header" class="header">
-        <div id="game-back" class="header-back">
-            <img id="game-back-btn" class="header-back-btn" src="img/button/header-back.png"/>
-        </div>
-        <div id="game-currency" class="header-currency">
-            <div id="game-gem" class="header-gem">
-                <div class="left">
-                    <img class="header-gem-btn" src="img/icon/gem.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span id="game-current-gem" class="header-gem-current">0</span>
-                </div>
-                <div class="left">
-                    <img id="game-gem-purchase-btn" class="header-gem-add-btn" src="img/button/currency-add.png">
-                </div>
-            </div>
-            <div id="game-coin" class="header-coin">
-                <div class="left">
-                    <img class="header-coin-btn" src="img/icon/coin.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span id="game-current-coin" class="header-coin-current">0</span>
-                </div>
-                <div class="left">
-                    <img id="game-coin-exchange-btn" class="header-coin-add-btn" src="img/button/currency-add.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- page body -->
     <div id="game-body">
         <div id="game-title-div">
@@ -393,11 +333,63 @@
 </div>
 
 <!------------------------------------------------------------------>
+<!-- Album Pass Page -->
+<!------------------------------------------------------------------>
+
+<div data-role="page" id="albumPass" class="page">
+    <h1>Album pass celebrate page</h1>
+</div>
+
+<!------------------------------------------------------------------>
+<!-- Help Page -->
+<!------------------------------------------------------------------>
+
+<div data-role="page" id="levelPass" class="page">
+    <h1>Level pass celebrate page</h1>
+</div>
+
+<!------------------------------------------------------------------>
 <!-- Help Page -->
 <!------------------------------------------------------------------>
 
 <div data-role="page" id="help" class="page">
     <h1>This is help page</h1>
+</div>
+
+<!------------------------------------------------------------------>
+<!-- Common Header DIV -->
+<!------------------------------------------------------------------>
+
+<div id="scratch" style="display: none;">
+    <div class="header">
+        <div class="header-back">
+            <img class="header-back-btn" src="img/button/header-back.png"/>
+        </div>
+        <div class="header-currency">
+            <div class="header-gem">
+                <div class="left">
+                    <img class="header-gem-btn" src="img/icon/gem.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span class="header-gem-current">0</span>
+                </div>
+                <div class="left">
+                    <img class="header-gem-add-btn" src="img/button/currency-add.png">
+                </div>
+            </div>
+            <div class="header-coin">
+                <div class="left">
+                    <img class="header-coin-btn" src="img/icon/coin.png">
+                </div>
+                <div class="left header-current-currency">
+                    <span class="header-coin-current">0</span>
+                </div>
+                <div class="left">
+                    <img class="header-coin-add-btn" src="img/button/currency-add.png">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!------------------------------------------------------------------>

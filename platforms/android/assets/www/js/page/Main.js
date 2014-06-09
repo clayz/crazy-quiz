@@ -3,14 +3,22 @@ CQ.Page.Main = {
 
     init: function() {
         console.info('Initial main page');
-        this.initCommon();
+        this.initCommon({ header: true });
         var pageName = CQ.Utils.getCapitalName(this.name);
 
-        for (var i = 1; i <= 6; i++) {
+        for (var i = 1; i <= CQ.Album.TOTAL_LEVEL_PER_ALBUM; i++) {
             (function(level) {
                 $(CQ.Id.Main['$LEVEL_' + level]).click(function() {
-                    CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: level });
-                    CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(CQ.Album.Default.id, level));
+                    var lastLevel = CQ.Datastore.getLastLevel(CQ.Album.Default.id) || 1;
+
+                    if (level <= lastLevel) {
+                        CQ.Page.open(CQ.Page.Game, { album: CQ.Album.Default.id, level: level });
+                        CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(CQ.Album.Default.id, level));
+                    } else if (level == (lastLevel + 1)) {
+                        alert('You can use one jem to unlock.');
+                    } else {
+                        alert('Please unlock all levels before this one first.');
+                    }
                 })
             })(i);
         }

@@ -7,8 +7,8 @@ CQ.GA = {
     },
 
     Album: {
-        Pass: { category: 'Album', action: 'Pass' },
-        Unlock: { category: 'Album', action: 'Unlock' }
+        Pass: { category: 'Album', action: 'Pass', label: 'Album {0}' },
+        Unlock: { category: 'Album', action: 'Unlock', label: 'Album {0}' }
     },
 
     Level: {

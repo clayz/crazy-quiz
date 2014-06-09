@@ -9,7 +9,7 @@ CQ.Page.Game = {
 
     init: function() {
         console.info('Initial game page');
-        this.initCommon();
+        this.initCommon({ header: true });
 
         // bind all button events
         $(CQ.Id.Game.$CUT_DOWN).tap(this.cutdown);
@@ -56,8 +56,17 @@ CQ.Page.Game = {
                 // TODO debug only, remove it before release
                 $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
             } else {
-                alert('You already finished all quiz.');
-                CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(game.album.id, game.level));
+                if (game.level == CQ.Album.TOTAL_LEVEL_PER_ALBUM) {
+                    // finish all levels in current album
+                    CQ.Datastore.setLastAlbumId(game.album.id + 1);
+                    CQ.Page.open(CQ.Page.AlbumPass);
+                    CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(game.album.id));
+                } else {
+                    // finish current level
+                    CQ.Datastore.setLastLevel(game.album.id, game.level + 1);
+                    CQ.Page.open(CQ.Page.LevelPass);
+                    CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(game.album.id, game.level));
+                }
             }
         });
     },
@@ -77,11 +86,8 @@ CQ.Page.Game = {
 
         if (!this.picture) {
             // user already finished all pictures in this level
-            alert('Already finished this level.');
-            this.open(CQ.Page.Main);
-
             return {
-                terminate: true
+                redirect: CQ.Page.LevelPass
             };
         }
 

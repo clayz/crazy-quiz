@@ -59,9 +59,7 @@ CQ.Session = {
 };
 
 CQ.Id = {
-    $HEADER_BACK: '#{0}-back-btn',
-    $HEADER_GEM_PURCHASE: '#{0}-gem-purchase-btn',
-    $HEADER_COIN_EXCHANGE: '#{0}-coin-exchange-btn',
+    $SCRATCH: '#scratch',
 
     $SHARE: '#{0}-share-btn',
     $SHARE_FB: '#{0}-share-fb-btn',
@@ -78,8 +76,12 @@ CQ.Id = {
     $POPUP_GEM_BUY: '#{0}-popup-gem-buy-btn',
 
     CSS: {
-        $HEADER_CURRENT_GEM: '.header-gem-current',
-        $HEADER_CURRENT_COIN: '.header-coin-current'
+        $HEADER: '.header',
+        $HEADER_BACK: '.header-back-btn',
+        $HEADER_GEM_CURRENT: '.header-gem-current',
+        $HEADER_GEM_PURCHASE: '.header-gem-add-btn',
+        $HEADER_COIN_CURRENT: '.header-coin-current',
+        $HEADER_COIN_EXCHANGE: '.header-coin-add-btn'
     },
 
     Image: {

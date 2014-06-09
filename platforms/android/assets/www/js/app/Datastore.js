@@ -30,6 +30,8 @@ CQ.Datastore = {
     Key: {
         USERNAME: 'USERNAME',
 
+        LAST_ALBUM: 'ALBUM',
+        LAST_LEVEL: 'LEVEL_{0}',
         LAST_PICTURE: 'PICTURE_{0}_{1}',
 
         ACCOUNT: 'ACCOUNT',
@@ -53,7 +55,7 @@ CQ.Datastore = {
     },
 
     /**
-     * Picture module data storage.
+     * Album and picture module data storage.
      */
     getLastPictureId: function(albumId, level) {
         return this.get(this.Key.LAST_PICTURE.format(albumId, level));
@@ -61,6 +63,22 @@ CQ.Datastore = {
 
     setLastPictureId: function(albumId, level, pictureId) {
         this.set(this.Key.LAST_PICTURE.format(albumId, level), pictureId);
+    },
+
+    getLastLevel: function(albumId) {
+        return this.get(this.Key.LAST_LEVEL.format(albumId));
+    },
+
+    setLastLevel: function(albumId, level) {
+        this.set(this.Key.LAST_LEVEL.format(albumId), level);
+    },
+
+    getLastAlbumId: function() {
+        return this.get(this.Key.LAST_ALBUM);
+    },
+
+    setLastAlbumId: function(albumId) {
+        this.set(this.Key.LAST_ALBUM, albumId);
     },
 
     /**

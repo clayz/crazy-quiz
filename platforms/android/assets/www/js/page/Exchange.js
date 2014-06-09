@@ -5,7 +5,7 @@ CQ.Page.Exchange = {
     init: function() {
         console.info('Initial exchange page');
 
-        this.initCommon();
+        this.initCommon({ header: true });
         $(CQ.Id.Exchange.$POPUP_CONFIRM).bind(this.popupEvents);
         $(CQ.Id.Exchange.$POPUP_CONFIRM_YES).click(this.exchange);
 

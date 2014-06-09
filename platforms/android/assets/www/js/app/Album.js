@@ -1,4 +1,6 @@
 CQ.Album = {
+    TOTAL_LEVEL_PER_ALBUM: 6,
+
     Category: {
         Film: { id: 1, name: '映画' },
         Series: { id: 2, name: 'ドラマ' },
