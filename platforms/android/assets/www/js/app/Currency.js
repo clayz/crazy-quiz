@@ -6,9 +6,9 @@ CQ.Currency = {
         Login: { id: 1, coin: 1 },
         Share: { id: 2, coin: 3 },
         Rating: { id: 3, coin: 100 },
-        Quiz: { id: 4, coin: 3 },
-        Level: {id: 5, coin: 50},
-        Album: { id: 6, coin: 100 }
+        Quiz: { id: 4, coin: 3 }, // correct answer
+        Level: {id: 5, coin: 50}, // finish level
+        Album: { id: 6, coin: 100 } // finish album
     },
 
     Consume: {

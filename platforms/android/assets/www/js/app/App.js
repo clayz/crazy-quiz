@@ -106,7 +106,9 @@ CQ.Id = {
         $ALBUM: '#main-album',
         $ALBUM_LEVEL: '#main-album{0}-level{1}',
         $ALBUM_EACH: '#main-album{0}',
+        $ALBUM_EACH_LOCKED: '#main-album{0}-locked',
         $ALBUM_NAME: '#main-album-name',
+        $ALBUM_MORE: '#main-album-more',
 
         $CLEAR_HISTORY: '#main-clear-btn',
         $RATING: '#main-rating-btn',

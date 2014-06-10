@@ -129,7 +129,7 @@
                         <div id="main-album2-level6" class="main-album-level"></div>
                     </div>
                 </div>
-                <div id="main-album2-locked" class="hidden">This album is locked</div>
+                <div id="main-album2-locked" class="hidden">Test album is locked</div>
 
                 <div id="main-album3" class="ui-grid-b hidden">
                     <div class="ui-block-a">
@@ -151,7 +151,11 @@
                         <div id="main-album3-level6" class="main-album-level"></div>
                     </div>
                 </div>
-                <div id="main-album3-locked" class="hidden">This album is locked</div>
+                <div id="main-album3-locked" class="hidden">Test 2 album is locked</div>
+
+                <div id="main-album-more" class="hidden">
+                    Please waiting for more albums
+                </div>
             </div>
 
             <div>
@@ -190,7 +194,7 @@
     <!-- unlock level confirm popup -->
     <div data-role="popup" id="main-popup-level-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>You have to pass last level in order to play this level.<br>Or you can just use one gem to unlock it.</p>
+        <p>You have to pass last level in order to play this level.<br>Or you can just use gem to unlock it.</p>
         <div>
             <button id="main-popup-level-unlock-btn" class="ui-btn ui-btn-inline">Unlock</button>
         </div>
@@ -201,7 +205,7 @@
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>
             You have to pass last level in order to play this level.<br>
-            Or you can just use one gem to unlock it.<br/>
+            Or you can just use gem to unlock it.<br/>
             You do not have enough gem now, do you want to buy some?
         </p>
         <div>
@@ -213,6 +217,34 @@
     <div data-role="popup" id="main-popup-level-cannot-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>You have to finish all levels before this one in order to unlock it.</p>
+    </div>
+
+    <!-- unlock album confirm popup -->
+    <div data-role="popup" id="main-popup-album-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>You have to pass last album in order to play this album.<br>Or you can just use gem to unlock it.</p>
+        <div>
+            <button id="main-popup-album-unlock-btn" class="ui-btn ui-btn-inline">Unlock</button>
+        </div>
+    </div>
+
+    <!-- unlock album purchase popup -->
+    <div data-role="popup" id="main-popup-album-purchase" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>
+            You have to pass last album in order to play this album.<br>
+            Or you can just use gem to unlock it.<br/>
+            You do not have enough gem now, do you want to buy some?
+        </p>
+        <div>
+            <button id="main-popup-album-purchase-btn" class="ui-btn ui-btn-inline">Buy</button>
+        </div>
+    </div>
+
+    <!-- album cannot unlock popup -->
+    <div data-role="popup" id="main-popup-album-cannot-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>You have to finish all albums before this one in order to unlock it.</p>
     </div>
 
     <!-- Exit confirm popup -->

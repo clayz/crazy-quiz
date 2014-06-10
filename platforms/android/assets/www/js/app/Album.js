@@ -19,20 +19,47 @@ CQ.Album = {
             case CQ.Album.Test2.id:
                 return CQ.Album.Test2;
             default:
-                throw 'Album not found for id: {0}'.format(id);
+                return null;
         }
     },
 
-    unlockLevel: function(albumId, level) {
-        console.log('Unlock album {0} level {1}'.format(albumId, level));
-        var lastLevel = CQ.Datastore.getLastLevel(albumId);
+    isAlbumLocked: function(id) {
+        return id > CQ.Datastore.getLastAlbumId();
+    },
 
-        if (level != (lastLevel + 1)) {
+    unlockAlbum: function(albumId, isPurchase) {
+        console.log('Unlock album {0}, is purchase: {1}'.format(albumId, isPurchase));
+        var lastAlbumId = CQ.Datastore.getLastAlbumId();
+
+        if (albumId > this.TOTAL_ALBUM) {
+            console.info('There is no such album to unlock.');
+            return false;
+        } else if (albumId != (lastAlbumId + 1)) {
+            console.error('Incorrect unlock album {0}, last album {1}'.format(albumId, lastAlbumId));
+            return false;
+        }
+
+        if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockAlbum, albumId)) {
+            CQ.Datastore.setLastAlbumId(albumId);
+            CQ.Page.Main.refreshCurrency();
+            CQ.Page.Main.enableAlbum(albumId);
+            return true;
+        } else return false;
+    },
+
+    unlockLevel: function(albumId, level, isPurchase) {
+        console.log('Unlock album {0} level {1}, is purchase: {2}'.format(albumId, level, isPurchase));
+        var lastLevel = CQ.Datastore.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
+
+        if (level > album.levels) {
+            console.info('There is no such level to unlock.');
+            return false;
+        } else if (level != (lastLevel + 1)) {
             console.error('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
             return false;
         }
 
-        if (CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, albumId, level)) {
+        if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, albumId, level)) {
             CQ.Datastore.setLastLevel(albumId, level);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableLevel(albumId, level);
@@ -316,3 +343,5 @@ CQ.Album.Test2 = {
 };
 
 CQ.App.inherits(CQ.Album.Default, CQ.Album);
+CQ.App.inherits(CQ.Album.Test, CQ.Album);
+CQ.App.inherits(CQ.Album.Test2, CQ.Album);

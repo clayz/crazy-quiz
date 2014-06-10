@@ -20,25 +20,10 @@ CQ.Page.Game = {
         this.bindAnswerEvents();
 
         // bind share buttons
-        $(CQ.Id.$SHARE_FB.format(this.name)).tap(function() {
-            CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
-            CQ.GA.track(CQ.GA.Share.FB, CQ.GA.Share.FB.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-        });
-
-        $(CQ.Id.$SHARE_TW.format(this.name)).tap(function() {
-            CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
-            CQ.GA.track(CQ.GA.Share.TW, CQ.GA.Share.TW.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-        });
-
-        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(function() {
-            CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
-            CQ.GA.track(CQ.GA.Share.Line, CQ.GA.Share.Line.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-        });
-
-        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(function() {
-            CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
-            CQ.GA.track(CQ.GA.Share.Other, CQ.GA.Share.Other.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-        });
+        $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
+        $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
+        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
+        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
 
         // play next picture click event
         $(CQ.Id.Game.$POPUP_NEXT).tap(CQ.Page.Game.clickNext);
@@ -69,7 +54,7 @@ CQ.Page.Game = {
         $(CQ.Id.Game.$PICTURE).css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)));
         $(CQ.Id.Game.$PROMPT_DIV).hide();
 
-        // TODO debug only, remove it before release
+        // TODO test only, remove before release
         $(CQ.Id.Game.$CORRECT_ANSWER).text(this.picture.name);
 
         // clean and create all answer elements
@@ -246,10 +231,9 @@ CQ.Page.Game = {
 
     answerCorrect: function() {
         CQ.Datastore.setLastPictureId(this.album.id, this.level, this.picture.id);
-        CQ.Currency.earn(CQ.Currency.Earn.Quiz);
-        $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('open');
-
-        CQ.GA.track(CQ.GA.Picture.Pass, CQ.GA.Picture.Pass.label.format(this.album.id, this.picture.id));
+        if (this.album.getNextPicture(this.picture.id)) this.passPicture();
+        else if (this.level == CQ.Album.levels) this.passAlbum();
+        else this.passLevel();
     },
 
     clickNext: function() {
@@ -266,17 +250,7 @@ CQ.Page.Game = {
             // TODO debug only, remove it before release
             $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
         } else {
-            if (game.level == CQ.Album.levels) {
-                // finish all levels in current album
-                CQ.Datastore.setLastAlbumId(game.album.id + 1);
-                CQ.Page.open(CQ.Page.AlbumPass);
-                CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(game.album.id));
-            } else {
-                // finish current level
-                CQ.Album.unlockLevel(game.album.id, game.level + 1);
-                CQ.Page.open(CQ.Page.LevelPass);
-                CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(game.album.id, game.level));
-            }
+
         }
     },
 
@@ -309,6 +283,46 @@ CQ.Page.Game = {
 
     removeCharText: function(id) {
         $('#' + id).text('');
+    },
+
+    passPicture: function() {
+        CQ.Currency.earn(CQ.Currency.Earn.Quiz);
+        $(CQ.Id.Game.$POPUP_ANSWER_CORRECT).popup('open');
+        CQ.GA.track(CQ.GA.Picture.Pass, CQ.GA.Picture.Pass.label.format(this.album.id, this.picture.id));
+    },
+
+    passLevel: function() {
+        CQ.Currency.earn(CQ.Currency.Earn.Level);
+        CQ.Album.unlockLevel(this.album.id, this.level + 1);
+        CQ.Page.open(CQ.Page.LevelPass);
+        CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(this.album.id, this.level));
+    },
+
+    passAlbum: function() {
+        CQ.Currency.earn(CQ.Currency.Earn.Album);
+        CQ.Album.unlockAlbum(this.album.id + 1);
+        CQ.Page.open(CQ.Page.AlbumPass);
+        CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(this.album.id));
+    },
+
+    clickShareFacebook: function() {
+        CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
+        CQ.GA.track(CQ.GA.Share.FB, CQ.GA.Share.FB.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
+    },
+
+    clickShareTwitter: function() {
+        CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
+        CQ.GA.track(CQ.GA.Share.TW, CQ.GA.Share.TW.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
+    },
+
+    clickShareLine: function() {
+        CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
+        CQ.GA.track(CQ.GA.Share.Line, CQ.GA.Share.Line.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
+    },
+
+    clickShareOther: function() {
+        CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
+        CQ.GA.track(CQ.GA.Share.Other, CQ.GA.Share.Other.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
     }
 };
 
