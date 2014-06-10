@@ -119,11 +119,15 @@ CQ.Id = {
 
         $POPUP_LEVEL_UNLOCK: '#main-popup-level-unlock',
         $POPUP_LEVEL_UNLOCK_YES: '#main-popup-level-unlock-btn',
-
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
         $POPUP_LEVEL_PURCHASE_YES: '#main-popup-level-purchase-btn',
+        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-cannot-unlock',
 
-        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-cannot-unlock'
+        $POPUP_ALBUM_UNLOCK: '#main-popup-album-unlock',
+        $POPUP_ALBUM_UNLOCK_YES: '#main-popup-album-unlock-btn',
+        $POPUP_ALBUM_PURCHASE: '#main-popup-album-purchase',
+        $POPUP_ALBUM_PURCHASE_YES: '#main-popup-album-purchase-btn',
+        $POPUP_ALBUM_CANNOT_UNLOCK: '#main-popup-album-cannot-unlock'
     },
 
     Game: {

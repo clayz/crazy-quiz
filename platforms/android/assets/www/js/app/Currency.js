@@ -182,11 +182,6 @@ CQ.Currency = {
             console.info('No enough gem, current gem: {0}'.format(this.account.gem));
             return false;
         }
-    },
-
-    reset: function() {
-        this.account = { gem: 1, coin: 100 };
-        this.history = { earn: [], consume: [], purchase: [], exchange: [] };
     }
 };
 
