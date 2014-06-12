@@ -2,6 +2,8 @@ CQ.Page.Help = {
     name: 'help',
 
     init: function() {
+        console.info('Initial help page');
+        this.initCommon({ header: true });
     },
 
     load: function() {

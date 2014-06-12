@@ -24,7 +24,7 @@ CQ.Page.Main = {
                 (function(album, level, lastLevel) {
                     var levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
                         $levelButton = $(CQ.Id.Main.$ALBUM_LEVEL.format(album.id, level));
-                    $levelButton.css('background', 'url(../www/{0}) no-repeat'.format(levelPicturePath));
+                    $levelButton.css('background', "url('../www/{0}') no-repeat".format(levelPicturePath));
 
                     if (level <= lastLevel) {
                         $levelButton.click({ albumId: album.id, level: level }, CQ.Page.Main.clickLevel);

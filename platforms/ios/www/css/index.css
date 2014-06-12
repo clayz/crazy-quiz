@@ -170,7 +170,7 @@ p {
 
 .header {
     width: 100%;
-    height: 7.5em;
+    height: 7em;
     background: url(../img/layout/header-bg.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -187,7 +187,7 @@ p {
 
 .header-currency {
     float: right;
-    padding: 1.3em .5em;
+    padding: 1.6em .5em;
 }
 
 .header-gem {
@@ -195,13 +195,13 @@ p {
 }
 
 .header-gem-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .header-gem-add-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .header-coin {
@@ -209,14 +209,14 @@ p {
 }
 
 .header-coin-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     padding-left: 1em;
 }
 
 .header-coin-add-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .header-current-currency {
@@ -257,7 +257,7 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
-    height: 85%;
+    height: 84%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
@@ -321,7 +321,7 @@ p {
 }
 
 #game-body {
-    height: 85%;
+    height: 84%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
