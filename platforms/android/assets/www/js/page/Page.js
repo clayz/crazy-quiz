@@ -1,5 +1,5 @@
 CQ.Page = {
-    params: null,
+    params: {},
 
     popupEvents: {
         popupafteropen: function() {
@@ -16,9 +16,18 @@ CQ.Page = {
 
     open: function(page, params) {
         var pageName = page.name, wrappedParams = params || {};
-        wrappedParams.from = this.name;
-        console.log('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
 
+        if (this.name == pageName) {
+            // open same page
+            wrappedParams.from = this.params.from;
+        } else if (((this === CQ.Page.Purchase) && (page === CQ.Page.Exchange)) || ((this === CQ.Page.Exchange) && (page === CQ.Page.Purchase))) {
+            // this is used to avoid cycle back between this two page
+            wrappedParams.from = this.params.from || CQ.Page.Main.name;
+        } else {
+            wrappedParams.from = this.name;
+        }
+
+        console.log('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
         var result = page.load(wrappedParams);
         CQ.Session.CURRENT_PAGE = pageName;
 
@@ -40,7 +49,7 @@ CQ.Page = {
             $(CQ.Id.Main.$POPUP_EXIT).popup('open');
             CQ.Session.CURRENT_OPEN_POPUP = CQ.Id.Main.$POPUP_EXIT;
         } else {
-            var from = (this.params && this.params.from) ? this.params.from : 'main';
+            var from = (this.params && this.params.from) ? this.params.from : CQ.Page.Main.name;
             console.log('Back to page: {0}'.format(from));
 
             CQ.Session.CURRENT_PAGE = from;
