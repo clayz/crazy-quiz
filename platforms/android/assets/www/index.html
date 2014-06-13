@@ -267,85 +267,109 @@
 <!-- Game Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="game" class="page">
+    <div id="game-title">
+        <span id="game-title-text">第0問</span>
+    </div>
+
     <!-- page body -->
     <div id="game-body">
-        <div id="game-title-div">
-            <h1><span id="game-title-text">第0問</span></h1>
-        </div>
-        <div id="game-content-div">
-            <div id="game-props-left">
-                <div class="game-props">
-                    <button id="game-getchar-btn" class="ui-btn ui-btn-inline game-props-left-btn">Get Char</button>
+        <div id="game-content-div" class="ui-grid-b">
+            <!-- left site buttons -->
+            <div id="game-props-left" class="ui-block-a">
+                <div id="game-getchar-btn" class="game-props-btn">
+                    <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        -90
+                    </div>
                 </div>
-                <div class="game-props">
-                    <button id="game-cutdown-btn" class="ui-btn ui-btn-inline game-props-left-btn">Cut down</button>
+                <div id="game-cutdown-btn" class="game-props-btn">
+                    <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        -30
+                    </div>
                 </div>
             </div>
-            <div id="game-picture-div">
+            <!-- game picture -->
+            <div id="game-picture-container" class="ui-block-b">
                 <div id="game-picture">
                     <div id="game-prompt-div">Prompt Info</div>
                     <div id="game-correct-answer">Answer</div>
                 </div>
             </div>
-            <div id="game-props-right">
-                <div class="game-props">
-                    <button id="game-prompt-btn" class="ui-btn ui-btn-inline game-props-right-btn">Prompt</button>
+            <!-- right site buttons -->
+            <div id="game-props-right" class="ui-block-c">
+                <div id="game-prompt-btn" class="game-props-btn">
+                    <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        -30
+                    </div>
                 </div>
-                <div class="game-props">
-                    <button id="game-share-btn" class="ui-btn ui-btn-inline game-props-right-btn">Share</button>
+                <div id="game-share-btn" class="game-props-btn">
+                    <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        +3
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="game-answer-div">
-            <button id="answer-btn-0" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-1" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-2" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-3" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-4" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-5" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-6" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-7" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-8" class="ui-btn ui-btn-inline answer-btn"></button>
-            <button id="answer-btn-9" class="ui-btn ui-btn-inline answer-btn"></button>
+
+        <!-- game answer characters -->
+        <div id="game-answer-container">
+            <div id="answer-btn-0" class="game-answer-btn">a</div>
+            <div id="answer-btn-1" class="game-answer-btn"></div>
+            <div id="answer-btn-2" class="game-answer-btn"></div>
+            <div id="answer-btn-3" class="game-answer-btn"></div>
+            <div id="answer-btn-4" class="game-answer-btn"></div>
+            <div id="answer-btn-5" class="game-answer-btn"></div>
+            <div id="answer-btn-6" class="game-answer-btn"></div>
+            <div id="answer-btn-7" class="game-answer-btn"></div>
         </div>
-        <div id="game-char-div">
-            <div class="game-char-line-div">
-                <button id="char-btn-0" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-1" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-2" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-3" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-4" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-5" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-6" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-7" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-8" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-9" class="ui-btn ui-btn-inline char-btn"></button>
-            </div>
 
-            <div class="game-char-line-div">
-                <button id="char-btn-10" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-11" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-12" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-13" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-14" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-15" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-16" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-17" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-18" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-19" class="ui-btn ui-btn-inline char-btn"></button>
+        <!-- game alternative answer characters -->
+        <div id="game-char-container">
+            <div class="game-char-row">
+                <div id="char-btn-0" class="game-char-btn"></div>
+                <div id="char-btn-1" class="game-char-btn"></div>
+                <div id="char-btn-2" class="game-char-btn"></div>
+                <div id="char-btn-3" class="game-char-btn"></div>
+                <div id="char-btn-4" class="game-char-btn"></div>
+                <div id="char-btn-5" class="game-char-btn"></div>
+                <div id="char-btn-6" class="game-char-btn"></div>
+                <div id="char-btn-7" class="game-char-btn"></div>
             </div>
-
-            <div class="game-char-line-div">
-                <button id="char-btn-20" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-21" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-22" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-23" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-24" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-25" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-26" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-27" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-28" class="ui-btn ui-btn-inline char-btn"></button>
-                <button id="char-btn-29" class="ui-btn ui-btn-inline char-btn"></button>
+            <div class="game-char-row">
+                <div id="char-btn-8" class="game-char-btn"></div>
+                <div id="char-btn-9" class="game-char-btn"></div>
+                <div id="char-btn-10" class="game-char-btn"></div>
+                <div id="char-btn-11" class="game-char-btn"></div>
+                <div id="char-btn-12" class="game-char-btn"></div>
+                <div id="char-btn-13" class="game-char-btn"></div>
+                <div id="char-btn-14" class="game-char-btn"></div>
+                <div id="char-btn-15" class="game-char-btn"></div>
+            </div>
+            <div class="game-char-row">
+                <div id="char-btn-16" class="game-char-btn"></div>
+                <div id="char-btn-17" class="game-char-btn"></div>
+                <div id="char-btn-18" class="game-char-btn"></div>
+                <div id="char-btn-19" class="game-char-btn"></div>
+                <div id="char-btn-20" class="game-char-btn"></div>
+                <div id="char-btn-21" class="game-char-btn"></div>
+                <div id="char-btn-22" class="game-char-btn"></div>
+                <div id="char-btn-23" class="game-char-btn"></div>
+            </div>
+            <div class="game-char-row">
+                <div id="char-btn-24" class="game-char-btn"></div>
+                <div id="char-btn-25" class="game-char-btn"></div>
+                <div id="char-btn-26" class="game-char-btn"></div>
+                <div id="char-btn-27" class="game-char-btn"></div>
+                <div id="char-btn-28" class="game-char-btn"></div>
+                <div id="char-btn-29" class="game-char-btn"></div>
+                <div id="char-btn-30" class="game-char-btn"></div>
+                <div id="char-btn-31" class="game-char-btn"></div>
             </div>
         </div>
     </div>

@@ -66,29 +66,17 @@ CQ.Page = {
             $('#' + name).prepend($('{0} {1}'.format(CQ.Id.$SCRATCH, CQ.Id.CSS.$HEADER)).clone());
 
         // header buttons
-        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).click(function() {
+        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK), function() {
             page.back();
-        }).bind('touchstart', function() {
-            $(this).attr('src', CQ.Id.Image.HEADER_BACK_TAP);
-        }).bind('touchend', function() {
-            $(this).attr('src', CQ.Id.Image.HEADER_BACK);
-        });
+        }, CQ.Id.Image.HEADER_BACK_TAP, CQ.Id.Image.HEADER_BACK);
 
-        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE)).click(function() {
+        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
             page.open(CQ.Page.Purchase);
-        }).bind('touchstart', function() {
-            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD_TAP);
-        }).bind('touchend', function() {
-            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD);
-        });
+        }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
-        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE)).click(function() {
+        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
             page.open(CQ.Page.Exchange);
-        }).bind('touchstart', function() {
-            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD_TAP);
-        }).bind('touchend', function() {
-            $(this).attr('src', CQ.Id.Image.CURRENCY_ADD);
-        });
+        }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
         // common popup and buttons
         $(CQ.Id.$POPUP_SHARE.format(name)).bind(this.popupEvents);
@@ -123,5 +111,29 @@ CQ.Page = {
 
     showShare: function() {
         $(CQ.Id.$POPUP_SHARE.format(this.name)).popup('open');
+    },
+
+    bindClickButton: function(id, onClick, touchstartImg, touchendImg, imageId) {
+        this.bindTouchImage($(id).click(onClick), touchstartImg, touchendImg, imageId);
+    },
+
+    bindTapButton: function(id, onTap, touchstartImg, touchendImg, imageId) {
+        this.bindTouchImage($(id).tap(onTap), touchstartImg, touchendImg, imageId);
+    },
+
+    bindTouchImage: function(element, touchstartImg, touchendImg, imageId) {
+        element.bind('touchstart', function() {
+            $(imageId ? imageId : this).attr('src', touchstartImg);
+        }).bind('touchend', function() {
+            $(imageId ? imageId : this).attr('src', touchendImg);
+        });
+    },
+
+    bindTouchBackground: function(element, touchstartImg, touchendImg) {
+        element.bind('touchstart', function() {
+            $(this).css('background', 'url(../www/{0}) no-repeat'.format(touchstartImg));
+        }).bind('touchend', function() {
+            $(this).css('background', 'url(../www/{0}) no-repeat'.format(touchendImg));
+        });
     }
 };

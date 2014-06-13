@@ -320,6 +320,24 @@ p {
 
 }
 
+#game-title {
+    position: absolute;
+    width: 16em;
+    left: 50%;
+    top: 5em;
+    margin-left: -8em;
+    padding-top: 1em;
+    height: 6.5em;
+    background: url(../img/layout/game-picture-id-bg.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 9;
+}
+
+#game-title-text {
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
 #game-body {
     height: 85%;
     margin: 0 .5em 0 .5em;
@@ -327,31 +345,39 @@ p {
     background-size: 100% 100%;
 }
 
+#game-content-div {
+    padding-top: 7.5em;
+}
+
 #game-props-left {
-    float: left;
     width: 20%;
 }
 
 #game-props-right {
-    float: right;
     width: 20%;
 }
 
-.game-props-left-btn {
-    width: 100% !important;
-    height: 30px !important;
-    padding: 1px 1px !important;
-    font-size: 12px;
+.game-props-btn {
+    padding: 2em 0 1em 0;
 }
 
-.game-props-right-btn {
-    width: 100% !important;
-    height: 30px !important;
-    padding: 1px 1px !important;
-    font-size: 12px;
+.game-props-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 50% !important;
 }
 
-#game-picture-div {
+.game-props-coin {
+    color: #ffffff;
+}
+
+.game-props-coin-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 30% !important;
+}
+
+#game-picture-container {
     display: inline-block;
     position: relative;
     float: left;
@@ -388,40 +414,45 @@ p {
     bottom: 0;
 }
 
-.game-props {
-    padding: 2em 0 2em 0;
+#game-answer-container {
+    clear: both;
+    padding-top: 1em;
+    text-align: center;
 }
 
-.game-char-line-div {
+.game-answer-btn {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3em;
+    color: #ffffff;
+    background: url(../img/layout/game-answer-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#game-char-container {
+    clear: both;
+    padding: 1em .5em 1em .5em;
+    text-align: center;
+}
+
+.game-char-row {
     text-align: center;
     margin: 2px !important;
     padding-bottom: 2px;
 }
 
-.char-btn {
-    width: 1.8em !important;
-    height: 1.8em !important;
-    padding: .1em .1em !important;
-    margin: .1em !important;
-}
-
-#game-answer-div {
-    clear: both;
-    padding-top: 30px;
+.game-char-btn {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
     text-align: center;
-}
-
-#game-char-div {
-    clear: both;
-    padding-top: 30px;
-    text-align: center;
-}
-
-.answer-btn {
-    width: 1.8em !important;
-    height: 1.8em !important;
-    padding: .1em .1em !important;
-    margin: .1em !important;
+    vertical-align: middle;
+    line-height: 3em;
+    background: url(../img/layout/game-char-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 /*******************************************************************/

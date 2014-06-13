@@ -3,7 +3,7 @@ CQ.Page.Game = {
     album: null,
     level: null,
     picture: null,
-    options: new Array(30),
+    options: new Array(32),
     answers: new Array(10),
     answersData: null,
 
@@ -11,15 +11,16 @@ CQ.Page.Game = {
         console.info('Initial game page');
         this.initCommon({ header: true });
 
-        // bind all button events
-        $(CQ.Id.Game.$CUT_DOWN).tap(this.cutdown);
-        $(CQ.Id.Game.$GET_CHAR).tap(this.getchar);
-        $(CQ.Id.Game.$PROMPT).tap(this.prompt);
-
         this.bindCharEvents();
         this.bindAnswerEvents();
 
+        // bind all button events
+        this.bindTapButton(CQ.Id.Game.$CUT_DOWN, this.cutdown, CQ.Id.Image.GAME_CUT_DOWN_TAP, CQ.Id.Image.GAME_CUT_DOWN, CQ.Id.Game.$CUT_DOWN_IMG);
+        this.bindTapButton(CQ.Id.Game.$GET_CHAR, this.getchar, CQ.Id.Image.GAME_GET_CHAR_TAP, CQ.Id.Image.GAME_GET_CHAR, CQ.Id.Game.$GET_CHAR_IMG);
+        this.bindTapButton(CQ.Id.Game.$PROMPT, this.prompt, CQ.Id.Image.GAME_PROMPT_TAP, CQ.Id.Image.GAME_PROMPT, CQ.Id.Game.$PROMPT_IMG);
+
         // bind share buttons
+        this.bindTouchImage($(CQ.Id.Game.$SHARE), CQ.Id.Image.GAME_SHARE_TAP, CQ.Id.Image.GAME_SHARE, CQ.Id.Game.$SHARE_IMG);
         $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
         $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
         $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
@@ -59,7 +60,7 @@ CQ.Page.Game = {
 
         // clean and create all answer elements
         for (i = 0; i < this.answers.length; i++) {
-            var id = CQ.Id.Game.ANSWER_BTN.format(i), $id = $('#' + id).text('').css('color', 'black');
+            var id = CQ.Id.Game.ANSWER_BTN.format(i), $id = $('#' + id).text('');
 
             if (i < this.picture.name.length) {
                 var answer = {
@@ -98,7 +99,7 @@ CQ.Page.Game = {
     },
 
     bindCharEvents: function() {
-        $('[id^=char-btn-]').tap(function() {
+        this.bindTouchBackground($('[id^=char-btn-]').tap(function() {
             var $btn = $(this);
 
             if ($btn.text()) {
@@ -117,11 +118,11 @@ CQ.Page.Game = {
 
                 CQ.Page.Game.checkAnswer();
             }
-        });
+        }), CQ.Id.Image.GAME_CHAR_BG_TAP, CQ.Id.Image.GAME_CHAR_BG);
     },
 
     bindAnswerEvents: function() {
-        $('[id^=answer-btn-]').tap(function() {
+        this.bindTouchBackground($('[id^=answer-btn-]').tap(function() {
             var $btn = $(this), id = $btn.attr('id'), index = id.charAt(id.length - 1), answer = CQ.Page.Game.answers[index];
 
             if (answer && answer.text && answer.clickable) {
@@ -130,7 +131,7 @@ CQ.Page.Game = {
                 answer.text = null;
                 answer.charBtn = null;
             }
-        });
+        }), CQ.Id.Image.GAME_ANSWER_BG_TAP, CQ.Id.Image.GAME_ANSWER_BG);
     },
 
     cutdown: function() {
