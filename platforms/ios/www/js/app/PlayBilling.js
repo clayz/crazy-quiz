@@ -7,12 +7,12 @@ CQ.PlayBilling = {
     init: function() {
         console.info('Initial play billing module');
 
-//        this.inAppBillingPlugin = window.plugins.inappbilling;
-//        this.inAppBillingPlugin.init(
-//            CQ.PlayBilling.successHandler,
-//            CQ.PlayBilling.errorHandler,
-//            {showLog: true},
-//            ['v1_gem_001', 'v1_gem_002', 'v1_gem_003']);
+        this.inAppBillingPlugin = window.plugins.inappbilling;
+        this.inAppBillingPlugin.init(
+            CQ.PlayBilling.successHandler,
+            CQ.PlayBilling.errorHandler,
+            {showLog: true},
+            ['v1_gem_001', 'v1_gem_002', 'v1_gem_003']);
     },
 
     /**
@@ -70,4 +70,4 @@ CQ.PlayBilling = {
     }
 };
 
-CQ.App.register(CQ.PlayBilling);
+// CQ.App.register(CQ.PlayBilling);

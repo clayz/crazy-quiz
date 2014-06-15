@@ -1,5 +1,7 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
-    var CQ = {};
+    var CQ = {
+        device: 'iOS'
+    };
 }
 
 CQ.App = {
@@ -48,6 +50,14 @@ CQ.App = {
 
     back: function() {
         CQ.Page.get(CQ.Session.CURRENT_PAGE).back();
+    },
+
+    isiOS: function() {
+        return CQ.device == 'iOS';
+    },
+
+    isAndroid: function() {
+        return CQ.device == 'Android';
     }
 };
 
@@ -86,7 +96,7 @@ CQ.Id = {
         MAIN_ALBUM_LEVEL: 'main-album-level',
         $MAIN_ALBUM_LEVEL: '.main-album-level',
         MAIN_ALBUM_LEVEL_LOCKED: 'main-album-level-locked',
-        $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked'
+        $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked',
     },
 
     Image: {
@@ -94,7 +104,21 @@ CQ.Id = {
         HEADER_BACK_TAP: 'img/button/header-back-tap.png',
 
         CURRENCY_ADD: 'img/button/currency-add.png',
-        CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png'
+        CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png',
+
+        GAME_CUT_DOWN: 'img/button/game-cutdown.png',
+        GAME_CUT_DOWN_TAP: 'img/button/game-cutdown-tap.png',
+        GAME_GET_CHAR: 'img/button/game-getchar.png',
+        GAME_GET_CHAR_TAP: 'img/button/game-getchar-tap.png',
+        GAME_PROMPT: 'img/button/game-prompt.png',
+        GAME_PROMPT_TAP: 'img/button/game-prompt-tap.png',
+        GAME_SHARE: 'img/button/game-share.png',
+        GAME_SHARE_TAP: 'img/button/game-share-tap.png',
+
+        GAME_ANSWER_BG: 'img/layout/game-answer-bg.png',
+        GAME_ANSWER_BG_TAP: 'img/layout/game-answer-bg-tap.png',
+        GAME_CHAR_BG: 'img/layout/game-char-bg.png',
+        GAME_CHAR_BG_TAP: 'img/layout/game-char-bg-tap.png'
     },
 
     Index: {
@@ -132,8 +156,13 @@ CQ.Id = {
 
     Game: {
         $CUT_DOWN: '#game-cutdown-btn',
+        $CUT_DOWN_IMG: '#game-cutdown-img',
         $GET_CHAR: '#game-getchar-btn',
+        $GET_CHAR_IMG: '#game-getchar-img',
         $PROMPT: '#game-prompt-btn',
+        $PROMPT_IMG: '#game-prompt-img',
+        $SHARE: '#game-share-btn',
+        $SHARE_IMG: '#game-share-img',
 
         $TITLE_TEXT: '#game-title-text',
         $PICTURE: '#game-picture',

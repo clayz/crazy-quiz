@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div data-role="page" id="main" class="page">
+<div data-role="page" id="game" class="page">
     <div class="header">
         <div class="header-back">
             <img class="header-back-btn" src="img/button/header-back.png"/>
@@ -43,148 +43,139 @@
         </div>
     </div>
 
-    <div id="main-body">
-        <div id="main-welcome">
-        </div>
+    <div id="game-title">
+        <span id="game-title-text">第0問</span>
+    </div>
 
-        <!-- album info -->
-        <div id="main-album-container">
-            <div id="main-album-header" class="ui-grid-b">
-                <div id="main-album-previous" class="ui-block-a">
-                    <button id="main-album-previous-btn" class="ui-btn ui-btn-inline"><</button>
-                </div>
-                <div id="main-album-title" class="ui-block-b">
-                    <h1>Default Album</h1>
-                </div>
-                <div id="main-album-next" class="ui-block-c">
-                    <button id="main-album-next-btn" class="ui-btn ui-btn-inline">></button>
-                </div>
-            </div>
-
-            <div id="main-album">
-                <div id="main-album1" class="ui-grid-b">
-                    <div class="ui-block-a">
-                        <div id="main-album1-level1" class="main-album-level main-album-level-locked"></div>
-                    </div>
-                    <div class="ui-block-b center">
-                        <div id="main-album1-level2" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-c center">
-                        <div id="main-album1-level3" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-a center">
-                        <div id="main-album1-level4" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-b center">
-                        <div id="main-album1-level5" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-c center">
-                        <div id="main-album1-level6" class="main-album-level"></div>
+    <!-- page body -->
+    <div id="game-body">
+        <div id="game-content-div" class="ui-grid-b">
+            <!-- left site buttons -->
+            <div id="game-props-left" class="ui-block-a">
+                <div id="game-getchar-btn" class="game-props-btn">
+                    <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        -90
                     </div>
                 </div>
-                <div id="main-album2" class="ui-grid-b hidden">
-                    <div id="main-album2-level1" class="ui-block-a hidden">
-                    </div>
-                    <div id="main-album2-level2" class="ui-block-b hidden">
-                    </div>
-                    <div id="main-album2-level3" class="ui-block-c hidden">
-                    </div>
-                    <div id="main-album2-level4" class="ui-block-a hidden">
-                    </div>
-                    <div id="main-album2-level5" class="ui-block-b hidden">
-                    </div>
-                    <div id="main-album2-level6" class="ui-block-c hidden">
-                    </div>
-                </div>
-                <div id="main-album3" class="ui-grid-b hidden">
-                    <div id="main-album3-level1" class="ui-block-a hidden">
-                    </div>
-                    <div id="main-album3-level2" class="ui-block-b hidden">
-                    </div>
-                    <div id="main-album3-level3" class="ui-block-c hidden">
-                    </div>
-                    <div id="main-album3-level4" class="ui-block-a hidden">
-                    </div>
-                    <div id="main-album3-level5" class="ui-block-b hidden">
-                    </div>
-                    <div id="main-album3-level6" class="ui-block-c hidden">
+                <div id="game-cutdown-btn" class="game-props-btn">
+                    <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        -30
                     </div>
                 </div>
             </div>
-
-            <div>
-                ....
+            <!-- game picture -->
+            <div id="game-picture-container" class="ui-block-b">
+                <div id="game-picture">
+                    <div id="game-prompt-div">Prompt Info</div>
+                    <div id="game-correct-answer">Answer</div>
+                </div>
+            </div>
+            <!-- right site buttons -->
+            <div id="game-props-right" class="ui-block-c">
+                <div id="game-prompt-btn" class="game-props-btn">
+                    <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        -30
+                    </div>
+                </div>
+                <div id="game-share-btn" class="game-props-btn">
+                    <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
+                    <div class="game-props-coin">
+                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                        +3
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- footer buttons -->
-        <div id="main-footer">
-            <div id="main-footer-buttons" class="ui-grid-b">
-                <div class="ui-block-a">
-                    <button id="main-rating-btn" class="ui-btn ui-btn-inline">Clear</button>
-                </div>
-                <div class="ui-block-b">
-                    <button id="main-share-btn" class="ui-btn ui-btn-inline">Share</button>
-                </div>
-                <div class="ui-block-c">
-                    <button id="main-other-btn" class="ui-btn ui-btn-inline">Other</button>
-                </div>
+        <!-- game answer characters -->
+        <div id="game-answer-container">
+            <div id="answer-btn-0" class="game-answer-btn">a</div>
+            <div id="answer-btn-1" class="game-answer-btn"></div>
+            <div id="answer-btn-2" class="game-answer-btn"></div>
+            <div id="answer-btn-3" class="game-answer-btn"></div>
+            <div id="answer-btn-4" class="game-answer-btn"></div>
+            <div id="answer-btn-5" class="game-answer-btn"></div>
+            <div id="answer-btn-6" class="game-answer-btn"></div>
+            <div id="answer-btn-7" class="game-answer-btn"></div>
+        </div>
+
+        <!-- game alternative answer characters -->
+        <div id="game-char-container">
+            <div class="game-char-row">
+                <div id="char-btn-0" class="game-char-btn"></div>
+                <div id="char-btn-1" class="game-char-btn"></div>
+                <div id="char-btn-2" class="game-char-btn"></div>
+                <div id="char-btn-3" class="game-char-btn"></div>
+                <div id="char-btn-4" class="game-char-btn"></div>
+                <div id="char-btn-5" class="game-char-btn"></div>
+                <div id="char-btn-6" class="game-char-btn"></div>
+                <div id="char-btn-7" class="game-char-btn"></div>
             </div>
+            <div class="game-char-row">
+                <div id="char-btn-8" class="game-char-btn"></div>
+                <div id="char-btn-9" class="game-char-btn"></div>
+                <div id="char-btn-10" class="game-char-btn"></div>
+                <div id="char-btn-11" class="game-char-btn"></div>
+                <div id="char-btn-12" class="game-char-btn"></div>
+                <div id="char-btn-13" class="game-char-btn"></div>
+                <div id="char-btn-14" class="game-char-btn"></div>
+                <div id="char-btn-15" class="game-char-btn"></div>
+            </div>
+            <div class="game-char-row">
+                <div id="char-btn-16" class="game-char-btn"></div>
+                <div id="char-btn-17" class="game-char-btn"></div>
+                <div id="char-btn-18" class="game-char-btn"></div>
+                <div id="char-btn-19" class="game-char-btn"></div>
+                <div id="char-btn-20" class="game-char-btn"></div>
+                <div id="char-btn-21" class="game-char-btn"></div>
+                <div id="char-btn-22" class="game-char-btn"></div>
+                <div id="char-btn-23" class="game-char-btn"></div>
+            </div>
+            <div class="game-char-row">
+                <div id="char-btn-24" class="game-char-btn"></div>
+                <div id="char-btn-25" class="game-char-btn"></div>
+                <div id="char-btn-26" class="game-char-btn"></div>
+                <div id="char-btn-27" class="game-char-btn"></div>
+                <div id="char-btn-28" class="game-char-btn"></div>
+                <div id="char-btn-29" class="game-char-btn"></div>
+                <div id="char-btn-30" class="game-char-btn"></div>
+                <div id="char-btn-31" class="game-char-btn"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- answer correct popup -->
+    <div data-role="popup" id="game-popup-answer-correct" data-overlay-theme="b" data-dismissible="false">
+        <p>Answer is correct, +3 Coin.</p>
+        <div>
+            <button id="game-popup-next-btn" class="ui-btn ui-btn-inline">Play Next</button>
+        </div>
+    </div>
+
+    <!-- coin not enough popup -->
+    <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <p>You do not have enough coin for this operation.<br/>Do you want to get some by exchanging gem?</p>
+        <div>
+            <button id="game-popup-coin-exchange-btn" class="ui-btn ui-btn-inline">Exchange</button>
         </div>
     </div>
 
     <!-- share popup -->
-    <div data-role="popup" id="main-popup-share" class="ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" id="game-popup-share" class="ui-content" data-overlay-theme="b" data-dismissible="false">
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <p>毎日シェアする、楽しみに3コインを獲得します。</p>
         <div class="ui-grid-c">
-            <div id="main-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
-            <div id="main-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
-            <div id="main-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
-            <div id="main-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
-        </div>
-    </div>
-
-    <!-- unlock level confirm popup -->
-    <div data-role="popup" id="main-popup-level-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>You have to pass last level in order to play this level.<br>Or you can just use one gem to unlock it.</p>
-        <div>
-            <button id="main-popup-level-unlock-btn" class="ui-btn ui-btn-inline">Unlock</button>
-        </div>
-    </div>
-
-    <!-- unlock level purchase popup -->
-    <div data-role="popup" id="main-popup-level-purchase" class="ui-content" data-overlay-theme="b" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>
-            You have to pass last level in order to play this level.<br>
-            Or you can just use one gem to unlock it.<br/>
-            You do not have enough gem now, do you want to buy some?
-        </p>
-        <div>
-            <button id="main-popup-level-purchase-btn" class="ui-btn ui-btn-inline">Buy</button>
-        </div>
-    </div>
-
-    <!-- level cannot unlock popup -->
-    <div data-role="popup" id="main-popup-level-cannot-unlock" class="ui-content" data-overlay-theme="b" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>You have to finish all levels before this one in order to unlock it.</p>
-    </div>
-
-    <!-- Exit confirm popup -->
-    <div data-role="popup" id="main-popup-exit" data-overlay-theme="b" data-dismissible="false">
-        <div role="main" class="ui-content">
-            <h3 class="ui-title">アプリを終了しますか？</h3>
-            <div class="ui-grid-a">
-                <div class="ui-block-a center">
-                    <a href="#" id="main-popup-exit-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button">はい</a>
-                </div>
-                <div class="ui-block-b center">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
-                </div>
-            </div>
+            <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
+            <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
+            <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
+            <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
         </div>
     </div>
 </div>

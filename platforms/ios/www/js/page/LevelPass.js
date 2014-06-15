@@ -3,7 +3,7 @@ CQ.Page.LevelPass = {
 
     init: function() {
         console.info('Initial level pass page');
-        this.initCommon({ header: true });
+        this.initCommon({ header: true, back: true });
     },
 
     load: function() {

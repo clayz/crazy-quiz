@@ -6,7 +6,8 @@ CQ.Page.Main = {
 
     init: function() {
         console.info('Initial main page');
-        this.initCommon({ header: true });
+        if (CQ.App.isiOS()) this.initCommon({ header: true, back: false });
+        else this.initCommon({ header: true, back: true });
 
         // initial all albums and levels
         var lastAlbumId = CQ.Datastore.getLastAlbumId();
@@ -24,7 +25,8 @@ CQ.Page.Main = {
                 (function(album, level, lastLevel) {
                     var levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
                         $levelButton = $(CQ.Id.Main.$ALBUM_LEVEL.format(album.id, level));
-                    $levelButton.css('background', "url('../www/{0}') no-repeat".format(levelPicturePath));
+                    $levelButton.css('background', 'url(../www/{0}) no-repeat'.format(levelPicturePath));
+                    $levelButton.css('background-size', '100%');
 
                     if (level <= lastLevel) {
                         $levelButton.click({ albumId: album.id, level: level }, CQ.Page.Main.clickLevel);
@@ -72,16 +74,18 @@ CQ.Page.Main = {
         $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
         $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
 
-        // exit and clear history buttons
-        $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
-            navigator.app.exitApp();
-        });
+        if (CQ.App.isAndroid()) {
+            // exit and clear history buttons
+            $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
+            $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
+                navigator.app.exitApp();
+            });
+        }
 
         // TODO test only, remove before release
         $(CQ.Id.Main.$CLEAR_HISTORY).tap(function() {
             CQ.Datastore.clear();
-            navigator.app.exitApp();
+            if (CQ.App.isAndroid()) navigator.app.exitApp();
         });
     },
 

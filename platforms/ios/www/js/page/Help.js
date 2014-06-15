@@ -3,7 +3,7 @@ CQ.Page.Help = {
 
     init: function() {
         console.info('Initial help page');
-        this.initCommon({ header: true });
+        this.initCommon({ header: true, back: true });
     },
 
     load: function() {

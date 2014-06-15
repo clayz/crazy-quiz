@@ -24,10 +24,9 @@ body {
     font-family: Arial, 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, sans-serif;
     font-size: 12px;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    background-color: #f5eda4;
 }
 
 /*******************************************************************/
@@ -166,23 +165,24 @@ p {
 .page {
     height: 100%;
     text-align: center;
+    text-shadow: none;
 }
 
 .header {
     width: 100%;
     height: 7em;
     background: url(../img/layout/header-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 .header-back {
     float: left;
-    padding: 1.3em .5em;
+    padding: 1.3em 0 0 1em;
 }
 
 .header-back-btn {
-    width: 3em;
-    height: 3em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
 .header-currency {
@@ -257,10 +257,10 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
-    height: 84%;
+    height: 85%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 #main-welcome {
@@ -285,16 +285,14 @@ p {
 }
 
 #main-album {
-    padding: 1em 2em 1em 2em;
+    padding: .5em 2em .5em 2em;
 }
 
 .main-album-level {
     display: inline-block;
     width: 6em;
     height: 6em;
-    margin: 1em 0em 1em 0em;
-    /*background: url(../img/album/default/100.jpg) no-repeat;*/
-    background-size: 100% 100%;
+    margin: 1em 0 1em 0;
 }
 
 .main-album-level-locked {
@@ -306,11 +304,11 @@ p {
 }
 
 #main-footer {
-    padding-top: 1em;
+    padding: .5em 0 .5em 0;
 }
 
 #main-footer-buttons {
-    margin: 0 4em;
+    /*margin: 0 4em;*/
 }
 
 /*******************************************************************/
@@ -320,38 +318,64 @@ p {
 
 }
 
+#game-title {
+    position: absolute;
+    width: 16em;
+    left: 50%;
+    top: 5em;
+    margin-left: -8em;
+    padding-top: 1em;
+    height: 6.5em;
+    background: url(../img/layout/game-picture-id-bg.png) no-repeat;
+    background-size: 100%;
+    z-index: 9;
+}
+
+#game-title-text {
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
 #game-body {
-    height: 84%;
+    height: 85%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
+}
+
+#game-content-div {
+    padding-top: 7.5em;
 }
 
 #game-props-left {
-    float: left;
     width: 20%;
 }
 
 #game-props-right {
-    float: right;
     width: 20%;
 }
 
-.game-props-left-btn {
-    width: 100% !important;
-    height: 30px !important;
-    padding: 1px 1px !important;
-    font-size: 12px;
+.game-props-btn {
+    padding: 1.5em 0 1em 0;
 }
 
-.game-props-right-btn {
-    width: 100% !important;
-    height: 30px !important;
-    padding: 1px 1px !important;
-    font-size: 12px;
+.game-props-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 50% !important;
 }
 
-#game-picture-div {
+.game-props-coin {
+    color: #ffffff;
+}
+
+.game-props-coin-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 30% !important;
+}
+
+#game-picture-container {
     display: inline-block;
     position: relative;
     float: left;
@@ -388,40 +412,46 @@ p {
     bottom: 0;
 }
 
-.game-props {
-    padding: 2em 0 2em 0;
-}
-
-.game-char-line-div {
-    text-align: center;
-    margin: 2px !important;
-    padding-bottom: 2px;
-}
-
-.char-btn {
-    width: 1.8em !important;
-    height: 1.8em !important;
-    padding: .1em .1em !important;
-    margin: .1em !important;
-}
-
-#game-answer-div {
+#game-answer-container {
     clear: both;
-    padding-top: 30px;
+    padding-top: 1em;
     text-align: center;
 }
 
-#game-char-div {
+.game-answer-btn {
+    display: inline-block;
+    width: 2.8em;
+    height: 2.8em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2.8em;
+    font-weight: bold;
+    background: url(../img/layout/game-answer-bg.png) no-repeat;
+    background-size: 100%;
+}
+
+#game-char-container {
     clear: both;
-    padding-top: 30px;
+    padding: .5em .5em 1em .5em;
     text-align: center;
 }
 
-.answer-btn {
-    width: 1.8em !important;
-    height: 1.8em !important;
-    padding: .1em .1em !important;
-    margin: .1em !important;
+.game-char-row {
+    text-align: center;
+    margin: 1px !important;
+    padding-bottom: 1px;
+}
+
+.game-char-btn {
+    display: inline-block;
+    width: 2.8em;
+    height: 2.8em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2.8em;
+    font-weight: bold;
+    background: url(../img/layout/game-char-bg.png) no-repeat;
+    background-size: 100%;
 }
 
 /*******************************************************************/

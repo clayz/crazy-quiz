@@ -60,7 +60,7 @@ CQ.Page.Game = {
 
         // clean and create all answer elements
         for (i = 0; i < this.answers.length; i++) {
-            var id = CQ.Id.Game.ANSWER_BTN.format(i), $id = $('#' + id).text('');
+            var id = CQ.Id.Game.ANSWER_BTN.format(i), $id = $('#' + id).text('').css('color', 'white');
 
             if (i < this.picture.name.length) {
                 var answer = {

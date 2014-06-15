@@ -1,5 +1,7 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
-    var CQ = {};
+    var CQ = {
+        device: 'iOS'
+    };
 }
 
 CQ.App = {
@@ -48,6 +50,14 @@ CQ.App = {
 
     back: function() {
         CQ.Page.get(CQ.Session.CURRENT_PAGE).back();
+    },
+
+    isiOS: function() {
+        return CQ.device == 'iOS';
+    },
+
+    isAndroid: function() {
+        return CQ.device == 'Android';
     }
 };
 
