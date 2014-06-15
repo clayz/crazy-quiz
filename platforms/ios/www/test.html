@@ -19,25 +19,29 @@
         </div>
         <div class="header-currency">
             <div class="header-gem">
-                <div class="left">
-                    <img class="header-gem-btn" src="img/icon/gem.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span class="header-gem-current">0</span>
-                </div>
-                <div class="left">
-                    <img class="header-gem-add-btn" src="img/button/currency-add.png">
+                <div class="header-currency-bg">
+                    <div class="left">
+                        <img class="header-gem-btn" src="img/icon/gem.png">
+                    </div>
+                    <div class="left header-current-currency">
+                        <span class="header-gem-current">0</span>
+                    </div>
+                    <div class="left">
+                        <img class="header-gem-add-btn" src="img/button/currency-add.png">
+                    </div>
                 </div>
             </div>
             <div class="header-coin">
-                <div class="left">
-                    <img class="header-coin-btn" src="img/icon/coin.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span class="header-coin-current">0</span>
-                </div>
-                <div class="left">
-                    <img class="header-coin-add-btn" src="img/button/currency-add.png">
+                <div class="header-currency-bg">
+                    <div class="left">
+                        <img class="header-coin-btn" src="img/icon/coin.png">
+                    </div>
+                    <div class="left header-current-currency">
+                        <span class="header-coin-current">0</span>
+                    </div>
+                    <div class="left">
+                        <img class="header-coin-add-btn" src="img/button/currency-add.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,29 +53,30 @@
 
     <!-- page body -->
     <div id="game-body">
-        <div id="game-content-div" class="ui-grid-b">
+        <div id="game-content" class="ui-grid-b">
+            <div id="game-prompt">Prompt Info</div>
+
             <!-- left site buttons -->
             <div id="game-props-left" class="ui-block-a">
                 <div id="game-getchar-btn" class="game-props-btn">
                     <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -90
+                        <div class="game-props-currency right">-90</div>
                     </div>
                 </div>
                 <div id="game-cutdown-btn" class="game-props-btn">
                     <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -30
+                        <div class="game-props-currency right">-30</div>
                     </div>
                 </div>
             </div>
             <!-- game picture -->
             <div id="game-picture-container" class="ui-block-b">
-                <div id="game-picture">
-                    <div id="game-prompt-div">Prompt Info</div>
-                    <div id="game-correct-answer">Answer</div>
+                <div id="game-picture-frame">
+                    <div id="game-picture"></div>
                 </div>
             </div>
             <!-- right site buttons -->
@@ -80,14 +85,14 @@
                     <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -30
+                        <div class="game-props-currency right">-10</div>
                     </div>
                 </div>
                 <div id="game-share-btn" class="game-props-btn">
                     <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        +3
+                        <div class="game-props-currency right">+3</div>
                     </div>
                 </div>
             </div>
@@ -95,7 +100,7 @@
 
         <!-- game answer characters -->
         <div id="game-answer-container">
-            <div id="answer-btn-0" class="game-answer-btn">a</div>
+            <div id="answer-btn-0" class="game-answer-btn"></div>
             <div id="answer-btn-1" class="game-answer-btn"></div>
             <div id="answer-btn-2" class="game-answer-btn"></div>
             <div id="answer-btn-3" class="game-answer-btn"></div>

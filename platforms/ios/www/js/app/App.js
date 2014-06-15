@@ -1,6 +1,7 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        device: 'iOS'
+        device: 'iOS',
+        dev: true
     };
 }
 
@@ -166,7 +167,7 @@ CQ.Id = {
 
         $TITLE_TEXT: '#game-title-text',
         $PICTURE: '#game-picture',
-        $PROMPT_DIV: '#game-prompt-div',
+        $PROMPT_DIV: '#game-prompt',
         $CORRECT_ANSWER: '#game-correct-answer',
 
         $POPUP_ANSWER_CORRECT: '#game-popup-answer-correct',
