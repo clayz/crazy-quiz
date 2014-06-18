@@ -6,6 +6,11 @@ CQ.Datastore = {
         return window.localStorage.getItem(key);
     },
 
+    getBoolean: function(key) {
+        var value = this.get(key);
+        return value && (value == 'true');
+    },
+
     getObject: function(key) {
         var value = this.get(key);
         return value && JSON.parse(value);
@@ -15,8 +20,12 @@ CQ.Datastore = {
         window.localStorage.setItem(key, value);
     },
 
+    setBoolean: function(key, value) {
+        this.set(key, value ? 'true' : 'false');
+    },
+
     setObject: function(key, value) {
-        window.localStorage.setItem(key, JSON.stringify(value));
+        this.set(key, JSON.stringify(value));
     },
 
     remove: function(key) {
@@ -29,10 +38,7 @@ CQ.Datastore = {
 
     Key: {
         USERNAME: 'USERNAME',
-
-        LAST_ALBUM: 'ALBUM',
-        LAST_LEVEL: 'LEVEL_{0}',
-        LAST_PICTURE: 'PICTURE_{0}_{1}',
+        AUDIO_ENABLED: 'AUDIO_ENABLED',
 
         ACCOUNT: 'ACCOUNT',
         EARN_HISTORY: 'EARN_HISTORY',
@@ -40,11 +46,14 @@ CQ.Datastore = {
         PURCHASE_HISTORY: 'PURCHASE_HISTORY',
         EXCHANGE_HISTORY: 'EXCHANGE_HISTORY',
 
+        LAST_ALBUM: 'ALBUM',
+        LAST_LEVEL: 'LEVEL_{0}',
+        LAST_PICTURE: 'PICTURE_{0}_{1}',
         LAST_SHARE_DATE: 'LAST_SHARE_DATE'
     },
 
     /**
-     * User module data storage.
+     * User and setting module data storage.
      */
     getUsername: function() {
         return this.get(this.Key.USERNAME);
@@ -52,6 +61,14 @@ CQ.Datastore = {
 
     setUsername: function(username) {
         this.set(this.Key.USERNAME, username);
+    },
+
+    isAudioEnabled: function() {
+        this.getBoolean(this.Key.AUDIO_ENABLED);
+    },
+
+    setAudioEnabled: function(isEnabled) {
+        this.setBoolean(this.Key.AUDIO_ENABLED, isEnabled);
     },
 
     /**
