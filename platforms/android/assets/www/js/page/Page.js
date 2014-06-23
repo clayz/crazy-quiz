@@ -66,9 +66,13 @@ CQ.Page = {
             $('#' + name).prepend($('{0} {1}'.format(CQ.Id.$SCRATCH, CQ.Id.CSS.$HEADER)).clone());
 
         // header buttons
-        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK), function() {
-            page.back();
-        }, CQ.Id.Image.HEADER_BACK_TAP, CQ.Id.Image.HEADER_BACK);
+        if (config && config.back) {
+            this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK), function() {
+                page.back();
+            }, CQ.Id.Image.HEADER_BACK_TAP, CQ.Id.Image.HEADER_BACK);
+        } else {
+            $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).hide();
+        }
 
         this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
             page.open(CQ.Page.Purchase);
@@ -132,8 +136,10 @@ CQ.Page = {
     bindTouchBackground: function(element, touchstartImg, touchendImg) {
         element.bind('touchstart', function() {
             $(this).css('background', 'url(../www/{0}) no-repeat'.format(touchstartImg));
+            $(this).css('background-size', '100%');
         }).bind('touchend', function() {
             $(this).css('background', 'url(../www/{0}) no-repeat'.format(touchendImg));
+            $(this).css('background-size', '100%');
         });
     }
 };

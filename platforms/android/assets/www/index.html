@@ -43,9 +43,6 @@
 <!-- Loading Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="loading" class="page">
-    <div class="app center">
-        <h1>Welcome<br/>Crazy Quiz</h1>
-    </div>
 </div>
 
 <!------------------------------------------------------------------>
@@ -77,15 +74,11 @@
         <!-- album info -->
         <div id="main-album-container">
             <div id="main-album-header" class="ui-grid-b">
-                <div id="main-album-previous" class="ui-block-a">
-                    <button id="main-album-previous-btn" class="ui-btn ui-btn-inline"><</button>
-                </div>
+                <div id="main-album-previous" class="ui-block-a"></div>
                 <div id="main-album-title" class="ui-block-b">
-                    <h1 id="main-album-name"></h1>
+                    <span id="main-album-name"></span>
                 </div>
-                <div id="main-album-next" class="ui-block-c">
-                    <button id="main-album-next-btn" class="ui-btn ui-btn-inline">></button>
-                </div>
+                <div id="main-album-next" class="ui-block-c"></div>
             </div>
 
             <div id="main-album">
@@ -109,50 +102,6 @@
                         <div id="main-album1-level6" class="main-album-level"></div>
                     </div>
                 </div>
-
-                <div id="main-album2" class="ui-grid-b hidden">
-                    <div class="ui-block-a">
-                        <div id="main-album2-level1" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div id="main-album2-level2" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-c">
-                        <div id="main-album2-level3" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-a">
-                        <div id="main-album2-level4" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div id="main-album2-level5" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-c">
-                        <div id="main-album2-level6" class="main-album-level"></div>
-                    </div>
-                </div>
-                <div id="main-album2-locked" class="hidden">Test album is locked</div>
-
-                <div id="main-album3" class="ui-grid-b hidden">
-                    <div class="ui-block-a">
-                        <div id="main-album3-level1" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div id="main-album3-level2" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-c">
-                        <div id="main-album3-level3" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-a">
-                        <div id="main-album3-level4" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div id="main-album3-level5" class="main-album-level"></div>
-                    </div>
-                    <div class="ui-block-c">
-                        <div id="main-album3-level6" class="main-album-level"></div>
-                    </div>
-                </div>
-                <div id="main-album3-locked" class="hidden">Test 2 album is locked</div>
 
                 <div id="main-album-more" class="hidden">
                     Please waiting for more albums
@@ -274,29 +223,32 @@
 
     <!-- page body -->
     <div id="game-body">
-        <div id="game-content-div" class="ui-grid-b">
+        <div id="game-content" class="ui-grid-b">
+            <div id="game-prompt"></div>
+
             <!-- left site buttons -->
             <div id="game-props-left" class="ui-block-a">
                 <div id="game-getchar-btn" class="game-props-btn">
                     <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -90
+                        <div class="game-props-currency right">-90</div>
                     </div>
                 </div>
                 <div id="game-cutdown-btn" class="game-props-btn">
                     <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -30
+                        <div class="game-props-currency right">-30</div>
                     </div>
                 </div>
             </div>
             <!-- game picture -->
             <div id="game-picture-container" class="ui-block-b">
                 <div id="game-picture">
-                    <div id="game-prompt-div">Prompt Info</div>
-                    <div id="game-correct-answer">Answer</div>
+                    <div id="game-picture-frame">
+                        <div id="game-correct-answer">Answer</div>
+                    </div>
                 </div>
             </div>
             <!-- right site buttons -->
@@ -305,14 +257,14 @@
                     <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -30
+                        <div class="game-props-currency right">-10</div>
                     </div>
                 </div>
                 <div id="game-share-btn" class="game-props-btn">
                     <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        +3
+                        <div class="game-props-currency right">+10</div>
                     </div>
                 </div>
             </div>
@@ -504,25 +456,29 @@
         </div>
         <div class="header-currency">
             <div class="header-gem">
-                <div class="left">
-                    <img class="header-gem-btn" src="img/icon/gem.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span class="header-gem-current">0</span>
-                </div>
-                <div class="left">
-                    <img class="header-gem-add-btn" src="img/button/currency-add.png">
+                <div class="header-currency-bg">
+                    <div class="left">
+                        <img class="header-gem-btn" src="img/icon/gem.png">
+                    </div>
+                    <div class="left header-current-currency">
+                        <span class="header-gem-current">0</span>
+                    </div>
+                    <div class="left">
+                        <img class="header-gem-add-btn" src="img/button/currency-add.png">
+                    </div>
                 </div>
             </div>
             <div class="header-coin">
-                <div class="left">
-                    <img class="header-coin-btn" src="img/icon/coin.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span class="header-coin-current">0</span>
-                </div>
-                <div class="left">
-                    <img class="header-coin-add-btn" src="img/button/currency-add.png">
+                <div class="header-currency-bg">
+                    <div class="left">
+                        <img class="header-coin-btn" src="img/icon/coin.png">
+                    </div>
+                    <div class="left header-current-currency">
+                        <span class="header-coin-current">0</span>
+                    </div>
+                    <div class="left">
+                        <img class="header-coin-add-btn" src="img/button/currency-add.png">
+                    </div>
                 </div>
             </div>
         </div>

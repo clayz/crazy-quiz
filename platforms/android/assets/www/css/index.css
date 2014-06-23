@@ -24,10 +24,9 @@ body {
     font-family: Arial, 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, sans-serif;
     font-size: 12px;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    background-color: #f5eda4;
 }
 
 /*******************************************************************/
@@ -166,64 +165,74 @@ p {
 .page {
     height: 100%;
     text-align: center;
+    text-shadow: none;
+    background-color: #f5eda4;
 }
 
 .header {
     width: 100%;
-    height: 7.5em;
+    height: 7em;
     background: url(../img/layout/header-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 .header-back {
     float: left;
-    padding: .8em;
+    padding: 1.3em 0 0 1em;
 }
 
 .header-back-btn {
-    width: 4em;
-    height: 4em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
 .header-currency {
     float: right;
-    padding: 1.3em .5em;
+    padding: 1.6em .5em;
 }
 
 .header-gem {
-    display: inline;
+    display: inline-block;
 }
 
 .header-gem-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .header-gem-add-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .header-coin {
-    display: inline;
-}
-
-.header-coin-btn {
-    width: 3em;
-    height: 3em;
+    display: inline-block;
     padding-left: 1em;
 }
 
+.header-coin-btn {
+    width: 2.5em;
+    height: 2.5em;
+}
+
 .header-coin-add-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .header-current-currency {
-    width: 4em;
+    width: 3.5em;
     color: #FFFFFF;
     text-align: center;
-    margin-top: 1em;
+    margin-top: .7em;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.header-currency-bg {
+    display: inline-block;
+    background: url(../img/layout/header-currency-bg.png) no-repeat center;
+    background-size: 70% 80%;
 }
 
 .body {
@@ -233,6 +242,15 @@ p {
 .popup-share-btn {
     width: 4.5em;
     height: 4.5em;
+}
+
+/*******************************************************************/
+/* Loading Page */
+/*******************************************************************/
+
+#loading {
+    background: url(../img/layout/loading-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 /*******************************************************************/
@@ -264,12 +282,13 @@ p {
 }
 
 #main-welcome {
-    height: 10em;
+    height: 8em;
 }
 
 #main-album-container {
-    margin: 0 2em;
-    background-color: #bababa;
+    margin: 0 .5em;
+    background: url(../img/layout/main-album-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 #main-album-previous {
@@ -278,6 +297,10 @@ p {
 
 #main-album-title {
     width: 60%;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding-top: 2em;
+    font-size: .5em;
 }
 
 #main-album-next {
@@ -285,16 +308,14 @@ p {
 }
 
 #main-album {
-    padding: 1em 2em 1em 2em;
+    padding: .5em 2em .5em 2em;
 }
 
 .main-album-level {
     display: inline-block;
     width: 6em;
     height: 6em;
-    margin: 1em 0em 1em 0em;
-    /*background: url(../img/album/default/100.jpg) no-repeat;*/
-    background-size: 100% 100%;
+    margin: 1em 0 1em 0;
 }
 
 .main-album-level-locked {
@@ -306,11 +327,11 @@ p {
 }
 
 #main-footer {
-    padding-top: 1em;
+    padding: .5em 0 .5em 0;
 }
 
 #main-footer-buttons {
-    margin: 0 4em;
+    /*margin: 0 4em;*/
 }
 
 /*******************************************************************/
@@ -322,14 +343,14 @@ p {
 
 #game-title {
     position: absolute;
-    width: 16em;
+    width: 13em;
     left: 50%;
     top: 5em;
-    margin-left: -8em;
-    padding-top: 1em;
-    height: 6.5em;
+    margin-left: -6.5em;
+    padding-top: .5em;
+    height: 5.5em;
     background: url(../img/layout/game-picture-id-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
     z-index: 9;
 }
 
@@ -338,52 +359,78 @@ p {
     font-size: 2.5em;
 }
 
+#game-prompt {
+    position: absolute;
+    width: 10em;
+    left: 50%;
+    top: 10.8em;
+    margin-left: -3em;
+    padding-top: 1em;
+    height: 3em;
+    color: #FFFFFF;
+    font-weight: bold;
+    background: url(../img/layout/game-prompt-frame.png) no-repeat;
+    background-size: 100%;
+    z-index: 9;
+}
+
 #game-body {
     height: 85%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
-#game-content-div {
-    padding-top: 7.5em;
+#game-content {
+    padding-top: 5.5em;
 }
 
 #game-props-left {
-    width: 20%;
+    width: 16%;
+    padding-left: .3em;
 }
 
 #game-props-right {
-    width: 20%;
+    width: 16%;
+    padding-right: .3em;
 }
 
 .game-props-btn {
-    padding: 2em 0 1em 0;
+    padding: 1.5em 0 1em 0;
 }
 
 .game-props-img {
     max-width: 100%;
     max-height: 100%;
-    width: 50% !important;
+    width: 80% !important;
 }
 
 .game-props-coin {
+    display: inline-block;
+    text-align: left;
+    margin-top: .5em;
+    padding-left: .1em;
     color: #ffffff;
+    background: url(../img/layout/header-currency-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 .game-props-coin-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 30% !important;
+    width: 50%;
+}
+
+.game-props-currency {
+    font-weight: bold;
+    padding-top: .3em;
 }
 
 #game-picture-container {
     display: inline-block;
     position: relative;
     float: left;
-    width: 60%;
+    width: 68%;
     height: 0;
-    padding-bottom: 60%;
+    padding-bottom: 68%;
     text-align: center;
     margin: auto;
 }
@@ -395,15 +442,19 @@ p {
     bottom: 0;
     right: 0;
     background: url(../img/album/default/100.jpg) no-repeat;
-    background-size: contain;
+    background-size: 90% 90%;
+    background-position: center .3em;
 }
 
-#game-prompt-div {
-    margin: auto;
-    background: #FFFFFF;
-    color: #000000;
-    width: 50%;
-    display: none;
+#game-picture-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../img/layout/game-img-frame.png) no-repeat;
+    background-size: 100%;
+    z-index: 8;
 }
 
 #game-correct-answer {
@@ -416,43 +467,44 @@ p {
 
 #game-answer-container {
     clear: both;
-    padding-top: 1em;
     text-align: center;
+    padding-bottom: .5em;
 }
 
 .game-answer-btn {
     display: inline-block;
-    width: 3em;
-    height: 3em;
+    width: 2.8em;
+    height: 2.8em;
     text-align: center;
     vertical-align: middle;
-    line-height: 3em;
-    color: #ffffff;
+    line-height: 2.8em;
+    font-weight: bold;
     background: url(../img/layout/game-answer-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 #game-char-container {
     clear: both;
-    padding: 1em .5em 1em .5em;
+    padding: .5em .5em 1em .5em;
     text-align: center;
 }
 
 .game-char-row {
     text-align: center;
-    margin: 2px !important;
-    padding-bottom: 2px;
+    margin: 1px !important;
+    padding-bottom: 1px;
 }
 
 .game-char-btn {
     display: inline-block;
-    width: 3em;
-    height: 3em;
+    width: 2.8em;
+    height: 2.8em;
     text-align: center;
     vertical-align: middle;
-    line-height: 3em;
+    line-height: 2.8em;
+    font-weight: bold;
     background: url(../img/layout/game-char-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 /*******************************************************************/

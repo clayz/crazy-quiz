@@ -275,7 +275,7 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
-    height: 85%;
+    height: 84%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
@@ -289,6 +289,7 @@ p {
     margin: 0 .5em;
     background: url(../img/layout/main-album-bg.png) no-repeat;
     background-size: 100% 100%;
+    text-align: center;
 }
 
 #main-album-previous {
@@ -299,8 +300,8 @@ p {
     width: 60%;
     color: #FFFFFF;
     font-weight: bold;
-    padding-top: 2em;
-    font-size: .5em;
+    padding-top: 1.2em;
+    font-size: 1.2em;
 }
 
 #main-album-next {
@@ -313,8 +314,8 @@ p {
 
 .main-album-level {
     display: inline-block;
-    width: 6em;
-    height: 6em;
+    width: 6.5em;
+    height: 6.5em;
     margin: 1em 0 1em 0;
 }
 
@@ -324,6 +325,31 @@ p {
     -khtml-opacity: 0.3; /* khtml, old safari */
     -moz-opacity: 0.3; /* mozilla, netscape */
     opacity: 0.3;
+}
+
+#main-album-paging {
+    margin: auto;
+    width: 3em;
+    height: 3em;
+}
+
+.main-album-paging-on {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.main-album-paging-off {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.main-album-paging-img {
+    width: 1em;
+    height: 1em;
 }
 
 #main-footer {
@@ -337,10 +363,6 @@ p {
 /*******************************************************************/
 /* Game page */
 /*******************************************************************/
-#game {
-
-}
-
 #game-title {
     position: absolute;
     width: 13em;
@@ -375,10 +397,10 @@ p {
 }
 
 #game-body {
-    height: 85%;
+    height: 84%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 #game-content {

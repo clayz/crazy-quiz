@@ -1,5 +1,5 @@
 CQ.Album = {
-    TOTAL_ALBUM: 3,
+    TOTAL_ALBUM: 1,
 
     Category: {
         Film: { id: 1, name: '映画' },
