@@ -245,6 +245,15 @@ p {
 }
 
 /*******************************************************************/
+/* Loading Page */
+/*******************************************************************/
+
+#loading {
+    background: url(../img/layout/loading-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+/*******************************************************************/
 /* Index Page */
 /*******************************************************************/
 #index-start-btn {
@@ -269,16 +278,17 @@ p {
     height: 85%;
     margin: 0 .5em 0 .5em;
     background: url(../img/layout/game-bg.png) no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 #main-welcome {
-    height: 10em;
+    height: 8em;
 }
 
 #main-album-container {
-    margin: 0 2em;
-    background-color: #bababa;
+    margin: 0 .5em;
+    background: url(../img/layout/main-album-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 #main-album-previous {
@@ -287,6 +297,10 @@ p {
 
 #main-album-title {
     width: 60%;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding-top: 2em;
+    font-size: .5em;
 }
 
 #main-album-next {

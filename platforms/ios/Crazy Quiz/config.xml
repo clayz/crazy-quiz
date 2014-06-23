@@ -67,8 +67,8 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="http://127.0.0.1*" />
-    <access origin="http://*.google-analytics.com"/>
-    <access origin="https://*.google-analytics.com"/>
+    <access origin="http://*.google-analytics.com" />
+    <access origin="https://*.google-analytics.com" />
     <feature name="GAPlugin">
         <param name="ios-package" value="GAPlugin" />
     </feature>
