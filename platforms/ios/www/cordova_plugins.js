@@ -29,6 +29,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
+        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
+        "clobbers": [
+            "analytics"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -182,6 +189,7 @@ module.exports.metadata =
     "com.smartmobilesoftware.inappbilling": "3.0.0",
     "nl.x-services.plugins.socialsharing": "4.0.8",
     "org.apache.cordova.media": "0.2.11",
+    "com.danielcwilson.plugins.googleanalytics": "0.5.0",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

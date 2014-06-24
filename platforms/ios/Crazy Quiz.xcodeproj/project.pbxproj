@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -55,6 +54,9 @@
 		E525A99519486C7F00CC4099 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99419486C7F00CC4099 /* AdSupport.framework */; };
 		E525A99719486C8D00CC4099 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99619486C8D00CC4099 /* CoreData.framework */; };
 		E525A99919486C9800CC4099 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99819486C9800CC4099 /* SystemConfiguration.framework */; };
+		64F5593A0BD94CBEA799BDB0 /* UniversalAnalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F554C4864814197BE161EBF /* UniversalAnalyticsPlugin.m */; };
+		3BEE10FAB8814A92AEFB1D7B /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */; };
+		C3EFDA0352E14D7287A8A84F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E79CC7B8A5A74870B62829A5 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,16 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Crazy Quiz/config.xml"; sourceTree = "<group>"; };
+		0F554C4864814197BE161EBF /* UniversalAnalyticsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UniversalAnalyticsPlugin.m"; path = "com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGoogleAnalyticsServices.a"; path = "Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		76451A357D2249D69DE6169D /* UniversalAnalyticsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UniversalAnalyticsPlugin.h"; path = "com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6F350B213F6D43CA83F9526B /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GAIDictionaryBuilder.h"; path = "com.danielcwilson.plugins.googleanalytics/GAIDictionaryBuilder.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		1E56239E102C4CD89C3B2609 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GAIFields.h"; path = "com.danielcwilson.plugins.googleanalytics/GAIFields.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		AC29FCE47DF04B6ABE77AFA9 /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GAILogger.h"; path = "com.danielcwilson.plugins.googleanalytics/GAILogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		8FC6E631879A4800884E2A11 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GAITrackedViewController.h"; path = "com.danielcwilson.plugins.googleanalytics/GAITrackedViewController.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		B54AB7C742C5456D801545BD /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GAI.h"; path = "com.danielcwilson.plugins.googleanalytics/GAI.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		748E74DC1EC448C7BCA5B4C2 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GAITracker.h"; path = "com.danielcwilson.plugins.googleanalytics/GAITracker.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		E79CC7B8A5A74870B62829A5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsqlite3.0.dylib"; path = "usr/lib/libsqlite3.0.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +181,8 @@
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
 				DB8E1CFE4A12411FB5812492 /* Social.framework in Frameworks */,
 				31108BA8DBF5430FA4B946EF /* MessageUI.framework in Frameworks */,
+				3BEE10FAB8814A92AEFB1D7B /* libGoogleAnalyticsServices.a in Frameworks */,
+				C3EFDA0352E14D7287A8A84F /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +291,8 @@
 				B9AB96EC1C544C7CBCDBA981 /* GoogleAnalytics.a */,
 				3CE48C5FC57844DCACAD4C63 /* Social.framework */,
 				32D9791FFB934C8D9FBD5E92 /* MessageUI.framework */,
+				1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */,
+				E79CC7B8A5A74870B62829A5 /* libsqlite3.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +317,14 @@
 				825C154AC9FB4784A2BD05EA /* GAPlugin.h */,
 				92F25D79E9C44507A05DB29E /* SocialSharing.m */,
 				93B3B37074B9431A9E9C08CD /* SocialSharing.h */,
+				0F554C4864814197BE161EBF /* UniversalAnalyticsPlugin.m */,
+				76451A357D2249D69DE6169D /* UniversalAnalyticsPlugin.h */,
+				6F350B213F6D43CA83F9526B /* GAIDictionaryBuilder.h */,
+				1E56239E102C4CD89C3B2609 /* GAIFields.h */,
+				AC29FCE47DF04B6ABE77AFA9 /* GAILogger.h */,
+				8FC6E631879A4800884E2A11 /* GAITrackedViewController.h */,
+				B54AB7C742C5456D801545BD /* GAI.h */,
+				748E74DC1EC448C7BCA5B4C2 /* GAITracker.h */,
 			);
 			name = Plugins;
 			path = "Crazy Quiz/Plugins";
@@ -497,6 +521,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				7DC7B2181DDF4AF5AF9D993A /* GAPlugin.m in Sources */,
 				7DEB27BE26C04A418E875601 /* SocialSharing.m in Sources */,
+				64F5593A0BD94CBEA799BDB0 /* UniversalAnalyticsPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +589,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.adobe.plugins.GAPlugin\"",
 					/Users/a12977/Downloads/GoogleAnalyticsServicesiOS_3.07,
+					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics\"",
 				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -600,6 +626,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.adobe.plugins.GAPlugin\"",
 					/Users/a12977/Downloads/GoogleAnalyticsServicesiOS_3.07,
+					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics\"",
 				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
