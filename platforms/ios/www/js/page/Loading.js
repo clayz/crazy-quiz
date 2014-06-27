@@ -17,7 +17,7 @@ CQ.Page.Loading = {
     },
 
     back: function() {
-        if (CQ.App.isAndroid())
+        if (CQ.App.android())
             navigator.app.exitApp();
     }
 };

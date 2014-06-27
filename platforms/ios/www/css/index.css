@@ -285,11 +285,28 @@ p {
     height: 8em;
 }
 
+#main-welcome-logo {
+    width: 7em;
+    height: 9em;
+    margin-left: 1em;
+    background: url(../img/layout/main-logo.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#main-welcome-text {
+    /*background: url(../img/layout/main) no-repeat;*/
+    /*background-size: 100% 100%;*/
+}
+
 #main-album-container {
-    margin: 0 .5em;
+    position: absolute;
+    width: 92%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     background: url(../img/layout/main-album-bg.png) no-repeat;
     background-size: 100% 100%;
-    text-align: center;
 }
 
 #main-album-previous {
@@ -353,11 +370,17 @@ p {
 }
 
 #main-footer {
-    padding: .5em 0 .5em 0;
+    position: absolute;
+    padding: .5em 0 2em 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    clear: both;
 }
 
-#main-footer-buttons {
-    /*margin: 0 4em;*/
+#main-share-btn {
+    /*background: url(../img/layout/main-) no-repeat;*/
+    /*background-size: 100% 100%;*/
 }
 
 /*******************************************************************/

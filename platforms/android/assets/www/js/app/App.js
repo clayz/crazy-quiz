@@ -52,11 +52,11 @@ CQ.App = {
         CQ.Page.get(CQ.Session.CURRENT_PAGE).back();
     },
 
-    isiOS: function() {
+    iOS: function() {
         return CQ.device == 'iOS';
     },
 
-    isAndroid: function() {
+    android: function() {
         return CQ.device == 'Android';
     }
 };

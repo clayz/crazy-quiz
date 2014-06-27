@@ -6,7 +6,8 @@ CQ.Page.Main = {
 
     init: function() {
         console.info('Initial main page');
-        if (CQ.App.isiOS()) this.initCommon({ header: true, back: false });
+
+        if (CQ.App.iOS()) this.initCommon({ header: true, back: false });
         else this.initCommon({ header: true, back: true });
 
         // initial all albums and levels
@@ -74,7 +75,7 @@ CQ.Page.Main = {
         $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
         $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
 
-        if (CQ.App.isAndroid()) {
+        if (CQ.App.android()) {
             // exit and clear history buttons
             $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
             $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
@@ -85,7 +86,7 @@ CQ.Page.Main = {
         // TODO test only, remove before release
         $(CQ.Id.Main.$CLEAR_HISTORY).tap(function() {
             CQ.Datastore.clear();
-            if (CQ.App.isAndroid()) navigator.app.exitApp();
+            if (CQ.App.android()) navigator.app.exitApp();
         });
     },
 

@@ -1,6 +1,6 @@
 CQ.GA = {
     trackingId: 'UA-50843267-1',
-//    gaPlugin: null,
+    gaPlugin: null,
 
     Page: {
         Picture: 'Album {0} - Picture {1}'
@@ -43,20 +43,27 @@ CQ.GA = {
     },
 
     init: function() {
-        analytics.startTrackerWithId(this.trackingId);
-//        this.gaPlugin = window.plugins.gaPlugin;
-//        this.gaPlugin.init(CQ.GA.successHandler, CQ.GA.errorHandler, CQ.GA.trackingId, 10);
+        if (CQ.App.iOS()) {
+            analytics.startTrackerWithId(this.trackingId);
+        } else if (CQ.App.android()) {
+            this.gaPlugin = window.plugins.gaPlugin;
+            this.gaPlugin.init(CQ.GA.successHandler, CQ.GA.errorHandler, CQ.GA.trackingId, 10);
+        }
     },
 
     trackPage: function(page) {
-//        if (!this.gaPlugin) {
-//            console.error('Google analytics instance is not initialized.');
-//            return;
-//        }
-
         console.info('Tracking page: {0}'.format(page));
-        analytics.trackView(CQ.Utils.getCapitalName(page));
-//        this.gaPlugin.trackPage(this.nativePluginResultHandler, this.nativePluginErrorHandler, CQ.Utils.getCapitalName(page));
+
+        if (CQ.App.iOS()) {
+            analytics.trackView(CQ.Utils.getCapitalName(page));
+        } else if (CQ.App.android()) {
+            if (!this.gaPlugin) {
+                console.error('Google analytics instance is not initialized.');
+                return;
+            }
+
+            this.gaPlugin.trackPage(this.nativePluginResultHandler, this.nativePluginErrorHandler, CQ.Utils.getCapitalName(page));
+        }
     },
 
     track: function(action, label, value) {
@@ -64,34 +71,37 @@ CQ.GA = {
     },
 
     trackEvent: function(category, action, label, value) {
-//        if (!this.gaPlugin) {
-//            console.error('Google analytics instance is not initialized.');
-//            return;
-//        }
-
         if (!label) label = '';
         if (!value) value = 1;
-
         console.info('Tracking event, category: {0}, action: {1}, label: {2}, value: {3}'.format(category, action, label, value));
-        analytics.trackEvent(category, action, label, value);
-//        this.gaPlugin.trackEvent(this.nativePluginResultHandler, this.nativePluginErrorHandler, category, action, label, value);
+
+        if (CQ.App.iOS()) {
+            analytics.trackEvent(category, action, label, value);
+        } else if (CQ.App.android()) {
+            if (!this.gaPlugin) {
+                console.error('Google analytics instance is not initialized.');
+                return;
+            }
+
+            this.gaPlugin.trackEvent(this.nativePluginResultHandler, this.nativePluginErrorHandler, category, action, label, value);
+        }
+    },
+
+    successHandler: function() {
+        console.info('Google analytics initial success');
+    },
+
+    errorHandler: function() {
+        console.error('Google analytics initial failed');
+    },
+
+    nativePluginResultHandler: function() {
+        console.info('Send GA tracking info success');
+    },
+
+    nativePluginErrorHandler: function() {
+        console.error('Send GA tracking info failed');
     }
-//
-//    successHandler: function() {
-//        console.info('Google analytics initial success');
-//    },
-//
-//    errorHandler: function() {
-//        console.error('Google analytics initial failed');
-//    },
-//
-//    nativePluginResultHandler: function() {
-//        console.info('Send GA tracking info success');
-//    },
-//
-//    nativePluginErrorHandler: function() {
-//        console.error('Send GA tracking info failed');
-//    }
 };
 
 CQ.App.register(CQ.GA);

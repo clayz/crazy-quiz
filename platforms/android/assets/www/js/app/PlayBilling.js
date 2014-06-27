@@ -70,4 +70,6 @@ CQ.PlayBilling = {
     }
 };
 
-CQ.App.register(CQ.PlayBilling);
+if (CQ.App.android()) {
+    CQ.App.register(CQ.PlayBilling);
+}
