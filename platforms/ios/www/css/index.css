@@ -337,25 +337,74 @@ p {
 #main-album-next-btn {
     width: 2.5em;
     height: 2.8em;
-    padding: 1.2em .5em 0 0;
+    padding: 1.3em .5em 0 0;
 }
 
 #main-album {
     padding: .5em 2em .5em 2em;
 }
 
-.main-album-level {
+.main-level-cover {
+    position: relative;
     display: inline-block;
-    width: 6.5em;
-    height: 6.5em;
-    margin: 1em 0 1em 0;
 }
 
-.main-album-level-locked {
+.main-level {
+    position: relative;
+    display: inline-block;
+    width: 6.2em;
+    height: 6.2em;
+    border: 2px solid #222222;
+    border-radius: 5px;
+}
+
+.main-level-lock {
+    position: absolute;
+    bottom: .1em;
+    right: .1em;
+    width: 2em;
+    height: 2.5em;
+    background: url(../img/icon/album-lock.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+.main-level-status {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding-right: .3em;
+    z-index: 10;
+}
+
+.main-level-status-bg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.3;
+    border-radius: 3px;
+    z-index: 5;
+    width: 3.6em;
+    height: 1.5em;
+}
+
+.main-level-name {
+    display: inline-block;
+    width: 6.2em;
+    height: 1.5em;
+    line-height: 1.5em;
+    color: #FFFFFF;
+    margin: .2em 0 .8em 0;
+    background-color: #b03911;
+    border-radius: 3px;
+}
+
+.main-level-locked {
     z-index: 1 !important;
     background-color: black;
-    -khtml-opacity: 0.3; /* khtml, old safari */
-    -moz-opacity: 0.3; /* mozilla, netscape */
     opacity: 0.3;
 }
 

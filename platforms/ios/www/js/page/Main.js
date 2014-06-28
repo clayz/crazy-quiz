@@ -25,18 +25,24 @@ CQ.Page.Main = {
             for (var level = 1; level <= album.levels; level++) {
                 (function(album, level, lastLevel) {
                     var levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
+                        lastPictureId = CQ.Datastore.getLastPictureId(album.id, level),
+                        lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0,
                         $levelButton = $(CQ.Id.Main.$ALBUM_LEVEL.format(album.id, level));
+
                     $levelButton.css('background', 'url(../www/{0}) no-repeat'.format(levelPicturePath));
                     $levelButton.css('background-size', '100%');
 
                     if (level <= lastLevel) {
                         $levelButton.click({ albumId: album.id, level: level }, CQ.Page.Main.clickLevel);
+                        $(CQ.Id.Main.$ALBUM_LEVEL_LOCK.format(album.id, level)).hide();
+
+                        // display finished and total picture info
+                        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).show();
+                        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS_TEXT.format(album.id, level)).html("{0} / 20".format(lastPictureIndex));
                     } else if (level == (lastLevel + 1)) {
-                        $levelButton.addClass(CQ.Id.CSS.MAIN_ALBUM_LEVEL_LOCKED)
-                            .click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
                     } else {
-                        $levelButton.addClass(CQ.Id.CSS.MAIN_ALBUM_LEVEL_LOCKED)
-                            .click(CQ.Page.Main.clickUnlockDisableLevel);
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click(CQ.Page.Main.clickUnlockDisableLevel);
                     }
                 })(album, level, lastLevel);
             }
@@ -125,7 +131,7 @@ CQ.Page.Main = {
         // change level style and events
         $(CQ.Id.Main.$ALBUM_LEVEL.format(albumId, level))
             .unbind('click')
-            .removeClass(CQ.Id.CSS.MAIN_ALBUM_LEVEL_LOCKED)
+            .removeClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED)
             .click({ albumId: albumId, level: level }, CQ.Page.Main.clickLevel);
 
         // change next level events

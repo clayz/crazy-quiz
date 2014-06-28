@@ -96,8 +96,8 @@ CQ.Id = {
 
         MAIN_ALBUM_LEVEL: 'main-album-level',
         $MAIN_ALBUM_LEVEL: '.main-album-level',
-        MAIN_ALBUM_LEVEL_LOCKED: 'main-album-level-locked',
-        $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked'
+        MAIN_LEVEL_LOCKED: 'main-level-locked',
+        $MAIN_LEVEL_LOCKED: '.main-level-locked'
     },
 
     Image: {
@@ -135,9 +135,13 @@ CQ.Id = {
     Main: {
         $ALBUM: '#main-album',
         $ALBUM_LEVEL: '#main-album{0}-level{1}',
+        $ALBUM_LEVEL_LOCK: '#main-album{0}-level{1}-lock',
+        $ALBUM_LEVEL_STATUS: '#main-album{0}-level{1}-status',
+        $ALBUM_LEVEL_STATUS_TEXT: '#main-album{0}-level{1}-status > .main-level-status',
         $ALBUM_EACH: '#main-album{0}',
         $ALBUM_EACH_LOCKED: '#main-album{0}-locked',
         $ALBUM_NAME: '#main-album-name',
+
         $ALBUM_MORE: '#main-album-more',
 
         $SHARE: '#main-share-btn',
