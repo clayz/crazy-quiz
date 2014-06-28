@@ -27,11 +27,11 @@ CQ.Audio = {
 };
 
 CQ.Audio.Button = {
-    file: '/android_asset/www/audio/button.wav'
+    file: 'audio/button.wav'
 };
 
 CQ.Audio.GameChar = {
-    file: '/android_asset/www/audio/game_char.wav'
+    file: 'audio/audio/game_char.wav'
 };
 
 CQ.App.inherits(CQ.Audio.Button, CQ.Audio);

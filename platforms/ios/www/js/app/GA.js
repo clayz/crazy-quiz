@@ -1,6 +1,5 @@
 CQ.GA = {
     trackingId: 'UA-50843267-1',
-    gaPlugin: null,
 
     Page: {
         Picture: 'Album {0} - Picture {1}'
@@ -43,27 +42,12 @@ CQ.GA = {
     },
 
     init: function() {
-        if (CQ.App.iOS()) {
-            analytics.startTrackerWithId(this.trackingId);
-        } else if (CQ.App.android()) {
-            this.gaPlugin = window.plugins.gaPlugin;
-            this.gaPlugin.init(CQ.GA.successHandler, CQ.GA.errorHandler, CQ.GA.trackingId, 10);
-        }
+        analytics.startTrackerWithId(this.trackingId);
     },
 
     trackPage: function(page) {
         console.info('Tracking page: {0}'.format(page));
-
-        if (CQ.App.iOS()) {
-            analytics.trackView(CQ.Utils.getCapitalName(page));
-        } else if (CQ.App.android()) {
-            if (!this.gaPlugin) {
-                console.error('Google analytics instance is not initialized.');
-                return;
-            }
-
-            this.gaPlugin.trackPage(this.nativePluginResultHandler, this.nativePluginErrorHandler, CQ.Utils.getCapitalName(page));
-        }
+        analytics.trackView(CQ.Utils.getCapitalName(page));
     },
 
     track: function(action, label, value) {
@@ -74,33 +58,7 @@ CQ.GA = {
         if (!label) label = '';
         if (!value) value = 1;
         console.info('Tracking event, category: {0}, action: {1}, label: {2}, value: {3}'.format(category, action, label, value));
-
-        if (CQ.App.iOS()) {
-            analytics.trackEvent(category, action, label, value);
-        } else if (CQ.App.android()) {
-            if (!this.gaPlugin) {
-                console.error('Google analytics instance is not initialized.');
-                return;
-            }
-
-            this.gaPlugin.trackEvent(this.nativePluginResultHandler, this.nativePluginErrorHandler, category, action, label, value);
-        }
-    },
-
-    successHandler: function() {
-        console.info('Google analytics initial success');
-    },
-
-    errorHandler: function() {
-        console.error('Google analytics initial failed');
-    },
-
-    nativePluginResultHandler: function() {
-        console.info('Send GA tracking info success');
-    },
-
-    nativePluginErrorHandler: function() {
-        console.error('Send GA tracking info failed');
+        analytics.trackEvent(category, action, label, value);
     }
 };
 

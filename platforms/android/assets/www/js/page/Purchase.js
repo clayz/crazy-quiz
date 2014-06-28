@@ -3,7 +3,7 @@ CQ.Page.Purchase = {
 
     init: function() {
         console.info('Initial purchase page');
-        this.initCommon({ header: true });
+        this.initCommon({ header: true, back: true });
 
         var goods1 = CQ.Currency.Purchase.Goods1,
             goods2 = CQ.Currency.Purchase.Goods2,

@@ -103,6 +103,7 @@ CQ.Page.Game = {
 
     bindCharEvents: function() {
         this.bindTouchBackground($('[id^=char-btn-]').tap(function() {
+            CQ.Audio.GameChar.play();
             var $btn = $(this);
 
             if ($btn.text()) {
@@ -126,6 +127,7 @@ CQ.Page.Game = {
 
     bindAnswerEvents: function() {
         this.bindTouchBackground($('[id^=answer-btn-]').tap(function() {
+            CQ.Audio.GameChar.play();
             var $btn = $(this), id = $btn.attr('id'), index = id.charAt(id.length - 1), answer = CQ.Page.Game.answers[index];
 
             if (answer && answer.text && answer.clickable) {

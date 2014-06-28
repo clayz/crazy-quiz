@@ -30,7 +30,6 @@
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		64F5593A0BD94CBEA799BDB0 /* UniversalAnalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F554C4864814197BE161EBF /* UniversalAnalyticsPlugin.m */; };
-		7DC7B2181DDF4AF5AF9D993A /* GAPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A73BD8B6DC4FABB07E9486 /* GAPlugin.m */; };
 		7DEB27BE26C04A418E875601 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F25D79E9C44507A05DB29E /* SocialSharing.m */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
@@ -138,7 +137,6 @@
 		93B3B37074B9431A9E9C08CD /* SocialSharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialSharing.h; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; };
 		AC29FCE47DF04B6ABE77AFA9 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = com.danielcwilson.plugins.googleanalytics/GAILogger.h; sourceTree = "<group>"; };
 		B54AB7C742C5456D801545BD /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = com.danielcwilson.plugins.googleanalytics/GAI.h; sourceTree = "<group>"; };
-		B9AB96EC1C544C7CBCDBA981 /* GoogleAnalytics.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = GoogleAnalytics.a; path = "Crazy Quiz/Plugins/com.adobe.plugins.GAPlugin/GoogleAnalytics.a"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		DE98374956B142BD8FC33EB5 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = com.adobe.plugins.GAPlugin/GAITransactionItem.h; sourceTree = "<group>"; };
 		E525A98219486BF300CC4099 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = ../../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.07/GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
-				B9AB96EC1C544C7CBCDBA981 /* GoogleAnalytics.a */,
 				3CE48C5FC57844DCACAD4C63 /* Social.framework */,
 				32D9791FFB934C8D9FBD5E92 /* MessageUI.framework */,
 				1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */,
@@ -536,7 +533,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				7DC7B2181DDF4AF5AF9D993A /* GAPlugin.m in Sources */,
 				7DEB27BE26C04A418E875601 /* SocialSharing.m in Sources */,
 				64F5593A0BD94CBEA799BDB0 /* UniversalAnalyticsPlugin.m in Sources */,
 				681FAD951EC342F682453628 /* CDVFile.m in Sources */,
@@ -608,7 +604,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.adobe.plugins.GAPlugin\"",
 					/Users/a12977/Downloads/GoogleAnalyticsServicesiOS_3.07,
 					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics\"",
 				);
@@ -645,7 +640,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.adobe.plugins.GAPlugin\"",
 					/Users/a12977/Downloads/GoogleAnalyticsServicesiOS_3.07,
 					"\"$(SRCROOT)/Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics\"",
 				);

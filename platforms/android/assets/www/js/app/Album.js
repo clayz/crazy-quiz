@@ -14,10 +14,6 @@ CQ.Album = {
         switch (id) {
             case CQ.Album.Default.id:
                 return CQ.Album.Default;
-            case CQ.Album.Test.id:
-                return CQ.Album.Test;
-            case CQ.Album.Test2.id:
-                return CQ.Album.Test2;
             default:
                 return null;
         }
@@ -167,7 +163,7 @@ CQ.Album = {
 
 CQ.Album.Default = {
     id: 1,
-    name: '初めてのチャレンジ',
+    name: 'チャレンジ',
     path: 'img/album/default/',
     levels: 6,
     active: true,

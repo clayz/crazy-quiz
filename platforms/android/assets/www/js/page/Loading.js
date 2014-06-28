@@ -10,14 +10,15 @@ CQ.Page.Loading = {
             } else {
                 CQ.Page.open(CQ.Page.Index);
             }
-        }, 3000);
+        }, 1000);
     },
 
     load: function() {
     },
 
     back: function() {
-        navigator.app.exitApp();
+        if (CQ.App.android())
+            navigator.app.exitApp();
     }
 };
 

@@ -282,20 +282,28 @@ p {
 }
 
 #main-welcome {
-    height: 8em;
+    height: 7em;
 }
 
 #main-welcome-logo {
+    position: absolute;
     width: 7em;
     height: 9em;
     margin-left: 1em;
+    margin-top: -1em;
     background: url(../img/layout/main-logo.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 9;
 }
 
 #main-welcome-text {
-    /*background: url(../img/layout/main) no-repeat;*/
-    /*background-size: 100% 100%;*/
+    margin: 1em 0 0 8em;
+    width: 62%;
+    height: 6em;
+    line-height: 5em;
+    color: #9d5106;
+    background: url(../img/layout/main-welcome-bg.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 #main-album-container {
@@ -307,6 +315,7 @@ p {
     text-align: center;
     background: url(../img/layout/main-album-bg.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 10;
 }
 
 #main-album-previous {
@@ -317,12 +326,18 @@ p {
     width: 60%;
     color: #FFFFFF;
     font-weight: bold;
-    padding-top: 1.2em;
+    line-height: 4.3em;
     font-size: 1.2em;
 }
 
 #main-album-next {
     width: 20%;
+}
+
+#main-album-next-btn {
+    width: 2.5em;
+    height: 2.8em;
+    padding: 1.2em .5em 0 0;
 }
 
 #main-album {
@@ -371,16 +386,21 @@ p {
 
 #main-footer {
     position: absolute;
-    padding: .5em 0 2em 0;
+    padding: .5em 0 1.5em 0;
     bottom: 0;
     width: 100%;
-    height: 60px;
     clear: both;
 }
 
 #main-share-btn {
-    /*background: url(../img/layout/main-) no-repeat;*/
-    /*background-size: 100% 100%;*/
+    width: 10em;
+    height: 4.5em;
+}
+
+#main-help-btn {
+    width: 10em;
+    height: 4.5em;
+    padding-right: 1.8em;
 }
 
 /*******************************************************************/

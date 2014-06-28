@@ -3,7 +3,7 @@ CQ.Page.AlbumPass = {
 
     init: function() {
         console.info('Initial album pass page');
-        this.initCommon({ header: true });
+        this.initCommon({ header: true, back: true });
     },
 
     load: function() {

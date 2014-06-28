@@ -1,6 +1,7 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        device: 'iOS'
+        device: 'Android',
+        dev: true
     };
 }
 
@@ -96,7 +97,7 @@ CQ.Id = {
         MAIN_ALBUM_LEVEL: 'main-album-level',
         $MAIN_ALBUM_LEVEL: '.main-album-level',
         MAIN_ALBUM_LEVEL_LOCKED: 'main-album-level-locked',
-        $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked',
+        $MAIN_ALBUM_LEVEL_LOCKED: '.main-album-level-locked'
     },
 
     Image: {
@@ -105,6 +106,11 @@ CQ.Id = {
 
         CURRENCY_ADD: 'img/button/currency-add.png',
         CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png',
+
+        MAIN_SHARE: 'img/button/main-share.png',
+        MAIN_SHARE_TAP: 'img/button/main-share-tap.png',
+        MAIN_HELP: 'img/button/main-help.png',
+        MAIN_HELP_TAP: 'img/button/main-help-tap.png',
 
         GAME_CUT_DOWN: 'img/button/game-cutdown.png',
         GAME_CUT_DOWN_TAP: 'img/button/game-cutdown-tap.png',
@@ -134,9 +140,8 @@ CQ.Id = {
         $ALBUM_NAME: '#main-album-name',
         $ALBUM_MORE: '#main-album-more',
 
-        $CLEAR_HISTORY: '#main-clear-btn',
-        $RATING: '#main-rating-btn',
-        $OTHER: '#main-other-btn',
+        $SHARE: '#main-share-btn',
+        $HELP: '#main-help-btn',
 
         $POPUP_EXIT: '#main-popup-exit',
         $POPUP_EXIT_YES: '#main-popup-exit-yes',
@@ -166,7 +171,7 @@ CQ.Id = {
 
         $TITLE_TEXT: '#game-title-text',
         $PICTURE: '#game-picture',
-        $PROMPT_DIV: '#game-prompt-div',
+        $PROMPT_DIV: '#game-prompt',
         $CORRECT_ANSWER: '#game-correct-answer',
 
         $POPUP_ANSWER_CORRECT: '#game-popup-answer-correct',
