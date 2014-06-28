@@ -22,21 +22,27 @@ CQ.Page.Main = {
             }
 
             // render and bind events for all levels
-            for (var level = 1; level <= album.levels; level++) {
+            for (var level = 1; level <= album.levels.length; level++) {
                 (function(album, level, lastLevel) {
                     var levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
+                        lastPictureId = CQ.Datastore.getLastPictureId(album.id, level),
+                        lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0,
                         $levelButton = $(CQ.Id.Main.$ALBUM_LEVEL.format(album.id, level));
+
                     $levelButton.css('background', 'url(../www/{0}) no-repeat'.format(levelPicturePath));
                     $levelButton.css('background-size', '100%');
 
                     if (level <= lastLevel) {
                         $levelButton.click({ albumId: album.id, level: level }, CQ.Page.Main.clickLevel);
+                        $(CQ.Id.Main.$ALBUM_LEVEL_LOCK.format(album.id, level)).hide();
+
+                        // display finished and total picture info
+                        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).show();
+                        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS_TEXT.format(album.id, level)).html("{0} / 20".format(lastPictureIndex));
                     } else if (level == (lastLevel + 1)) {
-                        $levelButton.addClass(CQ.Id.CSS.MAIN_ALBUM_LEVEL_LOCKED)
-                            .click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
                     } else {
-                        $levelButton.addClass(CQ.Id.CSS.MAIN_ALBUM_LEVEL_LOCKED)
-                            .click(CQ.Page.Main.clickUnlockDisableLevel);
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click(CQ.Page.Main.clickUnlockDisableLevel);
                     }
                 })(album, level, lastLevel);
             }
@@ -125,11 +131,11 @@ CQ.Page.Main = {
         // change level style and events
         $(CQ.Id.Main.$ALBUM_LEVEL.format(albumId, level))
             .unbind('click')
-            .removeClass(CQ.Id.CSS.MAIN_ALBUM_LEVEL_LOCKED)
+            .removeClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED)
             .click({ albumId: albumId, level: level }, CQ.Page.Main.clickLevel);
 
         // change next level events
-        if (level < album.levels) {
+        if (level < album.levels.length) {
             var nextLevel = level + 1;
             $(CQ.Id.Main.$ALBUM_LEVEL.format(albumId, nextLevel))
                 .unbind('click')
@@ -138,12 +144,14 @@ CQ.Page.Main = {
     },
 
     clickLevel: function(event) {
+        CQ.Audio.Button.play();
         var albumId = event.data.albumId, level = event.data.level;
         CQ.Page.open(CQ.Page.Game, { album: albumId, level: level });
         CQ.GA.track(CQ.GA.Level.Play, CQ.GA.Level.Play.label.format(albumId, level));
     },
 
     clickUnlockableLevel: function(event) {
+        CQ.Audio.Button.play();
         var albumId = event.data.albumId, level = event.data.level;
 
         if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockLevel.gem) {
@@ -158,6 +166,7 @@ CQ.Page.Main = {
     },
 
     clickUnlockDisableLevel: function() {
+        CQ.Audio.Button.play();
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('open');
     },
 
@@ -213,7 +222,7 @@ CQ.Page.Main = {
         }).bind('touchend', function() {
             $(this).attr('src', CQ.Id.Image.MAIN_HELP);
         });
-        $(CQ.Id.Main.$HELP).tap(CQ.Page.Main.clickHelp);
+        $(CQ.Id.Main.$HELP).click(CQ.Page.Main.clickHelp);
 
         // share buttons
         $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);

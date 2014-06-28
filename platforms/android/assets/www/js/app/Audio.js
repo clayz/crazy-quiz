@@ -1,11 +1,11 @@
 CQ.Audio = {
     media: null,
 
-    play: function() {
-        if (!this.media) {
-            this.media = new Media(this.file, this.onSuccess, this.onError);
-        }
+    init: function() {
+        this.media = new Media(this.file, this.onSuccess, this.onError);
+    },
 
+    play: function() {
         this.media.play();
     },
 
@@ -31,8 +31,11 @@ CQ.Audio.Button = {
 };
 
 CQ.Audio.GameChar = {
-    file: 'audio/audio/game_char.wav'
+    file: 'audio/game_char.wav'
 };
 
 CQ.App.inherits(CQ.Audio.Button, CQ.Audio);
 CQ.App.inherits(CQ.Audio.GameChar, CQ.Audio);
+
+CQ.App.register(CQ.Audio.Button);
+CQ.App.register(CQ.Audio.GameChar);

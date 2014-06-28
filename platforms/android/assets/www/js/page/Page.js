@@ -68,6 +68,7 @@ CQ.Page = {
         // header buttons
         if (config && config.back) {
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK), function() {
+                CQ.Audio.Button.play();
                 page.back();
             }, CQ.Id.Image.HEADER_BACK_TAP, CQ.Id.Image.HEADER_BACK);
         } else {
@@ -75,16 +76,19 @@ CQ.Page = {
         }
 
         this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
+            CQ.Audio.Button.play();
             page.open(CQ.Page.Purchase);
         }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
         this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
+            CQ.Audio.Button.play();
             page.open(CQ.Page.Exchange);
         }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
         // common popup and buttons
         $(CQ.Id.$POPUP_SHARE.format(name)).bind(this.popupEvents);
         $(CQ.Id.$SHARE.format(name)).click(function() {
+            CQ.Audio.Button.play();
             page.showShare();
             CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
         });

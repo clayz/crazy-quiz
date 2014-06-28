@@ -238,7 +238,7 @@ CQ.Page.Game = {
     answerCorrect: function() {
         CQ.Datastore.setLastPictureId(this.album.id, this.level, this.picture.id);
         if (this.album.getNextPicture(this.picture.id)) this.passPicture();
-        else if (this.level == CQ.Album.levels) this.passAlbum();
+        else if (this.level == CQ.Album.levels.length) this.passAlbum();
         else this.passLevel();
     },
 

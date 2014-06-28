@@ -22,7 +22,7 @@ CQ.Page.Main = {
             }
 
             // render and bind events for all levels
-            for (var level = 1; level <= album.levels; level++) {
+            for (var level = 1; level <= album.levels.length; level++) {
                 (function(album, level, lastLevel) {
                     var levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
                         lastPictureId = CQ.Datastore.getLastPictureId(album.id, level),
@@ -135,7 +135,7 @@ CQ.Page.Main = {
             .click({ albumId: albumId, level: level }, CQ.Page.Main.clickLevel);
 
         // change next level events
-        if (level < album.levels) {
+        if (level < album.levels.length) {
             var nextLevel = level + 1;
             $(CQ.Id.Main.$ALBUM_LEVEL.format(albumId, nextLevel))
                 .unbind('click')
