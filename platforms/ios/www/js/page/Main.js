@@ -97,8 +97,10 @@ CQ.Page.Main = {
                     $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show('slow');
                 }
             } else {
-                $(CQ.Id.Main.$ALBUM_NAME).text('');
-                $(CQ.Id.Main.$ALBUM_MORE).show('slow');
+                $(CQ.Id.Main.$ALBUM_HEADER).hide();
+                $(CQ.Id.Main.$ALBUM_HEADER).hide();
+                $(CQ.Id.Main.$ALBUM_CONTAINER).css('background', 'url(../www/{0}) no-repeat');
+                $(CQ.Id.Main.$ALBUM_CONTAINER).css('background-size', '100%');
             }
         }
     },
@@ -111,7 +113,8 @@ CQ.Page.Main = {
                 $(CQ.Id.Main.$ALBUM_EACH.format(currentAlbumId)).hide('slow');
                 $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(currentAlbumId)).hide('slow');
             } else {
-                $(CQ.Id.Main.$ALBUM_MORE).hide('slow');
+                $(CQ.Id.Main.$ALBUM_WAITING).hide('slow');
+                $(CQ.Id.Main.$ALBUM_HEADER).show();
             }
 
             var nextAlbumId = --CQ.Page.Main.albumId, nextAlbum = CQ.Album.getAlbum(nextAlbumId);

@@ -65,7 +65,7 @@ CQ.Album = {
 
     getPicture: function(id) {
         var levelAndIndex = this.getPictureLevelAndIndex(id);
-        return this[levelAndIndex.level][levelAndIndex.index];
+        return this.levels[levelAndIndex.level - 1].pictures[levelAndIndex.index];
     },
 
     getPictureId: function(level, index) {
@@ -79,7 +79,7 @@ CQ.Album = {
     getPictureLevelAndIndex: function(id) {
         var idString = id.toString();
         return {
-            level: 'level' + idString.charAt(0),
+            level: idString.charAt(0),
             index: parseInt(idString.substring(1, 3), 10)
         }
     },
@@ -89,8 +89,8 @@ CQ.Album = {
     },
 
     getNextPicture: function(id) {
-        var levelAndIndex = this.getPictureLevelAndIndex(id);
-        return levelAndIndex.index >= this[levelAndIndex.level].length ? null : this[levelAndIndex.level][levelAndIndex.index + 1];
+        var levelAndIndex = this.getPictureLevelAndIndex(id), level = this.levels[levelAndIndex.level - 1];
+        return levelAndIndex.index >= level.pictures.length ? null : level.pictures[levelAndIndex.index + 1];
     },
 
     getAlternativeAnswerChars: function(pictureId, length) {
@@ -124,7 +124,7 @@ CQ.Album = {
             while (remainingChars > 0) {
                 // generate random picture id which does not been used
                 var randomLevel = Math.floor(Math.random() * 6) + 1;
-                var randomIndex = Math.floor(Math.random() * this['level' + randomLevel].length);
+                var randomIndex = Math.floor(Math.random() * this.levels[randomLevel - 1].pictures.length);
                 var randomId = this.getPictureId(randomLevel, randomIndex);
 
                 if ($.inArray(randomId, alternativeAnswers) == -1) {

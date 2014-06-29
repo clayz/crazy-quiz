@@ -312,6 +312,7 @@ p {
     margin: auto;
     left: 0;
     right: 0;
+    height: 57%;
     text-align: center;
     background: url(../img/layout/main-album-bg.png) no-repeat;
     background-size: 100% 100%;
@@ -341,7 +342,7 @@ p {
 }
 
 #main-album {
-    padding: .5em 2em .5em 2em;
+    padding: 1em 2em .5em 2em;
 }
 
 .main-level-cover {
@@ -354,7 +355,7 @@ p {
     display: inline-block;
     width: 6.2em;
     height: 6.2em;
-    border: 2px solid #222222;
+    border: 2px solid #3e2102;
     border-radius: 5px;
 }
 
@@ -398,7 +399,7 @@ p {
     line-height: 1.5em;
     color: #FFFFFF;
     margin: .2em 0 .8em 0;
-    background-color: #b03911;
+    background-color: #482602;
     border-radius: 3px;
 }
 
@@ -409,9 +410,12 @@ p {
 }
 
 #main-album-paging {
-    margin: auto;
-    width: 3em;
+    position: absolute;
+    bottom: 0;
     height: 3em;
+    width: 4em;
+    left: 50%;
+    margin-left: -2em;
 }
 
 .main-album-paging-on {

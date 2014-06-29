@@ -65,7 +65,7 @@ CQ.Album = {
 
     getPicture: function(id) {
         var levelAndIndex = this.getPictureLevelAndIndex(id);
-        return this[levelAndIndex.level][levelAndIndex.index];
+        return this.levels[levelAndIndex.level - 1].pictures[levelAndIndex.index];
     },
 
     getPictureId: function(level, index) {
