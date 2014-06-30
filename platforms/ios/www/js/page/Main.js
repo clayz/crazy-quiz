@@ -31,6 +31,7 @@ CQ.Page.Main = {
 
                     $levelButton.css('background', 'url(../www/{0}) no-repeat'.format(levelPicturePath));
                     $levelButton.css('background-size', '100%');
+                    $(CQ.Id.Main.$ALBUM_LEVEL_NAME.format(album.id, level)).html(album.getLevel(level).name);
 
                     if (level <= lastLevel) {
                         $levelButton.click({ albumId: album.id, level: level }, CQ.Page.Main.clickLevel);
@@ -209,6 +210,12 @@ CQ.Page.Main = {
     },
 
     initButtons: function() {
+        // previous and next album button
+        this.bindClickButton($(CQ.Id.Main.$ALBUM_NEXT), function() {
+            CQ.Audio.Button.play();
+            CQ.Page.Main.swipeAlbumLeft();
+        }, CQ.Id.Image.MAIN_ALBUM_NEXT_TAP, CQ.Id.Image.MAIN_ALBUM_NEXT);
+
         // footer buttons
         $(CQ.Id.Main.$SHARE).bind('touchstart', function() {
             $(this).attr('src', CQ.Id.Image.MAIN_SHARE_TAP);

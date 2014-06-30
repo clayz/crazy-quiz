@@ -327,8 +327,8 @@ p {
     width: 60%;
     color: #FFFFFF;
     font-weight: bold;
-    line-height: 4.3em;
-    font-size: 1.2em;
+    padding-top: 1.1em;
+    font-size: 1.5em;
 }
 
 #main-album-next {
@@ -336,13 +336,13 @@ p {
 }
 
 #main-album-next-btn {
-    width: 2.5em;
+    width: 2em;
     height: 2.8em;
-    padding: 1.3em .5em 0 0;
+    margin: 1.3em 1.5em 0 0;
 }
 
 #main-album {
-    padding: 1em 2em .5em 2em;
+    padding: 1.8em 2em .5em 2em;
 }
 
 .main-level-cover {

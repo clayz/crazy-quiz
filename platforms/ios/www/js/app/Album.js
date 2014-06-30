@@ -43,6 +43,10 @@ CQ.Album = {
         } else return false;
     },
 
+    getLevel: function(level) {
+        return this.levels[level - 1];
+    },
+
     unlockLevel: function(albumId, level, isPurchase) {
         console.log('Unlock album {0} level {1}, is purchase: {2}'.format(albumId, level, isPurchase));
         var lastLevel = CQ.Datastore.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
@@ -170,7 +174,7 @@ CQ.Album.Default = {
     levels: [
         {
             level: 1,
-            name: 'Level 1',
+            name: '初出茅庐',
             pictures: [
                 { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
                 { id: 101, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
@@ -182,7 +186,7 @@ CQ.Album.Default = {
         },
         {
             level: 2,
-            name: 'Level 2',
+            name: '小试牛刀',
             pictures: [
                 { id: 200, name: 'ヒックとドラゴン', category: CQ.Album.Category.Film, answers: [] },
                 { id: 201, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
@@ -194,7 +198,7 @@ CQ.Album.Default = {
         },
         {
             level: 3,
-            name: 'Level 3',
+            name: '初尝胜果',
             pictures: [
                 { id: 300, name: 'マダガスカル', category: CQ.Album.Category.Film, answers: [] },
                 { id: 301, name: 'ジュラシックパー', category: CQ.Album.Category.Film, answers: [] },
@@ -206,7 +210,7 @@ CQ.Album.Default = {
         },
         {
             level: 4,
-            name: 'Level 4',
+            name: '小有名气',
             pictures: [
                 { id: 400, name: 'アインシュタイン', category: CQ.Album.Category.Celebrity, answers: [] },
                 { id: 401, name: 'モダン石器時代', category: CQ.Album.Category.Film, answers: [] },
@@ -217,7 +221,7 @@ CQ.Album.Default = {
         },
         {
             level: 5,
-            name: 'Level 5',
+            name: '锋芒毕露',
             pictures: [
                 { id: 500, name: 'スマーフ', category: CQ.Album.Category.Cartoon, answers: [] },
                 { id: 501, name: 'カンフーパンダ', category: CQ.Album.Category.Film, answers: [] },
@@ -228,7 +232,7 @@ CQ.Album.Default = {
         },
         {
             level: 6,
-            name: 'Level 6',
+            name: '唯我独尊',
             pictures: [
                 { id: 600, name: 'ベッカム', category: CQ.Album.Category.Celebrity, answers: [] },
                 { id: 601, name: 'アカデミー賞', category: CQ.Album.Category.Brand, answers: [] },
