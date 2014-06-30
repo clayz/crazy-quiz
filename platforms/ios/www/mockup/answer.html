@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">Popup</button>
+
+    <div data-role="popup" id="game-popup-answer-correct" data-overlay-theme="b" data-dismissible="false" class="popup-container">
+        <div id="game-popup-answer-correct-content" class="popup-content">
+            <div id="game-popup-answer-correct-bg"></div>
+            <div id="game-popup-answer-correct-picture">
+                <div id="game-popup-picture-number"></div>
+                <div id="game-popup-picture-name"></div>
+            </div>
+        </div>
+        <div class="popup-buttons ui-grid-a">
+            <div class="ui-block-a">
+                <img id="game-popup-share-btn" src="../img/button/game-popup-share-btn.png"/>
+            </div>
+            <div class="ui-block-b">
+                <img id="game-popup-next-btn" src="../img/button/game-popup-next-btn.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            $("#game-popup-answer-correct").popup();
+            $('#game-popup-answer-correct').popup('open');
+        });
+    });
+</script>
+</body>
+</html>

@@ -64,7 +64,7 @@ h1 {
 }
 
 p {
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-weight: normal;
 }
 
@@ -237,6 +237,23 @@ p {
 
 .body {
     /*height: 100%;*/
+}
+
+.popup-container {
+    border: 0 !important;
+    background-color: #eae093 !important;
+    padding: 2em 0 2.2em 0;
+}
+
+.popup-content {
+    background-color: #6d3805 !important;
+    margin: 1em;
+    color: #FFFFFF;
+    border-radius: 3px;
+}
+
+.popup-buttons {
+    margin-bottom: -5em;
 }
 
 .popup-share-btn {
@@ -637,6 +654,65 @@ p {
     font-weight: bold;
     background: url(../img/layout/game-char-bg.png) no-repeat;
     background-size: 100%;
+}
+
+/*******************************************************************/
+/* Game Page Correct Answer Popup */
+/*******************************************************************/
+
+#game-popup-answer-correct-bg {
+    position: absolute;
+    width: 30em;
+    height: 30em;
+    background: url(../img/layout/popup-answer-correct-bg.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: -17em;
+    z-index: 1;
+}
+
+#game-popup-answer-correct-content {
+    width: 30em;
+    height: 20em;
+}
+
+#game-popup-answer-correct-picture {
+    padding: 9em 0 0 5em;
+}
+
+#game-popup-picture-number {
+    position: absolute;
+    float: left;
+    width: 4.6em;
+    height: 4.6em;
+    background: url(../img/layout/game-popup-picture-number-bg.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+#game-popup-picture-name {
+    position: absolute;
+    float: left;
+    width: 18em;
+    height: 3.4em;
+    margin: .4em 0 0 1em;
+    background-color: #2e1901;
+    border-radius: 10px;
+    border: 2px dashed #f5eda4;
+    z-index: 5;
+}
+
+#game-popup-share-btn {
+    float: right;
+    width: 10em;
+    height: 4.5em;
+    padding-right: 1em;
+}
+
+#game-popup-next-btn {
+    float: left;
+    width: 10em;
+    height: 4.5em;
+    padding-left: 1em;
 }
 
 /*******************************************************************/
