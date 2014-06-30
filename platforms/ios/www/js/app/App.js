@@ -111,7 +111,7 @@ CQ.Id = {
         MAIN_SHARE_TAP: 'img/button/main-share-tap.png',
         MAIN_HELP: 'img/button/main-help.png',
         MAIN_HELP_TAP: 'img/button/main-help-tap.png',
-        MAIN_ALBUM_WAITING_BG: 'main-album-waiting-bg.png',
+        MAIN_ALBUM_BG: 'main-album-bg.png',
 
         GAME_CUT_DOWN: 'img/button/game-cutdown.png',
         GAME_CUT_DOWN_TAP: 'img/button/game-cutdown-tap.png',
@@ -135,6 +135,7 @@ CQ.Id = {
 
     Main: {
         $ALBUM_CONTAINER: '#main-album-container',
+        $ALBUM_WAITING: '#main-album-waiting',
         $ALBUM: '#main-album',
         $ALBUM_HEADER: '#main-album-header',
         $ALBUM_LEVEL: '#main-album{0}-level{1}',

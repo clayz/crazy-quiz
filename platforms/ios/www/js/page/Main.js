@@ -55,7 +55,8 @@ CQ.Page.Main = {
             }
         }
 
-        $(CQ.Id.Main.$ALBUM).on('swipeleft', CQ.Page.Main.swipeAlbumLeft).on('swiperight', CQ.Page.Main.swipeAlbumRight);
+        $(CQ.Id.Main.$ALBUM_CONTAINER).on('swipeleft', CQ.Page.Main.swipeAlbumLeft).on('swiperight', CQ.Page.Main.swipeAlbumRight);
+        $(CQ.Id.Main.$ALBUM_WAITING).on('swiperight', CQ.Page.Main.swipeAlbumRight);
 
         this.initPopups();
         this.initButtons();
@@ -65,13 +66,6 @@ CQ.Page.Main = {
             $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
             $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
                 navigator.app.exitApp();
-            });
-        }
-
-        if (CQ.dev) {
-            $(CQ.Id.Main.$CLEAR_HISTORY).tap(function() {
-                CQ.Datastore.clear();
-                if (CQ.App.android()) navigator.app.exitApp();
             });
         }
     },
@@ -84,23 +78,23 @@ CQ.Page.Main = {
         var currentAlbumId = CQ.Page.Main.albumId;
 
         if (currentAlbumId <= CQ.Album.TOTAL_ALBUM) {
-            $(CQ.Id.Main.$ALBUM_EACH.format(currentAlbumId)).hide('slow');
-            $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(currentAlbumId)).hide('slow');
+            $(CQ.Id.Main.$ALBUM_EACH.format(currentAlbumId)).hide();
+            $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(currentAlbumId)).hide();
             var nextAlbumId = ++CQ.Page.Main.albumId, nextAlbum = CQ.Album.getAlbum(nextAlbumId);
 
             if (nextAlbum) {
+                // display next album levels
                 $(CQ.Id.Main.$ALBUM_NAME).text(nextAlbum.name);
 
                 if (CQ.Album.isAlbumLocked(nextAlbumId)) {
-                    $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show('slow');
+                    $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show();
                 } else {
-                    $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show('slow');
+                    $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show();
                 }
             } else {
-                $(CQ.Id.Main.$ALBUM_HEADER).hide();
-                $(CQ.Id.Main.$ALBUM_HEADER).hide();
-                $(CQ.Id.Main.$ALBUM_CONTAINER).css('background', 'url(../www/{0}) no-repeat');
-                $(CQ.Id.Main.$ALBUM_CONTAINER).css('background-size', '100%');
+                // no next album, display waiting image
+                $(CQ.Id.Main.$ALBUM_CONTAINER).hide();
+                $(CQ.Id.Main.$ALBUM_WAITING).show();
             }
         }
     },
@@ -110,20 +104,22 @@ CQ.Page.Main = {
 
         if (currentAlbumId > 1) {
             if (CQ.Album.getAlbum(currentAlbumId)) {
-                $(CQ.Id.Main.$ALBUM_EACH.format(currentAlbumId)).hide('slow');
-                $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(currentAlbumId)).hide('slow');
+                // hide current album and levels
+                $(CQ.Id.Main.$ALBUM_EACH.format(currentAlbumId)).hide();
+                $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(currentAlbumId)).hide();
             } else {
-                $(CQ.Id.Main.$ALBUM_WAITING).hide('slow');
-                $(CQ.Id.Main.$ALBUM_HEADER).show();
+                // hide current waiting page
+                $(CQ.Id.Main.$ALBUM_WAITING).hide();
+                $(CQ.Id.Main.$ALBUM_CONTAINER).show();
             }
 
             var nextAlbumId = --CQ.Page.Main.albumId, nextAlbum = CQ.Album.getAlbum(nextAlbumId);
             $(CQ.Id.Main.$ALBUM_NAME).text(nextAlbum.name);
 
             if (CQ.Album.isAlbumLocked(nextAlbumId)) {
-                $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show('slow');
+                $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show();
             } else {
-                $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show('slow');
+                $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show();
             }
         }
     },

@@ -409,13 +409,14 @@ p {
     opacity: 0.3;
 }
 
-#main-album-paging {
+.main-album-paging {
     position: absolute;
     bottom: 0;
     height: 3em;
     width: 4em;
     left: 50%;
     margin-left: -2em;
+    z-index: 20;
 }
 
 .main-album-paging-on {
@@ -435,6 +436,19 @@ p {
 .main-album-paging-img {
     width: 1em;
     height: 1em;
+}
+
+#main-album-waiting {
+    position: absolute;
+    width: 92%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    height: 57%;
+    text-align: center;
+    background: url(../img/layout/main-album-waiting-bg.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
 }
 
 #main-footer {
