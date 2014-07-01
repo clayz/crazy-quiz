@@ -87,6 +87,11 @@ CQ.Page = {
 
         // common popup and buttons
         $(CQ.Id.$POPUP_SHARE.format(name)).bind(this.popupEvents);
+        $(CQ.Id.$POPUP_SHARE_CLOSE.format(name)).click(function() {
+            CQ.Audio.Button.play();
+            $(CQ.Id.$POPUP_SHARE.format(name)).popup('close');
+        });
+
         $(CQ.Id.$SHARE.format(name)).click(function() {
             CQ.Audio.Button.play();
             page.showShare();

@@ -172,6 +172,7 @@ CQ.Page.Main = {
 
 
     clickUnlockLevel: function() {
+        CQ.Audio.Button.play();
         if (CQ.Page.Main.selectedUnlockLevel) {
             $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
             CQ.Album.unlockLevel(CQ.Page.Main.selectedUnlockLevel.albumId, CQ.Page.Main.selectedUnlockLevel.level, true);
@@ -196,10 +197,16 @@ CQ.Page.Main = {
     initPopups: function() {
         // level popup and buttons
         $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).bind(this.popupEvents);
+        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockLevelPopup);
         $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_YES).click(CQ.Page.Main.clickUnlockLevel);
+        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
+
         $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).bind(this.popupEvents);
+        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_CLOSE).click(CQ.Page.Main.closeUnlockLevelPurchasePopup);
         $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
+
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
+        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockDisableLevelPopup);
 
         // album popup and buttons
         $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).bind(this.popupEvents);
@@ -238,6 +245,7 @@ CQ.Page.Main = {
     },
 
     clickUnlockableAlbum: function(event) {
+        CQ.Audio.Button.play();
         var albumId = event.data.albumId;
 
         if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockAlbum.gem) {
@@ -249,10 +257,12 @@ CQ.Page.Main = {
     },
 
     clickUnlockDisableAlbum: function() {
+        CQ.Audio.Button.play();
         $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
     },
 
     clickUnlockAlbum: function() {
+        CQ.Audio.Button.play();
         if (CQ.Page.Main.selectedUnlockAlbum) {
             $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
             CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
@@ -261,6 +271,7 @@ CQ.Page.Main = {
     },
 
     clickPurchase: function() {
+        CQ.Audio.Button.play();
         CQ.Page.Main.open(CQ.Page.Purchase);
     },
 
@@ -275,23 +286,42 @@ CQ.Page.Main = {
     },
 
     clickShareFacebook: function() {
+        CQ.Audio.Button.play();
         CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
         CQ.GA.track(CQ.GA.Share.FB, CQ.Utils.getCapitalName(CQ.Page.Main.name));
     },
 
     clickShareTwitter: function() {
+        CQ.Audio.Button.play();
         CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
         CQ.GA.track(CQ.GA.Share.TW, CQ.Utils.getCapitalName(CQ.Page.Main.name));
     },
 
     clickShareLine: function() {
+        CQ.Audio.Button.play();
         CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
         CQ.GA.track(CQ.GA.Share.Line, CQ.Utils.getCapitalName(CQ.Page.Main.name));
     },
 
     clickShareOther: function() {
+        CQ.Audio.Button.play();
         CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
         CQ.GA.track(CQ.GA.Share.Other, CQ.Utils.getCapitalName(CQ.Page.Main.name));
+    },
+
+    closeUnlockLevelPopup: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
+    },
+
+    closeUnlockLevelPurchasePopup: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('close');
+    },
+
+    closeUnlockDisableLevelPopup: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('close');
     }
 };
 

@@ -79,6 +79,7 @@ CQ.Id = {
     $SHARE_OTHER: '#{0}-share-other-btn',
 
     $POPUP_SHARE: '#{0}-popup-share',
+    $POPUP_SHARE_CLOSE: '#{0}-popup-share-close-btn',
 
     $POPUP_COIN_NOT_ENOUGH: '#{0}-popup-coin-not-enough',
     $POPUP_COIN_EXCHANGE: '#{0}-popup-coin-exchange-btn',
@@ -156,11 +157,17 @@ CQ.Id = {
         $POPUP_EXIT: '#main-popup-exit',
         $POPUP_EXIT_YES: '#main-popup-exit-yes',
 
-        $POPUP_LEVEL_UNLOCK: '#main-popup-level-unlock',
-        $POPUP_LEVEL_UNLOCK_YES: '#main-popup-level-unlock-btn',
+        $POPUP_LEVEL_UNLOCK: '#main-popup-unlock',
+        $POPUP_LEVEL_UNLOCK_CLOSE: '#main-popup-unlock-close-btn',
+        $POPUP_LEVEL_UNLOCK_YES: '#main-popup-unlock-yes-btn',
+        $POPUP_LEVEL_UNLOCK_NO: '#main-popup-unlock-no-btn',
+
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
+        $POPUP_LEVEL_PURCHASE_CLOSE: '#main-popup-level-purchase-close-btn',
         $POPUP_LEVEL_PURCHASE_YES: '#main-popup-level-purchase-btn',
-        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-cannot-unlock',
+
+        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable',
+        $POPUP_LEVEL_CANNOT_UNLOCK_CLOSE: '#main-popup-level-disable-close-btn',
 
         $POPUP_ALBUM_UNLOCK: '#main-popup-album-unlock',
         $POPUP_ALBUM_UNLOCK_YES: '#main-popup-album-unlock-btn',

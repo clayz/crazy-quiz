@@ -250,10 +250,60 @@ p {
     margin: 1em;
     color: #FFFFFF;
     border-radius: 3px;
+    z-index: 3;
+}
+
+.popup-logo {
+    position: absolute;
+    margin-top: -9em;
+    margin-left: -1em;
+    width: 7.5em;
+    height: 10em;
+    background: url(../img/logo/index.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+.popup-content p {
+    padding: 1em;
+    font-size: 1em;
+    text-align: left;
+    text-shadow: none;
+}
+
+.popup-close-btn {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    right: 0;
+    top: 0;
+    margin: -1em -1em;
+    background: url(../img/button/popup-close-btn.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 .popup-buttons {
     margin-bottom: -5em;
+}
+
+.popup-button-left {
+    float: right;
+    width: 10em;
+    height: 4.5em;
+    padding-right: .5em;
+}
+
+.popup-button-right {
+    float: left;
+    width: 10em;
+    height: 4.5em;
+    padding-left: .5em;
+}
+
+.popup-button-center {
+    width: 10em;
+    height: 4.5em;
+    left: 50%;
 }
 
 .popup-share-btn {
@@ -308,7 +358,7 @@ p {
     height: 9em;
     margin-left: 1em;
     margin-top: -1em;
-    background: url(../img/layout/main-logo.png) no-repeat;
+    background: url(../img/logo/main.png) no-repeat;
     background-size: 100% 100%;
     z-index: 9;
 }
@@ -485,6 +535,30 @@ p {
     width: 10em;
     height: 4.5em;
     padding-right: 1.8em;
+}
+
+/*******************************************************************/
+/* Main Page Popup */
+/*******************************************************************/
+
+#main-popup-unlock-content {
+    width: 22em;
+    height: 9em;
+}
+
+#main-popup-level-purchase-content {
+    width: 22em;
+    height: 9em;
+}
+
+#main-popup-level-disable-content {
+    width: 22em;
+    height: 6em;
+}
+
+#main-popup-share-content {
+    width: 22em;
+    padding-bottom: 2em;
 }
 
 /*******************************************************************/
@@ -753,20 +827,6 @@ p {
     margin-top: 4em;
     left: 50%;
     margin-left: -5em;
-}
-
-#game-popup-pass-share-btn {
-    float: right;
-    width: 10em;
-    height: 4.5em;
-    padding-right: .5em;
-}
-
-#game-popup-pass-next-btn {
-    float: left;
-    width: 10em;
-    height: 4.5em;
-    padding-left: .5em;
 }
 
 /*******************************************************************/
