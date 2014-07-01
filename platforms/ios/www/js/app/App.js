@@ -184,8 +184,8 @@ CQ.Id = {
         $PROMPT_DIV: '#game-prompt',
         $CORRECT_ANSWER: '#game-correct-answer',
 
-        $POPUP_ANSWER_CORRECT: '#game-popup-answer-correct',
-        $POPUP_NEXT: '#game-popup-next-btn',
+        $POPUP_ANSWER_CORRECT: '#game-popup-pass',
+        $POPUP_NEXT: '#game-popup-pass-next-btn',
 
         ANSWER_BTN: 'answer-btn-{0}',
         CHAR_BTN: 'char-btn-{0}'

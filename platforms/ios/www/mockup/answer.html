@@ -15,20 +15,29 @@
 <div data-role="page" id="main" class="page">
     <button id="option">Popup</button>
 
-    <div data-role="popup" id="game-popup-answer-correct" data-overlay-theme="b" data-dismissible="false" class="popup-container">
-        <div id="game-popup-answer-correct-content" class="popup-content">
-            <div id="game-popup-answer-correct-bg"></div>
-            <div id="game-popup-answer-correct-picture">
-                <div id="game-popup-picture-number"></div>
-                <div id="game-popup-picture-name"></div>
+    <div data-role="popup" id="game-popup-pass" data-overlay-theme="b" data-dismissible="false" class="popup-container">
+        <div id="game-popup-pass-content" class="popup-content">
+            <div id="game-popup-pass-bg"></div>
+            <div id="game-popup-pass-picture">
+                <div id="game-popup-pass-picture-number">20</div>
+                <div id="game-popup-pass-picture-name">ヒックとドラゴン</div>
+            </div>
+            <div id="game-popup-pass-info">
+                <div id="game-popup-pass-bonus-bg"></div>
+                <div id="game-popup-pass-bonus-coin"></div>
+                <div id="game-popup-pass-bonus-text"> × 3</div>
+            </div>
+            <div id="game-popup-pass-sep"></div>
+            <div id="game-popup-pass-current-coin" class="clear-both">
+                拥有金币：200
             </div>
         </div>
-        <div class="popup-buttons ui-grid-a">
+        <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img id="game-popup-share-btn" src="../img/button/game-popup-share-btn.png"/>
+                <img id="game-popup-pass-share-btn" src="../img/button/game-popup-share-btn.png"/>
             </div>
             <div class="ui-block-b">
-                <img id="game-popup-next-btn" src="../img/button/game-popup-next-btn.png"/>
+                <img id="game-popup-pass-next-btn" src="../img/button/game-popup-next-btn.png"/>
             </div>
         </div>
     </div>
@@ -36,8 +45,8 @@
 <script>
     $(function() {
         $('#option').click(function() {
-            $("#game-popup-answer-correct").popup();
-            $('#game-popup-answer-correct').popup('open');
+            $("#game-popup-pass").popup();
+            $('#game-popup-pass').popup('open');
         });
     });
 </script>

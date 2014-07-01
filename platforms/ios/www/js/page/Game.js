@@ -27,7 +27,7 @@ CQ.Page.Game = {
         $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
 
         // play next picture click event
-        $(CQ.Id.Game.$POPUP_NEXT).tap(CQ.Page.Game.clickNext);
+        $(CQ.Id.Game.$POPUP_NEXT).click(CQ.Page.Game.clickNext);
     },
 
     load: function(params) {
