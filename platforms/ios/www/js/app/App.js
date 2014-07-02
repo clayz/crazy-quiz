@@ -191,7 +191,10 @@ CQ.Id = {
         $PROMPT_DIV: '#game-prompt',
         $CORRECT_ANSWER: '#game-correct-answer',
 
-        $POPUP_ANSWER_CORRECT: '#game-popup-pass',
+        $POPUP_PASS: '#game-popup-pass',
+        $POPUP_PASS_PICTURE_NUMBER: '#game-popup-pass-picture-number',
+        $POPUP_PASS_PICTURE_NAME: '#game-popup-pass-picture-name',
+        $POPUP_PASS_CURRENCY: '#game-popup-pass-currency',
         $POPUP_NEXT: '#game-popup-pass-next-btn',
 
         ANSWER_BTN: 'answer-btn-{0}',

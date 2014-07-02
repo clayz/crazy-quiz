@@ -36,10 +36,7 @@ CQ.Page.Main = {
                     if (level <= lastLevel) {
                         $levelButton.click({ albumId: album.id, level: level }, CQ.Page.Main.clickLevel);
                         $(CQ.Id.Main.$ALBUM_LEVEL_LOCK.format(album.id, level)).hide();
-
-                        // display finished and total picture info
-                        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).show();
-                        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS_TEXT.format(album.id, level)).html("{0} / 20".format(lastPictureIndex));
+                        CQ.Page.Main.setLevelStatusText(album, level, lastPictureIndex);
                     } else if (level == (lastLevel + 1)) {
                         $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
                     } else {
@@ -73,6 +70,17 @@ CQ.Page.Main = {
 
     load: function() {
         this.refreshCurrency();
+    },
+
+    setLevelStatusText: function(album, level, lastPictureIndex) {
+        // display finished and total picture info
+        if (!lastPictureIndex) {
+            var lastPictureId = CQ.Datastore.getLastPictureId(album.id, level);
+            lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0;
+        }
+
+        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).show();
+        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS_TEXT.format(album.id, level)).html("{0} / {1}".format(lastPictureIndex, album.getLevel(level).pictures.length));
     },
 
     swipeAlbumLeft: function() {
@@ -133,6 +141,9 @@ CQ.Page.Main = {
             .unbind('click')
             .removeClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED)
             .click({ albumId: albumId, level: level }, CQ.Page.Main.clickLevel);
+
+        $(CQ.Id.Main.$ALBUM_LEVEL_LOCK.format(album.id, level)).hide();
+        this.setLevelStatusText(album, level, 0);
 
         // change next level events
         if (level < album.levels.length) {

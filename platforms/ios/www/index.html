@@ -28,8 +28,6 @@
     <script type="text/javascript" charset="utf-8" src="js/page/Game.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Purchase.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Exchange.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/page/AlbumPass.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/page/LevelPass.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Help.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
 
@@ -404,8 +402,8 @@
         <div id="game-popup-pass-content" class="popup-content">
             <div id="game-popup-pass-bg"></div>
             <div id="game-popup-pass-picture">
-                <div id="game-popup-pass-picture-number">20</div>
-                <div id="game-popup-pass-picture-name">ヒックとドラゴン</div>
+                <div id="game-popup-pass-picture-number"></div>
+                <div id="game-popup-pass-picture-name"></div>
             </div>
             <div id="game-popup-pass-info">
                 <div id="game-popup-pass-bonus-bg"></div>
@@ -414,7 +412,7 @@
             </div>
             <div id="game-popup-pass-sep"></div>
             <div id="game-popup-pass-current-coin" class="clear-both">
-                拥有金币：200
+                拥有金币：<span id="game-popup-pass-currency"></span>
             </div>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">

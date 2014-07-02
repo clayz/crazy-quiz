@@ -55,7 +55,7 @@ CQ.Album = {
             console.info('There is no such level to unlock.');
             return false;
         } else if (level != (lastLevel + 1)) {
-            console.error('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
+            console.info('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
             return false;
         }
 

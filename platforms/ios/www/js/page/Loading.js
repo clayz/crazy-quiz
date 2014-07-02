@@ -5,6 +5,8 @@ CQ.Page.Loading = {
         console.info('Initial loading page');
 
         setTimeout(function() {
+            CQ.Audio.Button.play();
+
             if (CQ.Datastore.getUsername()) {
                 CQ.Page.open(CQ.Page.Main);
             } else {
