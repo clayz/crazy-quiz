@@ -40,6 +40,8 @@ CQ.Page = {
     },
 
     back: function() {
+        CQ.Audio.Button.play();
+
         if (CQ.Session.CURRENT_OPEN_POPUP) {
             $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
             CQ.Session.CURRENT_OPEN_POPUP = null;
@@ -85,27 +87,39 @@ CQ.Page = {
             page.open(CQ.Page.Exchange);
         }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
-        // common popup and buttons
-        $(CQ.Id.$POPUP_SHARE.format(name)).bind(this.popupEvents);
-        $(CQ.Id.$POPUP_SHARE_CLOSE.format(name)).click(function() {
-            CQ.Audio.Button.play();
-            $(CQ.Id.$POPUP_SHARE.format(name)).popup('close');
-        });
+        // share popup and buttons
+        var sharePopupId = CQ.Id.$POPUP_SHARE.format(name);
 
+        $(sharePopupId).bind(this.popupEvents);
+        $('{0} {1}'.format(sharePopupId, CQ.Id.CSS.$POPUP_CLOSE_BTN)).click(this.back);
         $(CQ.Id.$SHARE.format(name)).click(function() {
             CQ.Audio.Button.play();
             page.showShare();
             CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
         });
 
-        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).bind(this.popupEvents);
-        $(CQ.Id.$POPUP_COIN_EXCHANGE.format(name)).tap(function() {
+        // coin not enough popup and buttons
+        var coinNotEnoughPopupId = CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name);
+
+        $(coinNotEnoughPopupId).bind(this.popupEvents);
+        $('{0} {1}'.format(coinNotEnoughPopupId, CQ.Id.CSS.$POPUP_CLOSE_BTN)).click(this.back);
+        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_YES.format(name)).click(function() {
             page.open(CQ.Page.Exchange);
         });
+        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_NO.format(name)).click(function() {
+            $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).popup('close');
+        });
 
-        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name)).bind(this.popupEvents);
-        $(CQ.Id.$POPUP_GEM_BUY.format(name)).tap(function() {
+        // gem not enough popup and buttons
+        var gemNotEnoughPopupId = CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name);
+
+        $(gemNotEnoughPopupId).bind(this.popupEvents);
+        $('{0} {1}'.format(gemNotEnoughPopupId, CQ.Id.CSS.$POPUP_CLOSE_BTN)).click(this.back);
+        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_YES.format(name)).click(function() {
             page.open(CQ.Page.Purchase);
+        });
+        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_NO.format(name)).click(function() {
+            $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name)).popup('close');
         });
     },
 
