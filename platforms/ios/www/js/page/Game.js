@@ -39,14 +39,13 @@ CQ.Page.Game = {
             this.level = params.level;
         }
 
-        var lastPictureId = CQ.Datastore.Picture.getLastPictureId(this.album.id, this.level), playable = true;
+        var lastPictureId = CQ.Datastore.Picture.getLastPictureId(this.album.id, this.level);
         console.info('Album: {0}, level: {1}, last picture: {2}'.format(this.album.id, this.level, lastPictureId));
         this.picture = lastPictureId ? this.album.getNextPicture(lastPictureId) : this.album.getFirstPicture(this.level);
 
         if (!this.picture) {
-            // user already finished all pictures in this level
-            this.picture = this.album.getPicture(lastPictureId);
-            playable = false;
+            // user already finished all pictures in this level, back to the first picture
+            this.picture = this.album.getFirstPicture(this.level);
         }
 
         var levelAndIndex = this.album.getPictureLevelAndIndex(this.picture.id);
@@ -87,32 +86,11 @@ CQ.Page.Game = {
             var character = {
                 id: CQ.Id.Game.CHAR_BTN.format(i),
                 text: chars[i],
-                clickable: playable
+                clickable: true
             };
 
             $('#' + character.id).text(character.text);
             this.options[i] = character;
-        }
-
-        // display all correct answer if picture already played
-        if (this.picture.id == lastPictureId) {
-            var pictureName = this.picture.name.split('');
-
-            for (var i = 0; i < pictureName.length; i++) {
-                var answer = this.answers[i];
-
-                if (pictureName[i] != answer.text) {
-                    if (answer.charBtn) {
-                        $('#' + answer.charBtn).text(answer.text);
-                    }
-
-                    this.removeChar(pictureName[i]);
-                    $('#' + answer.id).text(pictureName[i]).css('color', 'red');
-                    answer.text = pictureName[i];
-                    answer.charBtn = null;
-                    answer.clickable = false;
-                }
-            }
         }
 
         CQ.GA.track(CQ.GA.Picture.Play, CQ.GA.Picture.Play.label.format(this.album.id, this.picture.id));
@@ -263,9 +241,67 @@ CQ.Page.Game = {
 
     answerCorrect: function() {
         CQ.Datastore.Picture.setLastPictureId(this.album.id, this.level, this.picture.id);
-        if (this.album.getNextPicture(this.picture.id)) this.passPicture();
-        else if (this.level == this.album.levels.length) this.passAlbum();
-        else this.passLevel();
+
+        if (this.album.getNextPicture(this.picture.id)) {
+            this.passPicture();
+        } else {
+            CQ.Datastore.Picture.setPictureFinished(this.album.id, this.picture.id);
+            if (this.level == this.album.levels.length) this.passAlbum();
+            else this.passLevel();
+        }
+    },
+
+    passPicture: function() {
+        var earned = false;
+
+        if (!CQ.Datastore.Picture.isPictureFinished(this.album.id, this.picture.id)) {
+            earned = CQ.Currency.earn(CQ.Currency.Earn.Quiz);
+            CQ.Datastore.Picture.setPictureFinished(this.album.id, this.picture.id);
+            CQ.Page.Main.setLevelStatusText(this.album, this.level);
+        }
+
+        this.showPassPopup(earned);
+        CQ.GA.track(CQ.GA.Picture.Pass, CQ.GA.Picture.Pass.label.format(this.album.id, this.picture.id));
+    },
+
+    passLevel: function() {
+        var earned = false;
+
+        if (!CQ.Datastore.Picture.isLevelFinished(this.album.id, this.level)) {
+            earned = CQ.Currency.earn(CQ.Currency.Earn.Level);
+            CQ.Datastore.Picture.setLevelFinished(this.album.id, this.level);
+            CQ.Album.unlockLevel(this.album.id, this.level + 1);
+            CQ.Page.Main.setLevelStatusText(this.album, this.level);
+        }
+
+        this.showPassPopup(earned);
+        CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(this.album.id, this.level));
+    },
+
+    passAlbum: function() {
+        var earned = false;
+
+        if (!CQ.Datastore.Picture.isAlbumFinished(this.album.id)) {
+            earned = CQ.Currency.earn(CQ.Currency.Earn.Album);
+            CQ.Datastore.Picture.setLevelFinished(this.album.id, this.level);
+            CQ.Datastore.Picture.setAlbumFinished(this.album.id);
+            CQ.Album.unlockAlbum(this.album.id + 1);
+            CQ.Page.Main.setLevelStatusText(this.album, this.level);
+        }
+
+        this.showPassPopup(earned);
+        CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(this.album.id));
+    },
+
+    showPassPopup: function(earned) {
+        $(CQ.Id.Game.$POPUP_PASS_PICTURE_NUMBER).html(this.album.getPictureLevelAndIndex(this.picture.id).index + 1);
+        $(CQ.Id.Game.$POPUP_PASS_PICTURE_NAME).html(this.picture.name);
+        $(CQ.Id.Game.$POPUP_PASS_CURRENCY).html(CQ.Currency.account.coin);
+
+        if (earned) $(CQ.Id.Game.$POPUP_PASS_INFO).find('div').show();
+        else $(CQ.Id.Game.$POPUP_PASS_INFO).find('div').hide();
+
+        $(CQ.Id.Game.$POPUP_PASS).popup('open');
     },
 
     clickNext: function() {
@@ -314,39 +350,6 @@ CQ.Page.Game = {
 
     removeCharText: function(id) {
         $('#' + id).text('');
-    },
-
-    passPicture: function() {
-        CQ.Currency.earn(CQ.Currency.Earn.Quiz);
-        CQ.Page.Main.setLevelStatusText(this.album, this.level);
-
-        this.showPassPopup();
-        CQ.GA.track(CQ.GA.Picture.Pass, CQ.GA.Picture.Pass.label.format(this.album.id, this.picture.id));
-    },
-
-    passLevel: function() {
-        CQ.Currency.earn(CQ.Currency.Earn.Level);
-        CQ.Album.unlockLevel(this.album.id, this.level + 1);
-        CQ.Page.Main.setLevelStatusText(this.album, this.level);
-
-        this.showPassPopup();
-        CQ.GA.track(CQ.GA.Level.Pass, CQ.GA.Level.Pass.label.format(this.album.id, this.level));
-    },
-
-    passAlbum: function() {
-        CQ.Currency.earn(CQ.Currency.Earn.Album);
-        CQ.Album.unlockAlbum(this.album.id + 1);
-        CQ.Page.Main.setLevelStatusText(this.album, this.level);
-
-        this.showPassPopup();
-        CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(this.album.id));
-    },
-
-    showPassPopup: function() {
-        $(CQ.Id.Game.$POPUP_PASS_PICTURE_NUMBER).html(this.album.getPictureLevelAndIndex(this.picture.id).index + 1);
-        $(CQ.Id.Game.$POPUP_PASS_PICTURE_NAME).html(this.picture.name);
-        $(CQ.Id.Game.$POPUP_PASS_CURRENCY).html(CQ.Currency.account.coin);
-        $(CQ.Id.Game.$POPUP_PASS).popup('open');
     },
 
     clickShareFacebook: function() {

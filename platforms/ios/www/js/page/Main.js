@@ -73,14 +73,20 @@ CQ.Page.Main = {
     },
 
     setLevelStatusText: function(album, level, lastPictureIndex) {
-        // display finished and total picture info
-        if (!lastPictureIndex) {
-            var lastPictureId = CQ.Datastore.Picture.getLastPictureId(album.id, level);
-            lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0;
-        }
+        // do not display status info if level already finished
+        if (CQ.Datastore.Picture.isLevelFinished(album.id, level)) {
+            $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).hide();
+        } else {
+            // display finished and total picture info
+            if (!lastPictureIndex) {
+                var lastPictureId = CQ.Datastore.Picture.getLastPictureId(album.id, level);
+                lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0;
+            }
 
-        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).show();
-        $(CQ.Id.Main.$ALBUM_LEVEL_STATUS_TEXT.format(album.id, level)).html("{0} / {1}".format(lastPictureIndex, album.getLevel(level).pictures.length));
+            var statusText = "{0} / {1}".format(lastPictureIndex, album.getLevel(level).pictures.length);
+            $(CQ.Id.Main.$ALBUM_LEVEL_STATUS.format(album.id, level)).show();
+            $(CQ.Id.Main.$ALBUM_LEVEL_STATUS_TEXT.format(album.id, level)).html(statusText);
+        }
     },
 
     swipeAlbumLeft: function() {

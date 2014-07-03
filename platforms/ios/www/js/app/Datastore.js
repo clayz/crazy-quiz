@@ -71,7 +71,13 @@ CQ.Datastore.Picture = {
         LAST_ALBUM: 'ALBUM',
         LAST_LEVEL: 'LEVEL_{0}',
         LAST_PICTURE: 'PICTURE_{0}_{1}',
-        LAST_SHARE_DATE: 'LAST_SHARE_DATE'
+        LAST_SHARE_DATE: 'LAST_SHARE_DATE',
+
+        FINISHED_ALBUM: 'FINISHED_ALBUM_{0}',
+        FINISHED_LEVEL: 'FINISHED_LEVEL_{0}_{1}',
+        FINISHED_PICTURE: 'FINISHED_PICTURE_{0}_{1}',
+
+        SHARED_PICTURE: 'SHARED_PICTURE_{0}_{1}'
     },
 
     getLastAlbumId: function() {
@@ -96,6 +102,38 @@ CQ.Datastore.Picture = {
 
     setLastPictureId: function(albumId, level, pictureId) {
         this.set(this.Key.LAST_PICTURE.format(albumId, level), pictureId);
+    },
+
+    isAlbumFinished: function(albumId) {
+        return this.getBoolean(this.Key.FINISHED_ALBUM.format(albumId));
+    },
+
+    setAlbumFinished: function(albumId) {
+        this.setBoolean(this.Key.FINISHED_ALBUM.format(albumId), 'true');
+    },
+
+    isLevelFinished: function(albumId, level) {
+        return this.getBoolean(this.Key.FINISHED_LEVEL.format(albumId, level));
+    },
+
+    setLevelFinished: function(albumId, level) {
+        this.setBoolean(this.Key.FINISHED_LEVEL.format(albumId, level), 'true');
+    },
+
+    isPictureFinished: function(albumId, pictureId) {
+        return this.getBoolean(this.Key.FINISHED_PICTURE.format(albumId, pictureId));
+    },
+
+    setPictureFinished: function(albumId, pictureId) {
+        this.setBoolean(this.Key.FINISHED_PICTURE.format(albumId, pictureId), 'true');
+    },
+
+    isPictureShared: function(albumId, pictureId) {
+        return this.getBoolean(this.Key.SHARED_PICTURE.format(albumId, pictureId));
+    },
+
+    setPictureShared: function(albumId, pictureId) {
+        this.setBoolean(this.Key.SHARED_PICTURE.format(albumId, pictureId), 'true');
     }
 };
 

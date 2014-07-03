@@ -1,25 +1,25 @@
 CQ.Currency = {
-    account: { gem: 1, coin: 100 },
+    account: { gem: 3, coin: 100 },
     history: { earn: [], consume: [], purchase: [], exchange: [] },
 
     Earn: {
-        Login: { id: 1, coin: 1 },
-        Share: { id: 2, coin: 3 },
+        Login: { id: 1, coin: 5 },
+        Share: { id: 2, coin: 5 },
         Rating: { id: 3, coin: 100 },
-        Quiz: { id: 4, coin: 3 }, // correct answer
-        Level: {id: 5, coin: 50}, // finish level
-        Album: { id: 6, coin: 100 } // finish album
+        Quiz: { id: 4, coin: 5 }, // correct answer
+        Level: {id: 5, coin: 100}, // finish level
+        Album: { id: 6, coin: 200 } // finish album
     },
 
     Consume: {
         // coin
         CutDown: { id: 1, coin: 30 },
-        GetChar: { id: 2, coin: 50 },
+        GetChar: { id: 2, coin: 90 },
         Prompt: { id: 3, coin: 10 },
 
         // gem
-        UnlockLevel: { id: 101, gem: 1 },
-        UnlockAlbum: { id: 102, gem: 3 }
+        UnlockLevel: { id: 101, gem: 3 },
+        UnlockAlbum: { id: 102, gem: 10 }
     },
 
     Purchase: {
@@ -97,6 +97,7 @@ CQ.Currency = {
         });
 
         CQ.Datastore.Currency.setEarnHistory(this.history.earn);
+        return true;
     },
 
     consume: function(type, album, level, picture) {
@@ -160,6 +161,7 @@ CQ.Currency = {
         });
 
         CQ.Datastore.Currency.setPurchaseHistory(this.history.purchase);
+        return true;
     },
 
     exchange: function(goods) {
