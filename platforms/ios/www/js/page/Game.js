@@ -39,7 +39,7 @@ CQ.Page.Game = {
             this.level = params.level;
         }
 
-        var lastPictureId = CQ.Datastore.getLastPictureId(this.album.id, this.level), playable = true;
+        var lastPictureId = CQ.Datastore.Picture.getLastPictureId(this.album.id, this.level), playable = true;
         console.info('Album: {0}, level: {1}, last picture: {2}'.format(this.album.id, this.level, lastPictureId));
         this.picture = lastPictureId ? this.album.getNextPicture(lastPictureId) : this.album.getFirstPicture(this.level);
 
@@ -262,7 +262,7 @@ CQ.Page.Game = {
     },
 
     answerCorrect: function() {
-        CQ.Datastore.setLastPictureId(this.album.id, this.level, this.picture.id);
+        CQ.Datastore.Picture.setLastPictureId(this.album.id, this.level, this.picture.id);
         if (this.album.getNextPicture(this.picture.id)) this.passPicture();
         else if (this.level == this.album.levels.length) this.passAlbum();
         else this.passLevel();
@@ -370,7 +370,7 @@ CQ.Page.Game = {
     },
 
     isLevelFinished: function() {
-        return this.picture.id == CQ.Datastore.getLastPictureId(this.album.id, this.level);
+        return this.picture.id == CQ.Datastore.Picture.getLastPictureId(this.album.id, this.level);
     }
 };
 

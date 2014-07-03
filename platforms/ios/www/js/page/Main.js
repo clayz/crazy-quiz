@@ -11,10 +11,10 @@ CQ.Page.Main = {
         else this.initCommon({ header: true, back: true });
 
         // initial all albums and levels
-        var lastAlbumId = CQ.Datastore.getLastAlbumId();
+        var lastAlbumId = CQ.Datastore.Picture.getLastAlbumId();
 
         for (var albumId = 1; albumId <= CQ.Album.TOTAL_ALBUM; albumId++) {
-            var album = CQ.Album.getAlbum(albumId), lastLevel = CQ.Datastore.getLastLevel(album.id);
+            var album = CQ.Album.getAlbum(albumId), lastLevel = CQ.Datastore.Picture.getLastLevel(album.id);
             console.log('Album {0}, last level {1}'.format(albumId, lastLevel));
 
             if (albumId == 1) {
@@ -25,7 +25,7 @@ CQ.Page.Main = {
             for (var level = 1; level <= album.levels.length; level++) {
                 (function(album, level, lastLevel) {
                     var levelPicturePath = album.getPicturePath(album.getFirstPicture(level).id),
-                        lastPictureId = CQ.Datastore.getLastPictureId(album.id, level),
+                        lastPictureId = CQ.Datastore.Picture.getLastPictureId(album.id, level),
                         lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0,
                         $levelButton = $(CQ.Id.Main.$ALBUM_LEVEL.format(album.id, level));
 
@@ -75,7 +75,7 @@ CQ.Page.Main = {
     setLevelStatusText: function(album, level, lastPictureIndex) {
         // display finished and total picture info
         if (!lastPictureIndex) {
-            var lastPictureId = CQ.Datastore.getLastPictureId(album.id, level);
+            var lastPictureId = CQ.Datastore.Picture.getLastPictureId(album.id, level);
             lastPictureIndex = lastPictureId ? album.getPictureLevelAndIndex(lastPictureId).index + 1 : 0;
         }
 

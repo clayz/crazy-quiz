@@ -20,12 +20,12 @@ CQ.Album = {
     },
 
     isAlbumLocked: function(id) {
-        return id > CQ.Datastore.getLastAlbumId();
+        return id > CQ.Datastore.Picture.getLastAlbumId();
     },
 
     unlockAlbum: function(albumId, isPurchase) {
         console.log('Unlock album {0}, is purchase: {1}'.format(albumId, isPurchase));
-        var lastAlbumId = CQ.Datastore.getLastAlbumId();
+        var lastAlbumId = CQ.Datastore.Picture.getLastAlbumId();
 
         if (albumId > this.TOTAL_ALBUM) {
             console.info('There is no such album to unlock.');
@@ -36,7 +36,7 @@ CQ.Album = {
         }
 
         if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockAlbum, albumId)) {
-            CQ.Datastore.setLastAlbumId(albumId);
+            CQ.Datastore.Picture.setLastAlbumId(albumId);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableAlbum(albumId);
             return true;
@@ -49,7 +49,7 @@ CQ.Album = {
 
     unlockLevel: function(albumId, level, isPurchase) {
         console.log('Unlock album {0} level {1}, is purchase: {2}'.format(albumId, level, isPurchase));
-        var lastLevel = CQ.Datastore.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
+        var lastLevel = CQ.Datastore.Picture.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
 
         if (level > album.levels.length) {
             console.info('There is no such level to unlock.');
@@ -60,7 +60,7 @@ CQ.Album = {
         }
 
         if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, albumId, level)) {
-            CQ.Datastore.setLastLevel(albumId, level);
+            CQ.Datastore.Picture.setLastLevel(albumId, level);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableLevel(albumId, level);
             return true;

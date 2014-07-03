@@ -6,7 +6,7 @@ CQ.Page.Index = {
             var username = $(CQ.Id.Index.$NAME_INPUT).val();
 
             if (username && (username.trim() != '')) {
-                CQ.Datastore.setUsername(username);
+                CQ.Datastore.User.setUsername(username);
                 CQ.Page.open(CQ.Page.Main);
             }
         });

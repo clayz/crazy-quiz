@@ -34,27 +34,18 @@ CQ.Datastore = {
 
     clear: function() {
         window.localStorage.clear();
-    },
+    }
+};
 
+/**
+ * User and setting module data storage.
+ */
+CQ.Datastore.User = {
     Key: {
         USERNAME: 'USERNAME',
-        AUDIO_ENABLED: 'AUDIO_ENABLED',
-
-        ACCOUNT: 'ACCOUNT',
-        EARN_HISTORY: 'EARN_HISTORY',
-        CONSUME_HISTORY: 'CONSUME_HISTORY',
-        PURCHASE_HISTORY: 'PURCHASE_HISTORY',
-        EXCHANGE_HISTORY: 'EXCHANGE_HISTORY',
-
-        LAST_ALBUM: 'ALBUM',
-        LAST_LEVEL: 'LEVEL_{0}',
-        LAST_PICTURE: 'PICTURE_{0}_{1}',
-        LAST_SHARE_DATE: 'LAST_SHARE_DATE'
+        AUDIO_ENABLED: 'AUDIO_ENABLED'
     },
 
-    /**
-     * User and setting module data storage.
-     */
     getUsername: function() {
         return this.get(this.Key.USERNAME);
     },
@@ -69,11 +60,20 @@ CQ.Datastore = {
 
     setAudioEnabled: function(isEnabled) {
         this.setBoolean(this.Key.AUDIO_ENABLED, isEnabled);
+    }
+};
+
+/**
+ * Album and picture module data storage.
+ */
+CQ.Datastore.Picture = {
+    Key: {
+        LAST_ALBUM: 'ALBUM',
+        LAST_LEVEL: 'LEVEL_{0}',
+        LAST_PICTURE: 'PICTURE_{0}_{1}',
+        LAST_SHARE_DATE: 'LAST_SHARE_DATE'
     },
 
-    /**
-     * Album and picture module data storage.
-     */
     getLastAlbumId: function() {
         return parseInt(this.get(this.Key.LAST_ALBUM)) || 1;
     },
@@ -96,11 +96,21 @@ CQ.Datastore = {
 
     setLastPictureId: function(albumId, level, pictureId) {
         this.set(this.Key.LAST_PICTURE.format(albumId, level), pictureId);
+    }
+};
+
+/**
+ * Currency module data storage.
+ */
+CQ.Datastore.Currency = {
+    Key: {
+        ACCOUNT: 'ACCOUNT',
+        EARN_HISTORY: 'EARN_HISTORY',
+        CONSUME_HISTORY: 'CONSUME_HISTORY',
+        PURCHASE_HISTORY: 'PURCHASE_HISTORY',
+        EXCHANGE_HISTORY: 'EXCHANGE_HISTORY'
     },
 
-    /**
-     * Currency module data storage.
-     */
     getAccount: function() {
         return this.getObject(this.Key.ACCOUNT);
     },
@@ -130,6 +140,22 @@ CQ.Datastore = {
         if (history.exchange) this.setObject(this.Key.EXCHANGE_HISTORY, history.exchange);
     },
 
+    setEarnHistory: function(history) {
+        this.setObject(this.Key.EARN_HISTORY, history);
+    },
+
+    setConsumeHistory: function(history) {
+        this.setObject(this.Key.CONSUME_HISTORY, history);
+    },
+
+    setPurchaseHistory: function(history) {
+        this.setObject(this.Key.PURCHASE_HISTORY, history);
+    },
+
+    setExchangeHistory: function(history) {
+        this.setObject(this.Key.EXCHANGE_HISTORY, history);
+    },
+
     getLastShareDate: function() {
         return this.get(this.Key.LAST_SHARE_DATE);
     },
@@ -138,3 +164,7 @@ CQ.Datastore = {
         this.set(this.Key.LAST_SHARE_DATE, date);
     }
 };
+
+CQ.App.inherits(CQ.Datastore.User, CQ.Datastore);
+CQ.App.inherits(CQ.Datastore.Picture, CQ.Datastore);
+CQ.App.inherits(CQ.Datastore.Currency, CQ.Datastore);
