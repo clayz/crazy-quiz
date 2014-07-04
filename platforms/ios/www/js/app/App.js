@@ -201,6 +201,18 @@ CQ.Id = {
         $POPUP_PASS_CURRENCY: '#game-popup-pass-currency',
         $POPUP_NEXT: '#game-popup-pass-next-btn',
 
+        $POPUP_CUTDOWN_CONFIRM: '#game-popup-cutdown-confirm',
+        $POPUP_CUTDOWN_CONFIRM_YES: '#game-popup-cutdown-confirm .popup-button-left',
+        $POPUP_CUTDOWN_CONFIRM_NO: '#game-popup-cutdown-confirm .popup-button-right',
+
+        $POPUP_GETCHAR_CONFIRM: '#game-popup-getchar-confirm',
+        $POPUP_GETCHAR_CONFIRM_YES: '#game-popup-getchar-confirm .popup-button-left',
+        $POPUP_GETCHAR_CONFIRM_NO: '#game-popup-getchar-confirm .popup-button-right',
+
+        $POPUP_PROMPT_CONFIRM: '#game-popup-prompt-confirm',
+        $POPUP_PROMPT_CONFIRM_YES: '#game-popup-prompt-confirm .popup-button-left',
+        $POPUP_PROMPT_CONFIRM_NO: '#game-popup-prompt-confirm .popup-button-right',
+
         ANSWER_BTN: 'answer-btn-{0}',
         CHAR_BTN: 'char-btn-{0}'
     },

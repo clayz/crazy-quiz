@@ -187,10 +187,10 @@
 </div>
 
 <!-- share popup -->
-<div data-role="popup" id="main-popup-share" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+<div data-role="popup" id="main-popup-share" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
     <div class="popup-close-btn"></div>
-    <div id="main-popup-share-content" class="popup-content">
+    <div class="popup-content">
         <p>毎日シェアする、楽しみに3コインを獲得します。</p>
         <div class="ui-grid-c">
             <div id="main-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
@@ -204,8 +204,7 @@
 <!-- unlock level confirm popup -->
 <div data-role="popup" id="main-popup-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
-    <div class="popup-close-btn"></div>
-    <div id="main-popup-unlock-content" class="popup-content">
+    <div class="popup-content">
         <p>需要完成上个关卡后，才能解锁此关卡。<br/>或者可以使用一个宝石解锁来解锁此关卡。<br/><br/>上个关卡尚未完成，<br/>想要用一个宝石来解锁新关卡吗？</p>
     </div>
     <div class="popup-buttons ui-grid-a clear-both">
@@ -222,7 +221,7 @@
 <div data-role="popup" id="main-popup-level-purchase" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
     <div class="popup-close-btn"></div>
-    <div id="main-popup-level-purchase-content" class="popup-content">
+    <div class="popup-content">
         <p>需要完成上个关卡后，才能解锁此关卡。<br/>或者可以使用一个宝石解锁来解锁此关卡。<br/><br/>您现在没有足够的宝石，<br/>想要去商店买一些回家吗？</p>
     </div>
     <div class="popup-buttons clear-both">
@@ -231,10 +230,10 @@
 </div>
 
 <!-- level cannot unlock popup -->
-<div data-role="popup" id="main-popup-level-disable" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+<div data-role="popup" id="main-popup-level-disable" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
     <div class="popup-close-btn"></div>
-    <div id="main-popup-level-disable-content" class="popup-content">
+    <div class="popup-content">
         <p>必须先解锁前面的关卡后，才能解锁此关卡。</p>
     </div>
 </div>
@@ -287,175 +286,222 @@
 <!-- Game Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="game" class="page">
-    <div id="game-title">
-        <span id="game-title-text">第0問</span>
-    </div>
+<div id="game-title">
+    <span id="game-title-text">第0問</span>
+</div>
 
-    <!-- page body -->
-    <div id="game-body">
-        <div id="game-content" class="ui-grid-b">
-            <div id="game-prompt"></div>
+<!-- page body -->
+<div id="game-body">
+    <div id="game-content" class="ui-grid-b">
+        <div id="game-prompt"></div>
 
-            <!-- left site buttons -->
-            <div id="game-props-left" class="ui-block-a">
-                <div id="game-getchar-btn" class="game-props-btn">
-                    <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        <div class="game-props-currency right">-90</div>
-                    </div>
-                </div>
-                <div id="game-cutdown-btn" class="game-props-btn">
-                    <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        <div class="game-props-currency right">-30</div>
-                    </div>
+        <!-- left site buttons -->
+        <div id="game-props-left" class="ui-block-a">
+            <div id="game-getchar-btn" class="game-props-btn">
+                <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
+                <div class="game-props-coin">
+                    <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                    <div class="game-props-currency right">-90</div>
                 </div>
             </div>
-            <!-- game picture -->
-            <div id="game-picture-container" class="ui-block-b">
-                <div id="game-picture">
-                    <div id="game-picture-frame">
-                        <div id="game-correct-answer">Answer</div>
-                    </div>
-                </div>
-            </div>
-            <!-- right site buttons -->
-            <div id="game-props-right" class="ui-block-c">
-                <div id="game-prompt-btn" class="game-props-btn">
-                    <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        <div class="game-props-currency right">-10</div>
-                    </div>
-                </div>
-                <div id="game-share-btn" class="game-props-btn">
-                    <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        <div class="game-props-currency right">+10</div>
-                    </div>
+            <div id="game-cutdown-btn" class="game-props-btn">
+                <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
+                <div class="game-props-coin">
+                    <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                    <div class="game-props-currency right">-30</div>
                 </div>
             </div>
         </div>
-
-        <!-- game answer characters -->
-        <div id="game-answer-container">
-            <div id="answer-btn-0" class="game-answer-btn"></div>
-            <div id="answer-btn-1" class="game-answer-btn"></div>
-            <div id="answer-btn-2" class="game-answer-btn"></div>
-            <div id="answer-btn-3" class="game-answer-btn"></div>
-            <div id="answer-btn-4" class="game-answer-btn"></div>
-            <div id="answer-btn-5" class="game-answer-btn"></div>
-            <div id="answer-btn-6" class="game-answer-btn"></div>
-            <div id="answer-btn-7" class="game-answer-btn"></div>
+        <!-- game picture -->
+        <div id="game-picture-container" class="ui-block-b">
+            <div id="game-picture">
+                <div id="game-picture-frame">
+                    <div id="game-correct-answer">Answer</div>
+                </div>
+            </div>
         </div>
-
-        <!-- game alternative answer characters -->
-        <div id="game-char-container">
-            <div class="game-char-row">
-                <div id="char-btn-0" class="game-char-btn"></div>
-                <div id="char-btn-1" class="game-char-btn"></div>
-                <div id="char-btn-2" class="game-char-btn"></div>
-                <div id="char-btn-3" class="game-char-btn"></div>
-                <div id="char-btn-4" class="game-char-btn"></div>
-                <div id="char-btn-5" class="game-char-btn"></div>
-                <div id="char-btn-6" class="game-char-btn"></div>
-                <div id="char-btn-7" class="game-char-btn"></div>
+        <!-- right site buttons -->
+        <div id="game-props-right" class="ui-block-c">
+            <div id="game-prompt-btn" class="game-props-btn">
+                <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
+                <div class="game-props-coin">
+                    <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                    <div class="game-props-currency right">-10</div>
+                </div>
             </div>
-            <div class="game-char-row">
-                <div id="char-btn-8" class="game-char-btn"></div>
-                <div id="char-btn-9" class="game-char-btn"></div>
-                <div id="char-btn-10" class="game-char-btn"></div>
-                <div id="char-btn-11" class="game-char-btn"></div>
-                <div id="char-btn-12" class="game-char-btn"></div>
-                <div id="char-btn-13" class="game-char-btn"></div>
-                <div id="char-btn-14" class="game-char-btn"></div>
-                <div id="char-btn-15" class="game-char-btn"></div>
-            </div>
-            <div class="game-char-row">
-                <div id="char-btn-16" class="game-char-btn"></div>
-                <div id="char-btn-17" class="game-char-btn"></div>
-                <div id="char-btn-18" class="game-char-btn"></div>
-                <div id="char-btn-19" class="game-char-btn"></div>
-                <div id="char-btn-20" class="game-char-btn"></div>
-                <div id="char-btn-21" class="game-char-btn"></div>
-                <div id="char-btn-22" class="game-char-btn"></div>
-                <div id="char-btn-23" class="game-char-btn"></div>
-            </div>
-            <div class="game-char-row">
-                <div id="char-btn-24" class="game-char-btn"></div>
-                <div id="char-btn-25" class="game-char-btn"></div>
-                <div id="char-btn-26" class="game-char-btn"></div>
-                <div id="char-btn-27" class="game-char-btn"></div>
-                <div id="char-btn-28" class="game-char-btn"></div>
-                <div id="char-btn-29" class="game-char-btn"></div>
-                <div id="char-btn-30" class="game-char-btn"></div>
-                <div id="char-btn-31" class="game-char-btn"></div>
+            <div id="game-share-btn" class="game-props-btn">
+                <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
+                <div class="game-props-coin">
+                    <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
+                    <div class="game-props-currency right">+10</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- answer correct popup -->
-    <div data-role="popup" id="game-popup-pass" data-overlay-theme="b" data-dismissible="false" class="popup-container">
-        <div id="game-popup-pass-content" class="popup-content">
-            <div id="game-popup-pass-bg"></div>
-            <div id="game-popup-pass-picture">
-                <div id="game-popup-pass-picture-number"></div>
-                <div id="game-popup-pass-picture-name"></div>
-            </div>
-            <div id="game-popup-pass-info">
-                <div id="game-popup-pass-bonus-bg"></div>
-                <div id="game-popup-pass-bonus-coin"></div>
-                <div id="game-popup-pass-bonus-text"> × 5</div>
-            </div>
-            <div id="game-popup-pass-sep"></div>
-            <div id="game-popup-pass-current-coin" class="clear-both">
-                拥有金币：<span id="game-popup-pass-currency"></span>
-            </div>
-        </div>
-        <div class="popup-buttons ui-grid-a clear-both">
-            <div class="ui-block-a">
-                <img id="game-popup-pass-share-btn" class="popup-button-left" src="img/button/game-popup-share-btn.png"/>
-            </div>
-            <div class="ui-block-b">
-                <img id="game-popup-pass-next-btn" class="popup-button-right" src="img/button/game-popup-next-btn.png"/>
-            </div>
-        </div>
+    <!-- game answer characters -->
+    <div id="game-answer-container">
+        <div id="answer-btn-0" class="game-answer-btn"></div>
+        <div id="answer-btn-1" class="game-answer-btn"></div>
+        <div id="answer-btn-2" class="game-answer-btn"></div>
+        <div id="answer-btn-3" class="game-answer-btn"></div>
+        <div id="answer-btn-4" class="game-answer-btn"></div>
+        <div id="answer-btn-5" class="game-answer-btn"></div>
+        <div id="answer-btn-6" class="game-answer-btn"></div>
+        <div id="answer-btn-7" class="game-answer-btn"></div>
     </div>
 
-    <!-- coin not enough popup -->
-    <div data-role="popup" id="game-popup-coin-not-enough" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-logo"></div>
-        <div class="popup-close-btn"></div>
-        <div id="game-popup-coin-not-enough-content" class="popup-content">
-            <p>金币不够啦，现在去商店换一些吗？</p>
+    <!-- game alternative answer characters -->
+    <div id="game-char-container">
+        <div class="game-char-row">
+            <div id="char-btn-0" class="game-char-btn"></div>
+            <div id="char-btn-1" class="game-char-btn"></div>
+            <div id="char-btn-2" class="game-char-btn"></div>
+            <div id="char-btn-3" class="game-char-btn"></div>
+            <div id="char-btn-4" class="game-char-btn"></div>
+            <div id="char-btn-5" class="game-char-btn"></div>
+            <div id="char-btn-6" class="game-char-btn"></div>
+            <div id="char-btn-7" class="game-char-btn"></div>
         </div>
-        <div class="popup-buttons ui-grid-a clear-both">
-            <div class="ui-block-a">
-                <img id="game-popup-coin-not-enough-yes-btn" class="popup-button-left" src="img/button/popup-yes-btn.png"/>
-            </div>
-            <div class="ui-block-b">
-                <img id="game-popup-coin-not-enough-no-btn" class="popup-button-right" src="img/button/popup-no-btn.png"/>
-            </div>
+        <div class="game-char-row">
+            <div id="char-btn-8" class="game-char-btn"></div>
+            <div id="char-btn-9" class="game-char-btn"></div>
+            <div id="char-btn-10" class="game-char-btn"></div>
+            <div id="char-btn-11" class="game-char-btn"></div>
+            <div id="char-btn-12" class="game-char-btn"></div>
+            <div id="char-btn-13" class="game-char-btn"></div>
+            <div id="char-btn-14" class="game-char-btn"></div>
+            <div id="char-btn-15" class="game-char-btn"></div>
+        </div>
+        <div class="game-char-row">
+            <div id="char-btn-16" class="game-char-btn"></div>
+            <div id="char-btn-17" class="game-char-btn"></div>
+            <div id="char-btn-18" class="game-char-btn"></div>
+            <div id="char-btn-19" class="game-char-btn"></div>
+            <div id="char-btn-20" class="game-char-btn"></div>
+            <div id="char-btn-21" class="game-char-btn"></div>
+            <div id="char-btn-22" class="game-char-btn"></div>
+            <div id="char-btn-23" class="game-char-btn"></div>
+        </div>
+        <div class="game-char-row">
+            <div id="char-btn-24" class="game-char-btn"></div>
+            <div id="char-btn-25" class="game-char-btn"></div>
+            <div id="char-btn-26" class="game-char-btn"></div>
+            <div id="char-btn-27" class="game-char-btn"></div>
+            <div id="char-btn-28" class="game-char-btn"></div>
+            <div id="char-btn-29" class="game-char-btn"></div>
+            <div id="char-btn-30" class="game-char-btn"></div>
+            <div id="char-btn-31" class="game-char-btn"></div>
         </div>
     </div>
+</div>
 
-    <!-- share popup -->
-    <div data-role="popup" id="game-popup-share" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-logo"></div>
-        <div class="popup-close-btn"></div>
-        <div id="game-popup-share-content" class="popup-content">
-            <p>毎日シェアする、楽しみに3コインを獲得します。</p>
-            <div class="ui-grid-c">
-                <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
-                <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
-                <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
-                <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
-            </div>
+<!-- answer correct popup -->
+<div data-role="popup" id="game-popup-pass" data-overlay-theme="b" data-dismissible="false" class="popup-container">
+    <div id="game-popup-pass-content" class="popup-content">
+        <div id="game-popup-pass-bg"></div>
+        <div id="game-popup-pass-picture">
+            <div id="game-popup-pass-picture-number"></div>
+            <div id="game-popup-pass-picture-name"></div>
+        </div>
+        <div id="game-popup-pass-info">
+            <div id="game-popup-pass-bonus-bg"></div>
+            <div id="game-popup-pass-bonus-coin"></div>
+            <div id="game-popup-pass-bonus-text"> × 5</div>
+        </div>
+        <div id="game-popup-pass-sep"></div>
+        <div id="game-popup-pass-current-coin" class="clear-both">
+            拥有金币：<span id="game-popup-pass-currency"></span>
         </div>
     </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img id="game-popup-pass-share-btn" class="popup-button-left" src="img/button/game-popup-share-btn.png"/>
+        </div>
+        <div class="ui-block-b">
+            <img id="game-popup-pass-next-btn" class="popup-button-right" src="img/button/game-popup-next-btn.png"/>
+        </div>
+    </div>
+</div>
+
+<!-- cutdown confirm popup -->
+<div data-role="popup" id="game-popup-cutdown-confirm" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-logo"></div>
+    <div class="popup-content">
+        <p>使用30个coin来去掉一个错误答案？</p>
+    </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img class="popup-button-left" src="img/button/popup-yes-btn.png"/>
+        </div>
+        <div class="ui-block-b">
+            <img class="popup-button-right" src="img/button/popup-no-btn.png"/>
+        </div>
+    </div>
+</div>
+
+<!-- getchar confirm popup -->
+<div data-role="popup" id="game-popup-getchar-confirm" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-logo"></div>
+    <div class="popup-content">
+        <p>使用90个coin来获取一个正确文字？</p>
+    </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img class="popup-button-left" src="img/button/popup-yes-btn.png"/>
+        </div>
+        <div class="ui-block-b">
+            <img class="popup-button-right" src="img/button/popup-no-btn.png"/>
+        </div>
+    </div>
+</div>
+
+<!-- prompt confirm popup -->
+<div data-role="popup" id="game-popup-prompt-confirm" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-logo"></div>
+    <div class="popup-content">
+        <p>使用10个coin来获得提示？</p>
+    </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img class="popup-button-left" src="img/button/popup-yes-btn.png"/>
+        </div>
+        <div class="ui-block-b">
+            <img class="popup-button-right" src="img/button/popup-no-btn.png"/>
+        </div>
+    </div>
+</div>
+
+<!-- coin not enough popup -->
+<div data-role="popup" id="game-popup-coin-not-enough" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-logo"></div>
+    <div class="popup-content">
+        <p>金币不够啦，现在去商店换一些吗？</p>
+    </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img id="game-popup-coin-not-enough-yes-btn" class="popup-button-left" src="img/button/popup-yes-btn.png"/>
+        </div>
+        <div class="ui-block-b">
+            <img id="game-popup-coin-not-enough-no-btn" class="popup-button-right" src="img/button/popup-no-btn.png"/>
+        </div>
+    </div>
+</div>
+
+<!-- share popup -->
+<div data-role="popup" id="game-popup-share" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-logo"></div>
+    <div class="popup-close-btn"></div>
+    <div id="game-popup-share-content" class="popup-content">
+        <p>毎日シェアする、楽しみに3コインを獲得します。</p>
+        <div class="ui-grid-c">
+            <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
+            <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
+            <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
+            <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
+        </div>
+    </div>
+</div>
 </div>
 
 <!------------------------------------------------------------------>

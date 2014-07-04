@@ -9,15 +9,16 @@ CQ.Page.Game = {
 
     init: function() {
         console.info('Initial game page');
-        this.initCommon({ header: true, back: true });
 
+        this.initCommon({ header: true, back: true });
+        this.initPopups();
         this.bindCharEvents();
         this.bindAnswerEvents();
 
         // bind all button events
-        this.bindTapButton(CQ.Id.Game.$CUT_DOWN, this.cutdown, CQ.Id.Image.GAME_CUT_DOWN_TAP, CQ.Id.Image.GAME_CUT_DOWN, CQ.Id.Game.$CUT_DOWN_IMG);
-        this.bindTapButton(CQ.Id.Game.$GET_CHAR, this.getchar, CQ.Id.Image.GAME_GET_CHAR_TAP, CQ.Id.Image.GAME_GET_CHAR, CQ.Id.Game.$GET_CHAR_IMG);
-        this.bindTapButton(CQ.Id.Game.$PROMPT, this.prompt, CQ.Id.Image.GAME_PROMPT_TAP, CQ.Id.Image.GAME_PROMPT, CQ.Id.Game.$PROMPT_IMG);
+        this.bindTapButton(CQ.Id.Game.$CUT_DOWN, this.clickCutdown, CQ.Id.Image.GAME_CUT_DOWN_TAP, CQ.Id.Image.GAME_CUT_DOWN, CQ.Id.Game.$CUT_DOWN_IMG);
+        this.bindTapButton(CQ.Id.Game.$GET_CHAR, this.clickGetchar, CQ.Id.Image.GAME_GET_CHAR_TAP, CQ.Id.Image.GAME_GET_CHAR, CQ.Id.Game.$GET_CHAR_IMG);
+        this.bindTapButton(CQ.Id.Game.$PROMPT, this.clickPrompt, CQ.Id.Image.GAME_PROMPT_TAP, CQ.Id.Image.GAME_PROMPT, CQ.Id.Game.$PROMPT_IMG);
 
         // bind share buttons
         this.bindTouchImage($(CQ.Id.Game.$SHARE), CQ.Id.Image.GAME_SHARE_TAP, CQ.Id.Image.GAME_SHARE, CQ.Id.Game.$SHARE_IMG);
@@ -100,6 +101,35 @@ CQ.Page.Game = {
         };
     },
 
+    initPopups: function() {
+        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM).bind(this.popupEvents);
+        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM_YES).click(this.cutdown);
+        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM_NO).click(this.closeCutdownConfirmPopup);
+
+        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM).bind(this.popupEvents);
+        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM_YES).click(this.getchar);
+        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM_NO).click(this.closeGetcharConfirmPopup);
+
+        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).bind(this.popupEvents);
+        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_YES).click(this.prompt);
+        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_NO).click(this.closePromptConfirmPopup);
+    },
+
+    closeCutdownConfirmPopup: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM).popup('close');
+    },
+
+    closeGetcharConfirmPopup: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM).popup('close');
+    },
+
+    closePromptConfirmPopup: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).popup('close');
+    },
+
     bindCharEvents: function() {
         this.bindTouchBackground($('[id^=char-btn-]').tap(function() {
             CQ.Audio.GameChar.play();
@@ -138,42 +168,56 @@ CQ.Page.Game = {
         }), CQ.Id.Image.GAME_ANSWER_BG_TAP, CQ.Id.Image.GAME_ANSWER_BG);
     },
 
-    cutdown: function() {
-        if (CQ.Page.Game.isLevelFinished()) return;
+    clickCutdown: function() {
+        CQ.Audio.Button.play();
 
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.CutDown)) {
-            console.info('Start cutdown one answer transaction.');
-            var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
-
-            for (var i = 0; i < usedPictures.length; i++) {
-                if (usedPictures[i] && (usedPictures[i] != page.picture.id)) {
-                    var removePicture = page.album.getPicture(usedPictures[i]), name = removePicture.name.split('');
-                    console.log('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
-
-                    for (var j = 0; j < name.length; j++) {
-                        page.removeChar(name[j]);
-                    }
-
-                    usedPictures[i] = null;
-                    CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.level, page.picture.id);
-                    page.refreshCurrency();
-                    break;
-                }
-            }
-
-            CQ.GA.track(CQ.GA.Props.Cutdown, CQ.GA.Props.Cutdown.label.format(page.album.id, page.picture.id));
+            $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM).popup('open');
         } else {
-            CQ.Page.Game.showCoinNotEnough();
+            this.showCoinNotEnough();
+        }
+    },
+
+    cutdown: function() {
+        console.info('Start cutdown one answer transaction.');
+        var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
+
+        for (var i = 0; i < usedPictures.length; i++) {
+            if (usedPictures[i] && (usedPictures[i] != page.picture.id)) {
+                var removePicture = page.album.getPicture(usedPictures[i]), name = removePicture.name.split('');
+                console.log('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
+
+                for (var j = 0; j < name.length; j++) {
+                    page.removeChar(name[j]);
+                }
+
+                usedPictures[i] = null;
+                CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.level, page.picture.id);
+                page.refreshCurrency();
+                break;
+            }
+        }
+
+        page.closeCutdownConfirmPopup();
+        CQ.GA.track(CQ.GA.Props.Cutdown, CQ.GA.Props.Cutdown.label.format(page.album.id, page.picture.id));
+    },
+
+    clickGetchar: function() {
+        CQ.Audio.Button.play();
+
+        if (CQ.Currency.checkCoin(CQ.Currency.Consume.GetChar)) {
+            $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM).popup('open');
+        } else {
+            this.showCoinNotEnough();
         }
     },
 
     getchar: function() {
-        if (CQ.Page.Game.isLevelFinished()) return;
+        console.info('Start get one character transaction.');
+        var page = CQ.Page.Game, name = page.picture.name.split('');
+        page.closeGetcharConfirmPopup();
 
-        if (CQ.Currency.checkCoin(CQ.Currency.Consume.GetChar)) {
-            console.info('Start get one character transaction.');
-            var page = CQ.Page.Game, name = page.picture.name.split('');
-
+        setTimeout(function() {
             for (var i = 0; i < name.length; i++) {
                 var answer = page.answers[i];
 
@@ -196,29 +240,32 @@ CQ.Page.Game = {
 
             page.checkAnswer();
             CQ.GA.track(CQ.GA.Props.Getchar, CQ.GA.Props.Getchar.label.format(page.album.id, page.picture.id));
-        } else {
-            CQ.Page.Game.showCoinNotEnough();
+        }, 50);
+    },
+
+    clickPrompt: function() {
+        CQ.Audio.Button.play();
+
+        if ($(CQ.Id.Game.$PROMPT_DIV).is(":hidden")) {
+            if (CQ.Currency.checkCoin(CQ.Currency.Consume.Prompt)) {
+                $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).popup('open');
+            } else {
+                this.showCoinNotEnough();
+            }
         }
     },
 
     prompt: function() {
-        if (CQ.Page.Game.isLevelFinished()) return;
-        var $prompt = $(CQ.Id.Game.$PROMPT_DIV), page = CQ.Page.Game;
+        console.info('Start get prompt transaction.');
+        var page = CQ.Page.Game, $prompt = $(CQ.Id.Game.$PROMPT_DIV);
 
-        if ($prompt.is(":hidden")) {
-            if (CQ.Currency.checkCoin(CQ.Currency.Consume.Prompt)) {
-                console.info('Start get prompt transaction.');
+        $prompt.text(page.picture.category.name);
+        $prompt.show();
+        CQ.Currency.consume(CQ.Currency.Consume.Prompt, page.album.id, page.level, page.picture.id);
+        page.refreshCurrency();
+        page.closePromptConfirmPopup();
 
-                $prompt.text(page.picture.category.name);
-                $prompt.show();
-                CQ.Currency.consume(CQ.Currency.Consume.Prompt, page.album.id, page.level, page.picture.id);
-                page.refreshCurrency();
-
-                CQ.GA.track(CQ.GA.Props.Prompt, CQ.GA.Props.Prompt.label.format(page.album.id, page.picture.id));
-            } else {
-                page.showCoinNotEnough();
-            }
-        }
+        CQ.GA.track(CQ.GA.Props.Prompt, CQ.GA.Props.Prompt.label.format(page.album.id, page.picture.id));
     },
 
     checkAnswer: function() {

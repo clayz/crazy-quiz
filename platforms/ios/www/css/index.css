@@ -242,12 +242,18 @@ p {
 .popup-container {
     border: 0 !important;
     background-color: #eae093 !important;
-    padding: 2em 0 2.2em 0;
+    padding: 1em 0 2em 0;
+}
+
+.popup-container-no-btn {
+    border: 0 !important;
+    background-color: #eae093 !important;
+    padding: 1em 0 .2em 0;
 }
 
 .popup-content {
     background-color: #6d3805 !important;
-    margin: 1em;
+    margin: 1em .8em .8em .8em;
     color: #FFFFFF;
     border-radius: 3px;
     z-index: 3;
@@ -255,12 +261,11 @@ p {
 
 .popup-logo {
     position: absolute;
-    margin-top: -9em;
-    margin-left: -1em;
-    width: 7.5em;
-    height: 10em;
-    background: url(../img/logo/index.png) no-repeat;
-    background-size: 100% 100%;
+    margin: -.7em 0 0 .8em;
+    width: 3em;
+    height: 4em;
+    background: url(../img/layout/popup-title.png) no-repeat;
+    background-size: 100%;
     z-index: 1;
 }
 
@@ -541,22 +546,22 @@ p {
 /* Main Page Popups */
 /*******************************************************************/
 
-#main-popup-unlock-content {
+#main-popup-unlock .popup-content {
     width: 22em;
     height: 9em;
 }
 
-#main-popup-level-purchase-content {
+#main-popup-level-purchase .popup-content {
     width: 22em;
     height: 9em;
 }
 
-#main-popup-level-disable-content {
+#main-popup-level-disable .popup-content {
     width: 22em;
     height: 6em;
 }
 
-#main-popup-share-content {
+#main-popup-share .popup-content {
     width: 22em;
     padding-bottom: 2em;
 }
@@ -837,7 +842,22 @@ p {
 /* Game Page Popups */
 /*******************************************************************/
 
-#game-popup-coin-not-enough-content {
+#game-popup-coin-not-enough .popup-content {
+    width: 22em;
+    height: 6em;
+}
+
+#game-popup-cutdown-confirm .popup-content {
+    width: 22em;
+    height: 6em;
+}
+
+#game-popup-getchar-confirm .popup-content {
+    width: 22em;
+    height: 6em;
+}
+
+#game-popup-prompt-confirm .popup-content {
     width: 22em;
     height: 6em;
 }
