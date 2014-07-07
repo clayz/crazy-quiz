@@ -34,7 +34,7 @@ CQ.Page = {
         if (result && result.redirect) {
             this.open(result.redirect);
         } else {
-            $.mobile.changePage('#' + pageName);
+            $.mobile.changePage('#' + pageName, { transition: "fade" });
             CQ.GA.trackPage((result && result.gaPageName) ? result.gaPageName : pageName);
         }
     },
@@ -55,7 +55,7 @@ CQ.Page = {
             console.log('Back to page: {0}'.format(from));
 
             CQ.Session.CURRENT_PAGE = from;
-            $.mobile.changePage('#' + from);
+            $.mobile.changePage('#' + from, { transition: "fade" });
             CQ.GA.trackPage(from);
         }
     },
