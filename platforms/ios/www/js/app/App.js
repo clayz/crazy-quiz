@@ -143,6 +143,8 @@ CQ.Id = {
     },
 
     Main: {
+        $WELCOME_CONTENT: '#main-welcome-content',
+
         $ALBUM_CONTAINER: '#main-album-container',
         $ALBUM_WAITING: '#main-album-waiting',
         $ALBUM: '#main-album',
