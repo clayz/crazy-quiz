@@ -174,7 +174,7 @@ CQ.Page.Game = {
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.CutDown)) {
             $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM).popup('open');
         } else {
-            this.showCoinNotEnough();
+            CQ.Page.Game.showCoinNotEnough();
         }
     },
 
@@ -208,7 +208,7 @@ CQ.Page.Game = {
         if (CQ.Currency.checkCoin(CQ.Currency.Consume.GetChar)) {
             $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM).popup('open');
         } else {
-            this.showCoinNotEnough();
+            CQ.Page.Game.showCoinNotEnough();
         }
     },
 
@@ -250,7 +250,7 @@ CQ.Page.Game = {
             if (CQ.Currency.checkCoin(CQ.Currency.Consume.Prompt)) {
                 $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).popup('open');
             } else {
-                this.showCoinNotEnough();
+                CQ.Page.Game.showCoinNotEnough();
             }
         }
     },
