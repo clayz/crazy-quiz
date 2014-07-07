@@ -274,12 +274,8 @@ CQ.Page.Game = {
 
         for (var i = 0; i < name.length; i++) {
             var answer = this.answers[i];
-            if (!answer.text) continue;
-
-            if (answer.text && (answer.text != name.charAt(i))) {
-                isCorrect = false;
-            }
-
+            if (!answer.text) break;
+            if (answer.text && (answer.text != name.charAt(i))) isCorrect = false;
             if (i == (name.length - 1)) isFulFilled = true;
         }
 
