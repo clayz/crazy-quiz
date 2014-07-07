@@ -41,21 +41,26 @@
 <!-- Loading Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="loading" class="page">
+
 </div>
 
 <!------------------------------------------------------------------>
 <!-- Index Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="index" class="page">
-    <div id="index-body" role="main" class="ui-content">
-        <div>
-            <label for="index-name-input">Please enter your name:</label>
+    <div id="index-name">
+        <img src="img/layout/index-name.png"/>
+    </div>
+    <div id="index-body">
+        <div id="index-input-label">
+            <div id="index-input-label-logo"></div>
+            <div id="index-input-label-text">名前を入力してください<br/>（10文字以内）</div>
         </div>
-        <div id="index-name-input-div">
-            <input id="index-name-input" type="text" data-clear-btn="true" maxlength="20" value=""/>
+        <div id="index-input">
+            <input id="index-input-name" type="text" data-clear-btn="true" maxlength="10" value=""/>
         </div>
-        <div>
-            <button id="index-start-btn">Start</button>
+        <div id="index-buttons">
+            <img id="index-start-btn" src="img/button/index-start-btn.png"/>
         </div>
     </div>
 </div>

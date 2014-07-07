@@ -112,6 +112,9 @@ CQ.Id = {
         CURRENCY_ADD: 'img/button/currency-add.png',
         CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png',
 
+        INDEX_START: 'img/button/index-start-btn.png',
+        INDEX_START_TAP: 'img/button/index-start-btn-tap.png',
+
         MAIN_SHARE: 'img/button/main-share.png',
         MAIN_SHARE_TAP: 'img/button/main-share-tap.png',
         MAIN_HELP: 'img/button/main-help.png',
@@ -135,7 +138,7 @@ CQ.Id = {
     },
 
     Index: {
-        $NAME_INPUT: '#index-name-input',
+        $NAME_INPUT: '#index-input-name',
         $START: '#index-start-btn'
     },
 

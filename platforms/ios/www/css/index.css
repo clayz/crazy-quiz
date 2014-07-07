@@ -328,19 +328,68 @@ p {
 /*******************************************************************/
 /* Index Page */
 /*******************************************************************/
-#index-start-btn {
-    width: 6em;
-    margin: auto;
+#index-name {
+    position: relative;
+    height: 7em;
+    z-index: 10;
 }
 
-#index-name-input-div {
-    width: 20em;
-    margin: auto;
-    padding-bottom: 2em;
+#index-name img {
+    height: 15em;
+    margin-top: 1em;
 }
 
-#index-name-input {
+#index-body {
+    position: relative;
+    height: 84%;
+    margin: 0 .5em 0 .5em;
+    background: url(../img/layout/game-bg.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+#index-input-label {
+    position: absolute;
+    width: 18em;
+    left: 50%;
+    margin-left: -9em;
+    padding-top: 9em;
+}
+
+#index-input-label-logo {
+    float: left;
+    width: 5em;
+    height: 5.5em;
+    background: url(../img/logo/index.png) no-repeat;
+    background-size: 100%;
+}
+
+#index-input-label-text {
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 .5em 5em;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: none;
+    text-align: left;
+}
+
+#index-input {
+    position: absolute;
+    padding-top: 14em;
+    left: 50%;
+    width: 16em;
+    margin-left: -8em;
+}
+
+#index-input-name {
     height: 3em;
+}
+
+#index-buttons img {
+    padding-top: 19em;
+    width: 10em;
+    height: 4.5em;
 }
 
 /*******************************************************************/
