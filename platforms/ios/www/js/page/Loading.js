@@ -7,11 +7,11 @@ CQ.Page.Loading = {
         setTimeout(function() {
             CQ.Audio.Button.play();
 
-//            if (CQ.Datastore.User.getUsername()) {
-//                CQ.Page.open(CQ.Page.Main);
-//            } else {
-            CQ.Page.open(CQ.Page.Index);
-//            }
+            if (CQ.Datastore.User.getUsername()) {
+                CQ.Page.open(CQ.Page.Main);
+            } else {
+                CQ.Page.open(CQ.Page.Index);
+            }
         }, 1000);
     },
 
