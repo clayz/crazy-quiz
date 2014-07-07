@@ -416,7 +416,7 @@ p {
 #index-input-label-text {
     position: absolute;
     bottom: 0;
-    margin: 0 0 .5em 5em;
+    margin: 0 0 .5em 5.5em;
     color: #FFFFFF;
     font-weight: bold;
     text-shadow: none;
@@ -467,10 +467,10 @@ p {
 }
 
 #main-welcome-text {
-    margin: 1em 0 0 8em;
-    width: 62%;
+    margin: 1em 0 0 8.5em;
+    padding-top: 1.4em;
+    width: 60%;
     height: 6em;
-    line-height: 5em;
     color: #9d5106;
     background: url(../img/layout/main-welcome-bg.png) no-repeat;
     background-size: 100% 100%;

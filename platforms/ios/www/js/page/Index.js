@@ -11,10 +11,10 @@ CQ.Page.Index = {
     },
 
     clickStart: function() {
-        var username = $(CQ.Id.Index.$NAME_INPUT).val();
+        var name = $(CQ.Id.Index.$NAME_INPUT).val().trim();
 
-        if (username && (username.trim() != '')) {
-            CQ.Datastore.User.setUsername(username);
+        if (name && (name != '')) {
+            CQ.User.setName(name);
             CQ.Page.open(CQ.Page.Main);
         }
     }

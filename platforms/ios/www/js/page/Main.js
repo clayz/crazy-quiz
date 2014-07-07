@@ -10,10 +10,6 @@ CQ.Page.Main = {
         if (CQ.App.iOS()) this.initCommon({ header: true, back: false });
         else this.initCommon({ header: true, back: true });
 
-        // initial welcome text
-        var welcomeText = "{0} お帰りなさい".format(CQ.Datastore.User.getUsername());
-        $(CQ.Id.Main.$WELCOME_CONTENT).html(welcomeText);
-
         // initial all albums and levels
         var lastAlbumId = CQ.Datastore.Picture.getLastAlbumId();
 
@@ -74,6 +70,10 @@ CQ.Page.Main = {
 
     load: function() {
         this.refreshCurrency();
+
+        // initial welcome text
+        var welcomeText = "{0}さん<br/>お帰りなさい！".format(CQ.User.getName());
+        $(CQ.Id.Main.$WELCOME_CONTENT).html(welcomeText);
     },
 
     setLevelStatusText: function(album, level, lastPictureIndex) {
