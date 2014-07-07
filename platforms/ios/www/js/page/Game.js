@@ -270,20 +270,21 @@ CQ.Page.Game = {
 
     checkAnswer: function() {
         var name = this.picture.name;
-        var isCorrect = true;
+        var isCorrect = true, isFulFilled = false;
 
         for (var i = 0; i < name.length; i++) {
             var answer = this.answers[i];
+            if (!answer.text) continue;
 
-            if (!answer.text) {
-                return;
-            } else if (answer.text != name.charAt(i)) {
+            if (answer.text && (answer.text != name.charAt(i))) {
                 isCorrect = false;
-                break;
             }
+
+            if (i == (name.length - 1)) isFulFilled = true;
         }
 
         if (isCorrect) this.answerCorrect();
+        else if (isFulFilled) this.answerIncorrect();
     },
 
     answerCorrect: function() {
@@ -296,6 +297,10 @@ CQ.Page.Game = {
             if (this.level == this.album.levels.length) this.passAlbum();
             else this.passLevel();
         }
+    },
+
+    answerIncorrect: function() {
+
     },
 
     passPicture: function() {
