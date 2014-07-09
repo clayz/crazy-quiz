@@ -3,12 +3,17 @@ CQ.Page.Main = {
     albumId: 1,
     selectedUnlockAlbum: null,
     selectedUnlockLevel: null,
+    unlockLevelPopup: null,
+    unlockAlbumPopup: null,
 
     init: function() {
         console.info('Initial main page');
 
         if (CQ.App.iOS()) this.initCommon({ header: true, back: false });
         else this.initCommon({ header: true, back: true });
+
+        this.initPopups();
+        this.initButtons();
 
         // initial all albums and levels
         var lastAlbumId = CQ.Datastore.Picture.getLastAlbumId();
@@ -56,12 +61,9 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$ALBUM_CONTAINER).on('swipeleft', CQ.Page.Main.swipeAlbumLeft).on('swiperight', CQ.Page.Main.swipeAlbumRight);
         $(CQ.Id.Main.$ALBUM_WAITING).on('swiperight', CQ.Page.Main.swipeAlbumRight);
 
-        this.initPopups();
-        this.initButtons();
-
         if (CQ.App.android()) {
             // exit and clear history buttons
-            $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
+//            $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
             $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
                 navigator.app.exitApp();
             });
@@ -176,7 +178,7 @@ CQ.Page.Main = {
         var albumId = event.data.albumId, level = event.data.level;
 
         if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockLevel.gem) {
-            $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('open');
+            CQ.Page.Main.unlockLevelPopup.popup.open();
             CQ.Page.Main.selectedUnlockLevel = {
                 albumId: albumId,
                 level: level
@@ -192,14 +194,14 @@ CQ.Page.Main = {
     },
 
 
-    clickUnlockLevel: function() {
-        CQ.Audio.Button.play();
-        if (CQ.Page.Main.selectedUnlockLevel) {
-            $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
-            CQ.Album.unlockLevel(CQ.Page.Main.selectedUnlockLevel.albumId, CQ.Page.Main.selectedUnlockLevel.level, true);
-            CQ.Page.Main.selectedUnlockLevel = null;
-        }
-    },
+//    clickUnlockLevel: function() {
+//        CQ.Audio.Button.play();
+//        if (CQ.Page.Main.selectedUnlockLevel) {
+//            $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
+//            CQ.Album.unlockLevel(CQ.Page.Main.selectedUnlockLevel.albumId, CQ.Page.Main.selectedUnlockLevel.level, true);
+//            CQ.Page.Main.selectedUnlockLevel = null;
+//        }
+//    },
 
     enableAlbum: function(albumId) {
         // change album style
@@ -217,24 +219,27 @@ CQ.Page.Main = {
 
     initPopups: function() {
         // level popup and buttons
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockLevelPopup);
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_YES).click(CQ.Page.Main.clickUnlockLevel);
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
+        this.unlockLevelPopup = new CQ.Popup.UnlockLevel(this.name);
+//        unlockLevelPopup.onClickYes();
 
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockLevelPopup);
+//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_YES).click(CQ.Page.Main.clickUnlockLevel);
+//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
+
+//        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).bind(this.popupEvents);
         $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_CLOSE).click(CQ.Page.Main.closeUnlockLevelPurchasePopup);
         $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
 
-        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockDisableLevelPopup);
 
         // album popup and buttons
-        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).bind(this.popupEvents);
         $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK_YES).click(CQ.Page.Main.clickUnlockAlbum);
-        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).bind(this.popupEvents);
         $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
-        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).bind(this.popupEvents);
     },
 
     initButtons: function() {
@@ -330,10 +335,10 @@ CQ.Page.Main = {
         CQ.GA.track(CQ.GA.Share.Other, CQ.Utils.getCapitalName(CQ.Page.Main.name));
     },
 
-    closeUnlockLevelPopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
-    },
+//    closeUnlockLevelPopup: function() {
+//        CQ.Audio.Button.play();
+//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
+//    },
 
     closeUnlockLevelPurchasePopup: function() {
         CQ.Audio.Button.play();

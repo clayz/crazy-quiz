@@ -5,12 +5,14 @@ CQ.Page.Loading = {
         console.info('Initial loading page');
 
         setTimeout(function() {
-            if (CQ.Datastore.getUsername()) {
-                CQ.Page.open(CQ.Page.Main);
+            CQ.Audio.Button.play();
+
+            if (CQ.User.getName()) {
+                CQ.Page.open(CQ.Page.Main, { transition: "fade" });
             } else {
-                CQ.Page.open(CQ.Page.Index);
+                CQ.Page.open(CQ.Page.Index, { transition: "fade" });
             }
-        }, 1000);
+        }, 3000);
     },
 
     load: function() {

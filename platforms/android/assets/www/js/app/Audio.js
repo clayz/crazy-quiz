@@ -2,11 +2,13 @@ CQ.Audio = {
     media: null,
 
     init: function() {
-        this.media = new Media(this.file, this.onSuccess, this.onError);
+        if (CQ.audio) {
+            this.media = new Media(this.file, this.onSuccess, this.onError);
+        }
     },
 
     play: function() {
-        this.media.play();
+        if (this.media) this.media.play();
     },
 
     pause: function() {

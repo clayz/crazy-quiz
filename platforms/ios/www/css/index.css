@@ -276,7 +276,7 @@ p {
     text-shadow: none;
 }
 
-.popup-close-btn {
+.popup-close {
     position: absolute;
     width: 4em;
     height: 4em;
