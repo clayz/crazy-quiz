@@ -1,5 +1,5 @@
 CQ.Popup = {
-    initCommon: function(page) {
+    init: function(page) {
         $('#' + page).append($('{0} .{1}'.format(CQ.Id.$SCRATCH, this.name)).clone());
     },
 

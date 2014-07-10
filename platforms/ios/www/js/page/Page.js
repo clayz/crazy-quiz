@@ -64,9 +64,8 @@ CQ.Page = {
         var page = this, name = this.name;
 
         // add common page header
-        if (config && config.header) {
+        if (config && config.header)
             $('#' + name).prepend($('{0} {1}'.format(CQ.Id.$SCRATCH, CQ.Id.CSS.$HEADER)).clone());
-        }
 
         // header buttons
         if (config && config.back) {
@@ -78,15 +77,15 @@ CQ.Page = {
             $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).hide();
         }
 
-//        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
-//            CQ.Audio.Button.play();
-//            page.open(CQ.Page.Purchase);
-//        }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
-//
-//        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
-//            CQ.Audio.Button.play();
-//            page.open(CQ.Page.Exchange);
-//        }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
+        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
+            CQ.Audio.Button.play();
+            page.open(CQ.Page.Purchase);
+        }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
+
+        this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
+            CQ.Audio.Button.play();
+            page.open(CQ.Page.Exchange);
+        }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
         // share popup and buttons
         var sharePopupId = CQ.Id.$POPUP_SHARE.format(name);

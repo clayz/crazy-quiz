@@ -102,9 +102,6 @@ CQ.Id = {
         MAIN_LEVEL_LOCKED: 'main-level-locked',
         $MAIN_LEVEL_LOCKED: '.main-level-locked',
 
-        $POPUP_PURCHASE: '.popup-purchase',
-        $POPUP_EXCHANGE: '.popup-exchange',
-
         $POPUP_CLOSE_BTN: '.popup-close-btn'
     },
 
