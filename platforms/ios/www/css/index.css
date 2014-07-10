@@ -961,8 +961,21 @@ p {
 }
 
 /*******************************************************************/
-/* Exchange Page */
+/* Exchange Popup */
 /*******************************************************************/
+
+.popup-purchase .popup-content {
+    width: 22em;
+    height: 35em;
+}
+
+.popup-purchase .popup-banner {
+    width: 23em;
+    height: 12em;
+    margin: -5em 0 0 -1em;
+    background: url(../img/layout/popup-shop-gem-banner.png) no-repeat;
+    background-size: 100% 100%;
+}
 
 /*******************************************************************/
 /* Purchase Page */
