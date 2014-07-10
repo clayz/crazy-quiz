@@ -7,10 +7,15 @@ CQ.Page.Game = {
     answers: new Array(8),
     answersData: null,
 
+    // popups
+    purchasePopup: null,
+    exchangePopup: null,
+    sharePopup: null,
+
     init: function() {
         console.info('Initial game page');
 
-        this.initCommon({ header: true, back: true });
+        this.initCommon({ header: true, back: true, share: true });
         this.initPopups();
         this.bindCharEvents();
         this.bindAnswerEvents();
@@ -19,13 +24,7 @@ CQ.Page.Game = {
         this.bindTapButton(CQ.Id.Game.$CUT_DOWN, this.clickCutdown, CQ.Id.Image.GAME_CUT_DOWN_TAP, CQ.Id.Image.GAME_CUT_DOWN, CQ.Id.Game.$CUT_DOWN_IMG);
         this.bindTapButton(CQ.Id.Game.$GET_CHAR, this.clickGetchar, CQ.Id.Image.GAME_GET_CHAR_TAP, CQ.Id.Image.GAME_GET_CHAR, CQ.Id.Game.$GET_CHAR_IMG);
         this.bindTapButton(CQ.Id.Game.$PROMPT, this.clickPrompt, CQ.Id.Image.GAME_PROMPT_TAP, CQ.Id.Image.GAME_PROMPT, CQ.Id.Game.$PROMPT_IMG);
-
-        // bind share buttons
         this.bindTouchImage($(CQ.Id.Game.$SHARE), CQ.Id.Image.GAME_SHARE_TAP, CQ.Id.Image.GAME_SHARE, CQ.Id.Game.$SHARE_IMG);
-        $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
-        $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
-        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
-        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
 
         // play next picture click event
         $(CQ.Id.Game.$POPUP_NEXT).click(CQ.Page.Game.clickNext);
@@ -279,7 +278,7 @@ CQ.Page.Game = {
             if (i == (name.length - 1)) isFulFilled = true;
         }
 
-        if (isCorrect) this.answerCorrect();
+        if (isFulFilled && isCorrect) this.answerCorrect();
         else if (isFulFilled) this.answerIncorrect();
     },
 
@@ -398,26 +397,6 @@ CQ.Page.Game = {
 
     removeCharText: function(id) {
         $('#' + id).text('');
-    },
-
-    clickShareFacebook: function() {
-        CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
-        CQ.GA.track(CQ.GA.Share.FB, CQ.GA.Share.FB.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-    },
-
-    clickShareTwitter: function() {
-        CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE);
-        CQ.GA.track(CQ.GA.Share.TW, CQ.GA.Share.TW.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-    },
-
-    clickShareLine: function() {
-        CQ.SNS.Line.share(CQ.SNS.Message.MAIN_PAGE, 'this is subject');
-        CQ.GA.track(CQ.GA.Share.Line, CQ.GA.Share.Line.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
-    },
-
-    clickShareOther: function() {
-        CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
-        CQ.GA.track(CQ.GA.Share.Other, CQ.GA.Share.Other.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
     },
 
     isLevelFinished: function() {

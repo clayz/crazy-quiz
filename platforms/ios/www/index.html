@@ -14,6 +14,7 @@
     <script type="text/javascript" charset="utf-8" src="inappbilling.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/app/App.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Id.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Utils.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Album.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Datastore.js"></script>
@@ -22,6 +23,13 @@
     <script type="text/javascript" charset="utf-8" src="js/app/PlayBilling.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/SNS.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Audio.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/popup/Popup.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Purchase.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Exchange.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Share.js"></script>
+
     <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Loading.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Index.js"></script>
@@ -30,7 +38,6 @@
     <script type="text/javascript" charset="utf-8" src="js/page/Purchase.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Exchange.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Help.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
 
     <script type="text/javascript">
         CQ.App.init();
@@ -198,21 +205,6 @@
     </div>
 </div>
 
-<!-- share popup -->
-<div data-role="popup" id="main-popup-share" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
-    <div class="popup-logo"></div>
-    <div class="popup-close-btn"></div>
-    <div class="popup-content">
-        <p>毎日シェアする、楽しみに3コインを獲得します。</p>
-        <div class="ui-grid-c">
-            <div id="main-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
-            <div id="main-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
-            <div id="main-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
-            <div id="main-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
-        </div>
-    </div>
-</div>
-
 <!-- unlock level confirm popup -->
 <div data-role="popup" id="main-popup-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
@@ -232,7 +224,7 @@
 <!-- unlock level purchase popup -->
 <div data-role="popup" id="main-popup-level-purchase" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
-    <div class="popup-close-btn"></div>
+    <div class="popup-close"></div>
     <div class="popup-content">
         <p>需要完成上个关卡后，才能解锁此关卡。<br/>或者可以使用一个宝石解锁来解锁此关卡。<br/><br/>您现在没有足够的宝石，<br/>想要去商店买一些回家吗？</p>
     </div>
@@ -244,7 +236,7 @@
 <!-- level cannot unlock popup -->
 <div data-role="popup" id="main-popup-level-disable" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
     <div class="popup-logo"></div>
-    <div class="popup-close-btn"></div>
+    <div class="popup-close"></div>
     <div class="popup-content">
         <p>必须先解锁前面的关卡后，才能解锁此关卡。</p>
     </div>
@@ -501,19 +493,19 @@
 </div>
 
 <!-- share popup -->
-<div data-role="popup" id="game-popup-share" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
-    <div class="popup-logo"></div>
-    <div class="popup-close-btn"></div>
-    <div id="game-popup-share-content" class="popup-content">
-        <p>毎日シェアする、楽しみに3コインを獲得します。</p>
-        <div class="ui-grid-c">
-            <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
-            <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
-            <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
-            <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
-        </div>
-    </div>
-</div>
+<!--<div data-role="popup" id="game-popup-share" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">-->
+    <!--<div class="popup-logo"></div>-->
+    <!--<div class="popup-close"></div>-->
+    <!--<div id="game-popup-share-content" class="popup-content">-->
+        <!--<p>毎日シェアする、楽しみに3コインを獲得します。</p>-->
+        <!--<div class="ui-grid-c">-->
+            <!--<div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>-->
+            <!--<div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>-->
+            <!--<div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>-->
+            <!--<div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 </div>
 
 <!------------------------------------------------------------------>
@@ -581,33 +573,15 @@
 </div>
 
 <!------------------------------------------------------------------>
-<!-- Album Pass Page -->
-<!------------------------------------------------------------------>
-
-<div data-role="page" id="albumPass" class="page">
-    <h1>Album pass celebrate page</h1>
-</div>
-
-<!------------------------------------------------------------------>
-<!-- Level Pass Page -->
-<!------------------------------------------------------------------>
-
-<div data-role="page" id="levelPass" class="page">
-    <h1>Level pass celebrate page</h1>
-</div>
-
-<!------------------------------------------------------------------>
 <!-- Help Page -->
 <!------------------------------------------------------------------>
-
 <div data-role="page" id="help" class="page">
     <h1>This is help page</h1>
 </div>
 
 <!------------------------------------------------------------------>
-<!-- Common Header DIV -->
+<!-- Common Header -->
 <!------------------------------------------------------------------>
-
 <div id="scratch" class="hidden">
     <div class="header">
         <div class="header-back">
@@ -645,7 +619,45 @@
 </div>
 
 <!------------------------------------------------------------------>
-<!-- Placeholder DIV -->
+<!-- Reusable Popups Holder -->
+<!------------------------------------------------------------------>
+<div id="popup" class="hidden">
+    <!-- Purchase popup -->
+    <div data-role="popup" class="popup-purchase popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <p>popup-purchase</p>
+        </div>
+    </div>
+
+    <!-- Exchange popup -->
+    <div data-role="popup" class="popup-exchange popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <p>popup-exchange</p>
+        </div>
+    </div>
+
+    <!-- Share popup -->
+    <div data-role="popup" class="popup-share popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <p>毎日シェアする、楽しみに3コインを獲得します。</p>
+            <div class="ui-grid-c">
+                <div class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-fb popup-share-btn"></div>
+                <div class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-tw popup-share-btn"></div>
+                <div class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-line popup-share-btn"></div>
+                <div class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-other popup-share-btn"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------------------------------------------------------>
+<!-- Placeholder -->
 <!------------------------------------------------------------------>
 <div class="ui-loader-background"></div>
 

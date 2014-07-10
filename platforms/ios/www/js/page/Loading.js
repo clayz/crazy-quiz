@@ -8,11 +8,11 @@ CQ.Page.Loading = {
             CQ.Audio.Button.play();
 
             if (CQ.User.getName()) {
-                CQ.Page.open(CQ.Page.Main);
+                CQ.Page.open(CQ.Page.Main, { transition: "fade" });
             } else {
-                CQ.Page.open(CQ.Page.Index);
+                CQ.Page.open(CQ.Page.Index, { transition: "fade" });
             }
-        }, 3000);
+        }, 100);
     },
 
     load: function() {
