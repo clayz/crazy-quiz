@@ -1,25 +1,25 @@
 CQ.Currency = {
-    account: { gem: 3, coin: 100 },
+    account: { gem: 1, coin: 100 },
     history: { earn: [], consume: [], purchase: [], exchange: [] },
 
     Earn: {
-        Login: { id: 1, coin: 5 },
-        Share: { id: 2, coin: 5 },
+        Login: { id: 1, coin: 1 },
+        Share: { id: 2, coin: 3 },
         Rating: { id: 3, coin: 100 },
-        Quiz: { id: 4, coin: 5 }, // correct answer
-        Level: {id: 5, coin: 100}, // finish level
-        Album: { id: 6, coin: 200 } // finish album
+        Quiz: { id: 4, coin: 3 }, // correct answer
+        Level: {id: 5, coin: 50}, // finish level
+        Album: { id: 6, coin: 100 } // finish album
     },
 
     Consume: {
         // coin
         CutDown: { id: 1, coin: 30 },
-        GetChar: { id: 2, coin: 90 },
+        GetChar: { id: 2, coin: 50 },
         Prompt: { id: 3, coin: 10 },
 
         // gem
-        UnlockLevel: { id: 101, gem: 3 },
-        UnlockAlbum: { id: 102, gem: 10 }
+        UnlockLevel: { id: 101, gem: 1 },
+        UnlockAlbum: { id: 102, gem: 3 }
     },
 
     Purchase: {
@@ -41,13 +41,13 @@ CQ.Currency = {
     init: function() {
         console.info('Initial currency module');
 
-        var account = CQ.Datastore.Currency.getAccount();
+        var account = CQ.Datastore.getAccount();
         if (account) this.account = account;
-        else CQ.Datastore.Currency.setAccount(this.account);
+        else CQ.Datastore.setAccount(this.account);
 
-        var history = CQ.Datastore.Currency.getHistory();
+        var history = CQ.Datastore.getHistory();
         if (history) this.history = history;
-        else CQ.Datastore.Currency.setHistory(this.history);
+        else CQ.Datastore.setHistory(this.history);
 
         // TODO only used for development, remove it later
         console.info('Earn history: {0}'.format(CQ.Utils.toString(this.history.earn)));
@@ -60,7 +60,7 @@ CQ.Currency = {
         console.info('Update account, gem: {0}, coin: {1}'.format(gem, coin));
         this.account.gem += gem;
         this.account.coin += coin;
-        CQ.Datastore.Currency.setAccount(this.account);
+        CQ.Datastore.setAccount(this.account);
     },
 
     checkCoin: function(goods) {
@@ -76,13 +76,13 @@ CQ.Currency = {
 
         // validation
         if (type.id == this.Earn.Share.id) {
-            var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
+            var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.getLastShareDate();
 
             if (lastShareDate && (lastShareDate == today)) {
                 console.info('Already get share coin today: {0}'.format(today));
                 return false;
             } else {
-                CQ.Datastore.Currency.setLastShareDate(today);
+                CQ.Datastore.setLastShareDate(today);
             }
         }
 
@@ -96,8 +96,7 @@ CQ.Currency = {
             date: new Date().getTime()
         });
 
-        CQ.Datastore.Currency.setEarnHistory(this.history.earn);
-        return true;
+        CQ.Datastore.setObject(CQ.Datastore.Key.EARN_HISTORY, this.history.earn);
     },
 
     consume: function(type, album, level, picture) {
@@ -117,7 +116,7 @@ CQ.Currency = {
                     date: new Date().getTime()
                 });
 
-                CQ.Datastore.Currency.setConsumeHistory(this.history.consume);
+                CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
                 return true;
             } else {
                 console.info('No enough coin, current coin: {0}'.format(this.account.coin));
@@ -137,7 +136,7 @@ CQ.Currency = {
                     date: new Date().getTime()
                 });
 
-                CQ.Datastore.Currency.setConsumeHistory(this.history.consume);
+                CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
                 return true;
             } else {
                 console.info('No enough gem, current gem: {0}'.format(this.account.gem));
@@ -160,8 +159,7 @@ CQ.Currency = {
             date: new Date().getTime()
         });
 
-        CQ.Datastore.Currency.setPurchaseHistory(this.history.purchase);
-        return true;
+        CQ.Datastore.setObject(CQ.Datastore.Key.PURCHASE_HISTORY, this.history.purchase);
     },
 
     exchange: function(goods) {
@@ -178,7 +176,7 @@ CQ.Currency = {
                 date: new Date().getTime()
             });
 
-            CQ.Datastore.Currency.setExchangeHistory(this.history.exchange);
+            CQ.Datastore.setObject(CQ.Datastore.Key.EXCHANGE_HISTORY, this.history.exchange);
             return true;
         } else {
             console.info('No enough gem, current gem: {0}'.format(this.account.gem));

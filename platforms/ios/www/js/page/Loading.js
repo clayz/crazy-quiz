@@ -8,9 +8,9 @@ CQ.Page.Loading = {
             CQ.Audio.Button.play();
 
             if (CQ.User.getName()) {
-                CQ.Page.open(CQ.Page.Main, { transition: "fade" });
+                CQ.Page.open(CQ.Page.Main);
             } else {
-                CQ.Page.open(CQ.Page.Index, { transition: "fade" });
+                CQ.Page.open(CQ.Page.Index);
             }
         }, 3000);
     },

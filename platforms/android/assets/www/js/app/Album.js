@@ -20,12 +20,12 @@ CQ.Album = {
     },
 
     isAlbumLocked: function(id) {
-        return id > CQ.Datastore.Picture.getLastAlbumId();
+        return id > CQ.Datastore.getLastAlbumId();
     },
 
     unlockAlbum: function(albumId, isPurchase) {
         console.log('Unlock album {0}, is purchase: {1}'.format(albumId, isPurchase));
-        var lastAlbumId = CQ.Datastore.Picture.getLastAlbumId();
+        var lastAlbumId = CQ.Datastore.getLastAlbumId();
 
         if (albumId > this.TOTAL_ALBUM) {
             console.info('There is no such album to unlock.');
@@ -36,31 +36,27 @@ CQ.Album = {
         }
 
         if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockAlbum, albumId)) {
-            CQ.Datastore.Picture.setLastAlbumId(albumId);
+            CQ.Datastore.setLastAlbumId(albumId);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableAlbum(albumId);
             return true;
         } else return false;
     },
 
-    getLevel: function(level) {
-        return this.levels[level - 1];
-    },
-
     unlockLevel: function(albumId, level, isPurchase) {
         console.log('Unlock album {0} level {1}, is purchase: {2}'.format(albumId, level, isPurchase));
-        var lastLevel = CQ.Datastore.Picture.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
+        var lastLevel = CQ.Datastore.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
 
         if (level > album.levels.length) {
             console.info('There is no such level to unlock.');
             return false;
         } else if (level != (lastLevel + 1)) {
-            console.info('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
+            console.error('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
             return false;
         }
 
         if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockLevel, albumId, level)) {
-            CQ.Datastore.Picture.setLastLevel(albumId, level);
+            CQ.Datastore.setLastLevel(albumId, level);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableLevel(albumId, level);
             return true;
@@ -83,7 +79,7 @@ CQ.Album = {
     getPictureLevelAndIndex: function(id) {
         var idString = id.toString();
         return {
-            level: idString.charAt(0),
+            level: 'level' + idString.charAt(0),
             index: parseInt(idString.substring(1, 3), 10)
         }
     },
@@ -93,8 +89,8 @@ CQ.Album = {
     },
 
     getNextPicture: function(id) {
-        var levelAndIndex = this.getPictureLevelAndIndex(id), level = this.levels[levelAndIndex.level - 1];
-        return levelAndIndex.index >= level.pictures.length ? null : level.pictures[levelAndIndex.index + 1];
+        var levelAndIndex = this.getPictureLevelAndIndex(id);
+        return levelAndIndex.index >= this[levelAndIndex.level].length ? null : this[levelAndIndex.level][levelAndIndex.index + 1];
     },
 
     getAlternativeAnswerChars: function(pictureId, length) {
@@ -128,7 +124,7 @@ CQ.Album = {
             while (remainingChars > 0) {
                 // generate random picture id which does not been used
                 var randomLevel = Math.floor(Math.random() * 6) + 1;
-                var randomIndex = Math.floor(Math.random() * this.levels[randomLevel - 1].pictures.length);
+                var randomIndex = Math.floor(Math.random() * this['level' + randomLevel].length);
                 var randomId = this.getPictureId(randomLevel, randomIndex);
 
                 if ($.inArray(randomId, alternativeAnswers) == -1) {
@@ -174,7 +170,7 @@ CQ.Album.Default = {
     levels: [
         {
             level: 1,
-            name: '初出茅庐',
+            name: 'Level 1',
             pictures: [
                 { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
                 { id: 101, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
@@ -186,7 +182,7 @@ CQ.Album.Default = {
         },
         {
             level: 2,
-            name: '小试牛刀',
+            name: 'Level 2',
             pictures: [
                 { id: 200, name: 'ヒックとドラゴン', category: CQ.Album.Category.Film, answers: [] },
                 { id: 201, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
@@ -198,7 +194,7 @@ CQ.Album.Default = {
         },
         {
             level: 3,
-            name: '初尝胜果',
+            name: 'Level 3',
             pictures: [
                 { id: 300, name: 'マダガスカル', category: CQ.Album.Category.Film, answers: [] },
                 { id: 301, name: 'ジュラシックパー', category: CQ.Album.Category.Film, answers: [] },
@@ -210,7 +206,7 @@ CQ.Album.Default = {
         },
         {
             level: 4,
-            name: '小有名气',
+            name: 'Level 4',
             pictures: [
                 { id: 400, name: 'アインシュタイン', category: CQ.Album.Category.Celebrity, answers: [] },
                 { id: 401, name: 'モダン石器時代', category: CQ.Album.Category.Film, answers: [] },
@@ -221,7 +217,7 @@ CQ.Album.Default = {
         },
         {
             level: 5,
-            name: '锋芒毕露',
+            name: 'Level 5',
             pictures: [
                 { id: 500, name: 'スマーフ', category: CQ.Album.Category.Cartoon, answers: [] },
                 { id: 501, name: 'カンフーパンダ', category: CQ.Album.Category.Film, answers: [] },
@@ -232,7 +228,7 @@ CQ.Album.Default = {
         },
         {
             level: 6,
-            name: '唯我独尊',
+            name: 'Level 6',
             pictures: [
                 { id: 600, name: 'ベッカム', category: CQ.Album.Category.Celebrity, answers: [] },
                 { id: 601, name: 'アカデミー賞', category: CQ.Album.Category.Brand, answers: [] },

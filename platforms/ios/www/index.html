@@ -14,7 +14,6 @@
     <script type="text/javascript" charset="utf-8" src="inappbilling.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/app/App.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app/Id.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Utils.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Album.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app/Datastore.js"></script>
@@ -27,7 +26,6 @@
     <script type="text/javascript" charset="utf-8" src="js/popup/Popup.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/Purchase.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/Exchange.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/popup/UnlockLevel.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Loading.js"></script>
@@ -216,6 +214,22 @@
                 <div id="main-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
                 <div id="main-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
                 <div id="main-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- unlock level confirm popup -->
+    <div data-role="popup" id="main-popup-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-content">
+            <p>需要完成上个关卡后，才能解锁此关卡。<br/>或者可以使用一个宝石解锁来解锁此关卡。<br/><br/>上个关卡尚未完成，<br/>想要用一个宝石来解锁新关卡吗？</p>
+        </div>
+        <div class="popup-buttons ui-grid-a clear-both">
+            <div class="ui-block-a">
+                <img id="main-popup-unlock-yes-btn" class="popup-button-left" src="img/button/popup-yes-btn.png"/>
+            </div>
+            <div class="ui-block-b">
+                <img id="main-popup-unlock-no-btn" class="popup-button-right" src="img/button/popup-no-btn.png"/>
             </div>
         </div>
     </div>
@@ -554,37 +568,25 @@
 <!-- All Popups Holder -->
 <!------------------------------------------------------------------>
 <div id="popup" class="hidden">
-    <!-- Purchase popup -->
+    <!------------------------------------------------------------------>
+    <!-- Purchase Popup -->
+    <!------------------------------------------------------------------>
     <div data-role="popup" class="popup-purchase popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-logo"></div>
-        <div class="popup-close"></div>
+        <div class="popup-close-btn"></div>
         <div class="popup-content">
             <p>popup-purchase</p>
         </div>
     </div>
 
-    <!-- Exchange popup -->
+    <!------------------------------------------------------------------>
+    <!-- Exchange Popup -->
+    <!------------------------------------------------------------------>
     <div data-role="popup" class="popup-exchange popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-logo"></div>
-        <div class="popup-close"></div>
+        <div class="popup-close-btn"></div>
         <div class="popup-content">
             <p>popup-exchange</p>
-        </div>
-    </div>
-
-    <!-- Main unlock level confirm popup -->
-    <div data-role="popup" class="popup-unlock-level popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-logo"></div>
-        <div class="popup-content">
-            <p>需要完成上个关卡后，才能解锁此关卡。<br/>或者可以使用一个宝石解锁来解锁此关卡。<br/><br/>上个关卡尚未完成，<br/>想要用一个宝石来解锁新关卡吗？</p>
-        </div>
-        <div class="popup-buttons ui-grid-a clear-both">
-            <div class="ui-block-a">
-                <img class="popup-yes popup-button-left" src="img/button/popup-yes-btn.png"/>
-            </div>
-            <div class="ui-block-b">
-                <img class="popup-no popup-button-right" src="img/button/popup-no-btn.png"/>
-            </div>
         </div>
     </div>
 </div>
