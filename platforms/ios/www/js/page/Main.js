@@ -3,14 +3,20 @@ CQ.Page.Main = {
     albumId: 1,
     selectedUnlockAlbum: null,
     selectedUnlockLevel: null,
+
+    // popups
+    purchasePopup: null,
+    exchangePopup: null,
+    sharePopup: null,
     unlockLevelPopup: null,
-    unlockAlbumPopup: null,
+    unlockLevelDisabledPopup: null,
+    purchaseLevelPopup: null,
 
     init: function() {
         console.info('Initial main page');
 
-        if (CQ.App.iOS()) this.initCommon({ header: true, back: false });
-        else this.initCommon({ header: true, back: true });
+        if (CQ.App.iOS()) this.initCommon({ header: true, back: false, share: true });
+        else this.initCommon({ header: true, back: true, share: true });
 
         this.initPopups();
         this.initButtons();
@@ -68,6 +74,47 @@ CQ.Page.Main = {
                 navigator.app.exitApp();
             });
         }
+    },
+
+    initPopups: function() {
+        this.unlockLevelPopup = new CQ.Popup.UnlockLevel(this.name);
+        this.unlockLevelDisabledPopup = new CQ.Popup.UnlockLevelDisabled(this.name);
+        this.purchaseLevelPopup = new CQ.Popup.PurchaseLevel(this.name);
+
+        // album popup and buttons
+//        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK_YES).click(CQ.Page.Main.clickUnlockAlbum);
+//        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).bind(this.popupEvents);
+//        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
+//        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).bind(this.popupEvents);
+    },
+
+    initButtons: function() {
+        // previous and next album button
+        this.bindClickButton($(CQ.Id.Main.$ALBUM_NEXT), function() {
+            CQ.Audio.Button.play();
+            CQ.Page.Main.swipeAlbumLeft();
+        }, CQ.Id.Image.MAIN_ALBUM_NEXT_TAP, CQ.Id.Image.MAIN_ALBUM_NEXT);
+
+        // footer buttons
+        $(CQ.Id.Main.$SHARE).bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.MAIN_SHARE_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.MAIN_SHARE);
+        });
+
+        $(CQ.Id.Main.$HELP).bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.MAIN_HELP_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.MAIN_HELP);
+        });
+        $(CQ.Id.Main.$HELP).click(CQ.Page.Main.clickHelp);
+
+        // share buttons
+//        $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
+//        $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
+//        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
+//        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
     },
 
     load: function() {
@@ -175,33 +222,23 @@ CQ.Page.Main = {
 
     clickUnlockableLevel: function(event) {
         CQ.Audio.Button.play();
-        var albumId = event.data.albumId, level = event.data.level;
+        var albumId = event.data.albumId, level = event.data.level, page = CQ.Page.Main;
 
         if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockLevel.gem) {
-            CQ.Page.Main.unlockLevelPopup.popup.open();
-            CQ.Page.Main.selectedUnlockLevel = {
+            page.unlockLevelPopup.popup.open();
+            page.selectedUnlockLevel = {
                 albumId: albumId,
                 level: level
             };
         } else {
-            $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('open');
+            page.purchaseLevelPopup.popup.open();
         }
     },
 
     clickUnlockDisableLevel: function() {
         CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('open');
+        CQ.Page.Main.unlockLevelDisabledPopup.popup.open();
     },
-
-
-//    clickUnlockLevel: function() {
-//        CQ.Audio.Button.play();
-//        if (CQ.Page.Main.selectedUnlockLevel) {
-//            $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
-//            CQ.Album.unlockLevel(CQ.Page.Main.selectedUnlockLevel.albumId, CQ.Page.Main.selectedUnlockLevel.level, true);
-//            CQ.Page.Main.selectedUnlockLevel = null;
-//        }
-//    },
 
     enableAlbum: function(albumId) {
         // change album style
@@ -217,59 +254,6 @@ CQ.Page.Main = {
         }
     },
 
-    initPopups: function() {
-        // level popup and buttons
-        this.unlockLevelPopup = new CQ.Popup.UnlockLevel(this.name);
-//        unlockLevelPopup.onClickYes();
-
-//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).bind(this.popupEvents);
-//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockLevelPopup);
-//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_YES).click(CQ.Page.Main.clickUnlockLevel);
-//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
-
-//        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_CLOSE).click(CQ.Page.Main.closeUnlockLevelPurchasePopup);
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
-
-//        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockDisableLevelPopup);
-
-        // album popup and buttons
-//        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK_YES).click(CQ.Page.Main.clickUnlockAlbum);
-//        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
-//        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).bind(this.popupEvents);
-    },
-
-    initButtons: function() {
-        // previous and next album button
-        this.bindClickButton($(CQ.Id.Main.$ALBUM_NEXT), function() {
-            CQ.Audio.Button.play();
-            CQ.Page.Main.swipeAlbumLeft();
-        }, CQ.Id.Image.MAIN_ALBUM_NEXT_TAP, CQ.Id.Image.MAIN_ALBUM_NEXT);
-
-        // footer buttons
-        $(CQ.Id.Main.$SHARE).bind('touchstart', function() {
-            $(this).attr('src', CQ.Id.Image.MAIN_SHARE_TAP);
-        }).bind('touchend', function() {
-            $(this).attr('src', CQ.Id.Image.MAIN_SHARE);
-        });
-
-        $(CQ.Id.Main.$HELP).bind('touchstart', function() {
-            $(this).attr('src', CQ.Id.Image.MAIN_HELP_TAP);
-        }).bind('touchend', function() {
-            $(this).attr('src', CQ.Id.Image.MAIN_HELP);
-        });
-        $(CQ.Id.Main.$HELP).click(CQ.Page.Main.clickHelp);
-
-        // share buttons
-        $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
-        $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
-        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
-        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
-    },
-
     clickUnlockableAlbum: function(event) {
         CQ.Audio.Button.play();
         var albumId = event.data.albumId;
@@ -283,17 +267,17 @@ CQ.Page.Main = {
     },
 
     clickUnlockDisableAlbum: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
+//        CQ.Audio.Button.play();
+//        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
     },
 
     clickUnlockAlbum: function() {
-        CQ.Audio.Button.play();
-        if (CQ.Page.Main.selectedUnlockAlbum) {
-            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
-            CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
-            CQ.Page.Main.selectedUnlockAlbum = null;
-        }
+//        CQ.Audio.Button.play();
+//        if (CQ.Page.Main.selectedUnlockAlbum) {
+//            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
+//            CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
+//            CQ.Page.Main.selectedUnlockAlbum = null;
+//        }
     },
 
     clickPurchase: function() {
@@ -311,11 +295,11 @@ CQ.Page.Main = {
         CQ.Page.open(CQ.Page.Help);
     },
 
-    clickShareFacebook: function() {
-        CQ.Audio.Button.play();
-        CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
-        CQ.GA.track(CQ.GA.Share.FB, CQ.Utils.getCapitalName(CQ.Page.Main.name));
-    },
+//    clickShareFacebook: function() {
+//        CQ.Audio.Button.play();
+//        CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
+//        CQ.GA.track(CQ.GA.Share.FB, CQ.Utils.getCapitalName(CQ.Page.Main.name));
+//    },
 
     clickShareTwitter: function() {
         CQ.Audio.Button.play();
@@ -333,16 +317,6 @@ CQ.Page.Main = {
         CQ.Audio.Button.play();
         CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
         CQ.GA.track(CQ.GA.Share.Other, CQ.Utils.getCapitalName(CQ.Page.Main.name));
-    },
-
-//    closeUnlockLevelPopup: function() {
-//        CQ.Audio.Button.play();
-//        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
-//    },
-
-    closeUnlockLevelPurchasePopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('close');
     },
 
     closeUnlockDisableLevelPopup: function() {
