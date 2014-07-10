@@ -73,8 +73,6 @@ CQ.Page = {
             // add popups and events
             var purchasePopup = new CQ.Popup.Purchase(name);
             var exchangePopup = new CQ.Popup.Exchange(name);
-            this.purchasePopup = purchasePopup;
-            this.exchangePopup = exchangePopup;
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
                 CQ.Audio.Button.play();
@@ -87,54 +85,40 @@ CQ.Page = {
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
         }
 
-        // add share popup and events
-        if (config && config.share) {
-            var $shareBtn = $(CQ.Id.$SHARE.format(name));
-            if ($shareBtn.length) {
-                var sharePopup = new CQ.Popup.Share(name);
-                this.sharePopup = sharePopup;
+        // share popup and buttons
+        var sharePopupId = CQ.Id.$POPUP_SHARE.format(name);
 
-                $shareBtn.click(function() {
-                    CQ.Audio.Button.play();
-                    sharePopup.popup.open();
-                    CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
-                });
-            }
-        }
-
-//        var sharePopupId = CQ.Id.$POPUP_SHARE.format(name);
-//
-//        $(sharePopupId).bind(this.popupEvents);
-//        $('{0} {1}'.format(sharePopupId, CQ.Id.CSS.$POPUP_BTN_CLOSE)).click(this.back);
-//        $(CQ.Id.$SHARE.format(name)).click(function() {
-//            CQ.Audio.Button.play();
-//            page.showShare();
-//            CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
-//        });
+        $(sharePopupId).bind(this.popupEvents);
+        $('{0} {1}'.format(sharePopupId, CQ.Id.CSS.$POPUP_BTN_CLOSE)).click(this.back);
+        $(CQ.Id.$SHARE.format(name)).click(function() {
+            CQ.Audio.Button.play();
+            page.showShare();
+            CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
+        });
 
         // coin not enough popup and buttons
-//        var coinNotEnoughPopupId = CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name);
+        var coinNotEnoughPopupId = CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name);
 
-//        $(coinNotEnoughPopupId).bind(this.popupEvents);
-//        $('{0} {1}'.format(coinNotEnoughPopupId, CQ.Id.CSS.$POPUP_BTN_CLOSE)).click(this.back);
-//        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_YES.format(name)).click(function() {
-//            page.open(CQ.Page.Exchange);
-//        });
-//        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_NO.format(name)).click(function() {
-//            $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).popup('close');
-//        });
-//
-//        // gem not enough popup and buttons
-//        var gemNotEnoughPopupId = CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name);
-//
-////        $(gemNotEnoughPopupId).bind(this.popupEvents);
-//        $('{0} {1}'.format(gemNotEnoughPopupId, CQ.Id.CSS.$POPUP_BTN_CLOSE)).click(this.back);
-//        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_YES.format(name)).click(function() {
-//            page.open(CQ.Page.Purchase);
-//        });
-//        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_NO.format(name)).click(function() {
-//            $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name)).popup('close');
-//        });
+        $(coinNotEnoughPopupId).bind(this.popupEvents);
+        $('{0} {1}'.format(coinNotEnoughPopupId, CQ.Id.CSS.$POPUP_BTN_CLOSE)).click(this.back);
+        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_YES.format(name)).click(function() {
+            page.open(CQ.Page.Exchange);
+        });
+        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_NO.format(name)).click(function() {
+            $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).popup('close');
+        });
+
+        // gem not enough popup and buttons
+        var gemNotEnoughPopupId = CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name);
+
+        $(gemNotEnoughPopupId).bind(this.popupEvents);
+        $('{0} {1}'.format(gemNotEnoughPopupId, CQ.Id.CSS.$POPUP_BTN_CLOSE)).click(this.back);
+        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_YES.format(name)).click(function() {
+            page.open(CQ.Page.Purchase);
+        });
+        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_NO.format(name)).click(function() {
+            $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name)).popup('close');
+        });
     },
 
     refreshCurrency: function() {
@@ -150,9 +134,9 @@ CQ.Page = {
         $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(this.name)).popup('open');
     },
 
-//    showShare: function() {
-//        $(CQ.Id.$POPUP_SHARE.format(this.name)).popup('open');
-//    },
+    showShare: function() {
+        $(CQ.Id.$POPUP_SHARE.format(this.name)).popup('open');
+    },
 
     bindClickButton: function(id, onClick, touchstartImg, touchendImg, imageId) {
         this.bindTouchImage($(id).click(onClick), touchstartImg, touchendImg, imageId);

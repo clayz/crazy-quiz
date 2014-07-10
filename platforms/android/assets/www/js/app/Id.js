@@ -107,7 +107,7 @@ CQ.Id = {
 //        $POPUP_LEVEL_UNLOCK_YES: '#main-popup-unlock-yes-btn',
 //        $POPUP_LEVEL_UNLOCK_NO: '#main-popup-unlock-no-btn',
 
-//        $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
+        $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
         $POPUP_LEVEL_PURCHASE_CLOSE: '#main-popup-level-purchase .popup-close-btn',
         $POPUP_LEVEL_PURCHASE_YES: '#main-popup-level-purchase-btn',
 

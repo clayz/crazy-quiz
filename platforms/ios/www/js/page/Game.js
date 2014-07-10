@@ -21,11 +21,11 @@ CQ.Page.Game = {
         this.bindTapButton(CQ.Id.Game.$PROMPT, this.clickPrompt, CQ.Id.Image.GAME_PROMPT_TAP, CQ.Id.Image.GAME_PROMPT, CQ.Id.Game.$PROMPT_IMG);
 
         // bind share buttons
-//        this.bindTouchImage($(CQ.Id.Game.$SHARE), CQ.Id.Image.GAME_SHARE_TAP, CQ.Id.Image.GAME_SHARE, CQ.Id.Game.$SHARE_IMG);
-//        $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
-//        $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
-//        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
-//        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
+        this.bindTouchImage($(CQ.Id.Game.$SHARE), CQ.Id.Image.GAME_SHARE_TAP, CQ.Id.Image.GAME_SHARE, CQ.Id.Game.$SHARE_IMG);
+        $(CQ.Id.$SHARE_FB.format(this.name)).tap(this.clickShareFacebook);
+        $(CQ.Id.$SHARE_TW.format(this.name)).tap(this.clickShareTwitter);
+        $(CQ.Id.$SHARE_LINE.format(this.name)).tap(this.clickShareLine);
+        $(CQ.Id.$SHARE_OTHER.format(this.name)).tap(this.clickShareOther);
 
         // play next picture click event
         $(CQ.Id.Game.$POPUP_NEXT).click(CQ.Page.Game.clickNext);
