@@ -967,14 +967,81 @@ p {
 .popup-purchase .popup-content {
     width: 22em;
     height: 35em;
+    background-color: transparent !important;
 }
 
 .popup-purchase .popup-banner {
-    width: 23em;
+    width: 22.8em;
     height: 12em;
-    margin: -5em 0 0 -1em;
-    background: url(../img/layout/popup-shop-gem-banner.png) no-repeat;
+    margin: -4em 0 0 -.8em;
+    background: url(../img/layout/popup-shop-gem-banner1.png) no-repeat;
     background-size: 100% 100%;
+}
+
+.popup-purchase .popup-goods-container {
+    width: 22em;
+    height: 25em;
+    margin-top: -1.8em;
+    padding-top: .5em;
+    background-color: #6d3805;
+    border-radius: 3px;
+}
+
+.popup-purchase .popup-goods {
+    width: 20em;
+    height: 4.5em;
+    background-color: #231201;
+    margin: 0 0 .5em 1em;
+    border-radius: 3px;
+    line-height: 4.5em;
+    text-shadow: none;
+}
+
+.popup-purchase .popup-gem-set-1 {
+    width: 4em;
+    height: 4em;
+    background: url(../img/icon/gem-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-purchase .popup-gem-set-2 {
+    width: 4em;
+    height: 4em;
+    background: url(../img/icon/gem-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-purchase .popup-gem-set-3 {
+    width: 4em;
+    height: 4em;
+    background: url(../img/icon/gem-set-3.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-purchase .popup-gem-set-4 {
+    width: 4em;
+    height: 4em;
+    background: url(../img/icon/gem-set-4.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-purchase .popup-gem-set-5 {
+    width: 4em;
+    height: 4em;
+    background: url(../img/icon/gem-set-5.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-purchase .popup-goods-amount {
+    width: 2em;
+}
+
+.popup-purchase .popup-goods-info {
+    width: 10em;
+}
+
+.popup-purchase .popup-goods-cost {
+    width: 4em;
 }
 
 /*******************************************************************/
