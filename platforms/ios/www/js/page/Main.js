@@ -5,8 +5,8 @@ CQ.Page.Main = {
     selectedUnlockLevel: null,
 
     // popups
-    purchasePopup: null,
-    exchangePopup: null,
+    gemShop: null,
+    coinShop: null,
     sharePopup: null,
 
     init: function() {
@@ -294,7 +294,7 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('close');
 
         setTimeout(function() {
-            CQ.Page.Main.purchasePopup.popup.open();
+            CQ.Page.Main.gemShop.popup.open();
         }, 100);
     },
 

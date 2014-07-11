@@ -961,16 +961,16 @@ p {
 }
 
 /*******************************************************************/
-/* Exchange Popup */
+/* Gem And Coin Shop Popup */
 /*******************************************************************/
 
-.popup-purchase .popup-content {
+.popup-shop .popup-content {
     width: 22em;
-    height: 35em;
+    height: 38em;
     background-color: transparent !important;
 }
 
-.popup-purchase .popup-banner {
+.popup-shop .popup-gem-banner {
     width: 22.8em;
     height: 12em;
     margin: -4em 0 0 -.8em;
@@ -978,76 +978,151 @@ p {
     background-size: 100% 100%;
 }
 
-.popup-purchase .popup-goods-container {
+.popup-shop .popup-coin-banner {
+    width: 22.8em;
+    height: 12em;
+    margin: -4em 0 0 -.8em;
+    background: url(../img/layout/popup-shop-coin-banner.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-goods-container {
     width: 22em;
-    height: 25em;
+    height: 27.5em;
     margin-top: -1.8em;
     padding-top: .5em;
     background-color: #6d3805;
     border-radius: 3px;
 }
 
-.popup-purchase .popup-goods {
+.popup-shop .popup-goods {
     width: 21em;
-    height: 4.5em;
+    height: 5em;
     background-color: #231201;
     margin: 0 0 .5em .5em;
     border-radius: 5px;
-    line-height: 4.5em;
+    line-height: 5em;
     text-shadow: none;
     box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, .5);
 }
 
-.popup-purchase .popup-gem-set-1 {
-    width: 4em;
-    height: 4em;
-    background: url(../img/icon/gem-set-1.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-.popup-purchase .popup-gem-set-2 {
-    width: 4em;
-    height: 4em;
-    background: url(../img/icon/gem-set-2.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-.popup-purchase .popup-gem-set-3 {
-    width: 4em;
-    height: 4em;
-    background: url(../img/icon/gem-set-3.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-.popup-purchase .popup-gem-set-4 {
-    width: 4em;
-    height: 4em;
-    background: url(../img/icon/gem-set-4.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-.popup-purchase .popup-gem-set-5 {
-    width: 4em;
-    height: 4em;
-    background: url(../img/icon/gem-set-5.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-.popup-purchase .popup-goods-amount {
+.popup-shop .popup-goods-amount {
     width: 2em;
     color: #f8f0d2;
 }
 
-.popup-purchase .popup-goods-info {
+.popup-shop .popup-goods-info {
     width: 10em;
     color: #fbd44e;
 }
 
-.popup-purchase .popup-goods-cost {
+.popup-shop .popup-goods-cost {
     width: 4em;
     color: #f8f0d2;
 }
 
-/*******************************************************************/
-/* Purchase Page */
-/*******************************************************************/
+.popup-shop .popup-goods-tap {
+    width: 21em;
+    height: 5em;
+    background-color: #f0dc7c;
+    margin: 0 0 .5em .5em;
+    border-radius: 5px;
+    line-height: 5em;
+    text-shadow: none;
+    box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, .5);
+}
+
+.popup-shop .popup-goods-amount-tap {
+    width: 2em;
+    color: #6d3805;
+}
+
+.popup-shop .popup-goods-info-tap {
+    width: 10em;
+    color: #6d3805;
+}
+
+.popup-shop .popup-goods-cost-tap {
+    width: 4em;
+    color: #6d3805;
+}
+
+.popup-shop .popup-gem-set-1 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-gem-set-2 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-gem-set-3 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-3.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-gem-set-4 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-4.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-gem-set-5 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-5.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-coin-set-1 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-coin-set-2 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-coin-set-3 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-3.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-coin-set-4 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-4.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-shop .popup-coin-set-5 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-5.png) no-repeat;
+    background-size: 100% 100%;
+}

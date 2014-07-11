@@ -79,19 +79,19 @@ CQ.Page = {
             }
 
             // add popups and events
-            var purchasePopup = new CQ.Popup.Purchase(name);
-            var exchangePopup = new CQ.Popup.Exchange(name);
-            this.purchasePopup = purchasePopup;
-            this.exchangePopup = exchangePopup;
+            var gemShop = new CQ.Popup.GemShop(name);
+            var coinShop = new CQ.Popup.CoinShop(name);
+            this.gemShop = gemShop;
+            this.coinShop = coinShop;
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
                 CQ.Audio.Button.play();
-                purchasePopup.popup.open();
+                gemShop.popup.open();
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
                 CQ.Audio.Button.play();
-                exchangePopup.popup.open();
+                coinShop.popup.open();
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
         }
 

@@ -8,8 +8,8 @@ CQ.Page.Game = {
     answersData: null,
 
     // popups
-    purchasePopup: null,
-    exchangePopup: null,
+    gemShop: null,
+    coinShop: null,
     sharePopup: null,
 
     init: function() {

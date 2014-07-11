@@ -26,8 +26,8 @@
     <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/popup/Popup.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/popup/Purchase.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/popup/Exchange.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/CoinShop.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/GemShop.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/Share.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
@@ -35,8 +35,6 @@
     <script type="text/javascript" charset="utf-8" src="js/page/Index.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Main.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Game.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/page/Purchase.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/page/Exchange.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Help.js"></script>
 
     <script type="text/javascript">
@@ -607,21 +605,83 @@
 <!-- Reusable Popups Holder -->
 <!------------------------------------------------------------------>
 <div id="popup" class="hidden">
-    <!-- Purchase popup -->
-    <div data-role="popup" class="popup-purchase popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-logo"></div>
+    <!-- Gem shop popup -->
+    <div data-role="popup" class="popup-gem-shop popup-shop popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <p>popup-purchase</p>
+            <div class="popup-gem-banner"></div>
+            <div class="popup-goods-container">
+                <div class="popup-goods">
+                    <div class="left popup-gem-set-1"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-gem-set-2"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-gem-set-3"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-gem-set-4"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-gem-set-5"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Exchange popup -->
-    <div data-role="popup" class="popup-exchange popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-logo"></div>
+    <!-- Coin shop popup -->
+    <div data-role="popup" class="popup-coin-shop popup-shop popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <p>popup-exchange</p>
+            <div class="popup-coin-banner"></div>
+            <div class="popup-goods-container">
+                <div class="popup-goods">
+                    <div class="left popup-coin-set-1"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-coin-set-2"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-coin-set-3"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-coin-set-4"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+                <div class="popup-goods">
+                    <div class="left popup-coin-set-5"></div>
+                    <div class="left popup-goods-amount">10</div>
+                    <div class="left popup-goods-info">10% ボーナス</div>
+                    <div class="right popup-goods-cost">¥ 100</div>
+                </div>
+            </div>
         </div>
     </div>
 
