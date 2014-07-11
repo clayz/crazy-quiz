@@ -974,7 +974,7 @@ p {
     width: 22.8em;
     height: 12em;
     margin: -4em 0 0 -.8em;
-    background: url(../img/layout/popup-shop-gem-banner1.png) no-repeat;
+    background: url(../img/layout/popup-shop-gem-banner.png) no-repeat;
     background-size: 100% 100%;
 }
 
@@ -988,13 +988,14 @@ p {
 }
 
 .popup-purchase .popup-goods {
-    width: 20em;
+    width: 21em;
     height: 4.5em;
     background-color: #231201;
-    margin: 0 0 .5em 1em;
-    border-radius: 3px;
+    margin: 0 0 .5em .5em;
+    border-radius: 5px;
     line-height: 4.5em;
     text-shadow: none;
+    box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, .5);
 }
 
 .popup-purchase .popup-gem-set-1 {
@@ -1034,14 +1035,17 @@ p {
 
 .popup-purchase .popup-goods-amount {
     width: 2em;
+    color: #f8f0d2;
 }
 
 .popup-purchase .popup-goods-info {
     width: 10em;
+    color: #fbd44e;
 }
 
 .popup-purchase .popup-goods-cost {
     width: 4em;
+    color: #f8f0d2;
 }
 
 /*******************************************************************/
