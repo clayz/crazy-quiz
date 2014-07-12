@@ -36,13 +36,25 @@ CQ.Id = {
         $POPUP_BTN_NO: '.popup-no',
 
         $POPUP_SHOP_GEM: '.popup-gem-shop',
+        $POPUP_SHOP_GEM_GOODS: '#{0} .popup-gem-shop .popup-goods-{1}',
+
         $POPUP_SHOP_COIN: '.popup-coin-shop',
+        $POPUP_SHOP_COIN_GOODS: '#{0} .popup-coin-shop .popup-goods-{1}',
+
+        POPUP_SHOP_GOODS: 'popup-goods',
+        POPUP_SHOP_GOODS_TAP: 'popup-goods-tap',
+        POPUP_SHOP_GOODS_AMOUNT: 'popup-goods-amount',
+        POPUP_SHOP_GOODS_AMOUNT_TAP: 'popup-goods-amount-tap',
+        POPUP_SHOP_GOODS_INFO: 'popup-goods-info',
+        POPUP_SHOP_GOODS_INFO_TAP: 'popup-goods-info-tap',
+        POPUP_SHOP_GOODS_COST: 'popup-goods-cost',
+        POPUP_SHOP_GOODS_COST_TAP: 'popup-goods-cost-tap',
 
         $POPUP_SHARE: '.popup-share',
         $POPUP_SHARE_FACEBOOK: '.popup-share-fb',
         $POPUP_SHARE_TWITTER: '.popup-share-tw',
         $POPUP_SHARE_LINE: '.popup-share-line',
-        $POPUP_SHARE_OTHER: '.popup-share-other',
+        $POPUP_SHARE_OTHER: '.popup-share-other'
     },
 
     Image: {

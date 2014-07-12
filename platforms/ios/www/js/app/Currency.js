@@ -24,18 +24,18 @@ CQ.Currency = {
 
     Purchase: {
         Goods1: { id: 1, gem: 10, cost: 100 },
-        Goods2: { id: 2, gem: 22, cost: 200 },
-        Goods3: { id: 3, gem: 60, cost: 500 },
-        Goods4: { id: 4, gem: 130, cost: 1000 },
-        Goods5: { id: 5, gem: 300, cost: 2000 }
+        Goods2: { id: 2, gem: 20, cost: 200 },
+        Goods3: { id: 3, gem: 50, cost: 500 },
+        Goods4: { id: 4, gem: 100, cost: 1000 },
+        Goods5: { id: 5, gem: 200, cost: 2000 }
     },
 
     Exchange: {
         Goods1: { id: 1, gem: 10, coin: 1000 },
-        Goods2: { id: 2, gem: 20, coin: 2100 },
-        Goods3: { id: 3, gem: 50, coin: 6000 },
-        Goods4: { id: 4, gem: 100, coin: 13000 },
-        Goods5: { id: 5, gem: 200, coin: 28000 }
+        Goods2: { id: 2, gem: 20, coin: 2000 },
+        Goods3: { id: 3, gem: 50, coin: 5000 },
+        Goods4: { id: 4, gem: 100, coin: 10000 },
+        Goods5: { id: 5, gem: 200, coin: 20000 }
     },
 
     init: function() {

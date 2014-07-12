@@ -1007,12 +1007,13 @@ p {
 }
 
 .popup-shop .popup-goods-amount {
+    margin-left: .5em;
     width: 2em;
     color: #f8f0d2;
 }
 
 .popup-shop .popup-goods-info {
-    width: 10em;
+    width: 9em;
     color: #fbd44e;
 }
 
@@ -1033,12 +1034,13 @@ p {
 }
 
 .popup-shop .popup-goods-amount-tap {
+    margin-left: .5em;
     width: 2em;
     color: #6d3805;
 }
 
 .popup-shop .popup-goods-info-tap {
-    width: 10em;
+    width: 9em;
     color: #6d3805;
 }
 
