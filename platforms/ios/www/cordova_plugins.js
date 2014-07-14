@@ -1,13 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.adobe.plugins.GAPlugin/www/GAPlugin.js",
-        "id": "com.adobe.plugins.GAPlugin.GAPlugin",
-        "clobbers": [
-            "GAPlugin"
-        ]
-    },
-    {
         "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
         "id": "nl.x-services.plugins.socialsharing.SocialSharing",
         "clobbers": [
@@ -33,6 +26,13 @@ module.exports = [
         "id": "org.apache.cordova.media.Media",
         "clobbers": [
             "window.Media"
+        ]
+    },
+    {
+        "file": "plugins/cc.fovea.plugins.inapppurchase/InAppPurchase.js",
+        "id": "cc.fovea.plugins.inapppurchase.InAppPurchase",
+        "clobbers": [
+            "storekit"
         ]
     },
     {
@@ -185,11 +185,11 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.adobe.plugins.GAPlugin": "2.3.1",
     "com.smartmobilesoftware.inappbilling": "3.0.0",
     "nl.x-services.plugins.socialsharing": "4.0.8",
     "com.danielcwilson.plugins.googleanalytics": "0.5.0",
     "org.apache.cordova.media": "0.2.11",
+    "cc.fovea.plugins.inapppurchase": "3.4.1",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

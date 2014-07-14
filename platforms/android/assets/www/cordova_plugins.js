@@ -8,13 +8,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.adobe.plugins.GAPlugin/www/GAPlugin.js",
-        "id": "com.adobe.plugins.GAPlugin.GAPlugin",
-        "clobbers": [
-            "GAPlugin"
-        ]
-    },
-    {
         "file": "plugins/com.smartmobilesoftware.inappbilling/www/inappbilling.js",
         "id": "com.smartmobilesoftware.inappbilling.InAppBillingPlugin",
         "clobbers": [
@@ -193,10 +186,10 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "nl.x-services.plugins.socialsharing": "4.0.8",
-    "com.adobe.plugins.GAPlugin": "2.3.1",
     "com.smartmobilesoftware.inappbilling": "3.0.0",
     "com.danielcwilson.plugins.googleanalytics": "0.5.0",
     "org.apache.cordova.media": "0.2.11",
+    "cc.fovea.plugins.inapppurchase": "3.4.1",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA
