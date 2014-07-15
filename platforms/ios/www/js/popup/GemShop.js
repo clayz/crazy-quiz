@@ -31,7 +31,7 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
 
     if (CQ.App.iOS) {
-        CQ.Currency.purchase(goods);
+        CQ.AppStorePurchase.buy(goods.productId);
     } else if (CQ.App.android) {
         CQ.PlayBilling.buy('v1_gem_001');
         CQ.Currency.purchase(goods);
@@ -40,4 +40,31 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     CQ.Page.refreshCurrency();
 
     // TODO display pay result popup
+};
+
+CQ.Popup.GemShop.prototype.initGem = function() {
+    var goods1 = CQ.Currency.Purchase.Goods1,
+        goods2 = CQ.Currency.Purchase.Goods2,
+        goods3 = CQ.Currency.Purchase.Goods3,
+        goods4 = CQ.Currency.Purchase.Goods4,
+        goods5 = CQ.Currency.Purchase.Goods5;
+    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods1.id)).text('{0}'.format(goods1.title));
+    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods1.id)).text('{0}'.format(goods1.description));
+    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods1.id)).text('{0}'.format(goods1.cost));
+    
+    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods2.id)).text('{0}'.format(goods2.title));
+    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods2.id)).text('{0}'.format(goods2.description));
+    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods2.id)).text('{0}'.format(goods2.cost));
+    
+    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods3.id)).text('{0}'.format(goods3.title));
+    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods3.id)).text('{0}'.format(goods3.description));
+    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods3.id)).text('{0}'.format(goods3.cost));
+    
+    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods4.id)).text('{0}'.format(goods4.title));
+    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods4.id)).text('{0}'.format(goods4.description));
+    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods4.id)).text('{0}'.format(goods4.cost));
+    
+    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods5.id)).text('{0}'.format(goods5.title));
+    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods5.id)).text('{0}'.format(goods5.description));
+    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods5.id)).text('{0}'.format(goods5.cost));
 };

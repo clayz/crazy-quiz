@@ -184,6 +184,9 @@ CQ.Id = {
 
     Purchase: {
         $PURCHASE: '#purchase-btn-{0}',
-        $POPUP_SUCCESS: '#purchase-popup-success'
+        $POPUP_SUCCESS: '#purchase-popup-success',
+        $PURCHASE_TITLE: '#purchase-title-{0}',
+        $PURCHASE_DES: '#purchase-des-{0}',
+        $PURCHASE_COST: '#purchase-cost-{0}'
     }
 };
