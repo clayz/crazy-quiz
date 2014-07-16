@@ -1,8 +1,15 @@
 CQ.Popup.GemShop = function(page) {
     this.popup = new CQ.Popup(CQ.Id.CSS.$POPUP_SHOP_GEM, page);
 
-    for (var i = 0; i <= 5; i++) {
-        $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(page, i)).click({ 'id': i, 'shop': this }, function(event) {
+    for (var i = 1; i <= 5; i++) {
+        // initial all items display details
+        var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(page, i));
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Purchase['Goods' + i].title);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Purchase['Goods' + i].description);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST)).text(CQ.Currency.Purchase['Goods' + i].cost);
+
+        // bind events
+        $goodsBtn.click({ 'id': i, 'shop': this }, function(event) {
             event.data.shop.buy(CQ.Currency.Purchase['Goods' + event.data.id]);
         }).bind('touchstart', function() {
             $(this).removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_TAP);
@@ -43,28 +50,28 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
 };
 
 CQ.Popup.GemShop.prototype.initGem = function() {
-    var goods1 = CQ.Currency.Purchase.Goods1,
-        goods2 = CQ.Currency.Purchase.Goods2,
-        goods3 = CQ.Currency.Purchase.Goods3,
-        goods4 = CQ.Currency.Purchase.Goods4,
-        goods5 = CQ.Currency.Purchase.Goods5;
-    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods1.id)).text('{0}'.format(goods1.title));
-    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods1.id)).text('{0}'.format(goods1.description));
-    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods1.id)).text('{0}'.format(goods1.cost));
-    
-    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods2.id)).text('{0}'.format(goods2.title));
-    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods2.id)).text('{0}'.format(goods2.description));
-    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods2.id)).text('{0}'.format(goods2.cost));
-    
-    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods3.id)).text('{0}'.format(goods3.title));
-    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods3.id)).text('{0}'.format(goods3.description));
-    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods3.id)).text('{0}'.format(goods3.cost));
-    
-    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods4.id)).text('{0}'.format(goods4.title));
-    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods4.id)).text('{0}'.format(goods4.description));
-    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods4.id)).text('{0}'.format(goods4.cost));
-    
-    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods5.id)).text('{0}'.format(goods5.title));
-    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods5.id)).text('{0}'.format(goods5.description));
-    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods5.id)).text('{0}'.format(goods5.cost));
+//    var goods1 = CQ.Currency.Purchase.Goods1,
+//        goods2 = CQ.Currency.Purchase.Goods2,
+//        goods3 = CQ.Currency.Purchase.Goods3,
+//        goods4 = CQ.Currency.Purchase.Goods4,
+//        goods5 = CQ.Currency.Purchase.Goods5;
+//    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods1.id)).text('{0}'.format(goods1.title));
+//    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods1.id)).text('{0}'.format(goods1.description));
+//    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods1.id)).text('{0}'.format(goods1.cost));
+//
+//    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods2.id)).text('{0}'.format(goods2.title));
+//    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods2.id)).text('{0}'.format(goods2.description));
+//    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods2.id)).text('{0}'.format(goods2.cost));
+//
+//    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods3.id)).text('{0}'.format(goods3.title));
+//    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods3.id)).text('{0}'.format(goods3.description));
+//    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods3.id)).text('{0}'.format(goods3.cost));
+//
+//    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods4.id)).text('{0}'.format(goods4.title));
+//    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods4.id)).text('{0}'.format(goods4.description));
+//    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods4.id)).text('{0}'.format(goods4.cost));
+//
+//    $(CQ.Id.Purchase.$PURCHASE_TITLE.format(goods5.id)).text('{0}'.format(goods5.title));
+//    $(CQ.Id.Purchase.$PURCHASE_DES.format(goods5.id)).text('{0}'.format(goods5.description));
+//    $(CQ.Id.Purchase.$PURCHASE_COST.format(goods5.id)).text('{0}'.format(goods5.cost));
 };

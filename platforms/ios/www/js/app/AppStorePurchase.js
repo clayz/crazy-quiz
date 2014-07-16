@@ -46,7 +46,7 @@ CQ.AppStorePurchase = {
             CQ.Currency.Purchase.Goods5.productId = products[4].id;
             CQ.Currency.Purchase.Goods5.cost = products[4].price;
 //            CQ.Currency.Purchase.Goods5.description = products[4].description;
-            CQ.Page.Game.gemShop.initGem();
+//            CQ.Page.Game.gemShop.initGem();
             for (var i = 0; i < invalidIds.length; ++i) {
                 console.log("Error: could not load " + invalidIds[i]);
             }
