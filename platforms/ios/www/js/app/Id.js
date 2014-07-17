@@ -25,9 +25,11 @@ CQ.Id = {
         $POPUP_BTN_YES: '.popup-yes',
         $POPUP_BTN_NO: '.popup-no',
 
+        $POPUP_PROMPT: '.popup-prompt',
+        $POPUP_PROMPT_TEXT: '.popup-prompt-text',
+
         $POPUP_SHOP_GEM: '.popup-gem-shop',
         $POPUP_SHOP_GEM_GOODS: '#{0} .popup-gem-shop .popup-goods-{1}',
-
         $POPUP_SHOP_COIN: '.popup-coin-shop',
         $POPUP_SHOP_COIN_GOODS: '#{0} .popup-coin-shop .popup-goods-{1}',
 

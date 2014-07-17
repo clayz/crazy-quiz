@@ -3,12 +3,7 @@ CQ.Popup.GemNotEnough = function(page) {
     this.popup = popup;
 
     this.popup.onClickYes(function() {
-        CQ.Audio.Button.play();
-        popup.close();
-
-        setTimeout(function() {
-            CQ.Page.get(page).gemShop.popup.open();
-        }, 100);
+        CQ.Page.openGemShop();
     });
 
     this.popup.onClickNo(function() {

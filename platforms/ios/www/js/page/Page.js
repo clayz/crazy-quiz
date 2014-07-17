@@ -7,6 +7,7 @@ CQ.Page = {
     gemNotEnough: null,
     coinNotEnough: null,
     share: null,
+    prompt: null,
 
     popupEvents: {
         popupafteropen: function() {
@@ -64,13 +65,18 @@ CQ.Page = {
             }
         }
 
-        // add gem and coin not enough popups
+        // add other common popups
+        this.prompt = new CQ.Popup.Prompt(name);
         this.gemNotEnough = new CQ.Popup.GemNotEnough(name);
         this.coinNotEnough = new CQ.Popup.CoinNotEnough(name);
     },
 
     get: function(name) {
         return CQ.Page[CQ.Utils.getCapitalName(name)];
+    },
+
+    getCurrentPage: function() {
+        return CQ.Page[CQ.Utils.getCapitalName(CQ.Session.CURRENT_PAGE)];
     },
 
     open: function(page, params) {
@@ -129,6 +135,48 @@ CQ.Page = {
         $.each(CQ.App.registerPages, function(index, value) {
             value.gemShop.refresh();
         });
+    },
+
+    openPopup: function(popup) {
+        if (CQ.Session.CURRENT_OPEN_POPUP) {
+            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
+            CQ.Session.CURRENT_OPEN_POPUP = null;
+
+            setTimeout(function() {
+                popup.popup.open();
+            }, 100);
+        } else {
+            popup.popup.open();
+        }
+    },
+
+    openGemShop: function() {
+        this.openPopup(this.getCurrentPage().gemShop);
+    },
+
+    openCoinShop: function() {
+        this.openPopup(this.getCurrentPage().coinShop);
+    },
+
+    openGemNotEnough: function() {
+        this.openPopup(this.getCurrentPage().gemNotEnough);
+    },
+
+    openCoinNotEnough: function() {
+        this.openPopup(this.getCurrentPage().coinNotEnough);
+    },
+
+    openPrompt: function(msg) {
+        if (CQ.Session.CURRENT_OPEN_POPUP) {
+            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
+            CQ.Session.CURRENT_OPEN_POPUP = null;
+
+            setTimeout(function() {
+                CQ.Page.getCurrentPage().prompt.open(msg);
+            }, 100);
+        } else {
+            CQ.Page.getCurrentPage().prompt.open(msg);
+        }
     },
 
     closePopup: function() {

@@ -41,14 +41,10 @@ CQ.Popup.CoinShop.prototype.exchange = function(goods) {
         CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
 
         // TODO display exchange result popup
+        // CQ.Page.openPrompt('blabla');
     } else {
         // display gem not enough popup
-        this.popup.close();
-        var page = this.popup.page;
-
-        setTimeout(function() {
-            CQ.Page.get(page).gemNotEnough.popup.open();
-        }, 100);
+        CQ.Page.openGemNotEnough();
     }
 };
 

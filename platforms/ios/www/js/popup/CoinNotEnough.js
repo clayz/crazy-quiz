@@ -4,11 +4,7 @@ CQ.Popup.CoinNotEnough = function(page) {
 
     $('{0} {1}'.format(popup.getId(), CQ.Id.CSS.$POPUP_BTN_YES)).click(function() {
         CQ.Audio.Button.play();
-        popup.close();
-
-        setTimeout(function() {
-            CQ.Page.get(page).coinShop.popup.open();
-        }, 100);
+        CQ.Page.openCoinShop();
     });
 
     $('{0} {1}'.format(popup.getId(), CQ.Id.CSS.$POPUP_BTN_NO)).click(function() {
