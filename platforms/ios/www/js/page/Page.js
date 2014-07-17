@@ -1,6 +1,12 @@
 CQ.Page = {
     params: {},
 
+    gemShop: null,
+    coinShop: null,
+    gemNotEnough: null,
+    coinNotEnough: null,
+    share: null,
+
     popupEvents: {
         popupafteropen: function() {
             CQ.Session.CURRENT_OPEN_POPUP = '#' + $(this).attr('id');
@@ -31,9 +37,6 @@ CQ.Page = {
             this.gemShop = new CQ.Popup.GemShop(name);
             this.coinShop = new CQ.Popup.CoinShop(name);
 
-            CQ.Session.GEM_SHOP_POPUPS.push(this.gemShop);
-            CQ.Session.COIN_SHOP_POPUPS.push(this.coinShop);
-
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
                 CQ.Audio.Button.play();
                 page.gemShop.popup.open();
@@ -50,7 +53,7 @@ CQ.Page = {
             var $shareBtn = $(CQ.Id.$SHARE.format(name));
             if ($shareBtn.length) {
                 var sharePopup = new CQ.Popup.Share(name);
-                this.sharePopup = sharePopup;
+                this.share = sharePopup;
 
                 $shareBtn.click(function() {
                     CQ.Audio.Button.play();
@@ -60,40 +63,9 @@ CQ.Page = {
             }
         }
 
-        // share popup and buttons
-//        var sharePopupId = CQ.Id.$POPUP_SHARE.format(name);
-//
-//        $(sharePopupId).bind(this.popupEvents);
-//        $('{0} {1}'.format(sharePopupId, CQ.Id.CSS.$POPUP_CLOSE_BTN)).click(this.back);
-//        $(CQ.Id.$SHARE.format(name)).click(function() {
-//            CQ.Audio.Button.play();
-//            page.showShare();
-//            CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(name));
-//        });
-//
-//        // coin not enough popup and buttons
-//        var coinNotEnoughPopupId = CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name);
-//
-//        $(coinNotEnoughPopupId).bind(this.popupEvents);
-//        $('{0} {1}'.format(coinNotEnoughPopupId, CQ.Id.CSS.$POPUP_CLOSE_BTN)).click(this.back);
-//        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_YES.format(name)).click(function() {
-//            page.open(CQ.Page.Exchange);
-//        });
-//        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH_NO.format(name)).click(function() {
-//            $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(name)).popup('close');
-//        });
-//
-//        // gem not enough popup and buttons
-//        var gemNotEnoughPopupId = CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name);
-//
-//        $(gemNotEnoughPopupId).bind(this.popupEvents);
-//        $('{0} {1}'.format(gemNotEnoughPopupId, CQ.Id.CSS.$POPUP_CLOSE_BTN)).click(this.back);
-//        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_YES.format(name)).click(function() {
-//            page.open(CQ.Page.Purchase);
-//        });
-//        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH_NO.format(name)).click(function() {
-//            $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(name)).popup('close');
-//        });
+        // add gem and coin not enough popups
+        this.gemNotEnough = new CQ.Popup.GemNotEnough(name);
+        this.coinNotEnough = new CQ.Popup.CoinNotEnough(name);
     },
 
     get: function(name) {
@@ -147,36 +119,22 @@ CQ.Page = {
         }
     },
 
-    closePopup: function() {
-        if (CQ.Session.CURRENT_OPEN_POPUP) {
-            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
-            CQ.Session.CURRENT_OPEN_POPUP = null;
-        }
-    },
-
     refreshCurrency: function() {
         $(CQ.Id.CSS.$HEADER_GEM_CURRENT).text(CQ.Currency.account.gem);
         $(CQ.Id.CSS.$HEADER_COIN_CURRENT).text(CQ.Currency.account.coin);
     },
 
     refreshShops: function() {
-        var gemShops = CQ.Session.GEM_SHOP_POPUPS;
-
-        for (var i = 0; i < gemShops.length; i++) {
-            gemShops[i].refresh();
-        }
+        $.each(CQ.App.registerPages, function(index, value) {
+            value.gemShop.refresh();
+        });
     },
 
-//    showCoinNotEnough: function() {
-//        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(this.name)).popup('open');
-//    },
-//
-//    showGemNotEnough: function() {
-//        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(this.name)).popup('open');
-//    },
-
-    showShare: function() {
-        $(CQ.Id.$POPUP_SHARE.format(this.name)).popup('open');
+    closePopup: function() {
+        if (CQ.Session.CURRENT_OPEN_POPUP) {
+            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
+            CQ.Session.CURRENT_OPEN_POPUP = null;
+        }
     },
 
     bindClickButton: function(id, onClick, touchstartImg, touchendImg, imageId) {

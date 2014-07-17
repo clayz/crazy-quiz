@@ -33,15 +33,17 @@ CQ.Popup.CoinShop.prototype.exchange = function(goods) {
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Exchange', goods.id));
 
     if (CQ.Currency.checkGem(goods)) {
+        // TODO display confirm popup
+
         CQ.Currency.exchange(goods);
+        CQ.Page.refreshCurrency();
+
         CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
+
+        // TODO display exchange result popup
     } else {
-        // TODO display gem not enough popup
+        CQ.Page.get(this.popup.page).gemNotEnough.popup.open();
     }
-
-    CQ.Page.refreshCurrency();
-
-    // TODO display exchange result popup
 };
 
 CQ.Popup.CoinShop.prototype.refresh = function() {

@@ -9,6 +9,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
 CQ.App = {
     inheritsClasses: [],
     registerClasses: [],
+    registerPages: [],
 
     init: function() {
         this.bindEvents();
@@ -44,6 +45,10 @@ CQ.App = {
             child: child,
             parent: parent
         });
+
+        if (parent === CQ.Page) {
+            this.registerPages.push(child);
+        }
     },
 
     register: function(clazz) {
@@ -66,9 +71,6 @@ CQ.App = {
 CQ.Session = {
     CURRENT_PAGE: 'loading',
     CURRENT_OPEN_POPUP: null,
-
-    GEM_SHOP_POPUPS: [],
-    COIN_SHOP_POPUPS: [],
 
     USERNAME: ''
 };

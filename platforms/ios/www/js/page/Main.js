@@ -4,11 +4,6 @@ CQ.Page.Main = {
     selectedUnlockAlbum: null,
     selectedUnlockLevel: null,
 
-    // popups
-    gemShop: null,
-    coinShop: null,
-    sharePopup: null,
-
     init: function() {
         console.info('Initial main page');
 

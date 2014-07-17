@@ -8,16 +8,6 @@ CQ.Id = {
     $SHARE_LINE: '#{0}-share-line-btn',
     $SHARE_OTHER: '#{0}-share-other-btn',
 
-    $POPUP_SHARE: '#{0}-popup-share',
-
-    $POPUP_COIN_NOT_ENOUGH: '#{0}-popup-coin-not-enough',
-    $POPUP_COIN_NOT_ENOUGH_YES: '#{0}-popup-coin-not-enough-yes-btn',
-    $POPUP_COIN_NOT_ENOUGH_NO: '#{0}-popup-coin-not-enough-no-btn',
-
-    $POPUP_GEM_NOT_ENOUGH: '#{0}-popup-gem-not-enough',
-    $POPUP_GEM_NOT_ENOUGH_YES: '#{0}-popup-gem-not-enough-yes-btn',
-    $POPUP_GEM_NOT_ENOUGH_NO: '#{0}-popup-gem-not-enough-no-btn',
-
     CSS: {
         $HEADER: '.header',
         $HEADER_BACK: '.header-back-btn',
@@ -49,6 +39,9 @@ CQ.Id = {
         POPUP_SHOP_GOODS_INFO_TAP: 'popup-goods-info-tap',
         POPUP_SHOP_GOODS_COST: 'popup-goods-cost',
         POPUP_SHOP_GOODS_COST_TAP: 'popup-goods-cost-tap',
+
+        $POPUP_GEM_NOT_ENOUGH: '.popup-gem-not-enough',
+        $POPUP_COIN_NOT_ENOUGH: '.popup-coin-not-enough',
 
         $POPUP_SHARE: '.popup-share',
         $POPUP_SHARE_FACEBOOK: '.popup-share-fb',

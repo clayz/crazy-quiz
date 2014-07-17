@@ -7,11 +7,6 @@ CQ.Page.Game = {
     answers: new Array(8),
     answersData: null,
 
-    // popups
-    gemShop: null,
-    coinShop: null,
-    sharePopup: null,
-
     init: function() {
         console.info('Initial game page');
 
