@@ -67,5 +67,8 @@ CQ.Session = {
     CURRENT_PAGE: 'loading',
     CURRENT_OPEN_POPUP: null,
 
+    GEM_SHOP_POPUPS: [],
+    COIN_SHOP_POPUPS: [],
+
     USERNAME: ''
 };

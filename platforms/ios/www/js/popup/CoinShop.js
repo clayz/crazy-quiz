@@ -24,6 +24,8 @@ CQ.Popup.CoinShop = function(page) {
                 .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_COST_TAP).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_COST);
         });
     }
+
+    this.refresh();
 };
 
 CQ.Popup.CoinShop.prototype.exchange = function(goods) {
@@ -34,10 +36,19 @@ CQ.Popup.CoinShop.prototype.exchange = function(goods) {
         CQ.Currency.exchange(goods);
         CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
     } else {
-
+        // TODO display gem not enough popup
     }
 
     CQ.Page.refreshCurrency();
 
     // TODO display exchange result popup
+};
+
+CQ.Popup.CoinShop.prototype.refresh = function() {
+    for (var i = 1; i <= 5; i++) {
+        var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_COIN_GOODS.format(this.popup.page, i));
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Exchange['Goods' + i].coin);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Exchange['Goods' + i].description);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST)).text(CQ.Currency.Exchange['Goods' + i].gem);
+    }
 };

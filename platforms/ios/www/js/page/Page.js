@@ -10,57 +10,6 @@ CQ.Page = {
         }
     },
 
-    get: function(name) {
-        return CQ.Page[CQ.Utils.getCapitalName(name)];
-    },
-
-    open: function(page, params) {
-        var pageName = page.name, wrappedParams = params || {};
-
-        if (this.name == pageName) {
-            // open same page
-            wrappedParams.from = this.params.from;
-        } else if (((this === CQ.Page.Purchase) && (page === CQ.Page.Exchange)) || ((this === CQ.Page.Exchange) && (page === CQ.Page.Purchase))) {
-            // this is used to avoid cycle back between this two page
-            wrappedParams.from = this.params.from || CQ.Page.Main.name;
-        } else {
-            wrappedParams.from = this.name;
-        }
-
-        console.log('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
-        var result = page.load(wrappedParams);
-        CQ.Session.CURRENT_PAGE = pageName;
-
-        if (result && result.redirect) {
-            this.open(result.redirect);
-        } else {
-            if (params && params.transition) $.mobile.changePage('#' + pageName, { transition: params.transition });
-            else $.mobile.changePage('#' + pageName);
-            CQ.GA.trackPage((result && result.gaPageName) ? result.gaPageName : pageName);
-        }
-    },
-
-    back: function() {
-        CQ.Audio.Button.play();
-
-        if (CQ.Session.CURRENT_OPEN_POPUP) {
-            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
-            CQ.Session.CURRENT_OPEN_POPUP = null;
-        } else if ((CQ.Page.Loading.name == this.name) || (CQ.Page.Index.name == this.name)) {
-            navigator.app.exitApp();
-        } else if (CQ.Page.Main.name == this.name) {
-            $(CQ.Id.Main.$POPUP_EXIT).popup('open');
-            CQ.Session.CURRENT_OPEN_POPUP = CQ.Id.Main.$POPUP_EXIT;
-        } else {
-            var from = (this.params && this.params.from) ? this.params.from : CQ.Page.Main.name;
-            console.log('Back to page: {0}'.format(from));
-
-            CQ.Session.CURRENT_PAGE = from;
-            $.mobile.changePage('#' + from);
-            CQ.GA.trackPage(from);
-        }
-    },
-
     initCommon: function(config) {
         var page = this, name = this.name;
 
@@ -78,20 +27,21 @@ CQ.Page = {
                 $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).hide();
             }
 
-            // add popups and events
-            var gemShop = new CQ.Popup.GemShop(name);
-            var coinShop = new CQ.Popup.CoinShop(name);
-            this.gemShop = gemShop;
-            this.coinShop = coinShop;
+            // add shop popups and events
+            this.gemShop = new CQ.Popup.GemShop(name);
+            this.coinShop = new CQ.Popup.CoinShop(name);
+
+            CQ.Session.GEM_SHOP_POPUPS.push(this.gemShop);
+            CQ.Session.COIN_SHOP_POPUPS.push(this.coinShop);
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
                 CQ.Audio.Button.play();
-                gemShop.popup.open();
+                page.gemShop.popup.open();
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
                 CQ.Audio.Button.play();
-                coinShop.popup.open();
+                page.coinShop.popup.open();
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
         }
 
@@ -146,18 +96,84 @@ CQ.Page = {
 //        });
     },
 
+    get: function(name) {
+        return CQ.Page[CQ.Utils.getCapitalName(name)];
+    },
+
+    open: function(page, params) {
+        var pageName = page.name, wrappedParams = params || {};
+
+        if (this.name == pageName) {
+            // open same page
+            wrappedParams.from = this.params.from;
+        } else if (((this === CQ.Page.Purchase) && (page === CQ.Page.Exchange)) || ((this === CQ.Page.Exchange) && (page === CQ.Page.Purchase))) {
+            // this is used to avoid cycle back between this two page
+            wrappedParams.from = this.params.from || CQ.Page.Main.name;
+        } else {
+            wrappedParams.from = this.name;
+        }
+
+        console.log('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
+        var result = page.load(wrappedParams);
+        CQ.Session.CURRENT_PAGE = pageName;
+
+        if (result && result.redirect) {
+            this.open(result.redirect);
+        } else {
+            if (params && params.transition) $.mobile.changePage('#' + pageName, { transition: params.transition });
+            else $.mobile.changePage('#' + pageName);
+            CQ.GA.trackPage((result && result.gaPageName) ? result.gaPageName : pageName);
+        }
+    },
+
+    back: function() {
+        CQ.Audio.Button.play();
+
+        if (CQ.Session.CURRENT_OPEN_POPUP) {
+            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
+            CQ.Session.CURRENT_OPEN_POPUP = null;
+        } else if ((CQ.Page.Loading.name == this.name) || (CQ.Page.Index.name == this.name)) {
+            navigator.app.exitApp();
+        } else if (CQ.Page.Main.name == this.name) {
+            $(CQ.Id.Main.$POPUP_EXIT).popup('open');
+            CQ.Session.CURRENT_OPEN_POPUP = CQ.Id.Main.$POPUP_EXIT;
+        } else {
+            var from = (this.params && this.params.from) ? this.params.from : CQ.Page.Main.name;
+            console.log('Back to page: {0}'.format(from));
+
+            CQ.Session.CURRENT_PAGE = from;
+            $.mobile.changePage('#' + from);
+            CQ.GA.trackPage(from);
+        }
+    },
+
+    closePopup: function() {
+        if (CQ.Session.CURRENT_OPEN_POPUP) {
+            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
+            CQ.Session.CURRENT_OPEN_POPUP = null;
+        }
+    },
+
     refreshCurrency: function() {
         $(CQ.Id.CSS.$HEADER_GEM_CURRENT).text(CQ.Currency.account.gem);
         $(CQ.Id.CSS.$HEADER_COIN_CURRENT).text(CQ.Currency.account.coin);
     },
 
-    showCoinNotEnough: function() {
-        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(this.name)).popup('open');
+    refreshShops: function() {
+        var gemShops = CQ.Session.GEM_SHOP_POPUPS;
+
+        for (var i = 0; i < gemShops.length; i++) {
+            gemShops[i].refresh();
+        }
     },
 
-    showGemNotEnough: function() {
-        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(this.name)).popup('open');
-    },
+//    showCoinNotEnough: function() {
+//        $(CQ.Id.$POPUP_COIN_NOT_ENOUGH.format(this.name)).popup('open');
+//    },
+//
+//    showGemNotEnough: function() {
+//        $(CQ.Id.$POPUP_GEM_NOT_ENOUGH.format(this.name)).popup('open');
+//    },
 
     showShare: function() {
         $(CQ.Id.$POPUP_SHARE.format(this.name)).popup('open');
