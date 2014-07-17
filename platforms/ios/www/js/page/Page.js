@@ -1,6 +1,7 @@
 CQ.Page = {
     params: {},
 
+    // popups
     gemShop: null,
     coinShop: null,
     gemNotEnough: null,

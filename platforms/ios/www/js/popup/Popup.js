@@ -9,7 +9,6 @@ CQ.Popup = function(name, page) {
     // bind popup state with current session
     var indicator = '#{0} {1}'.format(page, name);
 
-    $(indicator).popup();
     $(indicator).bind({
         popupafteropen: function() {
             CQ.Session.CURRENT_OPEN_POPUP = indicator;
@@ -33,7 +32,7 @@ CQ.Popup.prototype.getId = function() {
 };
 
 CQ.Popup.prototype.open = function() {
-    alert('#{0} {1}'.format(this.page, this.name));
+    console.info('Open popup: #{0} {1}'.format(this.page, this.name));
     $('#{0} {1}'.format(this.page, this.name)).popup('open');
 };
 

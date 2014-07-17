@@ -2,7 +2,7 @@ CQ.Popup.GemNotEnough = function(page) {
     var popup = new CQ.Popup(CQ.Id.CSS.$POPUP_GEM_NOT_ENOUGH, page);
     this.popup = popup;
 
-    $('{0} {1}'.format(popup.getId(), CQ.Id.CSS.$POPUP_BTN_YES)).click(function() {
+    this.popup.onClickYes(function() {
         CQ.Audio.Button.play();
         popup.close();
 
@@ -11,7 +11,7 @@ CQ.Popup.GemNotEnough = function(page) {
         }, 100);
     });
 
-    $('{0} {1}'.format(popup.getId(), CQ.Id.CSS.$POPUP_BTN_NO)).click(function() {
+    this.popup.onClickNo(function() {
         CQ.Audio.Button.play();
         popup.close();
     });

@@ -495,61 +495,6 @@
 </div>
 
 <!------------------------------------------------------------------>
-<!-- Purchase Page -->
-<!------------------------------------------------------------------>
-<div data-role="page" id="purchase" class="page">
-    <h1>Gem Purchase</h1>
-
-    <div>
-        <button id="purchase-btn-1" class="ui-btn"></button>
-        <button id="purchase-btn-2" class="ui-btn"></button>
-        <button id="purchase-btn-3" class="ui-btn"></button>
-        <button id="purchase-btn-4" class="ui-btn"></button>
-        <button id="purchase-btn-5" class="ui-btn"></button>
-        <button id="purchase-products-btn" class="ui-btn">Available products in inventory</button>
-        <button id="purchase-owned-btn" class="ui-btn">Owned products in inventory</button>
-    </div>
-
-    <div data-role="popup" id="purchase-popup-success">
-        <p>Purchase success.</p>
-    </div>
-</div>
-
-<!------------------------------------------------------------------>
-<!-- Exchange Page -->
-<!------------------------------------------------------------------>
-<div data-role="page" id="exchange" class="page">
-    <h1>Coin Exchange</h1>
-
-    <div>
-        <button id="exchange-btn-1" class="ui-btn"></button>
-        <button id="exchange-btn-2" class="ui-btn"></button>
-        <button id="exchange-btn-3" class="ui-btn"></button>
-        <button id="exchange-btn-4" class="ui-btn"></button>
-        <button id="exchange-btn-5" class="ui-btn"></button>
-    </div>
-
-    <div data-role="popup" id="exchange-popup-success">
-        <p>Exchange success.</p>
-    </div>
-
-    <!-- Exchange confirm popup -->
-    <div data-role="popup" id="exchange-popup-confirm" data-overlay-theme="b" data-dismissible="false">
-        <div role="main" class="ui-content">
-            <h3 class="ui-title">Are you sure want to exchange?</h3>
-            <div class="ui-grid-a">
-                <div class="ui-block-a center">
-                    <a href="#" id="exchange-popup-confirm-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button">はい</a>
-                </div>
-                <div class="ui-block-b center">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!------------------------------------------------------------------>
 <!-- Help Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="help" class="page">
@@ -680,23 +625,23 @@
     </div>
 
     <!-- Gem not enough popup -->
-    <div data-role="popup" class="popup-gem-not-enough ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" class="popup-gem-not-enough popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-logo"></div>
         <div class="popup-content">
             <p>宝石不够啦，现在就去商城买一些吗?</p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img class="popup-button-left" src="img/button/popup-yes-btn.png"/>
+                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
             </div>
             <div class="ui-block-b">
-                <img class="popup-button-right" src="img/button/popup-no-btn.png"/>
+                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
             </div>
         </div>
     </div>
 
     <!-- Coin not enough popup -->
-    <div data-role="popup" class="popup-coin-not-enough ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" class="popup-coin-not-enough popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-logo"></div>
         <div class="popup-content">
             <p>金币不够啦，现在就去商城换一些吗?</p>

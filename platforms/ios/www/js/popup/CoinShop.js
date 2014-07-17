@@ -42,7 +42,13 @@ CQ.Popup.CoinShop.prototype.exchange = function(goods) {
 
         // TODO display exchange result popup
     } else {
-        CQ.Page.get(this.popup.page).gemNotEnough.popup.open();
+        // display gem not enough popup
+        this.popup.close();
+        var page = this.popup.page;
+
+        setTimeout(function() {
+            CQ.Page.get(page).gemNotEnough.popup.open();
+        }, 100);
     }
 };
 
