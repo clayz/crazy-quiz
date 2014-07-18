@@ -4,7 +4,7 @@ CQ.Currency = {
 
     Earn: {
         Login: { id: 1, coin: 5 },
-        Share: { id: 2, coin: 5 },
+        Share: { id: 2, coin: 10 },
         Rating: { id: 3, coin: 100 },
         Quiz: { id: 4, coin: 5 }, // correct answer
         Level: {id: 5, coin: 100}, // finish level
@@ -13,9 +13,9 @@ CQ.Currency = {
 
     Consume: {
         // coin
-        CutDown: { id: 1, coin: 30 },
+        CutDown: { id: 1, coin: 50 },
         GetChar: { id: 2, coin: 90 },
-        Prompt: { id: 3, coin: 10 },
+        Prompt: { id: 3, coin: 20 },
 
         // gem
         UnlockLevel: { id: 101, gem: 3 },
@@ -24,18 +24,18 @@ CQ.Currency = {
 
     Purchase: {
         Goods1: { id: 1, gem: 10, cost: 100, productId: "", title: "10", description: "ボナースなし" },
-        Goods2: { id: 2, gem: 25, cost: 200, productId: "", title: "25", description: "20% ボナース！" },
-        Goods3: { id: 3, gem: 50, cost: 500, productId: "", title: "50", description: "50% ボナース！" },
-        Goods4: { id: 4, gem: 70, cost: 1000, productId: "", title: "70", description: "75% ボナース！" },
-        Goods5: { id: 5, gem: 100, cost: 2000, productId: "", title: "100", description: "100% ボナースト！" }
+        Goods2: { id: 2, gem: 25, cost: 200, productId: "", title: "25", description: "3% ボナース！" },
+        Goods3: { id: 3, gem: 50, cost: 500, productId: "", title: "50", description: "5% ボナース！" },
+        Goods4: { id: 4, gem: 70, cost: 1000, productId: "", title: "70", description: "8% ボナース！" },
+        Goods5: { id: 5, gem: 100, cost: 2000, productId: "", title: "100", description: "10% ボナースト！" }
     },
 
     Exchange: {
         Goods1: { id: 1, gem: 10, coin: 1000, description: "ボナースなし" },
-        Goods2: { id: 2, gem: 20, coin: 2000, description: "20% ボナース！" },
-        Goods3: { id: 3, gem: 50, coin: 5000, description: "50% ボナース！" },
-        Goods4: { id: 4, gem: 100, coin: 10000, description: "75% ボナース！" },
-        Goods5: { id: 5, gem: 200, coin: 20000, description: "100% ボナースト！" }
+        Goods2: { id: 2, gem: 20, coin: 2000, description: "3% ボナース！" },
+        Goods3: { id: 3, gem: 50, coin: 5000, description: "5% ボナース！" },
+        Goods4: { id: 4, gem: 100, coin: 10000, description: "8% ボナース！" },
+        Goods5: { id: 5, gem: 200, coin: 20000, description: "10% ボナースト！" }
     },
 
     init: function() {

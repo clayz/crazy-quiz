@@ -1034,7 +1034,7 @@ p {
 }
 
 .popup-shop .popup-goods-amount-tap {
-    margin-left: .5em;
+    margin: 0 1em 0 .5em;
     width: 2em;
     color: #6d3805;
 }

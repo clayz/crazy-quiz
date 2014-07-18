@@ -3,6 +3,6 @@ CQ.Popup.Prompt = function(page) {
 };
 
 CQ.Popup.Prompt.prototype.open = function(msg) {
-    $('#{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_PROMPT_TEXT)).text(msg);
-    this.popup('open');
+    $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_PROMPT_TEXT)).text(msg);
+    this.popup.open();
 };

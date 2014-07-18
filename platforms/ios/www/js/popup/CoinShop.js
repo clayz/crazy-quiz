@@ -33,15 +33,14 @@ CQ.Popup.CoinShop.prototype.exchange = function(goods) {
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Exchange', goods.id));
 
     if (CQ.Currency.checkGem(goods)) {
-        // TODO display confirm popup
+        // TODO change this to confirm popup
+        CQ.Page.openPrompt('确认要兑换 {0} 金币吗？'.format(goods.coin));
 
         CQ.Currency.exchange(goods);
         CQ.Page.refreshCurrency();
 
         CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
-
-        // TODO display exchange result popup
-        // CQ.Page.openPrompt('blabla');
+        // CQ.Page.openPrompt('兑换金币成功，当前宝石数：***，当前金币数：***');
     } else {
         // display gem not enough popup
         CQ.Page.openGemNotEnough();

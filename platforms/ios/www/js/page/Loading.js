@@ -12,7 +12,7 @@ CQ.Page.Loading = {
             } else {
                 CQ.Page.open(CQ.Page.Index, { transition: "fade" });
             }
-        }, 100);
+        }, 3000);
     },
 
     load: function() {

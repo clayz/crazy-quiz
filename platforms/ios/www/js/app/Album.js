@@ -7,7 +7,10 @@ CQ.Album = {
         Cartoon: { id: 3, name: '漫画' },
         Entertainer: { id: 4, name: '芸能人' },
         Brand: { id: 5, name: 'ブランド' },
-        Celebrity: { id: 6, name: '有名人' }
+        Celebrity: { id: 6, name: '有名人' },
+        Game: { id: 7, name: 'ゲーム' },
+        Country: { id: 8, name: '国家' },
+        City: { id: 9, name: '都市' }
     },
 
     getAlbum: function(id) {
@@ -176,24 +179,52 @@ CQ.Album.Default = {
             level: 1,
             name: '初出茅庐',
             pictures: [
-                { id: 100, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
-                { id: 101, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
-                { id: 102, name: 'ビッグバンセオリ', category: CQ.Album.Category.Series, answers: [] },
-                { id: 103, name: 'ブレイブハート', category: CQ.Album.Category.Film, answers: [] },
-                { id: 104, name: 'ダヴィンチコード', category: CQ.Album.Category.Film, answers: [] },
-                { id: 105, name: 'ドラゴンボール', category: CQ.Album.Category.Cartoon, answers: [] }
+                { id: 100, name: 'ハーゲンダッツ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 101, name: 'LV', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 102, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
+                { id: 103, name: 'オバマ', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 104, name: 'adidas', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 105, name: 'ちびまる子ちゃん', category: CQ.Album.Category.Cartoon, answers: [] },
+                { id: 106, name: 'アングリーバード', category: CQ.Album.Category.Game, answers: [] },
+                { id: 107, name: 'キャデラック', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 108, name: 'ナルト', category: CQ.Album.Category.Series, answers: [] },
+                { id: 109, name: '英国王のスピーチ', category: CQ.Album.Category.Film, answers: [] },
+                { id: 110, name: 'プレスリー', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 111, name: 'アルゼンチン', category: CQ.Album.Category.Country, answers: [] },
+                { id: 112, name: 'アバター', category: CQ.Album.Category.Film, answers: [] },
+                { id: 113, name: 'インド', category: CQ.Album.Category.Country, answers: [] },
+                { id: 114, name: 'Facebook', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 115, name: '鉄腕アトム', category: CQ.Album.Category.Cartoon, answers: [] },
+                { id: 116, name: 'オレオ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 117, name: '忍者タートルズ', category: CQ.Album.Category.Cartoon, answers: [] },
+                { id: 118, name: 'マラドーナ', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 119, name: 'サウスパーク', category: CQ.Album.Category.Cartoon, answers: [] }
             ]
         },
         {
             level: 2,
             name: '小试牛刀',
             pictures: [
-                { id: 200, name: 'ヒックとドラゴン', category: CQ.Album.Category.Film, answers: [] },
-                { id: 201, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
-                { id: 202, name: 'インセプション', category: CQ.Album.Category.Film, answers: [] },
-                { id: 203, name: 'インデペンデンス', category: CQ.Album.Category.Film, answers: [] },
-                { id: 204, name: 'ベストキッド', category: CQ.Album.Category.Film, answers: [] },
-                { id: 205, name: 'キングコング', category: CQ.Album.Category.Film, answers: [] }
+                { id: 200, name: 'シャネル', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 201, name: 'シュレック', category: CQ.Album.Category.Film, answers: [] },
+                { id: 202, name: 'ハーゲンダッツ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 203, name: 'ワンピース', category: CQ.Album.Category.Series, answers: [] },
+                { id: 204, name: 'Sony', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 205, name: 'ロナウド', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 206, name: 'アマゾン', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 207, name: 'ブラジル', category: CQ.Album.Category.Country, answers: [] },
+                { id: 208, name: 'アイアンマン', category: CQ.Album.Category.Film, answers: [] },
+                { id: 209, name: 'ソニック', category: CQ.Album.Category.Game, answers: [] },
+                { id: 210, name: 'トロイ', category: CQ.Album.Category.Film, answers: [] },
+                { id: 211, name: 'ジョーダン', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 212, name: 'ロールスロイス', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 213, name: 'マクドナルド', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 214, name: 'バルセロナ', category: CQ.Album.Category.City, answers: [] },
+                { id: 215, name: 'タイタニック', category: CQ.Album.Category.Film, answers: [] },
+                { id: 216, name: 'フェラーリ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 217, name: 'オニール', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 218, name: 'サブウェイ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 219, name: 'BMW', category: CQ.Album.Category.Brand, answers: [] }
             ]
         },
         {
@@ -205,7 +236,13 @@ CQ.Album.Default = {
                 { id: 302, name: 'ジョーズ', category: CQ.Album.Category.Film, answers: [] },
                 { id: 303, name: 'ワーナーブラザー', category: CQ.Album.Category.Brand, answers: [] },
                 { id: 304, name: '鉄腕アトム', category: CQ.Album.Category.Cartoon, answers: [] },
-                { id: 305, name: 'フレンズ', category: CQ.Album.Category.Series, answers: [] }
+                { id: 305, name: 'フレンズ', category: CQ.Album.Category.Series, answers: [] },
+                { id: 306, name: 'エイリアン', category: CQ.Album.Category.Film, answers: [] },
+                { id: 307, name: '羊たちの沈黙', category: CQ.Album.Category.Film, answers: [] },
+                { id: 308, name: 'ビッグバンセオリ', category: CQ.Album.Category.Series, answers: [] },
+                { id: 309, name: 'ブレイブハート', category: CQ.Album.Category.Film, answers: [] },
+                { id: 310, name: 'ダヴィンチコード', category: CQ.Album.Category.Film, answers: [] },
+                { id: 311, name: 'ドラゴンボール', category: CQ.Album.Category.Cartoon, answers: [] }
             ]
         },
         {
@@ -216,7 +253,13 @@ CQ.Album.Default = {
                 { id: 401, name: 'モダン石器時代', category: CQ.Album.Category.Film, answers: [] },
                 { id: 402, name: 'グラディエーター', category: CQ.Album.Category.Film, answers: [] },
                 { id: 403, name: 'ゴシップガール', category: CQ.Album.Category.Series, answers: [] },
-                { id: 404, name: '機動戦士ガンダム', category: CQ.Album.Category.Cartoon, answers: [] }
+                { id: 404, name: '機動戦士ガンダム', category: CQ.Album.Category.Cartoon, answers: [] },
+                { id: 405, name: 'ヒックとドラゴン', category: CQ.Album.Category.Film, answers: [] },
+                { id: 406, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
+                { id: 407, name: 'インセプション', category: CQ.Album.Category.Film, answers: [] },
+                { id: 408, name: 'インデペンデンス', category: CQ.Album.Category.Film, answers: [] },
+                { id: 409, name: 'ベストキッド', category: CQ.Album.Category.Film, answers: [] },
+                { id: 410, name: 'キングコング', category: CQ.Album.Category.Film, answers: [] }
             ]
         },
         {
