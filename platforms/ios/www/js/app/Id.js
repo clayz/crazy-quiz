@@ -188,5 +188,12 @@ CQ.Id = {
         $PURCHASE_TITLE: '#purchase-title-{0}',
         $PURCHASE_DES: '#purchase-des-{0}',
         $PURCHASE_COST: '#purchase-cost-{0}'
+    },
+    
+    Help: {
+        $TO_GUIDE: '#help-to-guide',
+        $TO_QUESTION: '#help-to-question',
+        $TO_RULE: '#help-to-rule',
+        $TO_ENQUIRY: '#help-to-enquiry'
     }
 };

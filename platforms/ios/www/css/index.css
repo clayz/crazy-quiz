@@ -1128,3 +1128,34 @@ p {
     background: url(../img/icon/coin-set-5.png) no-repeat;
     background-size: 100% 100%;
 }
+
+/*******************************************************************/
+/* help page */
+/*******************************************************************/
+
+.ul-help-main {
+    margin: 0.2em;
+    padding: 0.2em;
+}
+
+.li-help-coloum {
+    margin: 0.5em;
+    background-color: #F5EE9A;
+    font-size: 1.2em;
+    font-weight:bold;
+    color: #000000;
+    text-align: left;
+    padding: 1em 0.5em;
+    list-style-type: none;
+}
+
+li:hover {
+    background-color: #9F773F;
+    color: #FFFFFF;
+}
+
+#main-body-1 {
+    background-color: #6F451C;
+    height: 84%;
+    margin: 0 .5em 0 .5em;
+}
