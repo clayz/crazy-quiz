@@ -27,9 +27,12 @@
     <script type="text/javascript" charset="utf-8" src="js/app/AppStorePurchase.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/popup/Popup.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Share.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Prompt.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/CoinShop.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/GemShop.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/popup/Share.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/GemNotEnough.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/CoinNotEnough.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/page/Loading.js"></script>
@@ -476,84 +479,20 @@
 </div>
 
 <!-- coin not enough popup -->
-<div data-role="popup" id="game-popup-coin-not-enough" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
-    <div class="popup-logo"></div>
-    <div class="popup-content">
-        <p>金币不够啦，现在去商店换一些吗？</p>
-    </div>
-    <div class="popup-buttons ui-grid-a clear-both">
-        <div class="ui-block-a">
-            <img id="game-popup-coin-not-enough-yes-btn" class="popup-button-left" src="img/button/popup-yes-btn.png"/>
-        </div>
-        <div class="ui-block-b">
-            <img id="game-popup-coin-not-enough-no-btn" class="popup-button-right" src="img/button/popup-no-btn.png"/>
-        </div>
-    </div>
-</div>
-</div>
-
-<!------------------------------------------------------------------>
-<!-- Purchase Page -->
-<!------------------------------------------------------------------>
-<div data-role="page" id="purchase" class="page">
-    <h1>Gem Purchase</h1>
-
-    <div>
-        <button id="purchase-btn-1" class="ui-btn"></button>
-        <button id="purchase-btn-2" class="ui-btn"></button>
-        <button id="purchase-btn-3" class="ui-btn"></button>
-        <button id="purchase-btn-4" class="ui-btn"></button>
-        <button id="purchase-btn-5" class="ui-btn"></button>
-        <button id="purchase-products-btn" class="ui-btn">Available products in inventory</button>
-        <button id="purchase-owned-btn" class="ui-btn">Owned products in inventory</button>
-    </div>
-
-    <div data-role="popup" id="purchase-popup-success">
-        <p>Purchase success.</p>
-    </div>
-</div>
-
-<!------------------------------------------------------------------>
-<!-- Exchange Page -->
-<!------------------------------------------------------------------>
-<div data-role="page" id="exchange" class="page">
-    <h1>Coin Exchange</h1>
-
-    <div>
-        <button id="exchange-btn-1" class="ui-btn"></button>
-        <button id="exchange-btn-2" class="ui-btn"></button>
-        <button id="exchange-btn-3" class="ui-btn"></button>
-        <button id="exchange-btn-4" class="ui-btn"></button>
-        <button id="exchange-btn-5" class="ui-btn"></button>
-    </div>
-
-    <!-- gem not enough popup -->
-    <div data-role="popup" id="exchange-popup-gem-not-enough" class="ui-content" data-overlay-theme="b" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>You do not have enough gem for this operation.<br/>Do you want to buy some?</p>
-        <div>
-            <button id="exchange-popup-gem-not-enough-yes-btn" class="ui-btn ui-btn-inline">Buy</button>
-        </div>
-    </div>
-
-    <div data-role="popup" id="exchange-popup-success">
-        <p>Exchange success.</p>
-    </div>
-
-    <!-- Exchange confirm popup -->
-    <div data-role="popup" id="exchange-popup-confirm" data-overlay-theme="b" data-dismissible="false">
-        <div role="main" class="ui-content">
-            <h3 class="ui-title">Are you sure want to exchange?</h3>
-            <div class="ui-grid-a">
-                <div class="ui-block-a center">
-                    <a href="#" id="exchange-popup-confirm-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button">はい</a>
-                </div>
-                <div class="ui-block-b center">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--<div data-role="popup" id="game-popup-coin-not-enough" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">-->
+<!--<div class="popup-logo"></div>-->
+<!--<div class="popup-content">-->
+<!--<p>金币不够啦，现在去商店换一些吗？</p>-->
+<!--</div>-->
+<!--<div class="popup-buttons ui-grid-a clear-both">-->
+<!--<div class="ui-block-a">-->
+<!--<img id="game-popup-coin-not-enough-yes-btn" class="popup-button-left" src="img/button/popup-yes-btn.png"/>-->
+<!--</div>-->
+<!--<div class="ui-block-b">-->
+<!--<img id="game-popup-coin-not-enough-no-btn" class="popup-button-right" src="img/button/popup-no-btn.png"/>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 </div>
 
 <!------------------------------------------------------------------>
@@ -713,6 +652,38 @@
         </div>
     </div>
 
+    <!-- Gem not enough popup -->
+    <div data-role="popup" class="popup-gem-not-enough popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-content">
+            <p>宝石不够啦，现在就去商城买一些吗?</p>
+        </div>
+        <div class="popup-buttons ui-grid-a clear-both">
+            <div class="ui-block-a">
+                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+            </div>
+            <div class="ui-block-b">
+                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coin not enough popup -->
+    <div data-role="popup" class="popup-coin-not-enough popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-content">
+            <p>金币不够啦，现在就去商城换一些吗?</p>
+        </div>
+        <div class="popup-buttons ui-grid-a clear-both">
+            <div class="ui-block-a">
+                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+            </div>
+            <div class="ui-block-b">
+                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+            </div>
+        </div>
+    </div>
+
     <!-- Share popup -->
     <div data-role="popup" class="popup-share popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-logo"></div>
@@ -720,11 +691,20 @@
         <div class="popup-content">
             <p>毎日シェアする、楽しみに3コインを獲得します。</p>
             <div class="ui-grid-c">
-                <div class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-fb popup-share-btn"></div>
-                <div class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-tw popup-share-btn"></div>
-                <div class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-line popup-share-btn"></div>
+                <div class="ui-block-a center"><img src="img/icon/facebook.png" class="popup-share-fb popup-share-btn"></div>
+                <div class="ui-block-b center"><img src="img/icon/twitter.png" class="popup-share-tw popup-share-btn"></div>
+                <div class="ui-block-c center"><img src="img/icon/line.png" class="popup-share-line popup-share-btn"></div>
                 <div class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-other popup-share-btn"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- Common prompt popup -->
+    <div data-role="popup" class="popup-prompt popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-logo"></div>
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <p class="popup-prompt-text"></p>
         </div>
     </div>
 </div>
