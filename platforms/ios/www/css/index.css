@@ -1154,8 +1154,9 @@ li:hover {
     color: #FFFFFF;
 }
 
-#main-body-1 {
+.help-body {
     background-color: #6F451C;
     height: 84%;
     margin: 0 .5em 0 .5em;
 }
+
