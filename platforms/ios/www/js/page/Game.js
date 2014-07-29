@@ -105,7 +105,7 @@ CQ.Page.Game = {
         $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM_NO).click(this.closeGetcharConfirmPopup);
 
         $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).bind(this.popupEvents);
-        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_YES).click(this.prompt);
+        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_YES).click(this.showPrompt);
         $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_NO).click(this.closePromptConfirmPopup);
     },
 
@@ -249,7 +249,7 @@ CQ.Page.Game = {
         }
     },
 
-    prompt: function() {
+    showPrompt: function() {
         console.info('Start get prompt transaction.');
         var page = CQ.Page.Game, $prompt = $(CQ.Id.Game.$PROMPT_DIV);
 
