@@ -57,8 +57,6 @@ CQ.AppStorePurchase = {
 
         CQ.Page.refreshCurrency();
         CQ.Page.closePopup();
-
-        alert("Purchase success!");
     },
 
     onRestore: function (transactionId, productId, transactionReceipt) {

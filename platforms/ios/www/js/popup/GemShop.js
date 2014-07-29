@@ -33,7 +33,13 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
 
     if (CQ.App.iOS) {
-        CQ.AppStorePurchase.buy(goods.productId);
+        if(CQ.dev){
+            CQ.Currency.purchase(goods);
+            CQ.Page.refreshCurrency();
+            CQ.Page.closePopup();
+        } else {
+            CQ.AppStorePurchase.buy(goods.productId);
+        }
     } else if (CQ.App.android) {
         // CQ.PlayBilling.buy('v1_gem_001');
         // CQ.Currency.purchase(goods);
