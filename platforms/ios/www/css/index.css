@@ -248,7 +248,7 @@ p {
 .popup-container-no-btn {
     border: 0 !important;
     background-color: #eae093 !important;
-    padding: 1em 0 .2em 0;
+    padding: 1em 0 1em 0;
 }
 
 .popup-content {
