@@ -8,6 +8,7 @@ CQ.Page = {
     coinNotEnough: null,
     share: null,
     prompt: null,
+    confirm: null,
 
     popupEvents: {
         popupafteropen: function() {
@@ -67,6 +68,7 @@ CQ.Page = {
 
         // add other common popups
         this.prompt = new CQ.Popup.Prompt(name);
+        this.confirm = new CQ.Popup.Confirm(name);
         this.gemNotEnough = new CQ.Popup.GemNotEnough(name);
         this.coinNotEnough = new CQ.Popup.CoinNotEnough(name);
     },
@@ -176,6 +178,23 @@ CQ.Page = {
             }, 100);
         } else {
             CQ.Page.getCurrentPage().prompt.open(msg);
+        }
+    },
+
+    openConfirm: function(msg, eventYes, eventNo) {
+        var popup = CQ.Page.getCurrentPage().confirm;
+        if (eventYes) popup.yes(eventYes);
+        if (eventNo) popup.no(eventNo);
+
+        if (CQ.Session.CURRENT_OPEN_POPUP) {
+            $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
+            CQ.Session.CURRENT_OPEN_POPUP = null;
+
+            setTimeout(function() {
+                popup.open(msg);
+            }, 100);
+        } else {
+            popup.open(msg);
         }
     },
 

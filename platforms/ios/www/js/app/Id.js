@@ -27,6 +27,8 @@ CQ.Id = {
 
         $POPUP_PROMPT: '.popup-prompt',
         $POPUP_PROMPT_TEXT: '.popup-prompt-text',
+        $POPUP_CONFIRM: '.popup-confirm',
+        $POPUP_CONFIRM_TEXT: '.popup-confirm-text',
 
         $POPUP_SHOP_GEM: '.popup-gem-shop',
         $POPUP_SHOP_GEM_GOODS: '#{0} .popup-gem-shop .popup-goods-{1}',
@@ -184,7 +186,7 @@ CQ.Id = {
         $PURCHASE_DES: '#purchase-des-{0}',
         $PURCHASE_COST: '#purchase-cost-{0}'
     },
-    
+
     Help: {
         $TO_GUIDE: '#help-to-guide',
         $TO_QUESTION: '#help-to-question',

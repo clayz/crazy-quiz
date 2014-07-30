@@ -40,12 +40,16 @@ CQ.Popup.prototype.close = function() {
     $('#{0} {1}'.format(this.page, this.name)).popup('close');
 };
 
-CQ.Popup.prototype.onClickYes = function(event) {
+CQ.Popup.prototype.onClickYes = function(event, rebind) {
     CQ.Audio.Button.play();
-    $('{0} {1}'.format(this.getId(), CQ.Id.CSS.$POPUP_BTN_YES)).click(event);
+    var $btn = $('{0} {1}'.format(this.getId(), CQ.Id.CSS.$POPUP_BTN_YES));
+    if (rebind) $btn.unbind('click');
+    $btn.click(event);
 };
 
-CQ.Popup.prototype.onClickNo = function(event) {
+CQ.Popup.prototype.onClickNo = function(event, rebind) {
     CQ.Audio.Button.play();
-    $('{0} {1}'.format(this.getId(), CQ.Id.CSS.$POPUP_BTN_NO)).click(event);
+    var $btn = $('{0} {1}'.format(this.getId(), CQ.Id.CSS.$POPUP_BTN_NO));
+    if (rebind) $btn.unbind('click');
+    $btn.click(event);
 };
