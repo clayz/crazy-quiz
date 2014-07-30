@@ -33,7 +33,7 @@ CQ.Page.Exchange = {
         if (CQ.Currency.checkGem(CQ.Page.Exchange.selected)) {
             $(CQ.Id.Exchange.$POPUP_CONFIRM).popup('open');
         } else {
-            CQ.Page.Exchange.showGemNotEnough();
+            CQ.Page.Exchange.openGemNotEnough();
         }
     },
 
@@ -64,7 +64,7 @@ CQ.Page.Exchange = {
         // use timeout here because jQuery Mobile does not support chaining popups.
         // we cannot open new popup if there already has opened popup.
         setTimeout(function() {
-            CQ.Page.Exchange.showGemNotEnough();
+            CQ.Page.Exchange.openGemNotEnough();
         }, 1000);
     }
 };

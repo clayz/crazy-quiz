@@ -48,12 +48,6 @@ CQ.Currency = {
         var history = CQ.Datastore.Currency.getHistory();
         if (history) this.history = history;
         else CQ.Datastore.Currency.setHistory(this.history);
-
-        // TODO only used for development, remove it later
-        console.info('Earn history: {0}'.format(CQ.Utils.toString(this.history.earn)));
-        console.info('Consume history: {0}'.format(CQ.Utils.toString(this.history.consume)));
-        console.info('Purchase history: {0}'.format(CQ.Utils.toString(this.history.purchase)));
-        console.info('Exchange history: {0}'.format(CQ.Utils.toString(this.history.exchange)));
     },
 
     updateAccount: function(gem, coin) {
