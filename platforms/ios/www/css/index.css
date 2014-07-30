@@ -158,6 +158,10 @@ p {
     clear: both;
 }
 
+.no-shadow {
+    text-shadow: none;
+}
+
 .button {
     width: 3em;
 }
@@ -659,11 +663,6 @@ p {
     height: 6em;
 }
 
-#main-popup-share .popup-content {
-    width: 22em;
-    padding-bottom: 2em;
-}
-
 /*******************************************************************/
 /* Game page */
 /*******************************************************************/
@@ -1142,7 +1141,7 @@ p {
     margin: 0.5em;
     background-color: #F5EE9A;
     font-size: 1.2em;
-    font-weight:bold;
+    font-weight: bold;
     color: #000000;
     text-align: left;
     padding: 1em 0.5em;

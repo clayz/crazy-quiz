@@ -22,6 +22,7 @@ CQ.Popup = function(name, page) {
     var $closeBtn = $('#{0} {1} {2}'.format(page, name, CQ.Id.CSS.$POPUP_BTN_CLOSE));
     if ($closeBtn.length) {
         $closeBtn.click(function() {
+            CQ.Audio.Button.play();
             popup.close();
         });
     }

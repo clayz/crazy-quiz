@@ -2,7 +2,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         device: 'iOS',
         dev: true,
-        audio: false
+        audio: true
     };
 }
 

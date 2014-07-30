@@ -5,8 +5,6 @@ CQ.Page.Loading = {
         console.info('Initial loading page');
 
         setTimeout(function() {
-            CQ.Audio.Button.play();
-
             if (CQ.User.getName()) {
                 CQ.Page.open(CQ.Page.Main, { transition: "fade" });
             } else {

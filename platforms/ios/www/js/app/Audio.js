@@ -36,8 +36,15 @@ CQ.Audio.GameChar = {
     file: 'audio/game_char.wav'
 };
 
+CQ.Audio.GameBackground = {
+    file: 'audio/game_bg.ogg'
+};
+
+
 CQ.App.inherits(CQ.Audio.Button, CQ.Audio);
 CQ.App.inherits(CQ.Audio.GameChar, CQ.Audio);
+CQ.App.inherits(CQ.Audio.GameBackground, CQ.Audio);
 
 CQ.App.register(CQ.Audio.Button);
 CQ.App.register(CQ.Audio.GameChar);
+CQ.App.register(CQ.Audio.GameBackground);
