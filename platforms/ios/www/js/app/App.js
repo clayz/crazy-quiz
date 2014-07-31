@@ -2,7 +2,12 @@ if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         device: 'iOS',
         dev: true,
-        audio: true
+        audio: false,
+
+        URL: {
+            APP_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
+            PLAY_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz'
+        }
     };
 }
 

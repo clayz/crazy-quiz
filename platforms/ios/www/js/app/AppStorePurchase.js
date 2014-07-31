@@ -6,6 +6,8 @@ CQ.AppStorePurchase = {
                  "com.czquiz.gem5"],
 
     init:function(){
+        if (CQ.dev) return;
+
         if(!window.storekit){
             console.log("In-App Purchases not available.")
             return;

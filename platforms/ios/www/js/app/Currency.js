@@ -8,14 +8,14 @@ CQ.Currency = {
         Rating: { id: 3, coin: 100 },
         Quiz: { id: 4, coin: 5 }, // correct answer
         Level: {id: 5, coin: 100}, // finish level
-        Album: { id: 6, coin: 200 } // finish album
+        Album: { id: 6, coin: 300 } // finish album
     },
 
     Consume: {
         // coin
         CutDown: { id: 1, coin: 50 },
         GetChar: { id: 2, coin: 90 },
-        Prompt: { id: 3, coin: 20 },
+        Prompt: { id: 3, coin: 10 },
 
         // gem
         UnlockLevel: { id: 101, gem: 3 },
@@ -31,11 +31,11 @@ CQ.Currency = {
     },
 
     Exchange: {
-        Goods1: { id: 1, gem: 10, coin: 1000, description: "ボナースなし" },
-        Goods2: { id: 2, gem: 20, coin: 2000, description: "3% ボナース！" },
-        Goods3: { id: 3, gem: 50, coin: 5000, description: "5% ボナース！" },
-        Goods4: { id: 4, gem: 100, coin: 10000, description: "8% ボナース！" },
-        Goods5: { id: 5, gem: 200, coin: 20000, description: "10% ボナースト！" }
+        Goods1: { id: 1, gem: 1, coin: 100, description: "ボナースなし" },
+        Goods2: { id: 2, gem: 3, coin: 350, description: "3% ボナース！" },
+        Goods3: { id: 3, gem: 5, coin: 5000, description: "5% ボナース！" },
+        Goods4: { id: 4, gem: 10, coin: 10000, description: "8% ボナース！" },
+        Goods5: { id: 5, gem: 20, coin: 20000, description: "10% ボナースト！" }
     },
 
     init: function() {

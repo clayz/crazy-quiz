@@ -48,9 +48,9 @@ CQ.Id = {
         $POPUP_COIN_NOT_ENOUGH: '.popup-coin-not-enough',
 
         $POPUP_SHARE: '.popup-share',
+        $POPUP_SHARE_TEXT: '.popup-share-text',
         $POPUP_SHARE_FACEBOOK: '.popup-share-fb',
         $POPUP_SHARE_TWITTER: '.popup-share-tw',
-        $POPUP_SHARE_LINE: '.popup-share-line',
         $POPUP_SHARE_OTHER: '.popup-share-other'
     },
 

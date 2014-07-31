@@ -315,6 +315,10 @@ p {
     left: 50%;
 }
 
+.popup-share {
+    width: 22em;
+}
+
 .popup-share-btn {
     width: 4.5em;
     height: 4.5em;
