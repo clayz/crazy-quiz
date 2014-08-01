@@ -4,9 +4,9 @@ CQ.SNS = {
         GAME_PAGE: 'この画像知ってる？'
     },
 
-    share: function(message) {
+    share: function(message, file) {
         // parameters: message, subject, file, url, successCallback, errorCallback
-        window.plugins.socialsharing.share(message, null, null, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        window.plugins.socialsharing.share(message, null, file, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
     },
 
     shareFinish: function(isSuccess) {
@@ -25,16 +25,14 @@ CQ.SNS = {
 CQ.SNS.Facebook = {
     share: function(message, image) {
         // parameters: message, image, url, successCallback, errorCallback
-//        window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
-        window.plugins.socialsharing.shareViaFacebook(message, image, null, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
     }
 };
 
 CQ.SNS.Twitter = {
     share: function(message, image) {
         // parameters: message, image, url, successCallback, errorCallback
-//        window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
-        window.plugins.socialsharing.shareViaTwitter(message, image, null, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
     }
 };
 

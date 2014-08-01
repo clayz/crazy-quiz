@@ -6,7 +6,12 @@ if (typeof(CQ) == 'undefined' || !CQ) {
 
         URL: {
             APP_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
-            PLAY_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz'
+            PLAY_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
+
+            Web: {
+                INDEX: 'http://crazy-quiz.appspot.com',
+                ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/'
+            }
         }
     };
 }
