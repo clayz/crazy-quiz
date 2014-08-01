@@ -139,14 +139,14 @@ CQ.Page = {
         });
     },
 
-    openPopup: function(popup) {
+    openPopup: function(popup, delay) {
         if (CQ.Session.CURRENT_OPEN_POPUP) {
             $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
             CQ.Session.CURRENT_OPEN_POPUP = null;
 
             setTimeout(function() {
                 popup.popup.open();
-            }, 100);
+            }, delay ? delay : 100);
         } else {
             popup.popup.open();
         }
@@ -168,20 +168,20 @@ CQ.Page = {
         this.openPopup(this.getCurrentPage().coinNotEnough);
     },
 
-    openPrompt: function(msg) {
+    openPrompt: function(msg, delay) {
         if (CQ.Session.CURRENT_OPEN_POPUP) {
             $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
             CQ.Session.CURRENT_OPEN_POPUP = null;
 
             setTimeout(function() {
                 CQ.Page.getCurrentPage().prompt.open(msg);
-            }, 100);
+            }, delay ? delay : 100);
         } else {
             CQ.Page.getCurrentPage().prompt.open(msg);
         }
     },
 
-    openConfirm: function(msg, eventYes, eventNo) {
+    openConfirm: function(msg, eventYes, eventNo, delay) {
         var popup = CQ.Page.getCurrentPage().confirm;
         if (eventYes) popup.yes(eventYes);
         if (eventNo) popup.no(eventNo);
@@ -192,7 +192,7 @@ CQ.Page = {
 
             setTimeout(function() {
                 popup.open(msg);
-            }, 100);
+            }, delay ? delay : 100);
         } else {
             popup.open(msg);
         }

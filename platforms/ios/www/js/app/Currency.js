@@ -68,18 +68,6 @@ CQ.Currency = {
     earn: function(type) {
         console.info('Earn coin, type: {0}'.format(type.id));
 
-        // validation
-        if (type.id == this.Earn.Share.id) {
-            var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
-
-            if (lastShareDate && (lastShareDate == today)) {
-                console.info('Already get share coin today: {0}'.format(today));
-                return false;
-            } else {
-                CQ.Datastore.Currency.setLastShareDate(today);
-            }
-        }
-
         // update account and save into data store
         this.updateAccount(0, type.coin);
 

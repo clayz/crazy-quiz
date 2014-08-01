@@ -4,41 +4,87 @@ CQ.SNS = {
         GAME_PAGE: 'この画像知ってる？'
     },
 
-    share: function(message, file) {
+    share: function(message, image) {
         // parameters: message, subject, file, url, successCallback, errorCallback
-        window.plugins.socialsharing.share(message, null, file, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        if (image) {
+            window.plugins.socialsharing.share(message, null, image, CQ.URL.PLAY_STORE, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+        } else {
+            window.plugins.socialsharing.share(message, null, null, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        }
     },
 
     shareFinish: function(isSuccess) {
-        console.log('Share finished, result: ' + isSuccess);
-        CQ.Currency.earn(CQ.Currency.Earn.Share);
-        CQ.Page.refreshCurrency();
+        console.log('Share link finished, result: ' + isSuccess);
+
+        if (isSuccess) {
+            var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
+
+            if (lastShareDate && (lastShareDate == today)) {
+                CQ.Page.openPrompt('Already get share coin today: {0}'.format(today));
+            } else {
+                CQ.Datastore.Currency.setLastShareDate(today);
+                CQ.Currency.earn(CQ.Currency.Earn.Share);
+                CQ.Page.refreshCurrency();
+                CQ.Page.openPrompt('Get 10 share coin', 500);
+            }
+        }
     },
 
     shareError: function(error) {
-        console.error('Share failed, error: ' + error);
-        CQ.Currency.earn(CQ.Currency.Earn.Share);
-        CQ.Page.refreshCurrency();
+        console.error('Share link failed, error: ' + error);
+        CQ.Page.openPrompt('シェアに失敗しました');
+    },
+
+    shareImageFinish: function(isSuccess) {
+        console.log('Share image finished, result: ' + isSuccess);
+
+        if (isSuccess) {
+            if (CQ.Datastore.Picture.isPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id)) {
+                CQ.Page.openPrompt('Already get share coin for this picture');
+            } else {
+                CQ.Datastore.Picture.setPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id);
+                CQ.Currency.earn(CQ.Currency.Earn.Share);
+                CQ.Page.refreshCurrency();
+                CQ.Page.openPrompt('Get 10 share coin', 500);
+            }
+        }
+    },
+
+    shareImageError: function(error) {
+        console.error('Share image failed, error: ' + error);
+        CQ.Page.openPrompt('シェアに失敗しました');
     }
 };
 
 CQ.SNS.Facebook = {
     share: function(message, image) {
         // parameters: message, image, url, successCallback, errorCallback
-        window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        if (image) {
+            window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+        } else {
+            window.plugins.socialsharing.shareViaFacebook(message, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        }
     }
 };
 
 CQ.SNS.Twitter = {
     share: function(message, image) {
         // parameters: message, image, url, successCallback, errorCallback
-        window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        if (image) {
+            window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+        } else {
+            window.plugins.socialsharing.shareViaTwitter(message, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        }
     }
 };
 
 CQ.SNS.Line = {
     share: function(message, subject, image) {
         // parameters: via, message, subject, image, url, successCallback, errorCallback
-        window.plugins.socialsharing.shareVia('line', message, subject, image, CQ.URL.PLAY_STORE, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        if (image) {
+            window.plugins.socialsharing.shareVia('line', message, subject, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+        } else {
+            window.plugins.socialsharing.shareVia('line', message, subject, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+        }
     }
 };
