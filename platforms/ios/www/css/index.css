@@ -1020,7 +1020,22 @@ p {
     color: #fbd44e;
 }
 
+.popup-shop .popup-goods-gem {
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 1.8em;
+    background: url(../img/icon/gem-one.png) no-repeat;
+    background-size: 100% 100%;
+}
+
 .popup-shop .popup-goods-cost {
+    width: 2em;
+    margin-right: .3em;
+    text-align: left;
+    color: #f8f0d2;
+}
+
+.popup-shop .popup-goods-money {
     width: 4em;
     color: #f8f0d2;
 }
@@ -1048,6 +1063,13 @@ p {
 }
 
 .popup-shop .popup-goods-cost-tap {
+    width: 2em;
+    margin-right: .3em;
+    text-align: left;
+    color: #6d3805;
+}
+
+.popup-shop .popup-goods-money-tap {
     width: 4em;
     color: #6d3805;
 }

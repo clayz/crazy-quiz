@@ -10,8 +10,8 @@ CQ.Popup.GemShop = function(page) {
                 .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT_TAP);
             $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO))
                 .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO_TAP);
-            $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST))
-                .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_COST).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_COST_TAP);
+            $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY))
+                .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY_TAP);
         }).bind('touchend', function() {
             $(this).removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_TAP).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS);
             $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT_TAP))
@@ -20,8 +20,8 @@ CQ.Popup.GemShop = function(page) {
                 .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT_TAP).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT);
             $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO_TAP))
                 .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO_TAP).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO);
-            $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST_TAP))
-                .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_COST_TAP).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_COST);
+            $(this).find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY_TAP))
+                .removeClass(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY_TAP).addClass(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY);
         });
     }
 
@@ -51,6 +51,6 @@ CQ.Popup.GemShop.prototype.refresh = function() {
         var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(this.popup.page, i));
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Purchase['Goods' + i].title);
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Purchase['Goods' + i].description);
-        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST)).text(CQ.Currency.Purchase['Goods' + i].cost);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text(CQ.Currency.Purchase['Goods' + i].cost);
     }
 };

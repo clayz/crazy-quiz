@@ -43,6 +43,8 @@ CQ.Id = {
         POPUP_SHOP_GOODS_INFO_TAP: 'popup-goods-info-tap',
         POPUP_SHOP_GOODS_COST: 'popup-goods-cost',
         POPUP_SHOP_GOODS_COST_TAP: 'popup-goods-cost-tap',
+        POPUP_SHOP_GOODS_MONEY: 'popup-goods-money',
+        POPUP_SHOP_GOODS_MONEY_TAP: 'popup-goods-money-tap',
 
         $POPUP_GEM_NOT_ENOUGH: '.popup-gem-not-enough',
         $POPUP_COIN_NOT_ENOUGH: '.popup-coin-not-enough',
