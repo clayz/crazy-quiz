@@ -60,6 +60,12 @@
                             "xml": "false",
                             "count": 1
                         }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -88,6 +94,10 @@
                         },
                         {
                             "xml": "<feature name=\"InAppPurchase\"><param name=\"ios-package\" value=\"InAppPurchase\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -123,6 +133,9 @@
             "PACKAGE_NAME": "com.clay.crazyquiz"
         },
         "cc.fovea.plugins.inapppurchase": {
+            "PACKAGE_NAME": "com.clay.crazyquiz"
+        },
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.clay.crazyquiz"
         }
     },

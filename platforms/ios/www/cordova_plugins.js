@@ -36,6 +36,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -190,6 +197,7 @@ module.exports.metadata =
     "com.danielcwilson.plugins.googleanalytics": "0.5.0",
     "org.apache.cordova.media": "0.2.11",
     "cc.fovea.plugins.inapppurchase": "3.4.1",
+    "org.apache.cordova.inappbrowser": "0.5.1-dev",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

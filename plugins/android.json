@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"Media\"><param name=\"android-package\" value=\"org.apache.cordova.media.AudioHandler\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -101,6 +105,9 @@
             "PACKAGE_NAME": "com.clay.crazyquiz"
         },
         "cc.fovea.plugins.inapppurchase": {
+            "PACKAGE_NAME": "com.clay.crazyquiz"
+        },
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.clay.crazyquiz"
         }
     },
