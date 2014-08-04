@@ -7,7 +7,7 @@ CQ.Currency = {
         Share: { id: 2, coin: 10 },
         Rating: { id: 3, coin: 100 },
         Quiz: { id: 4, coin: 5 }, // correct answer
-        Level: {id: 5, coin: 100}, // finish level
+        Level: { id: 5, coin: 100 }, // finish level
         Album: { id: 6, coin: 300 } // finish album
     },
 
@@ -15,7 +15,7 @@ CQ.Currency = {
         // coin
         CutDown: { id: 1, coin: 50 },
         GetChar: { id: 2, coin: 90 },
-        Prompt: { id: 3, coin: 10 },
+        Prompt: { id: 3, coin: 30 },
 
         // gem
         UnlockLevel: { id: 101, gem: 3 },
@@ -27,15 +27,15 @@ CQ.Currency = {
         Goods2: { id: 2, gem: 55, cost: 500, productId: "", title: "25", description: "10% ボナース！" },
         Goods3: { id: 3, gem: 120, cost: 1000, productId: "", title: "50", description: "20% ボナース！" },
         Goods4: { id: 4, gem: 260, cost: 2000, productId: "", title: "70", description: "30% ボナース！" },
-        Goods5: { id: 5, gem: 700, cost: 5000, productId: "", title: "100", description: "40% ボナースト！" }
+        Goods5: { id: 5, gem: 420, cost: 3000, productId: "", title: "100", description: "40% ボナースト！" }
     },
 
     Exchange: {
         Goods1: { id: 1, gem: 1, coin: 100, description: "ボナースなし" },
-        Goods2: { id: 2, gem: 5, coin: 500, description: "3% ボナース！" },
-        Goods3: { id: 3, gem: 10, coin: 1000, description: "5% ボナース！" },
-        Goods4: { id: 4, gem: 20, coin: 10000, description: "8% ボナース！" },
-        Goods5: { id: 5, gem: 50, coin: 20000, description: "10% ボナースト！" }
+        Goods2: { id: 2, gem: 5, coin: 515, description: "3% ボナース！" },
+        Goods3: { id: 3, gem: 10, coin: 1050, description: "5% ボナース！" },
+        Goods4: { id: 4, gem: 50, coin: 5400, description: "8% ボナース！" },
+        Goods5: { id: 5, gem: 100, coin: 11000, description: "10% ボナースト！" }
     },
 
     init: function() {
