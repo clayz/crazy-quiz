@@ -4,6 +4,7 @@ CQ.Page.Help = {
     init: function() {
         console.info('Initial help page');
         this.initCommon({ header: true, back: true });
+
         $(CQ.Id.Help.$TO_GUIDE).click(CQ.Page.Help.clickGuide);
         $(CQ.Id.Help.$TO_QUESTION).click(CQ.Page.Help.clickQuestion);
         $(CQ.Id.Help.$TO_RULE).click(CQ.Page.Help.clickRule);
@@ -11,82 +12,94 @@ CQ.Page.Help = {
     },
 
     load: function() {
+        return { gaPageName: 'Help - Main' }
     },
-    
+
     clickGuide: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.Help_Guide);
+        CQ.Page.Help.open(CQ.Page.HelpGuide);
     },
-    
+
     clickQuestion: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.Help_Question);
+        CQ.Page.Help.open(CQ.Page.HelpQuestion);
     },
-    
+
     clickRule: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.Help_Rule);
+        CQ.Page.Help.open(CQ.Page.HelpRule);
     },
-    
+
     clickEnquiry: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.Help_Enquiry);
+        CQ.Page.Help.open(CQ.Page.HelpEnquiry);
     }
 };
 
-CQ.Page.Help_Guide = {
+CQ.Page.HelpGuide = {
     name: 'help-guide',
-    params: {from: CQ.Id.Main.$HELP},
+
     init: function() {
         console.info('Initial help guide page');
         this.initCommon({ header: true, back: true });
     },
-    
-    load: function() {
+
+    load: function(params) {
+        this.params = params;
+        return { gaPageName: 'Help - Guide' }
     }
 };
 
-CQ.Page.Help_Question = {
+CQ.Page.HelpQuestion = {
     name: 'help-question',
+
     init: function() {
         console.info('Initial help question page');
         this.initCommon({ header: true, back: true });
     },
-    
-    load: function() {
+
+    load: function(params) {
+        this.params = params;
+        return { gaPageName: 'Help - Question' }
     }
 };
 
-CQ.Page.Help_Rule = {
+CQ.Page.HelpRule = {
     name: 'help-rule',
+
     init: function() {
         console.info('Initial help rule page');
         this.initCommon({ header: true, back: true });
     },
-    
-    load: function() {
+
+    load: function(params) {
+        this.params = params;
+        return { gaPageName: 'Help - Rule' }
     }
 };
 
-CQ.Page.Help_Enquiry = {
+CQ.Page.HelpEnquiry = {
     name: 'help-enquiry',
+
     init: function() {
         console.info('Initial help enquiry page');
         this.initCommon({ header: true, back: true });
     },
-    
-    load: function() {
+
+    load: function(params) {
+        this.params = params;
+        return { gaPageName: 'Help - Enquiry' }
     }
 };
 
 CQ.App.inherits(CQ.Page.Help, CQ.Page);
-CQ.App.inherits(CQ.Page.Help_Guide, CQ.Page);
-CQ.App.inherits(CQ.Page.Help_Question, CQ.Page);
-CQ.App.inherits(CQ.Page.Help_Rule, CQ.Page);
-CQ.App.inherits(CQ.Page.Help_Enquiry, CQ.Page);
+CQ.App.inherits(CQ.Page.HelpGuide, CQ.Page);
+CQ.App.inherits(CQ.Page.HelpQuestion, CQ.Page);
+CQ.App.inherits(CQ.Page.HelpRule, CQ.Page);
+CQ.App.inherits(CQ.Page.HelpEnquiry, CQ.Page);
 
 CQ.App.register(CQ.Page.Help);
-CQ.App.register(CQ.Page.Help_Guide);
-CQ.App.register(CQ.Page.Help_Question);
-CQ.App.register(CQ.Page.Help_Rule);
-CQ.App.register(CQ.Page.Help_Enquiry);
+CQ.App.register(CQ.Page.HelpGuide);
+CQ.App.register(CQ.Page.HelpQuestion);
+CQ.App.register(CQ.Page.HelpRule);
+CQ.App.register(CQ.Page.HelpEnquiry);
