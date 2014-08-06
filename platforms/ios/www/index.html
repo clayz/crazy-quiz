@@ -231,7 +231,11 @@
     <div data-role="popup" id="main-popup-level-purchase" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <p>需要完成上个关卡后，才能解锁此关卡。<br/>或者可以使用一个宝石解锁来解锁此关卡。<br/><br/>您现在没有足够的宝石，<br/>想要去商店买一些回家吗？</p>
+            <p>
+                このステージに進むには、<br/>
+                前のステージをクリアしなければなりません。<br/>
+                もしくは宝石を3つ使うとこのステージで遊ぶことができます。<br/><br/>
+                十分な宝石を持っていない、購入するために宝石ショップに行きますか？
         </div>
         <div class="popup-buttons clear-both">
             <img id="main-popup-level-purchase-btn" class="popup-button-center" src="img/button/popup-yes-btn.png"/>
@@ -242,7 +246,7 @@
     <div data-role="popup" id="main-popup-level-disable" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <p>必须先解锁前面的关卡后，才能解锁此关卡。</p>
+            <p>前のロックを全部解除したら、このロックが解除できるになります。</p>
         </div>
     </div>
 
@@ -306,7 +310,7 @@
                     <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
                     <div class="game-props-coin">
                         <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        <div class="game-props-currency right">-10</div>
+                        <div class="game-props-currency right">-30</div>
                     </div>
                 </div>
                 <div id="game-share-btn" class="game-props-btn">
@@ -407,7 +411,7 @@
     <!-- cutdown confirm popup -->
     <div data-role="popup" id="game-popup-cutdown-confirm" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-content">
-            <p>50コイン使って<br/>いらない文字を消そう！</p>
+            <p>50コイン使って<br/>1不正解文字を消そう！</p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
@@ -437,7 +441,7 @@
     <!-- prompt confirm popup -->
     <div data-role="popup" id="game-popup-prompt-confirm" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-content">
-            <p>10コイン使って、ヒントをもらおう！</p>
+            <p>30コイン使って、ヒントをもらおう！</p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
@@ -485,7 +489,7 @@
 						<img src="img/button/game-cutdown.png" alt="" border="0" style="width:40px;height:50px;" />
 					</td>
 					<td style="font-size: 14px;text-align: left; color: #FFFFFF;">
-						30コイン使うと、下に表示されている文字を何個か消すことができます。
+						50コイン使うと、下に表示されている文字を何個か消すことができます。
 					</td>
 				</tr>
 				<tr>

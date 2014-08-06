@@ -9,7 +9,7 @@ CQ.Popup.Confirm = function(page) {
 };
 
 CQ.Popup.Confirm.prototype.open = function(msg) {
-    $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_CONFIRM_TEXT)).text(msg);
+    $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_CONFIRM_TEXT)).html(msg);
     this.popup.open();
 };
 
