@@ -4,6 +4,14 @@ CQ.Page.Main = {
     selectedUnlockAlbum: null,
     selectedUnlockLevel: null,
 
+    welcomeText: [
+        'お帰りなさいませ',
+        'この調子この調子',
+        'いつやるの？今でしょう',
+        'お久しぶりです',
+        'この問題が解けるかな'
+    ],
+
     init: function() {
         console.info('Initial main page');
 
@@ -113,7 +121,8 @@ CQ.Page.Main = {
         this.refreshCurrency();
 
         // initial welcome text
-        var welcomeText = "{0}さん<br/>お帰りなさい！".format(CQ.User.getName());
+        var randomText = this.welcomeText[Math.floor(Math.random() * this.welcomeText.length)];
+        var welcomeText = "{0}さん<br/>{1}".format(CQ.User.getName(), randomText);
         $(CQ.Id.Main.$WELCOME_CONTENT).html(welcomeText);
     },
 

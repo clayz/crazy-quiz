@@ -474,7 +474,7 @@ p {
 
 #main-welcome-text {
     margin: 1em 0 0 8.5em;
-    padding-top: 1.4em;
+    padding: 1.4em 0 0 .5em;
     width: 60%;
     height: 6em;
     color: #9d5106;
