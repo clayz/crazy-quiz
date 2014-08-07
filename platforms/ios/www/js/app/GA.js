@@ -26,7 +26,10 @@ CQ.GA = {
         FB: { category: 'Share', action: 'Facebook', label: 'Album {0} - Picture {1}' },
         TW: { category: 'Share', action: 'Twitter', label: 'Album {0} - Picture {1}' },
         Line: { category: 'Share', action: 'Line', label: 'Album {0} - Picture {1}' },
-        Other: { category: 'Share', action: 'Other', label: 'Album {0} - Picture {1}' }
+        Other: { category: 'Share', action: 'Other', label: 'Album {0} - Picture {1}' },
+        Success: { category: 'Share', action: 'Success', label: 'Album {0} - Picture {1}' },
+        Fail: { category: 'Share', action: 'Fail', label: 'Album {0} - Picture {1}' },
+        Error: { category: 'Share', action: 'Error', label: 'Album {0} - Picture {1}' }
     },
 
     Shop: {

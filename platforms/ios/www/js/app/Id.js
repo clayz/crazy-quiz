@@ -118,21 +118,8 @@ CQ.Id = {
         $POPUP_EXIT_YES: '#main-popup-exit-yes',
 
         $POPUP_LEVEL_UNLOCK: '#main-popup-unlock',
-        $POPUP_LEVEL_UNLOCK_YES: '#main-popup-unlock-yes-btn',
-        $POPUP_LEVEL_UNLOCK_NO: '#main-popup-unlock-no-btn',
-
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
-        $POPUP_LEVEL_PURCHASE_CLOSE: '#main-popup-level-purchase .popup-close',
-        $POPUP_LEVEL_PURCHASE_YES: '#main-popup-level-purchase-btn',
-
         $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable',
-        $POPUP_LEVEL_CANNOT_UNLOCK_CLOSE: '#main-popup-level-disable .popup-close',
-
-        $POPUP_ALBUM_UNLOCK: '#main-popup-album-unlock',
-        $POPUP_ALBUM_UNLOCK_YES: '#main-popup-album-unlock-btn',
-        $POPUP_ALBUM_PURCHASE: '#main-popup-album-purchase',
-        $POPUP_ALBUM_PURCHASE_YES: '#main-popup-album-purchase-btn',
-        $POPUP_ALBUM_CANNOT_UNLOCK: '#main-popup-album-cannot-unlock'
     },
 
     Game: {
@@ -156,18 +143,11 @@ CQ.Id = {
         $POPUP_PASS_PICTURE_NAME: '#game-popup-pass-picture-name',
         $POPUP_PASS_CURRENCY: '#game-popup-pass-currency',
         $POPUP_NEXT: '#game-popup-pass-next-btn',
+        $POPUP_SHARE: '#game-popup-pass-share-btn',
 
         $POPUP_CUTDOWN_CONFIRM: '#game-popup-cutdown-confirm',
-        $POPUP_CUTDOWN_CONFIRM_YES: '#game-popup-cutdown-confirm .popup-button-left',
-        $POPUP_CUTDOWN_CONFIRM_NO: '#game-popup-cutdown-confirm .popup-button-right',
-
         $POPUP_GETCHAR_CONFIRM: '#game-popup-getchar-confirm',
-        $POPUP_GETCHAR_CONFIRM_YES: '#game-popup-getchar-confirm .popup-button-left',
-        $POPUP_GETCHAR_CONFIRM_NO: '#game-popup-getchar-confirm .popup-button-right',
-
         $POPUP_PROMPT_CONFIRM: '#game-popup-prompt-confirm',
-        $POPUP_PROMPT_CONFIRM_YES: '#game-popup-prompt-confirm .popup-button-left',
-        $POPUP_PROMPT_CONFIRM_NO: '#game-popup-prompt-confirm .popup-button-right',
 
         ANSWER_BTN: 'answer-btn-{0}',
         CHAR_BTN: 'char-btn-{0}'

@@ -38,6 +38,7 @@ CQ.Popup.prototype.open = function() {
 };
 
 CQ.Popup.prototype.close = function() {
+    console.info('Open popup: #{0} {1}'.format(this.page, this.name));
     $('#{0} {1}'.format(this.page, this.name)).popup('close');
 };
 

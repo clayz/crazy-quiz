@@ -256,6 +256,7 @@ p {
 }
 
 .popup-content {
+    width: 22em;
     background-color: #6d3805 !important;
     margin: 1em .8em .8em .8em;
     color: #FFFFFF;
@@ -313,10 +314,6 @@ p {
     width: 10em;
     height: 4.5em;
     left: 50%;
-}
-
-.popup-share {
-    width: 22em;
 }
 
 .popup-share-btn {
@@ -653,17 +650,14 @@ p {
 /*******************************************************************/
 
 #main-popup-unlock .popup-content {
-    width: 22em;
     height: 9em;
 }
 
 #main-popup-level-purchase .popup-content {
-    width: 22em;
-    height: 9em;
+    height: 12em;
 }
 
 #main-popup-level-disable .popup-content {
-    width: 22em;
     height: 6em;
 }
 

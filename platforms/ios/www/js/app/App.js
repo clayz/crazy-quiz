@@ -7,6 +7,8 @@ if (typeof(CQ) == 'undefined' || !CQ) {
         URL: {
             APP_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
             PLAY_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
+            FACEBOOK: 'https://www.facebook.com/nekyou.quiz',
+            TWITTER: 'http://twitter.com/nekyou_quiz',
 
             Web: {
                 INDEX: 'http://crazy-quiz.appspot.com',

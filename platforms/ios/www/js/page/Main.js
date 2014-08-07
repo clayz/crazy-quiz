@@ -70,23 +70,21 @@ CQ.Page.Main = {
 
     initPopups: function() {
         // level popup and buttons
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_YES).click(CQ.Page.Main.clickUnlockLevel);
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
+        var levelUnlockPopup = $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK),
+            levelPurchasePopup = $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE),
+            levelCannotUnlockPopup = $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
 
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_CLOSE).click(CQ.Page.Main.closeUnlockLevelPurchasePopup);
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
+        levelUnlockPopup.bind(this.popupEvents);
+        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(CQ.Page.Main.clickUnlockLevel);
+        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
+        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(CQ.Page.Main.closeUnlockLevelPopup);
 
-        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK_CLOSE).click(CQ.Page.Main.closeUnlockDisableLevelPopup);
+        levelPurchasePopup.bind(this.popupEvents);
+        levelPurchasePopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(CQ.Page.Main.clickPurchase);
+        levelPurchasePopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(CQ.Page.Main.closeUnlockLevelPurchasePopup);
 
-        // album popup and buttons
-        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK_YES).click(CQ.Page.Main.clickUnlockAlbum);
-        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).bind(this.popupEvents);
-        $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE_YES).click(CQ.Page.Main.clickPurchase);
-        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).bind(this.popupEvents);
+        levelCannotUnlockPopup.bind(this.popupEvents);
+        levelCannotUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(CQ.Page.Main.closeUnlockDisableLevelPopup);
     },
 
     initButtons: function() {

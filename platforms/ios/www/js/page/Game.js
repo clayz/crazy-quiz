@@ -21,8 +21,12 @@ CQ.Page.Game = {
         this.bindTapButton(CQ.Id.Game.$PROMPT, this.clickPrompt, CQ.Id.Image.GAME_PROMPT_TAP, CQ.Id.Image.GAME_PROMPT, CQ.Id.Game.$PROMPT_IMG);
         this.bindTouchImage($(CQ.Id.Game.$SHARE), CQ.Id.Image.GAME_SHARE_TAP, CQ.Id.Image.GAME_SHARE, CQ.Id.Game.$SHARE_IMG);
 
-        // play next picture click event
         $(CQ.Id.Game.$POPUP_NEXT).click(CQ.Page.Game.clickNext);
+        $(CQ.Id.Game.$POPUP_SHARE).click(function() {
+            CQ.Audio.Button.play();
+            CQ.Page.openPopup(CQ.Page.Game.share);
+            CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(CQ.Page.Game.name));
+        });
     },
 
     load: function(params) {
@@ -96,17 +100,37 @@ CQ.Page.Game = {
     },
 
     initPopups: function() {
-        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM).bind(this.popupEvents);
-        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM_YES).click(this.cutdown);
-        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM_NO).click(this.closeCutdownConfirmPopup);
+        var passPopup = $(CQ.Id.Game.$POPUP_PASS),
+            cutdownConfirmPopup = $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM),
+            getcharConfirmPopup = $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM),
+            promptConfirmPopup = $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM);
 
-        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM).bind(this.popupEvents);
-        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM_YES).click(this.getchar);
-        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM_NO).click(this.closeGetcharConfirmPopup);
+        passPopup.bind(this.popupEvents);
 
-        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).bind(this.popupEvents);
-        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_YES).click(this.showPrompt);
-        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM_NO).click(this.closePromptConfirmPopup);
+        cutdownConfirmPopup.bind(this.popupEvents);
+        cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.cutdown);
+        cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closeCutdownConfirmPopup);
+        cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(this.closeCutdownConfirmPopup);
+
+        getcharConfirmPopup.bind(this.popupEvents);
+        getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.getchar);
+        getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closeGetcharConfirmPopup);
+        getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(this.closeGetcharConfirmPopup);
+
+        promptConfirmPopup.bind(this.popupEvents);
+        promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.showPrompt);
+        promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closePromptConfirmPopup);
+        promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(this.closePromptConfirmPopup);
+
+        // user can open share popup on picture pass popup
+        // once user close this popup, should display next picture directly
+        $(this.share.popup.getId()).bind({
+            popupafterclose: function() {
+                if (CQ.Page.Game.isAnswerCorrect()) {
+                    $(CQ.Id.Game.$POPUP_NEXT).trigger('click');
+                }
+            }
+        });
     },
 
     closeCutdownConfirmPopup: function() {
@@ -260,6 +284,21 @@ CQ.Page.Game = {
         page.closePromptConfirmPopup();
 
         CQ.GA.track(CQ.GA.Props.Prompt, CQ.GA.Props.Prompt.label.format(page.album.id, page.picture.id));
+    },
+
+    isAnswerCorrect: function() {
+        var name = this.picture.name, isCorrect = true;
+
+        for (var i = 0; i < name.length; i++) {
+            var answer = this.answers[i];
+
+            if (!answer.text || (answer.text != name.charAt(i))) {
+                isCorrect = false;
+                break;
+            }
+        }
+
+        return isCorrect;
     },
 
     checkAnswer: function() {

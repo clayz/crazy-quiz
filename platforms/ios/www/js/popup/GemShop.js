@@ -33,7 +33,7 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
 
     if (CQ.App.iOS) {
-        if(CQ.dev){
+        if (CQ.dev) {
             CQ.Currency.purchase(goods);
             CQ.Page.refreshCurrency();
             CQ.Page.closePopup();
