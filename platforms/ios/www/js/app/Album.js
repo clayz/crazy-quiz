@@ -42,6 +42,10 @@ CQ.Album = {
             CQ.Datastore.Picture.setLastAlbumId(albumId);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableAlbum(albumId);
+
+            if (isPurchase) CQ.GA.track(CQ.GA.Album.UnlockPurchase, CQ.GA.Album.UnlockPurchase.label.format(albumId));
+            else CQ.GA.track(CQ.GA.Album.Unlock, CQ.GA.Album.Unlock.label.format(albumId));
+
             return true;
         } else return false;
     },
@@ -66,6 +70,10 @@ CQ.Album = {
             CQ.Datastore.Picture.setLastLevel(albumId, level);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableLevel(albumId, level);
+
+            if (isPurchase) CQ.GA.track(CQ.GA.Level.UnlockPurchase, CQ.GA.Level.UnlockPurchase.label.format(albumId, level));
+            else CQ.GA.track(CQ.GA.Level.Unlock, CQ.GA.Level.Unlock.label.format(albumId, level));
+
             return true;
         } else return false;
     },

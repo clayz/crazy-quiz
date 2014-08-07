@@ -7,13 +7,15 @@ CQ.GA = {
 
     Album: {
         Pass: { category: 'Album', action: 'Pass', label: 'Album {0}' },
-        Unlock: { category: 'Album', action: 'Unlock', label: 'Album {0}' }
+        Unlock: { category: 'Album', action: 'Unlock', label: 'Album {0}' },
+        UnlockPurchase: { category: 'Album', action: 'Unlock Purchase', label: 'Album {0}' }
     },
 
     Level: {
         Play: { category: 'Level', action: 'Play', label: 'Album {0} - Level {1}' },
         Pass: { category: 'Level', action: 'Pass', label: 'Album {0} - Level {1}' },
-        Unlock: { category: 'Level', action: 'Unlock', label: 'Album {0} - Level {1}' }
+        Unlock: { category: 'Level', action: 'Unlock', label: 'Album {0} - Level {1}' },
+        UnlockPurchase: { category: 'Level', action: 'Unlock Purchase', label: 'Album {0} - Level {1}' }
     },
 
     Picture: {
