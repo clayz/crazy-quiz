@@ -9,7 +9,7 @@ CQ.AppStorePurchase = {
         if (CQ.dev) return;
 
         if(!window.storekit){
-            console.log("In-App Purchases not available.")
+            console.log("In-App Purchases not available.");
             return;
         }
 
@@ -69,7 +69,8 @@ CQ.AppStorePurchase = {
     },
 
     onError: function (errorCode, errorMessage) {
-        alert('Error: ' + errorMessage);
+        console.error('Error: ' + errorMessage);
+        CQ.GA.track(CQ.GA.Shop.AppStoreError, errorCode);
     },
 
     buy: function(productId){

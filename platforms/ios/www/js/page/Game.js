@@ -371,7 +371,7 @@ CQ.Page.Game = {
         }
 
         this.showPassPopup(earned);
-        CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Level.Album.Pass.format(this.album.id));
+        CQ.GA.track(CQ.GA.Album.Pass, CQ.GA.Album.Pass.label.format(this.album.id));
     },
 
     showPassPopup: function(earned) {

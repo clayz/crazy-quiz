@@ -143,6 +143,8 @@ CQ.Currency = {
         });
 
         CQ.Datastore.Currency.setPurchaseHistory(this.history.purchase);
+        CQ.GA.track(CQ.GA.Shop.Purchase, CQ.GA.Shop.Purchase.label.format(goods.id));
+
         return true;
     },
 
@@ -161,6 +163,8 @@ CQ.Currency = {
             });
 
             CQ.Datastore.Currency.setExchangeHistory(this.history.exchange);
+            CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
+
             return true;
         } else {
             console.info('No enough gem, current gem: {0}'.format(this.account.gem));

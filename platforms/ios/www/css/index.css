@@ -257,6 +257,7 @@ p {
 
 .popup-content {
     width: 22em;
+    min-height: 6em;
     background-color: #6d3805 !important;
     margin: 1em .8em .8em .8em;
     color: #FFFFFF;

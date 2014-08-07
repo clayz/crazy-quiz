@@ -37,8 +37,6 @@ CQ.Popup.CoinShop.prototype.exchange = function(goods) {
             CQ.Currency.exchange(goods);
             CQ.Page.refreshCurrency();
             CQ.Page.openPrompt('コインを交換しました。<br/>現在の宝石数：{0}<br/>現在のコイン数：{1}'.format(CQ.Currency.account.gem, CQ.Currency.account.coin));
-
-            CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
         });
     } else {
         CQ.Page.openGemNotEnough();
