@@ -245,7 +245,7 @@ CQ.Page.Game = {
                     }
 
                     page.removeChar(name[i]);
-                    $('#' + answer.id).text(name[i]).css('color', 'red');
+                    $('#' + answer.id).text(name[i]).css('color', 'green');
                     answer.text = name[i];
                     answer.charBtn = null;
                     answer.clickable = false;
@@ -258,7 +258,7 @@ CQ.Page.Game = {
 
             page.checkAnswer();
             CQ.GA.track(CQ.GA.Props.Getchar, CQ.GA.Props.Getchar.label.format(page.album.id, page.picture.id));
-        }, 50);
+        }, 100);
     },
 
     clickPrompt: function() {
