@@ -5,9 +5,4 @@ CQ.Popup.GemNotEnough = function(page) {
     this.popup.onClickYes(function() {
         CQ.Page.openGemShop();
     });
-
-    this.popup.onClickNo(function() {
-        CQ.Audio.Button.play();
-        popup.close();
-    });
 };
