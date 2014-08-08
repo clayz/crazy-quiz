@@ -22,6 +22,7 @@ CQ.Id = {
         $MAIN_LEVEL_LOCKED: '.main-level-locked',
 
         $POPUP_BTN_CLOSE: '.popup-close',
+        $POPUP_BTN_CLOSE_TAP: '.popup-close-tap',
         $POPUP_BTN_YES: '.popup-yes',
         $POPUP_BTN_NO: '.popup-no',
 

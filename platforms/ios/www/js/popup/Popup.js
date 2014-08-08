@@ -25,6 +25,8 @@ CQ.Popup = function(name, page) {
             CQ.Audio.Button.play();
             popup.close();
         });
+
+        CQ.Page.bindTouchBackground($closeBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
     }
 };
 

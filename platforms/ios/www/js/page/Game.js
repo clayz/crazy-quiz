@@ -110,17 +110,27 @@ CQ.Page.Game = {
         cutdownConfirmPopup.bind(this.popupEvents);
         cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.cutdown);
         cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closeCutdownConfirmPopup);
-        cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(this.closeCutdownConfirmPopup);
+        this.bindPopupCloseButton();
+
+        var $cutdownConfirmPopupCloseBtn = cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        $cutdownConfirmPopupCloseBtn.click(this.closeCutdownConfirmPopup);
+        this.bindTouchBackground($cutdownConfirmPopupCloseBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
 
         getcharConfirmPopup.bind(this.popupEvents);
         getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.getchar);
         getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closeGetcharConfirmPopup);
-        getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(this.closeGetcharConfirmPopup);
+
+        var $getcharConfirmPopupCloseBtn = getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        $getcharConfirmPopupCloseBtn.click(this.closeGetcharConfirmPopup);
+        this.bindTouchBackground($getcharConfirmPopupCloseBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
 
         promptConfirmPopup.bind(this.popupEvents);
         promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.showPrompt);
         promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closePromptConfirmPopup);
-        promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(this.closePromptConfirmPopup);
+
+        var $promptConfirmPopupCloseBtn = promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        $promptConfirmPopupCloseBtn.click(this.closePromptConfirmPopup);
+        this.bindTouchBackground($promptConfirmPopupCloseBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
 
         // user can open share popup on picture pass popup
         // once user close this popup, should display next picture directly

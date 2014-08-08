@@ -205,6 +205,12 @@ CQ.Page = {
         }
     },
 
+    bindPopupCloseButton: function(id, onClick, touchstartImg, touchendImg) {
+        var $closeBtn = $(id);
+        $closeBtn.click(onClick);
+        this.bindTouchBackground($closeBtn, touchstartImg, touchendImg);
+    },
+
     bindClickButton: function(id, onClick, touchstartImg, touchendImg, imageId) {
         this.bindTouchImage($(id).click(onClick), touchstartImg, touchendImg, imageId);
     },
