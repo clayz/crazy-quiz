@@ -109,28 +109,18 @@ CQ.Page.Game = {
 
         cutdownConfirmPopup.bind(this.popupEvents);
         cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.cutdown);
-        cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closeCutdownConfirmPopup);
-        this.bindPopupCloseButton();
-
-        var $cutdownConfirmPopupCloseBtn = cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE);
-        $cutdownConfirmPopupCloseBtn.click(this.closeCutdownConfirmPopup);
-        this.bindTouchBackground($cutdownConfirmPopupCloseBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        cutdownConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closePopupWithSound);
+        this.bindPopupCloseButton(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM);
 
         getcharConfirmPopup.bind(this.popupEvents);
         getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.getchar);
-        getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closeGetcharConfirmPopup);
-
-        var $getcharConfirmPopupCloseBtn = getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE);
-        $getcharConfirmPopupCloseBtn.click(this.closeGetcharConfirmPopup);
-        this.bindTouchBackground($getcharConfirmPopupCloseBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        getcharConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closePopupWithSound);
+        this.bindPopupCloseButton(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM);
 
         promptConfirmPopup.bind(this.popupEvents);
         promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(this.showPrompt);
-        promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closePromptConfirmPopup);
-
-        var $promptConfirmPopupCloseBtn = promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE);
-        $promptConfirmPopupCloseBtn.click(this.closePromptConfirmPopup);
-        this.bindTouchBackground($promptConfirmPopupCloseBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        promptConfirmPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(this.closePopupWithSound);
+        this.bindPopupCloseButton(CQ.Id.Game.$POPUP_PROMPT_CONFIRM);
 
         // user can open share popup on picture pass popup
         // once user close this popup, should display next picture directly
@@ -141,21 +131,6 @@ CQ.Page.Game = {
                 }
             }
         });
-    },
-
-    closeCutdownConfirmPopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Game.$POPUP_CUTDOWN_CONFIRM).popup('close');
-    },
-
-    closeGetcharConfirmPopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Game.$POPUP_GETCHAR_CONFIRM).popup('close');
-    },
-
-    closePromptConfirmPopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Game.$POPUP_PROMPT_CONFIRM).popup('close');
     },
 
     bindCharEvents: function() {
@@ -226,7 +201,7 @@ CQ.Page.Game = {
             }
         }
 
-        page.closeCutdownConfirmPopup();
+        page.closePopup();
         CQ.GA.track(CQ.GA.Props.Cutdown, CQ.GA.Props.Cutdown.label.format(page.album.id, page.picture.id));
     },
 
@@ -243,7 +218,7 @@ CQ.Page.Game = {
     getchar: function() {
         console.info('Start get one character transaction.');
         var page = CQ.Page.Game, name = page.picture.name.split('');
-        page.closeGetcharConfirmPopup();
+        page.closePopup();
 
         setTimeout(function() {
             for (var i = 0; i < name.length; i++) {
@@ -291,7 +266,7 @@ CQ.Page.Game = {
         $prompt.show();
         CQ.Currency.consume(CQ.Currency.Consume.Prompt, page.album.id, page.level, page.picture.id);
         page.refreshCurrency();
-        page.closePromptConfirmPopup();
+        page.closePopup();
 
         CQ.GA.track(CQ.GA.Props.Prompt, CQ.GA.Props.Prompt.label.format(page.album.id, page.picture.id));
     },

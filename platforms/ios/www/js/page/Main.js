@@ -84,15 +84,18 @@ CQ.Page.Main = {
 
         levelUnlockPopup.bind(this.popupEvents);
         levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(CQ.Page.Main.clickUnlockLevel);
-        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(CQ.Page.Main.closeUnlockLevelPopup);
-        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(CQ.Page.Main.closeUnlockLevelPopup);
+        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(CQ.Page.Main.closePopupWithSound);
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_UNLOCK);
 
         levelPurchasePopup.bind(this.popupEvents);
-        levelPurchasePopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(CQ.Page.Main.clickPurchase);
-        levelPurchasePopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(CQ.Page.Main.closeUnlockLevelPurchasePopup);
+        levelPurchasePopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(function() {
+            CQ.Audio.Button.play();
+            CQ.Page.Main.openGemShop();
+        });
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_PURCHASE);
 
         levelCannotUnlockPopup.bind(this.popupEvents);
-        levelCannotUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_CLOSE).click(CQ.Page.Main.closeUnlockDisableLevelPopup);
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
     },
 
     initButtons: function() {
@@ -291,15 +294,6 @@ CQ.Page.Main = {
         }
     },
 
-    clickPurchase: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('close');
-
-        setTimeout(function() {
-            CQ.Page.Main.gemShop.popup.open();
-        }, 100);
-    },
-
     clickRating: function() {
         CQ.GA.trackPage('PlayStore');
         window.open('market://details?id=com.cyberagent.jra');
@@ -308,21 +302,6 @@ CQ.Page.Main = {
     clickHelp: function() {
         CQ.Audio.Button.play();
         CQ.Page.open(CQ.Page.Help);
-    },
-
-    closeUnlockLevelPopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).popup('close');
-    },
-
-    closeUnlockLevelPurchasePopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).popup('close');
-    },
-
-    closeUnlockDisableLevelPopup: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('close');
     }
 };
 

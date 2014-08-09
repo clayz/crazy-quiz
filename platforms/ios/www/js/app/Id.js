@@ -21,8 +21,7 @@ CQ.Id = {
         MAIN_LEVEL_LOCKED: 'main-level-locked',
         $MAIN_LEVEL_LOCKED: '.main-level-locked',
 
-        $POPUP_BTN_CLOSE: '.popup-close',
-        $POPUP_BTN_CLOSE_TAP: '.popup-close-tap',
+        $POPUP_BTN_CLOSE: '.popup-close-btn',
         $POPUP_BTN_YES: '.popup-yes',
         $POPUP_BTN_NO: '.popup-no',
 
@@ -63,6 +62,9 @@ CQ.Id = {
 
         CURRENCY_ADD: 'img/button/currency-add.png',
         CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png',
+
+        POPUP_CLOSE: 'img/button/popup-close-btn.png',
+        POPUP_CLOSE_TAP: 'img/button/popup-close-btn-tap.png',
 
         INDEX_START: 'img/button/index-start-btn.png',
         INDEX_START_TAP: 'img/button/index-start-btn-tap.png',
@@ -120,7 +122,7 @@ CQ.Id = {
 
         $POPUP_LEVEL_UNLOCK: '#main-popup-unlock',
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
-        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable',
+        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable'
     },
 
     Game: {

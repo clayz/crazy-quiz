@@ -19,14 +19,12 @@ CQ.Popup = function(name, page) {
     });
 
     // bind close event
-    var $closeBtn = $('#{0} {1} {2}'.format(page, name, CQ.Id.CSS.$POPUP_BTN_CLOSE));
-    if ($closeBtn.length) {
-        $closeBtn.click(function() {
+    var closeBtnId = '#{0} {1} {2}'.format(page, name, CQ.Id.CSS.$POPUP_BTN_CLOSE);
+    if ($(closeBtnId).length) {
+        CQ.Page.bindPopupCloseButton(indicator, function() {
             CQ.Audio.Button.play();
             popup.close();
         });
-
-        CQ.Page.bindTouchBackground($closeBtn, CQ.Id.CSS.$POPUP_BTN_CLOSE_TAP, CQ.Id.CSS.$POPUP_BTN_CLOSE);
     }
 };
 

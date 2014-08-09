@@ -284,24 +284,14 @@ p {
 
 .popup-close {
     position: absolute;
-    width: 4em;
-    height: 4em;
     right: 0;
     top: 0;
     margin: -1em -1em;
-    background: url(../img/button/popup-close-btn.png) no-repeat;
-    background-size: 100% 100%;
 }
 
-.popup-close-tap {
-    position: absolute;
+.popup-close-btn {
     width: 4em;
     height: 4em;
-    right: 0;
-    top: 0;
-    margin: -1em -1em;
-    background: url(../img/button/popup-close-btn-tap.png) no-repeat;
-    background-size: 100% 100%;
 }
 
 .popup-buttons {

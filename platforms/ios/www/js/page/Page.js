@@ -205,10 +205,14 @@ CQ.Page = {
         }
     },
 
-    bindPopupCloseButton: function(id, onClick, touchstartImg, touchendImg) {
-        var $closeBtn = $(id);
-        $closeBtn.click(onClick);
-        this.bindTouchBackground($closeBtn, touchstartImg, touchendImg);
+    closePopupWithSound: function() {
+        CQ.Audio.Button.play();
+        CQ.Page.closePopup();
+    },
+
+    bindPopupCloseButton: function(popupId, onClick) {
+        var closeBtnId = '{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_BTN_CLOSE);
+        this.bindClickButton(closeBtnId, onClick ? onClick : this.closePopupWithSound, CQ.Id.Image.POPUP_CLOSE_TAP, CQ.Id.Image.POPUP_CLOSE);
     },
 
     bindClickButton: function(id, onClick, touchstartImg, touchendImg, imageId) {

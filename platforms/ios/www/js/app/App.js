@@ -2,7 +2,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         device: 'iOS',
         dev: true,
-        audio: false,
+        audio: true,
 
         URL: {
             APP_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
