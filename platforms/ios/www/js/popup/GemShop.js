@@ -51,6 +51,6 @@ CQ.Popup.GemShop.prototype.refresh = function() {
         var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(this.popup.page, i));
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Purchase['Goods' + i].title);
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Purchase['Goods' + i].description);
-        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text(CQ.Currency.Purchase['Goods' + i].cost);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text('¥{0}'.format(CQ.Currency.Purchase['Goods' + i].cost));
     }
 };

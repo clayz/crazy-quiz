@@ -48,7 +48,10 @@ CQ.Page.Game = {
         }
 
         var levelAndIndex = this.album.getPictureLevelAndIndex(this.picture.id);
-        $(CQ.Id.Game.$TITLE_TEXT).text('第{0}問'.format(levelAndIndex.index + 1));
+
+        $(CQ.Id.Game.$TITLE)
+            .css('background', 'url(../www/img/layout/game-picture-id-bg-{0}.png) no-repeat'.format(levelAndIndex.index + 1))
+            .css('background-size', '100%');
         $(CQ.Id.Game.$PICTURE).css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)))
             .css('background-size', '90% 90%')
             .css('background-position', 'center .3em');

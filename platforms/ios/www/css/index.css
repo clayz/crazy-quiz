@@ -200,13 +200,14 @@ p {
 }
 
 .header-gem-btn {
-    width: 2.5em;
-    height: 2.5em;
+    margin-top: .2em;
+    width: 2.8em;
+    height: 2.8em;
 }
 
 .header-gem-add-btn {
-    width: 2.5em;
-    height: 2.5em;
+    width: 3em;
+    height: 3em;
 }
 
 .header-coin {
@@ -215,20 +216,21 @@ p {
 }
 
 .header-coin-btn {
-    width: 2.5em;
-    height: 2.5em;
+    margin-top: .2em;
+    width: 2.8em;
+    height: 2.8em;
 }
 
 .header-coin-add-btn {
-    width: 2.5em;
-    height: 2.5em;
+    width: 3em;
+    height: 3em;
 }
 
 .header-current-currency {
     width: 3.5em;
     color: #FFFFFF;
     text-align: center;
-    margin-top: .7em;
+    margin-top: 1em;
     font-weight: bold;
     font-size: 1em;
 }
@@ -236,7 +238,7 @@ p {
 .header-currency-bg {
     display: inline-block;
     background: url(../img/layout/header-currency-bg.png) no-repeat center;
-    background-size: 70% 80%;
+    background-size: 70% 70%;
 }
 
 .body {
@@ -674,14 +676,7 @@ p {
     margin-left: -6.5em;
     padding-top: .5em;
     height: 5.5em;
-    background: url(../img/layout/game-picture-id-bg.png) no-repeat;
-    background-size: 100%;
     z-index: 9;
-}
-
-#game-title-text {
-    color: #ffffff;
-    font-size: 2.5em;
 }
 
 #game-prompt {
@@ -1007,12 +1002,12 @@ p {
 
 .popup-shop .popup-goods-amount {
     margin: 0 1em 0 .5em;
-    width: 2em;
+    width: 3em;
     color: #f8f0d2;
 }
 
 .popup-shop .popup-goods-info {
-    width: 9em;
+    width: 8em;
     color: #fbd44e;
 }
 
@@ -1049,12 +1044,12 @@ p {
 
 .popup-shop .popup-goods-amount-tap {
     margin: 0 1em 0 .5em;
-    width: 2em;
+    width: 3em;
     color: #6d3805;
 }
 
 .popup-shop .popup-goods-info-tap {
-    width: 9em;
+    width: 8em;
     color: #6d3805;
 }
 

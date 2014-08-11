@@ -187,7 +187,7 @@ CQ.Album.Default = {
             level: 1,
             name: '幼稚園',
             pictures: [
-                { id: 100, name: 'ハーゲンダッツ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 100, name: 'スターバックス', category: CQ.Album.Category.Brand, answers: [] },
                 { id: 101, name: 'LV', category: CQ.Album.Category.Brand, answers: [] },
                 { id: 102, name: 'アイスエイジ', category: CQ.Album.Category.Film, answers: [] },
                 { id: 103, name: 'オバマ', category: CQ.Album.Category.Celebrity, answers: [] },

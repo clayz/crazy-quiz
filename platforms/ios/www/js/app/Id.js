@@ -135,7 +135,7 @@ CQ.Id = {
         $SHARE: '#game-share-btn',
         $SHARE_IMG: '#game-share-img',
 
-        $TITLE_TEXT: '#game-title-text',
+        $TITLE: '#game-title',
         $PICTURE: '#game-picture',
         $PROMPT_DIV: '#game-prompt',
         $CORRECT_ANSWER: '#game-correct-answer',
