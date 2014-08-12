@@ -198,6 +198,14 @@ CQ.Page = {
         }
     },
 
+    openLoading: function() {
+        $.mobile.loading('show', { theme: "a", text: "LOADING...", textVisible: true });
+    },
+
+    closeLoading: function() {
+        $.mobile.loading('hide');
+    },
+
     closePopup: function() {
         if (CQ.Session.CURRENT_OPEN_POPUP) {
             $(CQ.Session.CURRENT_OPEN_POPUP).popup('close');
