@@ -97,8 +97,14 @@ CQ.Page.Game = {
 
     initPopups: function() {
         $(CQ.Id.Game.$POPUP_PASS).bind(this.popupEvents);
-        $(CQ.Id.Game.$POPUP_NEXT).click(CQ.Page.Game.clickNext);
-        $(CQ.Id.Game.$POPUP_SHARE).click(function() {
+
+        var $nextBtn = $(CQ.Id.Game.$POPUP_NEXT);
+        this.bindTouchImage($nextBtn, CQ.Id.Image.BTN_NEXT_TAP, CQ.Id.Image.BTN_NEXT);
+        $nextBtn.click(CQ.Page.Game.clickNext);
+
+        var $shareBtn = $(CQ.Id.Game.$POPUP_SHARE);
+        this.bindTouchImage($shareBtn, CQ.Id.Image.BTN_SHARE_TAP, CQ.Id.Image.BTN_SHARE);
+        $shareBtn.click(function() {
             CQ.Audio.Button.play();
             CQ.Page.openPopup(CQ.Page.Game.share);
             CQ.GA.track(CQ.GA.Share.Click, CQ.Utils.getCapitalName(CQ.Page.Game.name));

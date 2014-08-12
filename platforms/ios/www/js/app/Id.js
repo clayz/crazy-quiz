@@ -63,6 +63,11 @@ CQ.Id = {
         CURRENCY_ADD: 'img/button/currency-add.png',
         CURRENCY_ADD_TAP: 'img/button/currency-add-tap.png',
 
+        BTN_SHARE: 'img/button/share.png',
+        BTN_SHARE_TAP: 'img/button/share-tap.png',
+        BTN_NEXT: 'img/button/next.png',
+        BTN_NEXT_TAP: 'img/button/next-tap.png',
+
         POPUP_YES: 'img/button/button-yes.png',
         POPUP_YES_TAP: 'img/button/button-yes-tap.png',
         POPUP_NO: 'img/button/button-no.png',
