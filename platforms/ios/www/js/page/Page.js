@@ -210,6 +210,16 @@ CQ.Page = {
         CQ.Page.closePopup();
     },
 
+    bindPopupYesButton: function(popupId, onClick) {
+        var yesBtnId = '{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_BTN_YES);
+        this.bindClickButton(yesBtnId, onClick, CQ.Id.Image.POPUP_YES_TAP, CQ.Id.Image.POPUP_YES);
+    },
+
+    bindPopupNoButton: function(popupId, onClick) {
+        var noBtnId = '{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_BTN_NO);
+        this.bindClickButton(noBtnId, onClick ? onClick : this.closePopupWithSound, CQ.Id.Image.POPUP_NO_TAP, CQ.Id.Image.POPUP_NO);
+    },
+
     bindPopupCloseButton: function(popupId, onClick) {
         var closeBtnId = '{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_BTN_CLOSE);
         this.bindClickButton(closeBtnId, onClick ? onClick : this.closePopupWithSound, CQ.Id.Image.POPUP_CLOSE_TAP, CQ.Id.Image.POPUP_CLOSE);
@@ -217,10 +227,6 @@ CQ.Page = {
 
     bindClickButton: function(id, onClick, touchstartImg, touchendImg, imageId) {
         this.bindTouchImage($(id).click(onClick), touchstartImg, touchendImg, imageId);
-    },
-
-    bindTapButton: function(id, onTap, touchstartImg, touchendImg, imageId) {
-        this.bindTouchImage($(id).tap(onTap), touchstartImg, touchendImg, imageId);
     },
 
     bindTouchImage: function(element, touchstartImg, touchendImg, imageId) {

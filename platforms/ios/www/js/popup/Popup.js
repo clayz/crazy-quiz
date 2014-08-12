@@ -26,6 +26,26 @@ CQ.Popup = function(name, page) {
             popup.close();
         });
     }
+
+    // bind tap image for yes and no buttons
+    var yesBtnId = '#{0} {1} {2}'.format(page, name, CQ.Id.CSS.$POPUP_BTN_YES), $yesBtnId = $(yesBtnId),
+        noBtnId = '#{0} {1} {2}'.format(page, name, CQ.Id.CSS.$POPUP_BTN_NO), $noBtnId = $(noBtnId);
+
+    if ($yesBtnId.length) {
+        $yesBtnId.bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.POPUP_YES_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.POPUP_YES);
+        });
+    }
+
+    if ($noBtnId.length) {
+        $noBtnId.bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.POPUP_NO_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.POPUP_NO);
+        });
+    }
 };
 
 CQ.Popup.prototype.getId = function() {

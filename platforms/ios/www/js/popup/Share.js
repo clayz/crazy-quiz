@@ -2,7 +2,7 @@ CQ.Popup.Share = function(page) {
     this.popup = new CQ.Popup(CQ.Id.CSS.$POPUP_SHARE, page);
 
     if (CQ.Page.Game.name == page) {
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('この画像知ってる？');
+        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('画像をシェアして10コインゲット！<br/>（1問につき1回まで）');
 
         $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).click(function() {
             CQ.Audio.Button.play();

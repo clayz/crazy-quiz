@@ -10,6 +10,7 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
     <script type="text/javascript" src="SocialSharing.js"></script>
     <script type="text/javascript" charset="utf-8" src="inappbilling.js"></script>
 
@@ -46,7 +47,8 @@
         CQ.App.init();
     </script>
 </head>
-<body>
+<body onLoad="initFastButtons();">
+<span id="fastclick">
 
 <!------------------------------------------------------------------>
 <!-- Loading Page -->
@@ -215,17 +217,16 @@
         </div>
         <div class="popup-content">
             <p>
-                このステージに進むには、<br/>
-                前のステージをクリアしなければなりません。<br/>
-                もしくは宝石を3つ使うとこのステージで遊ぶことができます。
+                このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
+                もしくは宝石を３つ使うとこのステージで遊ぶことができるよ！
             </p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+                <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
             </div>
             <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+                <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
             </div>
         </div>
     </div>
@@ -237,13 +238,12 @@
         </div>
         <div class="popup-content">
             <p>
-                このステージに進むには、<br/>
-                前のステージをクリアしなければなりません。<br/>
-                もしくは宝石を3つ使うとこのステージで遊ぶことができます。<br/><br/>
-                十分な宝石を持っていない、購入するために宝石ショップに行きますか？
+                このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
+                もしくは宝石を３つ使うとこのステージで遊ぶことができるよ！<br/><br/>
+                宝石を買いにいく？
         </div>
         <div class="popup-buttons clear-both">
-            <img class="popup-button-center popup-yes" src="img/button/popup-yes-btn.png"/>
+            <img class="popup-button-center popup-yes" src="img/button/button-yes.png"/>
         </div>
     </div>
 
@@ -253,7 +253,7 @@
             <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
         </div>
         <div class="popup-content">
-            <p>前のロックを全部解除したら、このロックが解除できるになります。</p>
+            <p>このステージを遊ぶには、前のステージのロックをすべて解除することが必要だよ！</p>
         </div>
     </div>
 
@@ -419,14 +419,14 @@
             <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
         </div>
         <div class="popup-content">
-            <p>50コイン使って<br/>1不正解文字を消そう！</p>
+            <p>50コインを使って、1問分の答えを消そう！</p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+                <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
             </div>
             <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+                <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
             </div>
         </div>
     </div>
@@ -437,14 +437,14 @@
             <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
         </div>
         <div class="popup-content">
-            <p>90コイン使って<br/>1文字教えてもらおう</p>
+            <p>90コインを使って、1文字教えてもらおう！</p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+                <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
             </div>
             <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+                <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
             </div>
         </div>
     </div>
@@ -455,14 +455,14 @@
             <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
         </div>
         <div class="popup-content">
-            <p>30コイン使って、ヒントをもらおう！</p>
+            <p>30コインを使って、ヒントをもらおう！</p>
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+                <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
             </div>
             <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+                <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
             </div>
         </div>
     </div>
@@ -723,7 +723,7 @@
             <p>宝石が足りません。<br/>ショップで購入しますか？</p>
         </div>
         <div class="popup-buttons clear-both">
-            <img class="popup-button-center popup-yes" src="img/button/popup-yes-btn.png"/>
+            <img class="popup-button-center popup-yes" src="img/button/button-yes.png"/>
         </div>
     </div>
 
@@ -736,7 +736,7 @@
             <p>コインが足りません。<br/>ショップで購入しますか？</p>
         </div>
         <div class="popup-buttons clear-both">
-            <img class="popup-button-center popup-yes" src="img/button/popup-yes-btn.png"/>
+            <img class="popup-button-center popup-yes" src="img/button/button-yes.png"/>
         </div>
     </div>
 
@@ -781,10 +781,10 @@
         </div>
         <div class="popup-buttons ui-grid-a clear-both">
             <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="img/button/popup-yes-btn.png"/>
+                <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
             </div>
             <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="img/button/popup-no-btn.png"/>
+                <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
             </div>
         </div>
     </div>
@@ -795,5 +795,6 @@
 <!------------------------------------------------------------------>
 <div class="ui-loader-background"></div>
 
+</span>
 </body>
 </html>

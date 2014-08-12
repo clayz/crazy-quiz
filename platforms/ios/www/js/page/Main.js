@@ -5,10 +5,10 @@ CQ.Page.Main = {
     selectedUnlockLevel: null,
 
     welcomeText: [
-        'お帰りなさいませ',
+        'お帰りなさい!',
         'この調子この調子',
-        'いつやるの？今でしょう',
-        'お久しぶりです',
+        'いつやるの？今でしょ!',
+        '久しぶり!',
         'この問題が解けるかな'
     ],
 
@@ -70,7 +70,7 @@ CQ.Page.Main = {
         if (CQ.App.android()) {
             // exit and clear history buttons
             $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
-            $(CQ.Id.Main.$POPUP_EXIT_YES).tap(function() {
+            $(CQ.Id.Main.$POPUP_EXIT_YES).click(function() {
                 navigator.app.exitApp();
             });
         }
@@ -78,23 +78,19 @@ CQ.Page.Main = {
 
     initPopups: function() {
         // level popup and buttons
-        var levelUnlockPopup = $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK),
-            levelPurchasePopup = $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE),
-            levelCannotUnlockPopup = $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
-
-        levelUnlockPopup.bind(this.popupEvents);
-        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(CQ.Page.Main.clickUnlockLevel);
-        levelUnlockPopup.find(CQ.Id.CSS.$POPUP_BTN_NO).click(CQ.Page.Main.closePopupWithSound);
+        $(CQ.Id.Main.$POPUP_LEVEL_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_UNLOCK);
+        this.bindPopupYesButton(CQ.Id.Main.$POPUP_LEVEL_UNLOCK, CQ.Page.Main.clickUnlockLevel);
+        this.bindPopupNoButton(CQ.Id.Main.$POPUP_LEVEL_UNLOCK);
 
-        levelPurchasePopup.bind(this.popupEvents);
-        levelPurchasePopup.find(CQ.Id.CSS.$POPUP_BTN_YES).click(function() {
+        $(CQ.Id.Main.$POPUP_LEVEL_PURCHASE).bind(this.popupEvents);
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_PURCHASE);
+        this.bindPopupYesButton(CQ.Id.Main.$POPUP_LEVEL_PURCHASE, function() {
             CQ.Audio.Button.play();
             CQ.Page.Main.openGemShop();
         });
-        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_PURCHASE);
 
-        levelCannotUnlockPopup.bind(this.popupEvents);
+        $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
     },
 
