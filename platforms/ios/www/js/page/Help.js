@@ -92,14 +92,14 @@ CQ.Page.HelpEnquiry = {
     }
 };
 
-CQ.App.inherits(CQ.Page.Help, CQ.Page);
+//CQ.App.inherits(CQ.Page.Help, CQ.Page);
 CQ.App.inherits(CQ.Page.HelpGuide, CQ.Page);
-CQ.App.inherits(CQ.Page.HelpQuestion, CQ.Page);
-CQ.App.inherits(CQ.Page.HelpRule, CQ.Page);
-CQ.App.inherits(CQ.Page.HelpEnquiry, CQ.Page);
+//CQ.App.inherits(CQ.Page.HelpQuestion, CQ.Page);
+//CQ.App.inherits(CQ.Page.HelpRule, CQ.Page);
+//CQ.App.inherits(CQ.Page.HelpEnquiry, CQ.Page);
 
-CQ.App.register(CQ.Page.Help);
+//CQ.App.register(CQ.Page.Help);
 CQ.App.register(CQ.Page.HelpGuide);
-CQ.App.register(CQ.Page.HelpQuestion);
-CQ.App.register(CQ.Page.HelpRule);
-CQ.App.register(CQ.Page.HelpEnquiry);
+//CQ.App.register(CQ.Page.HelpQuestion);
+//CQ.App.register(CQ.Page.HelpRule);
+//CQ.App.register(CQ.Page.HelpEnquiry);

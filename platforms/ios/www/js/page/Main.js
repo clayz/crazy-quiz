@@ -297,7 +297,7 @@ CQ.Page.Main = {
 
     clickHelp: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.Help);
+        CQ.Page.open(CQ.Page.HelpGuide);
     }
 };
 
