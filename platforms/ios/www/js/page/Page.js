@@ -177,7 +177,7 @@ CQ.Page = {
 
             setTimeout(function() {
                 CQ.Page.getCurrentPage().prompt.open(msg);
-            }, delay ? delay : 100);
+            }, delay ? delay : 300);
         } else {
             CQ.Page.getCurrentPage().prompt.open(msg);
         }
@@ -194,7 +194,7 @@ CQ.Page = {
 
             setTimeout(function() {
                 popup.open(msg);
-            }, delay ? delay : 100);
+            }, delay ? delay : 300);
         } else {
             popup.open(msg);
         }

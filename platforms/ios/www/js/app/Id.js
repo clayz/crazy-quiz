@@ -153,6 +153,7 @@ CQ.Id = {
         $POPUP_PASS_INFO: '#game-popup-pass-info',
         $POPUP_PASS_PICTURE_NUMBER: '#game-popup-pass-picture-number',
         $POPUP_PASS_PICTURE_NAME: '#game-popup-pass-picture-name',
+        $POPUP_PASS_BONUS: '#game-popup-pass-bonus-text',
         $POPUP_PASS_CURRENCY: '#game-popup-pass-currency',
         $POPUP_NEXT: '#game-popup-pass-next-btn',
         $POPUP_SHARE: '#game-popup-pass-share-btn',

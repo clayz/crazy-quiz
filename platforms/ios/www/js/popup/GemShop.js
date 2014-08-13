@@ -39,10 +39,10 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
             // get more 10 gem for first time purchase
             if (CQ.Currency.history.purchase.length == 1) {
                 CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
-                CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem), 300);
+                CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
                 CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
             } else {
-                CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem), 300);
+                CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
             }
 
             CQ.Page.refreshCurrency();
@@ -60,6 +60,6 @@ CQ.Popup.GemShop.prototype.refresh = function() {
         var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(this.popup.page, i));
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Purchase['Goods' + i].title);
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Purchase['Goods' + i].description);
-        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text('¥{0}'.format(CQ.Currency.Purchase['Goods' + i].cost));
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text((CQ.dev ? '¥{0}' : '{0}').format(CQ.Currency.Purchase['Goods' + i].cost));
     }
 };

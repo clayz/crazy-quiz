@@ -321,10 +321,11 @@ CQ.Page.Game = {
     },
 
     passPicture: function() {
-        var earned = false;
+        var earned = 0;
 
         if (!CQ.Datastore.Picture.isPictureFinished(this.album.id, this.picture.id)) {
-            earned = CQ.Currency.earn(CQ.Currency.Earn.Quiz);
+            earned = CQ.Currency.Earn.Quiz.coin;
+            CQ.Currency.earn(CQ.Currency.Earn.Quiz);
             CQ.Datastore.Picture.setPictureFinished(this.album.id, this.picture.id);
             CQ.Page.Main.setLevelStatusText(this.album, this.level);
         }
@@ -334,10 +335,11 @@ CQ.Page.Game = {
     },
 
     passLevel: function() {
-        var earned = false;
+        var earned = 0;
 
         if (!CQ.Datastore.Picture.isLevelFinished(this.album.id, this.level)) {
-            earned = CQ.Currency.earn(CQ.Currency.Earn.Level);
+            earned = CQ.Currency.Earn.Level.coin;
+            CQ.Currency.earn(CQ.Currency.Earn.Level);
             CQ.Datastore.Picture.setLevelFinished(this.album.id, this.level);
             CQ.Album.unlockLevel(this.album.id, this.level + 1);
             CQ.Page.Main.setLevelStatusText(this.album, this.level);
@@ -348,10 +350,11 @@ CQ.Page.Game = {
     },
 
     passAlbum: function() {
-        var earned = false;
+        var earned = 0;
 
         if (!CQ.Datastore.Picture.isAlbumFinished(this.album.id)) {
-            earned = CQ.Currency.earn(CQ.Currency.Earn.Album);
+            earned = CQ.Currency.Earn.Album.coin;
+            CQ.Currency.earn(CQ.Currency.Earn.Album);
             CQ.Datastore.Picture.setLevelFinished(this.album.id, this.level);
             CQ.Datastore.Picture.setAlbumFinished(this.album.id);
             CQ.Album.unlockAlbum(this.album.id + 1);
@@ -367,8 +370,12 @@ CQ.Page.Game = {
         $(CQ.Id.Game.$POPUP_PASS_PICTURE_NAME).html(this.picture.name);
         $(CQ.Id.Game.$POPUP_PASS_CURRENCY).html(CQ.Currency.account.coin);
 
-        if (earned) $(CQ.Id.Game.$POPUP_PASS_INFO).find('div').show();
-        else $(CQ.Id.Game.$POPUP_PASS_INFO).find('div').hide();
+        if (earned != 0) {
+            $(CQ.Id.Game.$POPUP_PASS_BONUS).text(' × {0}'.format(earned));
+            $(CQ.Id.Game.$POPUP_PASS_INFO).find('div').show();
+        } else {
+            $(CQ.Id.Game.$POPUP_PASS_INFO).find('div').hide();
+        }
 
         $(CQ.Id.Game.$POPUP_PASS).popup('open');
     },

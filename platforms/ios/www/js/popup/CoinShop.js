@@ -48,6 +48,6 @@ CQ.Popup.CoinShop.prototype.refresh = function() {
         var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_COIN_GOODS.format(this.popup.page, i));
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Exchange['Goods' + i].coin);
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Exchange['Goods' + i].description);
-        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST)).text(CQ.Currency.Exchange['Goods' + i].gem);
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_COST)).text('{0}個'.format(CQ.Currency.Exchange['Goods' + i].gem));
     }
 };

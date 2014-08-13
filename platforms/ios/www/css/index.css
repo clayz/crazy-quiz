@@ -1004,26 +1004,29 @@ p {
 
 .popup-shop .popup-goods-amount {
     margin: 0 1em 0 .5em;
-    width: 3em;
+    width: 2.8em;
     color: #f8f0d2;
 }
 
 .popup-shop .popup-goods-info {
-    width: 8em;
+    width: 7.5em;
     color: #fbd44e;
 }
 
 .popup-shop .popup-goods-gem {
+    width: 5em;
+}
+
+.popup-shop .popup-goods-gem-icon {
     width: 1.5em;
     height: 1.5em;
-    margin-top: 1.8em;
+    margin: 1.8em 0 0 0;
     background: url(../img/icon/gem-one.png) no-repeat;
     background-size: 100% 100%;
 }
 
 .popup-shop .popup-goods-cost {
-    width: 2em;
-    margin-right: .3em;
+    width: 3em;
     text-align: left;
     color: #f8f0d2;
 }
@@ -1046,17 +1049,17 @@ p {
 
 .popup-shop .popup-goods-amount-tap {
     margin: 0 1em 0 .5em;
-    width: 3em;
+    width: 2.8em;
     color: #6d3805;
 }
 
 .popup-shop .popup-goods-info-tap {
-    width: 8em;
+    width: 7.5em;
     color: #6d3805;
 }
 
 .popup-shop .popup-goods-cost-tap {
-    width: 2em;
+    width: 2.5em;
     margin-right: .3em;
     text-align: left;
     color: #6d3805;

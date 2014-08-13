@@ -5,6 +5,8 @@ CQ.SNS = {
     },
 
     share: function(message, image) {
+        CQ.Page.openLoading();
+
         // parameters: message, subject, file, url, successCallback, errorCallback
         if (image) {
             window.plugins.socialsharing.share(message, null, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
@@ -15,6 +17,7 @@ CQ.SNS = {
 
     shareFinish: function(isSuccess) {
         console.log('Share link finished, result: ' + isSuccess);
+        CQ.Page.closeLoading();
 
         if (isSuccess) {
             var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
@@ -36,12 +39,15 @@ CQ.SNS = {
 
     shareError: function(error) {
         console.error('Share link failed, error: ' + error);
+        CQ.Page.closeLoading();
+
         CQ.Page.openPrompt('シェアに失敗しました');
         CQ.GA.track(CQ.GA.Share.Error);
     },
 
     shareImageFinish: function(isSuccess) {
         console.log('Share image finished, result: ' + isSuccess);
+        CQ.Page.closeLoading();
 
         if (isSuccess) {
             if (CQ.Datastore.Picture.isPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id)) {
@@ -61,6 +67,8 @@ CQ.SNS = {
 
     shareImageError: function(error) {
         console.error('Share image failed, error: ' + error);
+        CQ.Page.closeLoading();
+
         CQ.Page.openPrompt('シェアに失敗しました');
         CQ.GA.track(CQ.GA.Share.Error, CQ.GA.Share.Error.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
     }
@@ -68,6 +76,8 @@ CQ.SNS = {
 
 CQ.SNS.Facebook = {
     share: function(message, image) {
+        CQ.Page.openLoading();
+
         // parameters: message, image, url, successCallback, errorCallback
         if (image) {
             window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
@@ -79,6 +89,8 @@ CQ.SNS.Facebook = {
 
 CQ.SNS.Twitter = {
     share: function(message, image) {
+        CQ.Page.openLoading();
+
         // parameters: message, image, url, successCallback, errorCallback
         if (image) {
             window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
@@ -90,6 +102,8 @@ CQ.SNS.Twitter = {
 
 CQ.SNS.Line = {
     share: function(message, subject, image) {
+        CQ.Page.openLoading();
+
         // parameters: via, message, subject, image, url, successCallback, errorCallback
         if (image) {
             window.plugins.socialsharing.shareVia('line', message, subject, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
