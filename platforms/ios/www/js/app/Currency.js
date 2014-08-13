@@ -1,5 +1,5 @@
 CQ.Currency = {
-    account: { gem: 3, coin: 100 },
+    account: { gem: 5, coin: 100 },
     history: { earn: [], consume: [], purchase: [], exchange: [] },
 
     Earn: {
