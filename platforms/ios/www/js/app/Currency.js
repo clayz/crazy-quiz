@@ -37,8 +37,8 @@ CQ.Currency = {
     Exchange: {
         Goods1: { id: 1, gem: 1, coin: 30, description: "ボナースなし" },
         Goods2: { id: 2, gem: 10, coin: 310, description: "3%ボナース！" },
-        Goods3: { id: 3, gem: 50, coin: 1575, description: "5%ボナース！" },
-        Goods4: { id: 4, gem: 100, coin: 3240, description: "8%ボナース！" },
+        Goods3: { id: 3, gem: 50, coin: 1580, description: "5%ボナース！" },
+        Goods4: { id: 4, gem: 100, coin: 3250, description: "8%ボナース！" },
         Goods5: { id: 5, gem: 200, coin: 6600, description: "10%ボナース！" }
     },
 
