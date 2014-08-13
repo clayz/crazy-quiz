@@ -1002,22 +1002,38 @@ p {
     box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, .5);
 }
 
-.popup-shop .popup-goods-amount {
+.popup-gem-shop .popup-goods-amount {
     margin: 0 1em 0 .5em;
     width: 2.8em;
     color: #f8f0d2;
 }
 
-.popup-shop .popup-goods-info {
+.popup-gem-shop .popup-goods-info {
+    width: 8em;
+    color: #fbd44e;
+}
+
+.popup-gem-shop .popup-goods-money {
+    width: 4em;
+    color: #f8f0d2;
+}
+
+.popup-coin-shop .popup-goods-amount {
+    margin: 0 1em 0 .5em;
+    width: 2em;
+    color: #f8f0d2;
+}
+
+.popup-coin-shop .popup-goods-info {
     width: 7.5em;
     color: #fbd44e;
 }
 
-.popup-shop .popup-goods-gem {
-    width: 5em;
+.popup-coin-shop .popup-goods-gem {
+    width: 5.2em;
 }
 
-.popup-shop .popup-goods-gem-icon {
+.popup-coin-shop .popup-goods-gem-icon {
     width: 1.5em;
     height: 1.5em;
     margin: 1.8em 0 0 0;
@@ -1025,15 +1041,11 @@ p {
     background-size: 100% 100%;
 }
 
-.popup-shop .popup-goods-cost {
-    width: 3em;
+.popup-coin-shop .popup-goods-cost {
+    width: 3.5em;
     text-align: left;
     color: #f8f0d2;
-}
-
-.popup-shop .popup-goods-money {
-    width: 4em;
-    color: #f8f0d2;
+    padding-left: .2em;
 }
 
 .popup-shop .popup-goods-tap {
@@ -1047,27 +1059,38 @@ p {
     box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, .5);
 }
 
-.popup-shop .popup-goods-amount-tap {
+.popup-gem-shop .popup-goods-amount-tap {
     margin: 0 1em 0 .5em;
     width: 2.8em;
     color: #6d3805;
 }
 
-.popup-shop .popup-goods-info-tap {
+.popup-gem-shop .popup-goods-info-tap {
+    width: 8em;
+    color: #6d3805;
+}
+
+.popup-gem-shop .popup-goods-money-tap {
+    width: 4em;
+    color: #6d3805;
+}
+
+.popup-coin-shop .popup-goods-amount-tap {
+    margin: 0 1em 0 .5em;
+    width: 2em;
+    color: #6d3805;
+}
+
+.popup-coin-shop .popup-goods-info-tap {
     width: 7.5em;
     color: #6d3805;
 }
 
-.popup-shop .popup-goods-cost-tap {
-    width: 2.5em;
-    margin-right: .3em;
+.popup-coin-shop .popup-goods-cost-tap {
+    width: 3.5em;
     text-align: left;
     color: #6d3805;
-}
-
-.popup-shop .popup-goods-money-tap {
-    width: 4em;
-    color: #6d3805;
+    padding-left: .2em;
 }
 
 .popup-shop .popup-gem-set-1 {

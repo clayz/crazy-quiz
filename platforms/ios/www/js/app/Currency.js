@@ -28,7 +28,7 @@ CQ.Currency = {
 
     Purchase: {
         Goods1: { id: 1, gem: 10, cost: 100, productId: "", title: "10個", description: "ボナースなし" },
-        Goods2: { id: 2, gem: 35, cost: 300, productId: "", title: "35個", description: "+5個" },
+        Goods2: { id: 2, gem: 35, cost: 300, productId: "", title: "35個", description: "5個ボナース！" },
         Goods3: { id: 3, gem: 75, cost: 600, productId: "", title: "75個", description: "15個ボナース！" },
         Goods4: { id: 4, gem: 130, cost: 1000, productId: "", title: "130個", description: "30個ボナース！" },
         Goods5: { id: 5, gem: 400, cost: 3000, productId: "", title: "400個", description: "100個ボナース！" }
