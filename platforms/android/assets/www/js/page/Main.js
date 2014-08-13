@@ -259,8 +259,13 @@ CQ.Page.Main = {
     },
 
     clickRating: function() {
-        CQ.GA.trackPage('PlayStore');
-        window.open('market://details?id=com.cyberagent.jra');
+        if (CQ.App.iOS) {
+            CQ.GA.trackPage('App Store');
+            window.open('itms-apps://itunes.com/apps/id663196539');
+        } else if (CQ.App.android) {
+            CQ.GA.trackPage('Play Store');
+            window.open('market://details?id=com.cyberagent.jra');
+        }
     },
 
     clickHelp: function() {

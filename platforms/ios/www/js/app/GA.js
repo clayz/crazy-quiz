@@ -1,5 +1,8 @@
 CQ.GA = {
-    trackingId: 'UA-50843267-1',
+    trackingId: {
+        dev: 'UA-50843267-1',
+        production: 'UA-50843267-2'
+    },
 
     Page: {
         Picture: 'Album {0} - Picture {1}'
@@ -48,12 +51,20 @@ CQ.GA = {
         Prompt: { category: 'Props', action: 'Prompt', label: 'Album {0} - Picture {1}' }
     },
 
+    Gift: {
+        FirstPurchase: { category: 'Gift', action: 'First Purchase', label: 'Goods {0}' }
+    },
+
     init: function() {
-        analytics.startTrackerWithId(this.trackingId);
+        if (CQ.dev) {
+            analytics.startTrackerWithId(this.trackingId.dev);
+        } else {
+            analytics.startTrackerWithId(this.trackingId.production);
+        }
     },
 
     trackPage: function(page) {
-        console.info('Tracking page: {0}'.format(page));
+        // console.info('Tracking page: {0}'.format(page));
         analytics.trackView(CQ.Utils.getCapitalName(page));
     },
 
@@ -64,7 +75,7 @@ CQ.GA = {
     trackEvent: function(category, action, label, value) {
         if (!label) label = '';
         if (!value) value = 1;
-        console.info('Tracking event, category: {0}, action: {1}, label: {2}, value: {3}'.format(category, action, label, value));
+        // console.info('Tracking event, category: {0}, action: {1}, label: {2}, value: {3}'.format(category, action, label, value));
         analytics.trackEvent(category, action, label, value);
     }
 };

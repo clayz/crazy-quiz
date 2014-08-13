@@ -35,8 +35,17 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     if (CQ.App.iOS) {
         if (CQ.dev) {
             CQ.Currency.purchase(goods);
+
+            // get more 10 gem for first time purchase
+            if (CQ.Currency.history.purchase.length == 1) {
+                CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
+                CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem), 300);
+                CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
+            } else {
+                CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem), 300);
+            }
+
             CQ.Page.refreshCurrency();
-            CQ.Page.closePopup();
         } else {
             CQ.AppStorePurchase.buy(goods.productId);
         }

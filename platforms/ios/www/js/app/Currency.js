@@ -3,12 +3,16 @@ CQ.Currency = {
     history: { earn: [], consume: [], purchase: [], exchange: [] },
 
     Earn: {
+        // coin
         Login: { id: 1, coin: 5 },
         Share: { id: 2, coin: 10 },
         Rating: { id: 3, coin: 100 },
         Quiz: { id: 4, coin: 5 }, // correct answer
         Level: { id: 5, coin: 100 }, // finish level
-        Album: { id: 6, coin: 300 } // finish album
+        Album: { id: 6, coin: 300 }, // finish album
+
+        // gem
+        FirstPurchase: { id: 101, gem: 10 }
     },
 
     Consume: {
@@ -66,14 +70,13 @@ CQ.Currency = {
     },
 
     earn: function(type) {
-        console.info('Earn coin, type: {0}'.format(type.id));
+        console.info('Earn type: {0}'.format(type.id));
 
-        // update account and save into data store
-        this.updateAccount(0, type.coin);
-
-        // save operation history
+        // update account and save history
+        this.updateAccount(type.gem || 0, type.coin || 0);
         this.history.earn.push({
             type: type.id,
+            gem: type.gem,
             coin: type.coin,
             date: new Date().getTime()
         });

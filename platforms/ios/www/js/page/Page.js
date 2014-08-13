@@ -42,12 +42,12 @@ CQ.Page = {
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_GEM_PURCHASE), function() {
                 CQ.Audio.Button.play();
-                page.gemShop.popup.open();
+                page.openGemShop();
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
 
             this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_COIN_EXCHANGE), function() {
                 CQ.Audio.Button.play();
-                page.coinShop.popup.open();
+                page.openCoinShop();
             }, CQ.Id.Image.CURRENCY_ADD_TAP, CQ.Id.Image.CURRENCY_ADD);
         }
 
@@ -154,10 +154,12 @@ CQ.Page = {
 
     openGemShop: function() {
         this.openPopup(this.getCurrentPage().gemShop);
+        CQ.GA.trackPage('Shop - Gem');
     },
 
     openCoinShop: function() {
         this.openPopup(this.getCurrentPage().coinShop);
+        CQ.GA.trackPage('Shop - Coin');
     },
 
     openGemNotEnough: function() {

@@ -5,10 +5,10 @@ CQ.AppStorePurchase = {
                  "com.czquiz.gem4",
                  "com.czquiz.gem5"],
 
-    init:function(){
+    init: function() {
         if (CQ.dev) return;
 
-        if(!window.storekit){
+        if (!window.storekit) {
             console.log("In-App Purchases not available.");
             return;
         }
@@ -22,9 +22,9 @@ CQ.AppStorePurchase = {
         });
     },
 
-    onReady: function(){
+    onReady: function() {
         // Once setup is done, load all product data.
-        storekit.load(CQ.AppStorePurchase.productIds, function (products, invalidIds) {
+        storekit.load(CQ.AppStorePurchase.productIds, function(products, invalidIds) {
             CQ.AppStorePurchase.products = products;
             CQ.AppStorePurchase.loaded = true;
 
@@ -43,41 +43,54 @@ CQ.AppStorePurchase = {
         });
     },
 
-    onPurchase: function (transactionId, productId, receipt) {
+    onPurchase: function(transactionId, productId, receipt) {
+        var goods = null;
 
         if (productId === 'com.czquiz.gem1') {
-            CQ.Currency.purchase(CQ.Currency.Purchase.Goods1);
-        } else if (productId === 'com.czquiz.gem2'){
-            CQ.Currency.purchase(CQ.Currency.Purchase.Goods2);
-        } else if (productId === 'com.czquiz.gem3'){
-            CQ.Currency.purchase(CQ.Currency.Purchase.Goods3);
-        } else if (productId === 'com.czquiz.gem4'){
-            CQ.Currency.purchase(CQ.Currency.Purchase.Goods4);
+            goods = CQ.Currency.Purchase.Goods1;
+        } else if (productId === 'com.czquiz.gem2') {
+            goods = CQ.Currency.Purchase.Goods2;
+        } else if (productId === 'com.czquiz.gem3') {
+            goods = CQ.Currency.Purchase.Goods3;
+        } else if (productId === 'com.czquiz.gem4') {
+            goods = CQ.Currency.Purchase.Goods4;
+        } else if (productId === 'com.czquiz.gem5') {
+            goods = CQ.Currency.Purchase.Goods5;
         } else {
-            CQ.Currency.purchase(CQ.Currency.Purchase.Goods5);
+            throw 'Unknown productId: {0}, transactionId: {1}'.format(productId, transactionId);
+        }
+
+        CQ.Currency.purchase(goods);
+
+        // get more 10 gem for first time purchase
+        if (CQ.Currency.history.purchase.length == 1) {
+            CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
+            CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
+            CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
+        } else {
+            CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
         }
 
         CQ.Page.refreshCurrency();
-        CQ.Page.closePopup();
     },
 
-    onRestore: function (transactionId, productId, transactionReceipt) {
+    onRestore: function(transactionId, productId, transactionReceipt) {
         // Pseudo code that unlocks the full version.
         if (productId === 'cc.fovea.unlockfullversion') {
             FeatureManager.unlockEverything();
         }
     },
 
-    onError: function (errorCode, errorMessage) {
+    onError: function(errorCode, errorMessage) {
         console.error('Error: ' + errorMessage);
         CQ.GA.track(CQ.GA.Shop.AppStoreError, errorCode);
     },
 
-    buy: function(productId){
+    buy: function(productId) {
         storekit.purchase(productId);
     },
 
-    restore: function(){
+    restore: function() {
         storekit.restore();
     }
 };
