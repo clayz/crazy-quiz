@@ -88,189 +88,208 @@
 <!-- Album Page -->
 <!------------------------------------------------------------------>
 <div data-role="page" id="main" class="page">
-    <div id="main-body">
-        <div id="main-welcome" class="ui-grid-a">
-            <div id="main-welcome-logo" class="ui-block-a"></div>
-            <div id="main-welcome-text" class="ui-block-b">
-                <span id="main-welcome-content"></span>
+<div id="main-body">
+    <div id="main-welcome" class="ui-grid-a">
+        <div id="main-welcome-logo" class="ui-block-a"></div>
+        <div id="main-welcome-text" class="ui-block-b">
+            <span id="main-welcome-content"></span>
+        </div>
+    </div>
+
+    <!-- album info -->
+    <div id="main-album-container">
+        <div id="main-album-header" class="ui-grid-b">
+            <div id="main-album-previous" class="ui-block-a"></div>
+            <div id="main-album-title" class="ui-block-b">
+                <span id="main-album-name"></span>
+            </div>
+            <div id="main-album-next" class="ui-block-c">
+                <img id="main-album-next-btn" src="img/button/album-arrows.png"/>
             </div>
         </div>
 
-        <!-- album info -->
-        <div id="main-album-container">
-            <div id="main-album-header" class="ui-grid-b">
-                <div id="main-album-previous" class="ui-block-a"></div>
-                <div id="main-album-title" class="ui-block-b">
-                    <span id="main-album-name"></span>
+        <div id="main-album">
+            <!-- album 1 -->
+            <div id="main-album1" class="ui-grid-b">
+                <div class="ui-block-a">
+                    <div id="main-album1-level1" class="main-level">
+                        <div id="main-album1-level1-status" class="hidden">
+                            <div class="main-level-status"></div>
+                            <div class="main-level-status-bg"></div>
+                        </div>
+                        <div id="main-album1-level1-lock" class="main-level-lock"></div>
+                    </div>
+                    <div id="main-album1-level1-name" class="main-level-name"></div>
                 </div>
-                <div id="main-album-next" class="ui-block-c">
-                    <img id="main-album-next-btn" src="img/button/album-arrows.png"/>
-                </div>
-            </div>
-
-            <div id="main-album">
-                <!-- album 1 -->
-                <div id="main-album1" class="ui-grid-b">
-                    <div class="ui-block-a">
-                        <div id="main-album1-level1" class="main-level">
-                            <div id="main-album1-level1-status" class="hidden">
+                <div class="ui-block-b">
+                    <div class="main-level-cover">
+                        <div id="main-album1-level2" class="main-level">
+                            <div id="main-album1-level2-status" class="hidden">
                                 <div class="main-level-status"></div>
                                 <div class="main-level-status-bg"></div>
                             </div>
-                            <div id="main-album1-level1-lock" class="main-level-lock"></div>
                         </div>
-                        <div id="main-album1-level1-name" class="main-level-name"></div>
+                        <div id="main-album1-level2-lock" class="main-level-lock"></div>
                     </div>
-                    <div class="ui-block-b">
-                        <div class="main-level-cover">
-                            <div id="main-album1-level2" class="main-level">
-                                <div id="main-album1-level2-status" class="hidden">
-                                    <div class="main-level-status"></div>
-                                    <div class="main-level-status-bg"></div>
-                                </div>
-                            </div>
-                            <div id="main-album1-level2-lock" class="main-level-lock"></div>
-                        </div>
-                        <div id="main-album1-level2-name" class="main-level-name"></div>
-                    </div>
-                    <div class="ui-block-c">
-                        <div class="main-level-cover">
-                            <div id="main-album1-level3" class="main-level">
-                                <div id="main-album1-level3-status" class="hidden">
-                                    <div class="main-level-status"></div>
-                                    <div class="main-level-status-bg"></div>
-                                </div>
-                            </div>
-                            <div id="main-album1-level3-lock" class="main-level-lock"></div>
-                        </div>
-                        <div id="main-album1-level3-name" class="main-level-name"></div>
-                    </div>
-                    <div class="ui-block-a">
-                        <div class="main-level-cover">
-                            <div id="main-album1-level4" class="main-level">
-                                <div id="main-album1-level4-status" class="hidden">
-                                    <div class="main-level-status"></div>
-                                    <div class="main-level-status-bg"></div>
-                                </div>
-                            </div>
-                            <div id="main-album1-level4-lock" class="main-level-lock"></div>
-                        </div>
-                        <div id="main-album1-level4-name" class="main-level-name"></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div class="main-level-cover">
-                            <div id="main-album1-level5" class="main-level">
-                                <div id="main-album1-level5-status" class="hidden">
-                                    <div class="main-level-status"></div>
-                                    <div class="main-level-status-bg"></div>
-                                </div>
-                            </div>
-                            <div id="main-album1-level5-lock" class="main-level-lock"></div>
-                        </div>
-                        <div id="main-album1-level5-name" class="main-level-name"></div>
-                    </div>
-                    <div class="ui-block-c">
-                        <div class="main-level-cover">
-                            <div id="main-album1-level6" class="main-level">
-                                <div id="main-album1-level6-status" class="hidden">
-                                    <div class="main-level-status"></div>
-                                    <div class="main-level-status-bg"></div>
-                                </div>
-                            </div>
-                            <div id="main-album1-level6-lock" class="main-level-lock"></div>
-                        </div>
-                        <div id="main-album1-level6-name" class="main-level-name"></div>
-                    </div>
+                    <div id="main-album1-level2-name" class="main-level-name"></div>
                 </div>
-            </div>
-
-            <div class="main-album-paging ui-grid-a">
-                <div id="main-album-paging-1" class="ui-block-a">
-                    <img src="img/layout/main-paging-on.png" class="main-album-paging-img"/>
+                <div class="ui-block-c">
+                    <div class="main-level-cover">
+                        <div id="main-album1-level3" class="main-level">
+                            <div id="main-album1-level3-status" class="hidden">
+                                <div class="main-level-status"></div>
+                                <div class="main-level-status-bg"></div>
+                            </div>
+                        </div>
+                        <div id="main-album1-level3-lock" class="main-level-lock"></div>
+                    </div>
+                    <div id="main-album1-level3-name" class="main-level-name"></div>
                 </div>
-                <div id="main-album-paging-2" class="ui-block-b">
-                    <img src="img/layout/main-paging-off.png" class="main-album-paging-img"/>
+                <div class="ui-block-a">
+                    <div class="main-level-cover">
+                        <div id="main-album1-level4" class="main-level">
+                            <div id="main-album1-level4-status" class="hidden">
+                                <div class="main-level-status"></div>
+                                <div class="main-level-status-bg"></div>
+                            </div>
+                        </div>
+                        <div id="main-album1-level4-lock" class="main-level-lock"></div>
+                    </div>
+                    <div id="main-album1-level4-name" class="main-level-name"></div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="main-level-cover">
+                        <div id="main-album1-level5" class="main-level">
+                            <div id="main-album1-level5-status" class="hidden">
+                                <div class="main-level-status"></div>
+                                <div class="main-level-status-bg"></div>
+                            </div>
+                        </div>
+                        <div id="main-album1-level5-lock" class="main-level-lock"></div>
+                    </div>
+                    <div id="main-album1-level5-name" class="main-level-name"></div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="main-level-cover">
+                        <div id="main-album1-level6" class="main-level">
+                            <div id="main-album1-level6-status" class="hidden">
+                                <div class="main-level-status"></div>
+                                <div class="main-level-status-bg"></div>
+                            </div>
+                        </div>
+                        <div id="main-album1-level6-lock" class="main-level-lock"></div>
+                    </div>
+                    <div id="main-album1-level6-name" class="main-level-name"></div>
                 </div>
             </div>
         </div>
 
-        <div id="main-album-waiting" class="hidden">
-            <div class="main-album-paging ui-grid-a">
-                <div class="ui-block-a"><img src="img/layout/main-paging-off.png" class="main-album-paging-img"/></div>
-                <div class="ui-block-b"><img src="img/layout/main-paging-on.png" class="main-album-paging-img"/></div>
+        <div class="main-album-paging ui-grid-a">
+            <div id="main-album-paging-1" class="ui-block-a">
+                <img src="img/layout/main-paging-on.png" class="main-album-paging-img"/>
             </div>
-        </div>
-
-        <!-- footer buttons -->
-        <div id="main-footer">
-            <div id="main-footer-buttons" class="ui-grid-a">
-                <div id="main-share" class="ui-block-a"><img id="main-share-btn" src="img/button/main-share.png"/></div>
-                <div id="main-help" class="ui-block-b"><img id="main-help-btn" src="img/button/main-help.png"/></div>
+            <div id="main-album-paging-2" class="ui-block-b">
+                <img src="img/layout/main-paging-off.png" class="main-album-paging-img"/>
             </div>
         </div>
     </div>
 
-    <!-- unlock level confirm popup -->
-    <div data-role="popup" id="main-popup-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-close">
-            <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
-        </div>
-        <div class="popup-content">
-            <p>
-                このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
-                もしくは宝石を10個使うとこのステージで遊ぶことができるよ！
-            </p>
-        </div>
-        <div class="popup-buttons ui-grid-a clear-both">
-            <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
-            </div>
-            <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
-            </div>
+    <div id="main-album-waiting" class="hidden">
+        <div class="main-album-paging ui-grid-a">
+            <div class="ui-block-a"><img src="img/layout/main-paging-off.png" class="main-album-paging-img"/></div>
+            <div class="ui-block-b"><img src="img/layout/main-paging-on.png" class="main-album-paging-img"/></div>
         </div>
     </div>
 
-    <!-- unlock level purchase popup -->
-    <div data-role="popup" id="main-popup-level-purchase" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-close">
-            <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
-        </div>
-        <div class="popup-content">
-            <p>
-                このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
-                もしくは宝石を10個使うとこのステージで遊ぶことができるよ！<br/><br/>
-                宝石を買いにいく？
-        </div>
-        <div class="popup-buttons clear-both">
-            <img class="popup-button-center popup-yes" src="img/button/button-yes.png"/>
+    <!-- footer buttons -->
+    <div id="main-footer">
+        <div id="main-footer-buttons" class="ui-grid-a">
+            <div id="main-share" class="ui-block-a"><img id="main-share-btn" src="img/button/main-share.png"/></div>
+            <div id="main-help" class="ui-block-b"><img id="main-help-btn" src="img/button/main-help.png"/></div>
         </div>
     </div>
+</div>
 
-    <!-- level cannot unlock popup -->
-    <div data-role="popup" id="main-popup-level-disable" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-close">
-            <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
+<!-- unlock level confirm popup -->
+<div data-role="popup" id="main-popup-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-close">
+        <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
+    </div>
+    <div class="popup-content">
+        <p>
+            このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
+            もしくは宝石を10個使うとこのステージで遊ぶことができるよ！
+        </p>
+    </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
         </div>
-        <div class="popup-content">
-            <p>このステージを遊ぶには、前のステージのロックをすべて解除することが必要だよ！</p>
+        <div class="ui-block-b">
+            <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
         </div>
     </div>
+</div>
 
-    <!-- Exit confirm popup -->
-    <div data-role="popup" id="main-popup-exit" data-overlay-theme="b" data-dismissible="false">
-        <div role="main" class="ui-content">
-            <h3 class="ui-title">アプリを終了しますか？</h3>
-            <div class="ui-grid-a">
-                <div class="ui-block-a center">
-                    <a href="#" id="main-popup-exit-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button">はい</a>
-                </div>
-                <div class="ui-block-b center">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
-                </div>
+<!-- unlock level purchase popup -->
+<div data-role="popup" id="main-popup-level-purchase" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-close">
+        <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
+    </div>
+    <div class="popup-content">
+        <p>
+            このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
+            もしくは宝石を10個使うとこのステージで遊ぶことができるよ！<br/><br/>
+            宝石を買いにいく？
+        </p>
+    </div>
+    <div class="popup-buttons clear-both">
+        <img class="popup-button-center popup-yes" src="img/button/button-yes.png"/>
+    </div>
+</div>
+
+<!-- level cannot unlock popup -->
+<div data-role="popup" id="main-popup-level-disable" class="popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-close">
+        <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
+    </div>
+    <div class="popup-content">
+        <p>このステージを遊ぶには、前のステージのロックをすべて解除することが必要だよ！</p>
+    </div>
+</div>
+
+<!-- prompt for store rating popup -->
+<div data-role="popup" id="main-popup-rating" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div class="popup-close">
+        <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
+    </div>
+    <div class="popup-content">
+        <p>App Storeで評価を書くにいく？<br/>100コインをもらえるよう！</p>
+    </div>
+    <div class="popup-buttons ui-grid-a clear-both">
+        <div class="ui-block-a">
+            <img class="popup-button-left popup-yes" src="img/button/button-yes.png"/>
+        </div>
+        <div class="ui-block-b">
+            <img class="popup-button-right popup-no" src="img/button/button-no.png"/>
+        </div>
+    </div>
+</div>
+
+<!-- Exit confirm popup -->
+<div data-role="popup" id="main-popup-exit" data-overlay-theme="b" data-dismissible="false">
+    <div role="main" class="ui-content">
+        <h3 class="ui-title">アプリを終了しますか？</h3>
+        <div class="ui-grid-a">
+            <div class="ui-block-a center">
+                <a href="#" id="main-popup-exit-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button">はい</a>
+            </div>
+            <div class="ui-block-b center">
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline button" data-rel="back">いいえ</a>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!------------------------------------------------------------------>
@@ -480,7 +499,8 @@
         </ul>
     </div>
 </div> -->
-<div id="help-guide" class="page" data-role="page">
+
+<div id="help" class="page" data-role="page">
     <div class="help-body">
         <p class="p1 title">
             <span>遊びかた</span>
@@ -565,32 +585,34 @@
         </p>
     </div>
 </div>
-<div id="help-rule" class="page" data-role="page">
-    <div class="help-body" style="overflow:scroll;">
-        rule
-    </div>
-</div>
-<div id="help-enquiry" class="page" data-role="page">
-    <div class="help-body" style="overflow:scroll;">
-        <p class="p1" style="text-align: center;padding: 5px;">
-            <span style="font-weight: bold; font-size: 21px; color: #FFFFFF;">お問い合わせ</span>
-        </p>
-        <p class="p1" style="text-align: left;padding: 5px;">
-            <span style="font-weight: bold; font-size: 18px; color: #FFFFFF;">熱狂クイズ運営事務局：</span>
-            <a href="mailto:nekyou.quiz@gmail.com">
-                <span style="font-weight: bold; font-size: 18px; color: #FFFFFF;">nekyou.quiz@gmail.com </span>
-            </a>
-        </p>
-        <p class="p1" style="text-align: left;padding: 5px;">
-            <span style="font-weight: bold; font-size: 18px; color: #FFFFFF;">公式フェイスブックもチェック!!</span>
-        </p>
-        <p class="p1" style="text-align: center;padding: 5px;">
-            <a href="＃" onclick='window.open("http://www.facebook.com/nekyou.quiz", "_system");'>
-                <img style="" src="img/button/fb_page.png"/>
-            </a>
-        </p>
-    </div>
-</div>
+
+<!--<div id="helpRule" class="page" data-role="page">-->
+    <!--<div class="help-body" style="overflow:scroll;">-->
+        <!--rule-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div id="helpEnquiry" class="page" data-role="page">-->
+    <!--<div class="help-body" style="overflow:scroll;">-->
+        <!--<p class="p1" style="text-align: center;padding: 5px;">-->
+            <!--<span style="font-weight: bold; font-size: 21px; color: #FFFFFF;">お問い合わせ</span>-->
+        <!--</p>-->
+        <!--<p class="p1" style="text-align: left;padding: 5px;">-->
+            <!--<span style="font-weight: bold; font-size: 18px; color: #FFFFFF;">熱狂クイズ運営事務局：</span>-->
+            <!--<a href="mailto:nekyou.quiz@gmail.com">-->
+                <!--<span style="font-weight: bold; font-size: 18px; color: #FFFFFF;">nekyou.quiz@gmail.com </span>-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--<p class="p1" style="text-align: left;padding: 5px;">-->
+            <!--<span style="font-weight: bold; font-size: 18px; color: #FFFFFF;">公式フェイスブックもチェック!!</span>-->
+        <!--</p>-->
+        <!--<p class="p1" style="text-align: center;padding: 5px;">-->
+            <!--<a href="＃" onclick='window.open("http://www.facebook.com/nekyou.quiz", "_system");'>-->
+                <!--<img style="" src="img/button/fb_page.png"/>-->
+            <!--</a>-->
+        <!--</p>-->
+    <!--</div>-->
+<!--</div>-->
 
 <!------------------------------------------------------------------>
 <!-- Common Header -->

@@ -4,10 +4,11 @@
     <meta charset="utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
     <script type="text/javascript" charset="utf-8" src="js/app/App.js"></script>
     <script type="text/javascript">
-        if (CQ.App.iOS) window.location = "ios.html";
-        else if (CQ.App.android) window.location = "android.html";
+        if (CQ.App.iOS()) window.location = "ios.html";
+        else if (CQ.App.android()) window.location = "android.html";
     </script>
 </head>
 <body>

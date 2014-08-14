@@ -43,6 +43,8 @@ CQ.App = {
             if (value.init) value.init();
         });
 
+        CQ.Datastore.User.addStartTimes();
+
         // modify jQuery default settings
         $.mobile.defaultPageTransition = 'none';
         $.mobile.defaultDialogTransition = 'none';

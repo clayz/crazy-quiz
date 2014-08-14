@@ -11,6 +11,11 @@ CQ.Datastore = {
         return value && (value == 'true');
     },
 
+    getInt: function(key) {
+        var value = this.get(key);
+        return value ? parseInt(value) : 0;
+    },
+
     getObject: function(key) {
         var value = this.get(key);
         return value && JSON.parse(value);
@@ -43,7 +48,9 @@ CQ.Datastore = {
 CQ.Datastore.User = {
     Key: {
         USERNAME: 'USERNAME',
-        AUDIO_ENABLED: 'AUDIO_ENABLED'
+        AUDIO_ENABLED: 'AUDIO_ENABLED',
+        START_TIMES: 'START_TIMES',
+        RATED: 'RATED'
     },
 
     getUsername: function() {
@@ -55,11 +62,27 @@ CQ.Datastore.User = {
     },
 
     isAudioEnabled: function() {
-        this.getBoolean(this.Key.AUDIO_ENABLED);
+        return this.getBoolean(this.Key.AUDIO_ENABLED);
     },
 
     setAudioEnabled: function(isEnabled) {
         this.setBoolean(this.Key.AUDIO_ENABLED, isEnabled);
+    },
+
+    getStartTimes: function() {
+        return this.getInt(this.Key.START_TIMES);
+    },
+
+    addStartTimes: function() {
+        this.set(this.Key.START_TIMES, this.getInt(this.Key.START_TIMES) + 1);
+    },
+
+    isRated: function() {
+        return this.getBoolean(this.Key.RATED);
+    },
+
+    setRated: function() {
+        this.setBoolean(this.Key.RATED, true);
     }
 };
 
