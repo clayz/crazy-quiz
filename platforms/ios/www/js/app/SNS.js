@@ -23,12 +23,12 @@ CQ.SNS = {
             var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
 
             if (lastShareDate && (lastShareDate == today)) {
-                CQ.Page.openPrompt('Already get share coin today: {0}'.format(today));
+                console.log('Already get share coin today: {0}'.format(today));
             } else {
                 CQ.Datastore.Currency.setLastShareDate(today);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
                 CQ.Page.refreshCurrency();
-                CQ.Page.openPrompt('Get 10 share coin', 500);
+                CQ.Page.openPrompt('10シェアコインもらった。');
             }
 
             CQ.GA.track(CQ.GA.Share.Success);
@@ -41,7 +41,7 @@ CQ.SNS = {
         console.error('Share link failed, error: ' + error);
         CQ.Page.closeLoading();
 
-        CQ.Page.openPrompt('シェアに失敗しました');
+        CQ.Page.openPrompt('シェア失敗しました。');
         CQ.GA.track(CQ.GA.Share.Error);
     },
 
@@ -51,12 +51,12 @@ CQ.SNS = {
 
         if (isSuccess) {
             if (CQ.Datastore.Picture.isPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id)) {
-                CQ.Page.openPrompt('Already get share coin for this picture');
+                console.log('Already get share coin for this picture');
             } else {
                 CQ.Datastore.Picture.setPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
                 CQ.Page.refreshCurrency();
-                CQ.Page.openPrompt('Get 10 share coin', 500);
+                CQ.Page.openPrompt('10シェアコインもらった。');
             }
 
             CQ.GA.track(CQ.GA.Share.Success, CQ.GA.Share.Success.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
@@ -69,7 +69,7 @@ CQ.SNS = {
         console.error('Share image failed, error: ' + error);
         CQ.Page.closeLoading();
 
-        CQ.Page.openPrompt('シェアに失敗しました');
+        CQ.Page.openPrompt('シェア失敗しました。');
         CQ.GA.track(CQ.GA.Share.Error, CQ.GA.Share.Error.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
     }
 };
