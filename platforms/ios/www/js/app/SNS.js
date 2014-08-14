@@ -1,7 +1,7 @@
 CQ.SNS = {
     Message: {
         MAIN_PAGE: '私と一緒に遊びましょ。',
-        GAME_PAGE: 'この画像知ってる？'
+        GAME_PAGE: 'この画像知ってる？答えを教えて！'
     },
 
     share: function(message, image) {
