@@ -66,7 +66,8 @@ CQ.PlayBilling = {
     },
 
     errorHandler: function(error) {
-        console.info('Billing failed, error: {0}'.format(error));
+        console.error('Billing failed, error: {0}'.format(error));
+        CQ.GA.track(CQ.GA.Shop.PlayStoreError, error);
     }
 };
 

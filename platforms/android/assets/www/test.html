@@ -1,184 +1,141 @@
 <html>
 <head>
-    <title>Crazy Quiz</title>
+    <title>熱狂クイズ</title>
     <meta charset="utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.0.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/android.css"/>
 
     <script type="text/javascript" charset="utf-8" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="SocialSharing.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inappbilling.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/app/App.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Id.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Utils.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Album.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Datastore.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/User.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Currency.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/PlayBilling.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/SNS.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/Audio.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/GA.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app/AppStorePurchase.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/popup/Popup.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Share.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Prompt.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/Confirm.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/CoinShop.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/GemShop.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/GemNotEnough.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/CoinNotEnough.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Loading.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Index.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Game.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page/Help.js"></script>
+
+    <script type="text/javascript">
+        CQ.App.init();
+
+    </script>
 </head>
-<body>
+<body onLoad="initFastButtons();">
+<span id="fastclick">
 
-<div data-role="page" id="game" class="page">
-    <div class="header">
-        <div class="header-back">
-            <img class="header-back-btn" src="img/button/header-back.png"/>
-        </div>
-        <div class="header-currency">
-            <div class="header-gem">
-                <div class="left">
-                    <img class="header-gem-btn" src="img/icon/gem.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span class="header-gem-current">0</span>
-                </div>
-                <div class="left">
-                    <img class="header-gem-add-btn" src="img/button/currency-add.png">
-                </div>
-            </div>
-            <div class="header-coin">
-                <div class="left">
-                    <img class="header-coin-btn" src="img/icon/coin.png">
-                </div>
-                <div class="left header-current-currency">
-                    <span class="header-coin-current">0</span>
-                </div>
-                <div class="left">
-                    <img class="header-coin-add-btn" src="img/button/currency-add.png">
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="help-guide" class="page" data-role="page">
+    <div class="help-body">
+        <p class="p1 title">
+            <span>遊びかた</span>
+        </p>
+        <p class="p1 des">
+            イラストを見て、そのイラストが何を表すか当てよう！イラストを見てもわからない時は...
+        </p>
+        <table cellpadding="2" cellspacing="0" border="0" class="ke-zeroborder">
+            <tbody>
+            <tr>
+                <td>
+                    <img src="img/button/game-prompt.png" alt=""/>
+                </td>
+                <td class="help_text">
+                    30コイン使うと、そのイラストに関するヒントがもらえます。（例：映画のタイトル　etc）
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/button/game-cutdown.png" alt=""/>
+                </td>
+                <td class="help_text">
+                    50コイン使うと、下に表示されている文字を何個か消すことができます。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/button/game-getchar.png" alt=""/>
+                </td>
+                <td class="help_text">
+                    90コイン使うと、答えが1文字表示されます。
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/button/game-share.png" alt=""/>
+                </td>
+                <td class="help_text">
+                    シェアをして友達に聞いてみるのも良いですね！シェアをすると1日10コインがGETできます。
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-    <div id="game-title">
-        <span id="game-title-text">第0問</span>
-    </div>
+        <p class="p1 pay_title">
+            <img src="img/icon/gem-one.png" alt=""/>
+            <span>宝石について</span>
+        </p>
+        <p dir="ltr" class="pay_des">
+            宝石を使ってエリアのロックを解除することができるよ！（１エリア＝１宝石）
+        </p>
+        <p dir="ltr" class="pay_des">
+            宝石をコインに変えることもできます。（１宝石＝１００コイン）
+        </p>
 
-    <!-- page body -->
-    <div id="game-body">
-        <div id="game-content-div" class="ui-grid-b">
-            <!-- left site buttons -->
-            <div id="game-props-left" class="ui-block-a">
-                <div id="game-getchar-btn" class="game-props-btn">
-                    <img id="game-getchar-img" class="game-props-img" src="img/button/game-getchar.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -90
-                    </div>
-                </div>
-                <div id="game-cutdown-btn" class="game-props-btn">
-                    <img id="game-cutdown-img" class="game-props-img" src="img/button/game-cutdown.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -30
-                    </div>
-                </div>
-            </div>
-            <!-- game picture -->
-            <div id="game-picture-container" class="ui-block-b">
-                <div id="game-picture">
-                    <div id="game-prompt-div">Prompt Info</div>
-                    <div id="game-correct-answer">Answer</div>
-                </div>
-            </div>
-            <!-- right site buttons -->
-            <div id="game-props-right" class="ui-block-c">
-                <div id="game-prompt-btn" class="game-props-btn">
-                    <img id="game-prompt-img" class="game-props-img" src="img/button/game-prompt.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        -30
-                    </div>
-                </div>
-                <div id="game-share-btn" class="game-props-btn">
-                    <img id="game-share-img" class="game-props-img" src="img/button/game-share.png"/>
-                    <div class="game-props-coin">
-                        <img class="game-props-coin-img" src="img/icon/coin-small.png"/>
-                        +3
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- game answer characters -->
-        <div id="game-answer-container">
-            <div id="answer-btn-0" class="game-answer-btn"></div>
-            <div id="answer-btn-1" class="game-answer-btn"></div>
-            <div id="answer-btn-2" class="game-answer-btn"></div>
-            <div id="answer-btn-3" class="game-answer-btn"></div>
-            <div id="answer-btn-4" class="game-answer-btn"></div>
-            <div id="answer-btn-5" class="game-answer-btn"></div>
-            <div id="answer-btn-6" class="game-answer-btn"></div>
-            <div id="answer-btn-7" class="game-answer-btn"></div>
-        </div>
-
-        <!-- game alternative answer characters -->
-        <div id="game-char-container">
-            <div class="game-char-row">
-                <div id="char-btn-0" class="game-char-btn"></div>
-                <div id="char-btn-1" class="game-char-btn"></div>
-                <div id="char-btn-2" class="game-char-btn"></div>
-                <div id="char-btn-3" class="game-char-btn"></div>
-                <div id="char-btn-4" class="game-char-btn"></div>
-                <div id="char-btn-5" class="game-char-btn"></div>
-                <div id="char-btn-6" class="game-char-btn"></div>
-                <div id="char-btn-7" class="game-char-btn"></div>
-            </div>
-            <div class="game-char-row">
-                <div id="char-btn-8" class="game-char-btn"></div>
-                <div id="char-btn-9" class="game-char-btn"></div>
-                <div id="char-btn-10" class="game-char-btn"></div>
-                <div id="char-btn-11" class="game-char-btn"></div>
-                <div id="char-btn-12" class="game-char-btn"></div>
-                <div id="char-btn-13" class="game-char-btn"></div>
-                <div id="char-btn-14" class="game-char-btn"></div>
-                <div id="char-btn-15" class="game-char-btn"></div>
-            </div>
-            <div class="game-char-row">
-                <div id="char-btn-16" class="game-char-btn"></div>
-                <div id="char-btn-17" class="game-char-btn"></div>
-                <div id="char-btn-18" class="game-char-btn"></div>
-                <div id="char-btn-19" class="game-char-btn"></div>
-                <div id="char-btn-20" class="game-char-btn"></div>
-                <div id="char-btn-21" class="game-char-btn"></div>
-                <div id="char-btn-22" class="game-char-btn"></div>
-                <div id="char-btn-23" class="game-char-btn"></div>
-            </div>
-            <div class="game-char-row">
-                <div id="char-btn-24" class="game-char-btn"></div>
-                <div id="char-btn-25" class="game-char-btn"></div>
-                <div id="char-btn-26" class="game-char-btn"></div>
-                <div id="char-btn-27" class="game-char-btn"></div>
-                <div id="char-btn-28" class="game-char-btn"></div>
-                <div id="char-btn-29" class="game-char-btn"></div>
-                <div id="char-btn-30" class="game-char-btn"></div>
-                <div id="char-btn-31" class="game-char-btn"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- answer correct popup -->
-    <div data-role="popup" id="game-popup-answer-correct" data-overlay-theme="b" data-dismissible="false">
-        <p>Answer is correct, +3 Coin.</p>
-        <div>
-            <button id="game-popup-next-btn" class="ui-btn ui-btn-inline">Play Next</button>
-        </div>
-    </div>
-
-    <!-- coin not enough popup -->
-    <div data-role="popup" id="game-popup-coin-not-enough" class="ui-content" data-overlay-theme="b" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>You do not have enough coin for this operation.<br/>Do you want to get some by exchanging gem?</p>
-        <div>
-            <button id="game-popup-coin-exchange-btn" class="ui-btn ui-btn-inline">Exchange</button>
-        </div>
-    </div>
-
-    <!-- share popup -->
-    <div data-role="popup" id="game-popup-share" class="ui-content" data-overlay-theme="b" data-dismissible="false">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <p>毎日シェアする、楽しみに3コインを獲得します。</p>
-        <div class="ui-grid-c">
-            <div id="game-share-fb-btn" class="ui-block-a center"><img src="img/icon/share-facebook.png" class="popup-share-btn"></div>
-            <div id="game-share-tw-btn" class="ui-block-b center"><img src="img/icon/share-twitter.png" class="popup-share-btn"></div>
-            <div id="game-share-line-btn" class="ui-block-c center"><img src="img/icon/share-line.png" class="popup-share-btn"></div>
-            <div id="game-share-other-btn" class="ui-block-d center"><img src="img/icon/share-other.png" class="popup-share-btn"></div>
-        </div>
+        <p class="p1 pay_title">
+            <img src="img/icon/coin-one.png" alt=""/>
+            <span>コインについて</span>
+        </p>
+        <p dir="ltr" class="pay_des">
+            １つのエリアをクリアすると１００コインをGETすることができます。
+        </p>
+        <p dir="ltr" class="pay_des">
+            SNSシェアで１日1回10コインGETすることができます。
+        </p>
+        <p dir="ltr" class="pay_des">
+            コインを使って様々なヒントをもらうことができます。
+        </p>
+        <p class="p1 contact">
+            <span>熱狂クイズ運営事務局：</span>
+            <a href="mailto:nekyou.quiz@gmail.com">
+                <span>nekyou.quiz@gmail.com </span>
+            </a>
+        </p>
+        <p class="p1 contact">
+            <span>公式フェイスブックもチェック!!</span>
+        </p>
+        <p class="p1 home_page">
+            <a href="＃" onclick='window.open("http://www.facebook.com/nekyou.quiz", "_system");'>
+                <img style="" src="img/button/fb_page.png"/>
+            </a>
+        </p>
     </div>
 </div>
 
+</span>
 </body>
 </html>

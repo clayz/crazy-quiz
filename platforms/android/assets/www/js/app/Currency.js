@@ -1,66 +1,64 @@
 CQ.Currency = {
-    account: { gem: 1, coin: 100 },
+    account: { gem: 5, coin: 100 },
     history: { earn: [], consume: [], purchase: [], exchange: [] },
 
     Earn: {
-        Login: { id: 1, coin: 1 },
-        Share: { id: 2, coin: 3 },
+        // coin
+        Login: { id: 1, coin: 5 },
+        Share: { id: 2, coin: 10 },
         Rating: { id: 3, coin: 100 },
-        Quiz: { id: 4, coin: 3 }, // correct answer
-        Level: {id: 5, coin: 50}, // finish level
-        Album: { id: 6, coin: 100 } // finish album
+        Quiz: { id: 4, coin: 5 }, // correct answer
+        Level: { id: 5, coin: 100 }, // finish level
+        Album: { id: 6, coin: 300 }, // finish album
+
+        // gem
+        FirstPurchase: { id: 101, gem: 10 }
     },
 
     Consume: {
         // coin
-        CutDown: { id: 1, coin: 30 },
-        GetChar: { id: 2, coin: 50 },
-        Prompt: { id: 3, coin: 10 },
+        CutDown: { id: 1, coin: 50 },
+        GetChar: { id: 2, coin: 90 },
+        Prompt: { id: 3, coin: 30 },
 
         // gem
-        UnlockLevel: { id: 101, gem: 1 },
-        UnlockAlbum: { id: 102, gem: 3 }
+        UnlockLevel: { id: 101, gem: 10 },
+        UnlockAlbum: { id: 102, gem: 30 }
     },
 
     Purchase: {
-        Goods1: { id: 1, gem: 10, cost: 100 },
-        Goods2: { id: 2, gem: 22, cost: 200 },
-        Goods3: { id: 3, gem: 60, cost: 500 },
-        Goods4: { id: 4, gem: 130, cost: 1000 },
-        Goods5: { id: 5, gem: 300, cost: 2000 }
+        Goods1: { id: 1, gem: 10, cost: 100, productId: "", title: "10個", description: "ボナースなし" },
+        Goods2: { id: 2, gem: 35, cost: 300, productId: "", title: "35個", description: "5個ボナース！" },
+        Goods3: { id: 3, gem: 75, cost: 600, productId: "", title: "75個", description: "15個ボナース！" },
+        Goods4: { id: 4, gem: 130, cost: 1000, productId: "", title: "130個", description: "30個ボナース！" },
+        Goods5: { id: 5, gem: 400, cost: 3000, productId: "", title: "400個", description: "100個ボナース！" }
     },
 
     Exchange: {
-        Goods1: { id: 1, gem: 10, coin: 1000 },
-        Goods2: { id: 2, gem: 20, coin: 2100 },
-        Goods3: { id: 3, gem: 50, coin: 6000 },
-        Goods4: { id: 4, gem: 100, coin: 13000 },
-        Goods5: { id: 5, gem: 200, coin: 28000 }
+        Goods1: { id: 1, gem: 1, coin: 30, description: "ボナースなし" },
+        Goods2: { id: 2, gem: 10, coin: 310, description: "3%ボナース！" },
+        Goods3: { id: 3, gem: 50, coin: 1580, description: "5%ボナース！" },
+        Goods4: { id: 4, gem: 100, coin: 3250, description: "8%ボナース！" },
+        Goods5: { id: 5, gem: 200, coin: 6600, description: "10%ボナース！" }
     },
 
     init: function() {
         console.info('Initial currency module');
 
-        var account = CQ.Datastore.getAccount();
+        var account = CQ.Datastore.Currency.getAccount();
         if (account) this.account = account;
-        else CQ.Datastore.setAccount(this.account);
+        else CQ.Datastore.Currency.setAccount(this.account);
 
-        var history = CQ.Datastore.getHistory();
+        var history = CQ.Datastore.Currency.getHistory();
         if (history) this.history = history;
-        else CQ.Datastore.setHistory(this.history);
-
-        // TODO only used for development, remove it later
-        console.info('Earn history: {0}'.format(CQ.Utils.toString(this.history.earn)));
-        console.info('Consume history: {0}'.format(CQ.Utils.toString(this.history.consume)));
-        console.info('Purchase history: {0}'.format(CQ.Utils.toString(this.history.purchase)));
-        console.info('Exchange history: {0}'.format(CQ.Utils.toString(this.history.exchange)));
+        else CQ.Datastore.Currency.setHistory(this.history);
     },
 
     updateAccount: function(gem, coin) {
         console.info('Update account, gem: {0}, coin: {1}'.format(gem, coin));
         this.account.gem += gem;
         this.account.coin += coin;
-        CQ.Datastore.setAccount(this.account);
+        CQ.Datastore.Currency.setAccount(this.account);
     },
 
     checkCoin: function(goods) {
@@ -72,31 +70,19 @@ CQ.Currency = {
     },
 
     earn: function(type) {
-        console.info('Earn coin, type: {0}'.format(type.id));
+        console.info('Earn type: {0}'.format(type.id));
 
-        // validation
-        if (type.id == this.Earn.Share.id) {
-            var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.getLastShareDate();
-
-            if (lastShareDate && (lastShareDate == today)) {
-                console.info('Already get share coin today: {0}'.format(today));
-                return false;
-            } else {
-                CQ.Datastore.setLastShareDate(today);
-            }
-        }
-
-        // update account and save into data store
-        this.updateAccount(0, type.coin);
-
-        // save operation history
+        // update account and save history
+        this.updateAccount(type.gem || 0, type.coin || 0);
         this.history.earn.push({
             type: type.id,
+            gem: type.gem,
             coin: type.coin,
             date: new Date().getTime()
         });
 
-        CQ.Datastore.setObject(CQ.Datastore.Key.EARN_HISTORY, this.history.earn);
+        CQ.Datastore.Currency.setEarnHistory(this.history.earn);
+        return true;
     },
 
     consume: function(type, album, level, picture) {
@@ -116,7 +102,7 @@ CQ.Currency = {
                     date: new Date().getTime()
                 });
 
-                CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
+                CQ.Datastore.Currency.setConsumeHistory(this.history.consume);
                 return true;
             } else {
                 console.info('No enough coin, current coin: {0}'.format(this.account.coin));
@@ -136,7 +122,7 @@ CQ.Currency = {
                     date: new Date().getTime()
                 });
 
-                CQ.Datastore.setObject(CQ.Datastore.Key.CONSUME_HISTORY, this.history.consume);
+                CQ.Datastore.Currency.setConsumeHistory(this.history.consume);
                 return true;
             } else {
                 console.info('No enough gem, current gem: {0}'.format(this.account.gem));
@@ -159,7 +145,10 @@ CQ.Currency = {
             date: new Date().getTime()
         });
 
-        CQ.Datastore.setObject(CQ.Datastore.Key.PURCHASE_HISTORY, this.history.purchase);
+        CQ.Datastore.Currency.setPurchaseHistory(this.history.purchase);
+        CQ.GA.track(CQ.GA.Shop.Purchase, CQ.GA.Shop.Purchase.label.format(goods.id));
+
+        return true;
     },
 
     exchange: function(goods) {
@@ -176,7 +165,9 @@ CQ.Currency = {
                 date: new Date().getTime()
             });
 
-            CQ.Datastore.setObject(CQ.Datastore.Key.EXCHANGE_HISTORY, this.history.exchange);
+            CQ.Datastore.Currency.setExchangeHistory(this.history.exchange);
+            CQ.GA.track(CQ.GA.Shop.Exchange, CQ.GA.Shop.Exchange.label.format(goods.id));
+
             return true;
         } else {
             console.info('No enough gem, current gem: {0}'.format(this.account.gem));

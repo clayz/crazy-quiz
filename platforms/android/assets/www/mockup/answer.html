@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ios.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">Popup</button>
+
+    <div data-role="popup" id="game-popup-pass" data-overlay-theme="b" data-dismissible="false" class="popup-container">
+        <div id="game-popup-pass-content" class="popup-content">
+            <div id="game-popup-pass-bg"></div>
+            <div id="game-popup-pass-picture">
+                <div id="game-popup-pass-picture-number">20</div>
+                <div id="game-popup-pass-picture-name">ヒックとドラゴン</div>
+            </div>
+            <div id="game-popup-pass-info">
+                <div id="game-popup-pass-bonus-bg"></div>
+                <div id="game-popup-pass-bonus-coin"></div>
+                <div id="game-popup-pass-bonus-text"> × 3</div>
+            </div>
+            <div id="game-popup-pass-sep"></div>
+            <div id="game-popup-pass-current-coin" class="clear-both">
+                拥有金币：200
+            </div>
+        </div>
+        <div class="popup-buttons ui-grid-a clear-both">
+            <div class="ui-block-a">
+                <img id="game-popup-pass-share-btn" class="popup-button-left" src="../img/button/share.png"/>
+            </div>
+            <div class="ui-block-b">
+                <img id="game-popup-pass-next-btn" class="popup-button-right" src="../img/button/next.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            $("#game-popup-pass").popup();
+            $('#game-popup-pass').popup('open');
+        });
+    });
+</script>
+</body>
+</html>

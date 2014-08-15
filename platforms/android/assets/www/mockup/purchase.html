@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ios.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">Popup</button>
+
+    <!-- Coin shop popup -->
+    <div data-role="popup" class="popup-coin-shop popup-shop popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <div class="popup-coin-banner"></div>
+            <div class="popup-goods-container">
+                <div class="popup-goods popup-goods-1">
+                    <div class="left popup-coin-set-1"></div>
+                    <div class="left popup-goods-amount">30</div>
+                    <div class="left popup-goods-info">ボナースなし</div>
+                    <div class="right popup-goods-gem">
+                        <div class="left popup-goods-gem-icon"></div>
+                        <div class="left popup-goods-cost">1個</div>
+                    </div>
+                </div>
+                <div class="popup-goods popup-goods-2">
+                    <div class="left popup-coin-set-2"></div>
+                    <div class="left popup-goods-amount">310</div>
+                    <div class="left popup-goods-info">3%ボナース！</div>
+                    <div class="right popup-goods-gem">
+                        <div class="left popup-goods-gem-icon"></div>
+                        <div class="left popup-goods-cost">10個</div>
+                    </div>
+                </div>
+                <div class="popup-goods popup-goods-3">
+                    <div class="left popup-coin-set-3"></div>
+                    <div class="left popup-goods-amount">1575</div>
+                    <div class="left popup-goods-info">5%ボナース！</div>
+                    <div class="right popup-goods-gem">
+                        <div class="left popup-goods-gem-icon"></div>
+                        <div class="left popup-goods-cost">50個</div>
+                    </div>
+                </div>
+                <div class="popup-goods popup-goods-4">
+                    <div class="left popup-coin-set-4"></div>
+                    <div class="left popup-goods-amount">3240</div>
+                    <div class="left popup-goods-info">8%ボナース！</div>
+                    <div class="right popup-goods-gem">
+                        <div class="left popup-goods-gem-icon"></div>
+                        <div class="left popup-goods-cost">100個</div>
+                    </div>
+                </div>
+                <div class="popup-goods popup-goods-5">
+                    <div class="left popup-coin-set-5"></div>
+                    <div class="left popup-goods-amount">6600</div>
+                    <div class="left popup-goods-info">10%ボナース！</div>
+                    <div class="right popup-goods-gem">
+                        <div class="left popup-goods-gem-icon"></div>
+                        <div class="left popup-goods-cost">200個</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            $("#main").find(".popup-coin-shop").popup();
+            $('#main').find('.popup-coin-shop').popup('open');
+        });
+    });
+</script>
+</body>
+</html>
