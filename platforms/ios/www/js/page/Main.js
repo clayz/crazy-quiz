@@ -92,6 +92,21 @@ CQ.Page.Main = {
 
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
+
+        // open rating popup if required
+        if (!CQ.Datastore.User.isRated()) {
+            if (CQ.Datastore.User.getStartTimes() % 5 == 0) {
+                $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
+                this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
+                this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
+                this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
+
+                $('#' + this.name).on('pageshow', function() {
+                    $(CQ.Id.Main.$POPUP_RATING).popup('open');
+                    $(this).unbind('pageshow');
+                });
+            }
+        }
     },
 
     initButtons: function() {
@@ -291,13 +306,21 @@ CQ.Page.Main = {
     },
 
     clickRating: function() {
-        CQ.GA.trackPage('PlayStore');
-        window.open('market://details?id=com.cyberagent.jra');
+        $(CQ.Id.Main.$POPUP_RATING).popup('close');
+        CQ.Datastore.User.setRated();
+
+        if (CQ.App.iOS) {
+            CQ.GA.trackPage('App Store');
+            window.open('itms-apps://itunes.apple.com/app/id889870872');
+        } else if (CQ.App.android) {
+            CQ.GA.trackPage('Play Store');
+            window.open('market://details?id=com.clay.cp');
+        }
     },
 
     clickHelp: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.HelpGuide);
+        CQ.Page.open(CQ.Page.Help);
     }
 };
 
