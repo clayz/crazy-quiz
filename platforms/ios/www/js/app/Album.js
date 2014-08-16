@@ -178,14 +178,14 @@ CQ.Album = {
 
 CQ.Album.Default = {
     id: 1,
-    name: 'チャレンジ',
+    name: 'クラシック',
     path: 'img/album/default/',
     active: true,
 
     levels: [
         {
             level: 1,
-            name: '幼稚園',
+            name: 'ステージ１',
             pictures: [
                 { id: 100, name: 'スターバックス', category: CQ.Album.Category.Brand, answers: [] },
                 { id: 101, name: 'LV', category: CQ.Album.Category.Brand, answers: [] },
@@ -211,7 +211,7 @@ CQ.Album.Default = {
         },
         {
             level: 2,
-            name: '小学',
+            name: 'ステージ２',
             pictures: [
                 { id: 200, name: 'ワンピース', category: CQ.Album.Category.Series, answers: [] },
                 { id: 201, name: 'シュレック', category: CQ.Album.Category.Film, answers: [] },
@@ -237,7 +237,7 @@ CQ.Album.Default = {
         },
         {
             level: 3,
-            name: '中学',
+            name: 'ステージ３',
             pictures: [
                 { id: 300, name: 'アメリ', category: CQ.Album.Category.Film, answers: [] },
                 { id: 301, name: 'マリーキュリー', category: CQ.Album.Category.Celebrity, answers: [] },
@@ -263,7 +263,7 @@ CQ.Album.Default = {
         },
         {
             level: 4,
-            name: '大学',
+            name: 'ステージ４',
             pictures: [
                 { id: 400, name: 'チリ', category: CQ.Album.Category.Country, answers: [] },
                 { id: 401, name: 'ビルゲイツ', category: CQ.Album.Category.Celebrity, answers: [] },
@@ -289,7 +289,7 @@ CQ.Album.Default = {
         },
         {
             level: 5,
-            name: '大学院',
+            name: 'ステージ５',
             pictures: [
                 { id: 500, name: 'スマーフ', category: CQ.Album.Category.Cartoon, answers: [] },
                 { id: 501, name: 'カンフーパンダ', category: CQ.Album.Category.Film, answers: [] },
@@ -300,7 +300,7 @@ CQ.Album.Default = {
         },
         {
             level: 6,
-            name: '先生',
+            name: 'ステージ６',
             pictures: [
                 { id: 600, name: 'ベッカム', category: CQ.Album.Category.Celebrity, answers: [] },
                 { id: 601, name: 'アカデミー賞', category: CQ.Album.Category.Brand, answers: [] },
