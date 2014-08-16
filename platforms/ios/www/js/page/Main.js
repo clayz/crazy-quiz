@@ -279,31 +279,31 @@ CQ.Page.Main = {
         }
     },
 
-    clickUnlockableAlbum: function(event) {
-        CQ.Audio.Button.play();
-        var albumId = event.data.albumId;
+//    clickUnlockableAlbum: function(event) {
+//        CQ.Audio.Button.play();
+//        var albumId = event.data.albumId;
+//
+//        if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockAlbum.gem) {
+//            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('open');
+//            CQ.Page.Main.selectedUnlockAlbum = { albumId: albumId };
+//        } else {
+//            $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).popup('open');
+//        }
+//    },
 
-        if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockAlbum.gem) {
-            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('open');
-            CQ.Page.Main.selectedUnlockAlbum = { albumId: albumId };
-        } else {
-            $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).popup('open');
-        }
-    },
+//    clickUnlockDisableAlbum: function() {
+//        CQ.Audio.Button.play();
+//        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
+//    },
 
-    clickUnlockDisableAlbum: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
-    },
-
-    clickUnlockAlbum: function() {
-        CQ.Audio.Button.play();
-        if (CQ.Page.Main.selectedUnlockAlbum) {
-            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
-            CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
-            CQ.Page.Main.selectedUnlockAlbum = null;
-        }
-    },
+//    clickUnlockAlbum: function() {
+//        CQ.Audio.Button.play();
+//        if (CQ.Page.Main.selectedUnlockAlbum) {
+//            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
+//            CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
+//            CQ.Page.Main.selectedUnlockAlbum = null;
+//        }
+//    },
 
     clickRating: function() {
         $(CQ.Id.Main.$POPUP_RATING).popup('close');

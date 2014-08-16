@@ -28,7 +28,7 @@ CQ.SNS = {
                 CQ.Datastore.Currency.setLastShareDate(today);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
                 CQ.Page.refreshCurrency();
-                CQ.Page.openPrompt('10シェアコインもらった。');
+                CQ.Page.openPrompt('シェアが完了しました。<br/>10コインをGET！');
             }
 
             CQ.GA.track(CQ.GA.Share.Success);
@@ -56,7 +56,7 @@ CQ.SNS = {
                 CQ.Datastore.Picture.setPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
                 CQ.Page.refreshCurrency();
-                CQ.Page.openPrompt('10シェアコインもらった。');
+                CQ.Page.openPrompt('シェアが完了しました。<br/>10コインをGET！');
             }
 
             CQ.GA.track(CQ.GA.Share.Success, CQ.GA.Share.Success.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
