@@ -1281,3 +1281,8 @@ li:hover {
     text-align: center;
     padding: 5px;
 }
+
+#help .fb-page-btn {
+    width: 12em;
+    height: 4em;
+}

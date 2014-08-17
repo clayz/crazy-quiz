@@ -134,6 +134,8 @@ CQ.Page.Main = {
         var randomText = this.welcomeText[Math.floor(Math.random() * this.welcomeText.length)];
         var welcomeText = "{0}さん<br/>{1}".format(CQ.User.getName(), randomText);
         $(CQ.Id.Main.$WELCOME_CONTENT).html(welcomeText);
+
+        CQ.Audio.GameBackground.play();
     },
 
     setLevelStatusText: function(album, level, lastPictureIndex) {

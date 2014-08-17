@@ -8,7 +8,12 @@ CQ.Audio = {
     },
 
     play: function() {
-        if (this.media) this.media.play();
+        if (this.media)
+            if (CQ.App.iOS()) {
+                this.media.play({ playAudioWhenScreenIsLocked: false, numberOfLoops: this.loops });
+            } else if (CQ.App.android()) {
+                // TODO add android audio support
+            }
     },
 
     pause: function() {
@@ -29,15 +34,18 @@ CQ.Audio = {
 };
 
 CQ.Audio.Button = {
-    file: 'audio/button.wav'
+    file: 'audio/button.wav',
+    loops: 1
 };
 
 CQ.Audio.GameChar = {
-    file: 'audio/game_char.wav'
+    file: 'audio/game_char.wav',
+    loops: 1
 };
 
 CQ.Audio.GameBackground = {
-    file: 'audio/game_bg.ogg'
+    file: 'audio/game_bg.mp3',
+    loops: 9999
 };
 
 

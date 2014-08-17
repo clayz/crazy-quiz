@@ -23,8 +23,8 @@
     <description>
         Hello World sample application that responds to the deviceready event.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="nekyou.quiz@gmail.com" href="http://crazy-quiz.appspot.com/">
+        Bulb Studio
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
@@ -66,14 +66,12 @@
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
-    <access origin="http://127.0.0.1*" />
-    <access origin="http://*.google-analytics.com" />
-    <access origin="https://*.google-analytics.com" />
-    <feature name="GAPlugin">
-        <param name="ios-package" value="GAPlugin" />
-    </feature>
+    <access origin="*" subdomains="true" />
     <feature name="SocialSharing">
         <param name="ios-package" value="SocialSharing" />
+    </feature>
+    <feature name="UniversalAnalytics">
+        <param name="ios-package" value="UniversalAnalyticsPlugin" />
     </feature>
     <feature name="File">
         <param name="ios-package" value="CDVFile" />
@@ -84,5 +82,11 @@
     </feature>
     <feature name="UniversalAnalytics">
         <param name="ios-package" value="UniversalAnalyticsPlugin" />
+    </feature>
+    <feature name="InAppPurchase">
+        <param name="ios-package" value="InAppPurchase" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
 </widget>
