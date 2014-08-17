@@ -28,10 +28,6 @@ CQ.Page.Main = {
             var album = CQ.Album.getAlbum(albumId), lastLevel = CQ.Datastore.Picture.getLastLevel(album.id);
             console.log('Album {0}, last level {1}'.format(albumId, lastLevel));
 
-            if (albumId == 1) {
-                $(CQ.Id.Main.$ALBUM_NAME).text(album.name);
-            }
-
             // render and bind events for all levels
             for (var level = 1; level <= album.levels.length; level++) {
                 (function(album, level, lastLevel) {
@@ -167,8 +163,6 @@ CQ.Page.Main = {
 
             if (nextAlbum) {
                 // display next album levels
-                $(CQ.Id.Main.$ALBUM_NAME).text(nextAlbum.name);
-
                 if (CQ.Album.isAlbumLocked(nextAlbumId)) {
                     $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show();
                 } else {
@@ -196,8 +190,7 @@ CQ.Page.Main = {
                 $(CQ.Id.Main.$ALBUM_CONTAINER).show();
             }
 
-            var nextAlbumId = --CQ.Page.Main.albumId, nextAlbum = CQ.Album.getAlbum(nextAlbumId);
-            $(CQ.Id.Main.$ALBUM_NAME).text(nextAlbum.name);
+            var nextAlbumId = --CQ.Page.Main.albumId;
 
             if (CQ.Album.isAlbumLocked(nextAlbumId)) {
                 $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show();
