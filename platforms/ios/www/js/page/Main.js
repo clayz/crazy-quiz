@@ -91,7 +91,9 @@ CQ.Page.Main = {
 
         // open rating popup if required
         if (!CQ.Datastore.User.isRated()) {
-            if (CQ.Datastore.User.getStartTimes() % 5 == 0) {
+            var startTimes = CQ.Datastore.User.getStartTimes();
+
+            if ((startTimes > 0) && (startTimes % 5 == 0)) {
                 $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
                 this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
                 this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
