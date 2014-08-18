@@ -303,6 +303,7 @@ CQ.Page.Main = {
 //    },
 
     clickRating: function() {
+        CQ.Audio.Button.play();
         $(CQ.Id.Main.$POPUP_RATING).popup('close');
         CQ.Datastore.User.setRated();
 

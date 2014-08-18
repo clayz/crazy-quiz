@@ -186,6 +186,7 @@ CQ.Page.Game = {
 
     cutdown: function() {
         console.info('Start cutdown one answer transaction.');
+        CQ.Audio.Button.play();
         var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
 
         for (var i = 0; i < usedPictures.length; i++) {
@@ -220,6 +221,7 @@ CQ.Page.Game = {
 
     getchar: function() {
         console.info('Start get one character transaction.');
+        CQ.Audio.Button.play();
         var page = CQ.Page.Game, name = page.picture.name.split('');
         page.closePopup();
 
@@ -263,6 +265,7 @@ CQ.Page.Game = {
 
     showPrompt: function() {
         console.info('Start get prompt transaction.');
+        CQ.Audio.Button.play();
         var page = CQ.Page.Game, $prompt = $(CQ.Id.Game.$PROMPT_DIV);
 
         $prompt.text(page.picture.category.name);
@@ -366,6 +369,9 @@ CQ.Page.Game = {
     },
 
     showPassPopup: function(earned) {
+        CQ.Audio.GameBackground.stop();
+        CQ.Audio.GamePassPicture.play();
+
         $(CQ.Id.Game.$POPUP_PASS_PICTURE_NUMBER).html(this.album.getPictureLevelAndIndex(this.picture.id).index + 1);
         $(CQ.Id.Game.$POPUP_PASS_PICTURE_NAME).html(this.picture.name);
         $(CQ.Id.Game.$POPUP_PASS_CURRENCY).html(CQ.Currency.account.coin);
@@ -381,6 +387,7 @@ CQ.Page.Game = {
     },
 
     clickNext: function() {
+        CQ.Audio.Button.play();
         var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
 
         if (nextPicture) {
@@ -395,6 +402,8 @@ CQ.Page.Game = {
         } else {
             CQ.Page.Game.open(CQ.Page.Main);
         }
+
+        CQ.Audio.GameBackground.play();
     },
 
     removeChar: function(char) {

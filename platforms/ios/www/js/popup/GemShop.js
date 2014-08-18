@@ -30,6 +30,7 @@ CQ.Popup.GemShop = function(page) {
 
 CQ.Popup.GemShop.prototype.buy = function(goods) {
     console.log('Start transaction, goods id: ' + goods.id);
+    CQ.Audio.Button.play();
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
 
     if (CQ.App.iOS) {
