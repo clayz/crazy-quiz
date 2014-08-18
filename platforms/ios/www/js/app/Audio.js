@@ -9,7 +9,7 @@ CQ.Audio = {
     },
 
     play: function() {
-        if (this.media) {
+        if (this.media && CQ.audio) {
             if (CQ.App.iOS()) {
                 this.media.play({ playAudioWhenScreenIsLocked: false, numberOfLoops: this.loops });
             } else if (CQ.App.android()) {

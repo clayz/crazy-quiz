@@ -6,9 +6,9 @@ CQ.Datastore = {
         return window.localStorage.getItem(key);
     },
 
-    getBoolean: function(key) {
+    getBoolean: function(key, defaultValue) {
         var value = this.get(key);
-        return value && (value == 'true');
+        return value ? value == 'true' : defaultValue;
     },
 
     getInt: function(key) {
@@ -62,7 +62,7 @@ CQ.Datastore.User = {
     },
 
     isAudioEnabled: function() {
-        return this.getBoolean(this.Key.AUDIO_ENABLED);
+        return this.getBoolean(this.Key.AUDIO_ENABLED, true);
     },
 
     setAudioEnabled: function(isEnabled) {

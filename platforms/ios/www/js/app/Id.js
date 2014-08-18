@@ -11,6 +11,8 @@ CQ.Id = {
     CSS: {
         $HEADER: '.header',
         $HEADER_BACK: '.header-back-btn',
+        $HEADER_AUDIO_ON: '.header-audio-on',
+        $HEADER_AUDIO_OFF: '.header-audio-off',
         $HEADER_GEM_CURRENT: '.header-gem-current',
         $HEADER_GEM_PURCHASE: '.header-gem-add-btn',
         $HEADER_COIN_CURRENT: '.header-coin-current',

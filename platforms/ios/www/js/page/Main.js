@@ -15,9 +15,12 @@ CQ.Page.Main = {
     init: function() {
         console.info('Initial main page');
 
-        if (CQ.App.iOS()) this.initCommon({ header: true, back: false, share: true });
-        else this.initCommon({ header: true, back: true, share: true });
-
+        this.initCommon({
+            header: true,
+            back: false,
+            audio: true,
+            share: true
+        });
         this.initPopups();
         this.initButtons();
 
@@ -137,7 +140,9 @@ CQ.Page.Main = {
         var welcomeText = "{0}さん<br/>{1}".format(CQ.User.getName(), randomText);
         $(CQ.Id.Main.$WELCOME_CONTENT).html(welcomeText);
 
-        CQ.Audio.GameBackground.play();
+        if (CQ.Datastore.User.isAudioEnabled()) {
+            CQ.Audio.GameBackground.play();
+        }
     },
 
     setLevelStatusText: function(album, level, lastPictureIndex) {

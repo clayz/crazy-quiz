@@ -191,14 +191,15 @@ p {
 }
 
 .header-audio-on {
-    width: 3.5em;
-    height: 3.5em;
+    display: none;
+    width: 3em;
+    height: 3em;
 }
 
 .header-audio-off {
     display: none;
-    width: 3.5em;
-    height: 3.5em;
+    width: 3em;
+    height: 3em;
 }
 
 .header-currency {
