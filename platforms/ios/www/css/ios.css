@@ -192,14 +192,16 @@ p {
 
 .header-audio-on {
     display: none;
-    width: 3em;
-    height: 3em;
+    padding: .5em 0 0 0;
+    width: 2.8em;
+    height: 2.8em;
 }
 
 .header-audio-off {
     display: none;
-    width: 3em;
-    height: 3em;
+    padding: .5em 0 0 0;
+    width: 2.8em;
+    height: 2.8em;
 }
 
 .header-currency {

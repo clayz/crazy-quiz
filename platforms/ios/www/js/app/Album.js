@@ -10,7 +10,8 @@ CQ.Album = {
         Celebrity: { id: 6, name: '有名人' },
         Game: { id: 7, name: 'ゲーム' },
         Country: { id: 8, name: '国家' },
-        City: { id: 9, name: '都市' }
+        City: { id: 9, name: '都市' },
+        Sports: { id: 10, name: 'スポーツ' }
     },
 
     getAlbum: function(id) {
@@ -291,11 +292,26 @@ CQ.Album.Default = {
             level: 5,
             name: 'ステージ５',
             pictures: [
-                { id: 500, name: 'スマーフ', category: CQ.Album.Category.Cartoon, answers: [] },
-                { id: 501, name: 'カンフーパンダ', category: CQ.Album.Category.Film, answers: [] },
-                { id: 502, name: 'ライオンキング', category: CQ.Album.Category.Film, answers: [] },
-                { id: 503, name: 'ロードオブザリン', category: CQ.Album.Category.Film, answers: [] },
-                { id: 504, name: 'フェラーリ', category: CQ.Album.Category.Brand, answers: [] }
+                { id: 500, name: 'Ameba', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 501, name: 'CoCo壱番屋', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 502, name: 'ロッテリア', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 503, name: 'モスバーガー', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 504, name: 'ソフトバンク犬', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 505, name: 'Wendys', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 506, name: 'すき家', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 507, name: 'バーミヤン', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 508, name: '丸井', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 509, name: 'ドラえもん', category: CQ.Album.Category.Cartoon, answers: [] },
+                { id: 510, name: 'ポケモン', category: CQ.Album.Category.Game, answers: [] },
+                { id: 511, name: 'ユベントス', category: CQ.Album.Category.Sports, answers: [] },
+                { id: 512, name: 'スカイツリー', category: CQ.Album.Category.Sports, answers: [] },
+                { id: 513, name: 'グリコ', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 514, name: '相棒', category: CQ.Album.Category.Series, answers: [] },
+                { id: 515, name: '花王', category: CQ.Album.Category.Brand, answers: [] },
+                { id: 516, name: '豐臣秀吉', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 517, name: '野口英世', category: CQ.Album.Category.Celebrity, answers: [] },
+                { id: 518, name: '金閣寺', category: CQ.Album.Category.City, answers: [] },
+                { id: 519, name: '高知县', category: CQ.Album.Category.City, answers: [] }
             ]
         },
         {
