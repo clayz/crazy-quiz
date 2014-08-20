@@ -100,7 +100,10 @@ CQ.Page.Game = {
 
         var $nextBtn = $(CQ.Id.Game.$POPUP_NEXT);
         this.bindTouchImage($nextBtn, CQ.Id.Image.BTN_NEXT_TAP, CQ.Id.Image.BTN_NEXT);
-        $nextBtn.click(CQ.Page.Game.clickNext);
+        $nextBtn.click(function() {
+            CQ.Audio.Button.play();
+            CQ.Page.Game.clickNext();
+        });
 
         var $shareBtn = $(CQ.Id.Game.$POPUP_SHARE);
         this.bindTouchImage($shareBtn, CQ.Id.Image.BTN_SHARE_TAP, CQ.Id.Image.BTN_SHARE);
@@ -130,7 +133,7 @@ CQ.Page.Game = {
         $(this.share.popup.getId()).bind({
             popupafterclose: function() {
                 if (CQ.Page.Game.isAnswerCorrect()) {
-                    $(CQ.Id.Game.$POPUP_NEXT).trigger('click');
+                    CQ.Page.Game.clickNext();
                 }
             }
         });
@@ -387,7 +390,6 @@ CQ.Page.Game = {
     },
 
     clickNext: function() {
-        CQ.Audio.Button.play();
         var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
 
         if (nextPicture) {
