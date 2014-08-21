@@ -44,6 +44,7 @@ CQ.App = {
         });
 
         CQ.Datastore.User.addStartTimes();
+        if (!CQ.Datastore.User.isAudioEnabled()) CQ.audio = false;
 
         // modify jQuery default settings
         $.mobile.defaultPageTransition = 'none';
