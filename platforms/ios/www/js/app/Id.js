@@ -190,6 +190,7 @@ CQ.Id = {
         $TO_GUIDE: '#help-to-guide',
         $TO_QUESTION: '#help-to-question',
         $TO_RULE: '#help-to-rule',
-        $TO_ENQUIRY: '#help-to-enquiry'
+        $TO_ENQUIRY: '#help-to-enquiry',
+        $TO_FACEBOOK: '#help-to-facebook'
     }
 };

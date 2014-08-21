@@ -5,13 +5,20 @@ CQ.Page.Help = {
         console.info('Initial help page');
         this.initCommon({ header: true, back: true });
 
-//        $(CQ.Id.Help.$TO_GUIDE).click(CQ.Page.Help.clickGuide);
+        $(CQ.Id.Help.$TO_FACEBOOK).click(CQ.Page.Help.clickToFacebook);
 //        $(CQ.Id.Help.$TO_QUESTION).click(CQ.Page.Help.clickQuestion);
 //        $(CQ.Id.Help.$TO_RULE).click(CQ.Page.Help.clickRule);
 //        $(CQ.Id.Help.$TO_ENQUIRY).click(CQ.Page.Help.clickEnquiry);
     },
 
     load: function() {
+    },
+    
+    clickToFacebook: function(){
+        document.location = "fb://profile/265923220277093";
+        setTimeout(function(){
+            window.open("http://www.facebook.com/nekyou.quiz", "_system");
+        }, 300);
     }
 
     /*
