@@ -9,9 +9,9 @@ CQ.SNS = {
 
         // parameters: message, subject, file, url, successCallback, errorCallback
         if (image) {
-            window.plugins.socialsharing.share(message, null, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+            window.plugins.socialsharing.share(message, null, image, CQ.URL.FACEBOOK, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
         } else {
-            window.plugins.socialsharing.share(message, null, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+            window.plugins.socialsharing.share(message, null, null, CQ.URL.FACEBOOK, CQ.SNS.shareFinish, CQ.SNS.shareError);
         }
     },
 
@@ -80,9 +80,9 @@ CQ.SNS.Facebook = {
 
         // parameters: message, image, url, successCallback, errorCallback
         if (image) {
-            window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+            window.plugins.socialsharing.shareViaFacebook(message, image, CQ.URL.FACEBOOK, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
         } else {
-            window.plugins.socialsharing.shareViaFacebook(message, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+            window.plugins.socialsharing.shareViaFacebook(message, null, CQ.URL.FACEBOOK, CQ.SNS.shareFinish, CQ.SNS.shareError);
         }
     }
 };
@@ -93,9 +93,9 @@ CQ.SNS.Twitter = {
 
         // parameters: message, image, url, successCallback, errorCallback
         if (image) {
-            window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+            window.plugins.socialsharing.shareViaTwitter(message, image, CQ.URL.FACEBOOK, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
         } else {
-            window.plugins.socialsharing.shareViaTwitter(message, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+            window.plugins.socialsharing.shareViaTwitter(message, null, CQ.URL.FACEBOOK, CQ.SNS.shareFinish, CQ.SNS.shareError);
         }
     }
 };
@@ -106,9 +106,9 @@ CQ.SNS.Line = {
 
         // parameters: via, message, subject, image, url, successCallback, errorCallback
         if (image) {
-            window.plugins.socialsharing.shareVia('line', message, subject, image, CQ.URL.Web.INDEX, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
+            window.plugins.socialsharing.shareVia('line', message, subject, image, CQ.URL.FACEBOOK, CQ.SNS.shareImageFinish, CQ.SNS.shareImageError);
         } else {
-            window.plugins.socialsharing.shareVia('line', message, subject, null, CQ.URL.Web.INDEX, CQ.SNS.shareFinish, CQ.SNS.shareError);
+            window.plugins.socialsharing.shareVia('line', message, subject, null, CQ.URL.FACEBOOK, CQ.SNS.shareFinish, CQ.SNS.shareError);
         }
     }
 };

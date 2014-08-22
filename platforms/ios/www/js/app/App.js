@@ -5,9 +5,9 @@ if (typeof(CQ) == 'undefined' || !CQ) {
         audio: true,
 
         URL: {
-            APP_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
-            PLAY_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
-            FACEBOOK: 'https://www.facebook.com/nekyou.quiz',
+            APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
+            PLAY_STORE: 'http://play.google.com/store/apps/details?id=com.clay.crazyquiz',
+            FACEBOOK: 'http://www.facebook.com/nekyou.quiz',
             TWITTER: 'http://twitter.com/nekyou_quiz',
 
             Web: {
