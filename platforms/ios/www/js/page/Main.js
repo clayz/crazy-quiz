@@ -312,10 +312,10 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_RATING).popup('close');
         CQ.Datastore.User.setRated();
 
-        if (CQ.App.iOS) {
+        if (CQ.App.iOS()) {
             CQ.GA.trackPage('App Store');
             window.open('itms-apps://itunes.apple.com/app/id889870872');
-        } else if (CQ.App.android) {
+        } else if (CQ.App.android()) {
             CQ.GA.trackPage('Play Store');
             window.open('market://details?id=com.clay.cp');
         }

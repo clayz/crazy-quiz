@@ -170,7 +170,7 @@ CQ.Page = {
 
     refreshShops: function() {
         $.each(CQ.App.registerPages, function(index, value) {
-            value.gemShop.refresh();
+            if (value.gemShop) value.gemShop.refresh();
         });
     },
 

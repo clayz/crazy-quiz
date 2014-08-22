@@ -33,8 +33,10 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     CQ.Audio.Button.play();
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
 
-    if (CQ.App.iOS) {
-        if (CQ.dev) {
+    if (CQ.App.iOS()) {
+        if (!CQ.dev || CQ.purchase) {
+            CQ.AppStorePurchase.buy(goods.productId);
+        } else {
             CQ.Currency.purchase(goods);
 
             // get more 10 gem for first time purchase
@@ -47,10 +49,8 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
             }
 
             CQ.Page.refreshCurrency();
-        } else {
-            CQ.AppStorePurchase.buy(goods.productId);
         }
-    } else if (CQ.App.android) {
+    } else if (CQ.App.android()) {
         // CQ.PlayBilling.buy('v1_gem_001');
         // CQ.Currency.purchase(goods);
     }
@@ -61,6 +61,6 @@ CQ.Popup.GemShop.prototype.refresh = function() {
         var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(this.popup.page, i));
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Purchase['Goods' + i].title);
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Purchase['Goods' + i].description);
-        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text((CQ.dev ? '¥{0}' : '{0}').format(CQ.Currency.Purchase['Goods' + i].cost));
+        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text(CQ.Currency.Purchase['Goods' + i].cost);
     }
 };

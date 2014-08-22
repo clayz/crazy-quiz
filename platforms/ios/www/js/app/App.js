@@ -1,8 +1,8 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        device: 'iOS',
         dev: true,
         audio: true,
+        purchase: true,
 
         URL: {
             APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
@@ -75,11 +75,19 @@ CQ.App = {
     },
 
     iOS: function() {
-        return CQ.device == 'iOS';
+        return this.iPhone() || this.iPad();
+    },
+
+    iPhone: function() {
+        return /iPhone/i.test(navigator.userAgent);
+    },
+
+    iPad: function() {
+        return /iPad/i.test(navigator.userAgent);
     },
 
     android: function() {
-        return CQ.device == 'Android';
+        return /Android/i.test(navigator.userAgent);
     }
 };
 
