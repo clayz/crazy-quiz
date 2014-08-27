@@ -80,7 +80,7 @@ CQ.Page.Game = {
         for (var i = 0; i < 32; i++) {
             var character = {
                 id: CQ.Id.Game.CHAR_BTN.format(i),
-                text: chars[i],
+                text: chars[i] || '',
                 clickable: true
             };
 
