@@ -77,7 +77,7 @@ CQ.Page.Game = {
         this.answersData = this.album.getAlternativeAnswerChars(this.picture.id, this.options.length);
         var chars = this.answersData.chars;
 
-        for (var i = 0; i < chars.length; i++) {
+        for (var i = 0; i < 32; i++) {
             var character = {
                 id: CQ.Id.Game.CHAR_BTN.format(i),
                 text: chars[i],
