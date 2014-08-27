@@ -1,7 +1,7 @@
 CQ.SNS = {
     Message: {
         MAIN_PAGE: '私と一緒に熱狂クイズを楽しもう！',
-        GAME_PAGE: 'この画像知ってる？答えを教えて！'
+        GAME_PAGE: 'この画像知ってる？答えを教えて！{0}'.format(CQ.URL.FACEBOOK)
     },
 
     share: function(message, image) {
