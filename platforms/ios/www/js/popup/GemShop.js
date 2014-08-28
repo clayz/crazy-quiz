@@ -35,6 +35,7 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
 
     if (CQ.App.iOS()) {
         if (!CQ.dev || CQ.purchase) {
+            CQ.Page.openLoading();
             CQ.AppStorePurchase.buy(goods.productId);
         } else {
             CQ.Currency.purchase(goods);

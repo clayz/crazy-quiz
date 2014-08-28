@@ -44,6 +44,7 @@ CQ.AppStorePurchase = {
     },
 
     onPurchase: function(transactionId, productId, receipt) {
+        CQ.Page.closeLoading();
         var goods = null;
 
         if (productId === 'com.czquiz.gem1') {
@@ -83,6 +84,7 @@ CQ.AppStorePurchase = {
 
     onError: function(errorCode, errorMessage) {
         console.error('Error: ' + errorMessage);
+        CQ.Page.closeLoading();
         CQ.GA.track(CQ.GA.Shop.AppStoreError, errorCode);
     },
 
