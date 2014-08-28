@@ -27,19 +27,19 @@ CQ.Currency = {
     },
 
     Purchase: {
-        Goods1: { id: 1, gem: 10, cost: 100, productId: "", title: "10個", description: "ボナースなし" },
-        Goods2: { id: 2, gem: 35, cost: 300, productId: "", title: "35個", description: "5個ボナース！" },
-        Goods3: { id: 3, gem: 75, cost: 600, productId: "", title: "75個", description: "15個ボナース！" },
-        Goods4: { id: 4, gem: 130, cost: 1000, productId: "", title: "130個", description: "30個ボナース！" },
-        Goods5: { id: 5, gem: 400, cost: 3000, productId: "", title: "400個", description: "100個ボナース！" }
+        Goods1: { id: 1, gem: 10, cost: 100, productId: "", title: "10個", description: "ボーナスなし" },
+        Goods2: { id: 2, gem: 35, cost: 300, productId: "", title: "35個", description: "5個ボーナス！" },
+        Goods3: { id: 3, gem: 75, cost: 600, productId: "", title: "75個", description: "15個ボーナス！" },
+        Goods4: { id: 4, gem: 130, cost: 1000, productId: "", title: "130個", description: "30個ボーナス！" },
+        Goods5: { id: 5, gem: 400, cost: 3000, productId: "", title: "400個", description: "100個ボーナス！" }
     },
 
     Exchange: {
-        Goods1: { id: 1, gem: 1, coin: 30, description: "ボナースなし" },
-        Goods2: { id: 2, gem: 10, coin: 310, description: "3%ボナース！" },
-        Goods3: { id: 3, gem: 50, coin: 1580, description: "5%ボナース！" },
-        Goods4: { id: 4, gem: 100, coin: 3250, description: "8%ボナース！" },
-        Goods5: { id: 5, gem: 200, coin: 6600, description: "10%ボナース！" }
+        Goods1: { id: 1, gem: 1, coin: 30, description: "ボーナスなし" },
+        Goods2: { id: 2, gem: 10, coin: 310, description: "3%ボーナス！" },
+        Goods3: { id: 3, gem: 50, coin: 1580, description: "5%ボーナス！" },
+        Goods4: { id: 4, gem: 100, coin: 3250, description: "8%ボーナス！" },
+        Goods5: { id: 5, gem: 200, coin: 6600, description: "10%ボーナス！" }
     },
 
     init: function() {
