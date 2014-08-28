@@ -2,7 +2,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         dev: true,
         audio: true,
-        purchase: false,
+        purchase: true,
 
         URL: {
             APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
