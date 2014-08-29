@@ -11,6 +11,7 @@
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
+		1F94AA3819B02080001D15CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94AA3719B02080001D15CA /* AudioToolbox.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
@@ -93,6 +94,8 @@
 		1E56239E102C4CD89C3B2609 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = com.danielcwilson.plugins.googleanalytics/GAIFields.h; sourceTree = "<group>"; };
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		1F94AA3719B02080001D15CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1F94AA3919B02080001D15CA /* 熱狂クイズ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "熱狂クイズ.entitlements"; path = "Crazy Quiz/熱狂クイズ.entitlements"; sourceTree = "<group>"; };
 		1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 				E525A99919486C9800CC4099 /* SystemConfiguration.framework in Frameworks */,
 				E525A99719486C8D00CC4099 /* CoreData.framework in Frameworks */,
 				E525A99519486C7F00CC4099 /* AdSupport.framework in Frameworks */,
+				1F94AA3819B02080001D15CA /* AudioToolbox.framework in Frameworks */,
 				E525A99319486C7700CC4099 /* libz.dylib in Frameworks */,
 				E525A99119486C1400CC4099 /* libsqlite3.dylib in Frameworks */,
 				E525A98F19486C0600CC4099 /* libGoogleAnalyticsServices.a in Frameworks */,
@@ -241,6 +245,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1F94AA3919B02080001D15CA /* 熱狂クイズ.entitlements */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF11871DA420020F90C /* Staging */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -282,6 +287,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F94AA3719B02080001D15CA /* AudioToolbox.framework */,
 				E525A99819486C9800CC4099 /* SystemConfiguration.framework */,
 				E525A99619486C8D00CC4099 /* CoreData.framework */,
 				E525A99419486C7F00CC4099 /* AdSupport.framework */,
@@ -603,8 +609,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "Crazy Quiz/熱狂クイズ.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -635,8 +642,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "熱狂クイズ";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "5383be32-7afc-40c3-9311-d420d8f180b7";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -645,8 +652,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "Crazy Quiz/熱狂クイズ.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crazy Quiz/Crazy Quiz-Prefix.pch";
@@ -675,8 +683,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "熱狂クイズ";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "5383be32-7afc-40c3-9311-d420d8f180b7";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
