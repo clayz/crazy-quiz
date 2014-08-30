@@ -30,13 +30,15 @@ CQ.Popup.CoinShop = function(page) {
 
 CQ.Popup.CoinShop.prototype.exchange = function(goods) {
     console.log('Start coin exchange, goods id: ' + goods.id);
+    CQ.Audio.Button.play();
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Exchange', goods.id));
 
     if (CQ.Currency.checkGem(goods)) {
-        CQ.Page.openConfirm('{0}コインを交換するように、確認しますか？'.format(goods.coin), function() {
+        CQ.Page.openConfirm('宝石{0}個を、{1}コインと交換しますか？'.format(goods.gem, goods.coin), function() {
+            CQ.Audio.Button.play();
             CQ.Currency.exchange(goods);
             CQ.Page.refreshCurrency();
-            CQ.Page.openPrompt('コインを交換しました。<br/>現在の宝石数：{0}<br/>現在のコイン数：{1}'.format(CQ.Currency.account.gem, CQ.Currency.account.coin));
+            CQ.Page.openPrompt('コインを交換しました。<br/>現在の宝石数：{0}個<br/>現在のコイン数：{1}'.format(CQ.Currency.account.gem, CQ.Currency.account.coin), 500);
         });
     } else {
         CQ.Page.openGemNotEnough();

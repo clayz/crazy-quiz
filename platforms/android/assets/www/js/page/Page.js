@@ -26,14 +26,49 @@ CQ.Page = {
         if (config && config.header) {
             $('#' + name).prepend($('{0} {1}'.format(CQ.Id.$SCRATCH, CQ.Id.CSS.$HEADER)).clone());
 
-            // header buttons
-            if (config && config.back) {
-                this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK), function() {
-                    CQ.Audio.Button.play();
-                    page.back();
-                }, CQ.Id.Image.HEADER_BACK_TAP, CQ.Id.Image.HEADER_BACK);
-            } else {
-                $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).hide();
+            if (config) {
+                // header back button
+                if (config.back) {
+                    this.bindClickButton('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK), function() {
+                        CQ.Audio.Button.play();
+                        page.back();
+                    }, CQ.Id.Image.HEADER_BACK_TAP, CQ.Id.Image.HEADER_BACK);
+                } else {
+                    $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_BACK)).hide();
+                }
+
+                // header sound button
+                if (config.audio) {
+                    var $onBtn = $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_AUDIO_ON)),
+                        $offBtn = $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_AUDIO_OFF));
+
+                    $onBtn.click(function() {
+                        CQ.audio = false;
+                        CQ.Datastore.User.setAudioEnabled(false);
+                        CQ.Audio.GameBackground.stop();
+                        $(this).hide();
+                        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_AUDIO_OFF)).show();
+                    });
+
+                    $offBtn.click(function() {
+                        CQ.audio = true;
+                        CQ.Datastore.User.setAudioEnabled(true);
+                        CQ.Audio.GameBackground.play();
+                        $(this).hide();
+                        $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_AUDIO_ON)).show();
+                    });
+
+                    if (CQ.Datastore.User.isAudioEnabled()) {
+                        $onBtn.show();
+                        $offBtn.hide();
+                    } else {
+                        $onBtn.hide();
+                        $offBtn.show();
+                    }
+                } else {
+                    $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_AUDIO_ON)).hide();
+                    $('#{0} {1}'.format(name, CQ.Id.CSS.$HEADER_AUDIO_OFF)).hide();
+                }
             }
 
             // add shop popups and events
@@ -135,7 +170,7 @@ CQ.Page = {
 
     refreshShops: function() {
         $.each(CQ.App.registerPages, function(index, value) {
-            value.gemShop.refresh();
+            if (value.gemShop) value.gemShop.refresh();
         });
     },
 

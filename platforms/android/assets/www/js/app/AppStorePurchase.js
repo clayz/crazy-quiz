@@ -6,7 +6,7 @@ CQ.AppStorePurchase = {
                  "com.czquiz.gem5"],
 
     init: function() {
-        if (CQ.dev) return;
+        if (CQ.dev && !CQ.purchase) return;
 
         if (!window.storekit) {
             console.log("In-App Purchases not available.");
@@ -44,6 +44,7 @@ CQ.AppStorePurchase = {
     },
 
     onPurchase: function(transactionId, productId, receipt) {
+        CQ.Page.closeLoading();
         var goods = null;
 
         if (productId === 'com.czquiz.gem1') {
@@ -83,6 +84,7 @@ CQ.AppStorePurchase = {
 
     onError: function(errorCode, errorMessage) {
         console.error('Error: ' + errorMessage);
+        CQ.Page.closeLoading();
         CQ.GA.track(CQ.GA.Shop.AppStoreError, errorCode);
     },
 

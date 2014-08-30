@@ -1,13 +1,13 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        device: 'Android',
         dev: true,
-        audio: false,
+        audio: true,
+        purchase: true,
 
         URL: {
-            APP_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
-            PLAY_STORE: 'https://play.google.com/store/apps/details?id=com.clay.crazyquiz',
-            FACEBOOK: 'https://www.facebook.com/nekyou.quiz',
+            APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
+            PLAY_STORE: 'http://play.google.com/store/apps/details?id=com.clay.crazyquiz',
+            FACEBOOK: 'http://www.facebook.com/nekyou.quiz',
             TWITTER: 'http://twitter.com/nekyou_quiz',
 
             Web: {
@@ -43,6 +43,9 @@ CQ.App = {
             if (value.init) value.init();
         });
 
+        CQ.Datastore.User.addStartTimes();
+        if (!CQ.Datastore.User.isAudioEnabled()) CQ.audio = false;
+
         // modify jQuery default settings
         $.mobile.defaultPageTransition = 'none';
         $.mobile.defaultDialogTransition = 'none';
@@ -72,11 +75,19 @@ CQ.App = {
     },
 
     iOS: function() {
-        return CQ.device == 'iOS';
+        return this.iPhone() || this.iPad();
+    },
+
+    iPhone: function() {
+        return /iPhone/i.test(navigator.userAgent);
+    },
+
+    iPad: function() {
+        return /iPad/i.test(navigator.userAgent);
     },
 
     android: function() {
-        return CQ.device == 'Android';
+        return /Android/i.test(navigator.userAgent);
     }
 };
 

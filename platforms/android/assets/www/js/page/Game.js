@@ -77,10 +77,10 @@ CQ.Page.Game = {
         this.answersData = this.album.getAlternativeAnswerChars(this.picture.id, this.options.length);
         var chars = this.answersData.chars;
 
-        for (var i = 0; i < chars.length; i++) {
+        for (var i = 0; i < 32; i++) {
             var character = {
                 id: CQ.Id.Game.CHAR_BTN.format(i),
-                text: chars[i],
+                text: chars[i] || '',
                 clickable: true
             };
 
@@ -100,7 +100,10 @@ CQ.Page.Game = {
 
         var $nextBtn = $(CQ.Id.Game.$POPUP_NEXT);
         this.bindTouchImage($nextBtn, CQ.Id.Image.BTN_NEXT_TAP, CQ.Id.Image.BTN_NEXT);
-        $nextBtn.click(CQ.Page.Game.clickNext);
+        $nextBtn.click(function() {
+            CQ.Audio.Button.play();
+            CQ.Page.Game.clickNext();
+        });
 
         var $shareBtn = $(CQ.Id.Game.$POPUP_SHARE);
         this.bindTouchImage($shareBtn, CQ.Id.Image.BTN_SHARE_TAP, CQ.Id.Image.BTN_SHARE);
@@ -130,7 +133,7 @@ CQ.Page.Game = {
         $(this.share.popup.getId()).bind({
             popupafterclose: function() {
                 if (CQ.Page.Game.isAnswerCorrect()) {
-                    $(CQ.Id.Game.$POPUP_NEXT).trigger('click');
+                    CQ.Page.Game.clickNext();
                 }
             }
         });
@@ -186,6 +189,7 @@ CQ.Page.Game = {
 
     cutdown: function() {
         console.info('Start cutdown one answer transaction.');
+        CQ.Audio.Button.play();
         var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
 
         for (var i = 0; i < usedPictures.length; i++) {
@@ -220,6 +224,7 @@ CQ.Page.Game = {
 
     getchar: function() {
         console.info('Start get one character transaction.');
+        CQ.Audio.Button.play();
         var page = CQ.Page.Game, name = page.picture.name.split('');
         page.closePopup();
 
@@ -263,6 +268,7 @@ CQ.Page.Game = {
 
     showPrompt: function() {
         console.info('Start get prompt transaction.');
+        CQ.Audio.Button.play();
         var page = CQ.Page.Game, $prompt = $(CQ.Id.Game.$PROMPT_DIV);
 
         $prompt.text(page.picture.category.name);
@@ -366,6 +372,9 @@ CQ.Page.Game = {
     },
 
     showPassPopup: function(earned) {
+        CQ.Audio.GameBackground.stop();
+        CQ.Audio.GamePassPicture.play();
+
         $(CQ.Id.Game.$POPUP_PASS_PICTURE_NUMBER).html(this.album.getPictureLevelAndIndex(this.picture.id).index + 1);
         $(CQ.Id.Game.$POPUP_PASS_PICTURE_NAME).html(this.picture.name);
         $(CQ.Id.Game.$POPUP_PASS_CURRENCY).html(CQ.Currency.account.coin);
@@ -395,6 +404,8 @@ CQ.Page.Game = {
         } else {
             CQ.Page.Game.open(CQ.Page.Main);
         }
+
+        CQ.Audio.GameBackground.play();
     },
 
     removeChar: function(char) {

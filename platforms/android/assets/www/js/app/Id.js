@@ -11,6 +11,8 @@ CQ.Id = {
     CSS: {
         $HEADER: '.header',
         $HEADER_BACK: '.header-back-btn',
+        $HEADER_AUDIO_ON: '.header-audio-on',
+        $HEADER_AUDIO_OFF: '.header-audio-off',
         $HEADER_GEM_CURRENT: '.header-gem-current',
         $HEADER_GEM_PURCHASE: '.header-gem-add-btn',
         $HEADER_COIN_CURRENT: '.header-coin-current',
@@ -131,7 +133,9 @@ CQ.Id = {
 
         $POPUP_LEVEL_UNLOCK: '#main-popup-unlock',
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
-        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable'
+        $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable',
+
+        $POPUP_RATING: '#main-popup-rating'
     },
 
     Game: {
@@ -186,6 +190,7 @@ CQ.Id = {
         $TO_GUIDE: '#help-to-guide',
         $TO_QUESTION: '#help-to-question',
         $TO_RULE: '#help-to-rule',
-        $TO_ENQUIRY: '#help-to-enquiry'
+        $TO_ENQUIRY: '#help-to-enquiry',
+        $TO_FACEBOOK: '#help-to-facebook'
     }
 };

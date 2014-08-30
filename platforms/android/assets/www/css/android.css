@@ -190,6 +190,20 @@ p {
     height: 3.5em;
 }
 
+.header-audio-on {
+    display: none;
+    padding: .5em 0 0 0;
+    width: 2.8em;
+    height: 2.8em;
+}
+
+.header-audio-off {
+    display: none;
+    padding: .5em 0 0 0;
+    width: 2.8em;
+    height: 2.8em;
+}
+
 .header-currency {
     float: right;
     padding: 1.6em .5em;
@@ -1210,14 +1224,7 @@ li:hover {
     margin: 0 .5em 0 .5em;
 }
 
-.help-body p {
-    -webkit-margin-before: 0.5em;
-    -webkit-margin-after: 0.5em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-}
-
-#help-guide .title {
+#help .title {
     text-align: center;
     //padding: 2px;
     font-weight: bold;
@@ -1225,71 +1232,76 @@ li:hover {
     color: #FFFFFF;
 }
 
-#help-guide .des {
+#help .des {
     font-size: 14px;
     text-align: left;
     color: #FFFFFF;
     margin: 5px;
 }
 
-#help-guide table {
+#help table {
     width: 100%;
     border-color: #000000;
 }
 
-#help-guide table td {
+#help table td {
     text-align: center;
 }
 
-#help-guide table td img {
+#help table td img {
     width: 40px;
     height: 50px;
     border: 0;
 }
 
-#help-guide table td.help_text {
+#help table td.help_text {
     font-size: 14px;
     text-align: left;
     color: #FFFFFF;
 }
 
-#help-guide .pay_title {
+#help .pay_title {
     text-align: center;
 }
 
-#help-guide .pay_title img {
+#help .pay_title img {
     border: 0;
     margin: 0px;
     width: 40px;
     height: 40px;
 }
 
-#help-guide .pay_title span {
+#help .pay_title span {
     font-size: 18px;
     font-weight: bold;
     color: #FFFFFF;
     margin: 5px;
 }
 
-#help-guide .pay_des {
+#help .pay_des {
     font-size: 14px;
     text-align: left;
     color: #FFFFFF;
     margin: 5px;
 }
 
-#help-guide .contact {
+#help .contact {
     text-align: left;
     padding: 5px;
 }
 
-#help-guide .contact span {
+#help .contact span {
     font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
 }
 
-#help-guide .home_page {
+#help .home_page {
     text-align: center;
     padding: 5px;
+}
+
+#help .fb-page-btn {
+    width: 12em;
+    height: 4em;
 }

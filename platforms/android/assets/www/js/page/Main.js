@@ -15,9 +15,12 @@ CQ.Page.Main = {
     init: function() {
         console.info('Initial main page');
 
-        if (CQ.App.iOS()) this.initCommon({ header: true, back: false, share: true });
-        else this.initCommon({ header: true, back: true, share: true });
-
+        this.initCommon({
+            header: true,
+            back: false,
+            audio: true,
+            share: true
+        });
         this.initPopups();
         this.initButtons();
 
@@ -27,10 +30,6 @@ CQ.Page.Main = {
         for (var albumId = 1; albumId <= CQ.Album.TOTAL_ALBUM; albumId++) {
             var album = CQ.Album.getAlbum(albumId), lastLevel = CQ.Datastore.Picture.getLastLevel(album.id);
             console.log('Album {0}, last level {1}'.format(albumId, lastLevel));
-
-            if (albumId == 1) {
-                $(CQ.Id.Main.$ALBUM_NAME).text(album.name);
-            }
 
             // render and bind events for all levels
             for (var level = 1; level <= album.levels.length; level++) {
@@ -75,8 +74,6 @@ CQ.Page.Main = {
             $(CQ.Id.Main.$POPUP_EXIT_YES).click(function() {
                 navigator.app.exitApp();
             });
-
-
         }
     },
 
@@ -96,6 +93,23 @@ CQ.Page.Main = {
 
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
+
+        // open rating popup if required
+        if (!CQ.Datastore.User.isRated()) {
+            var startTimes = CQ.Datastore.User.getStartTimes();
+
+            if ((startTimes > 0) && (startTimes % 5 == 0)) {
+                $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
+                this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
+                this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
+                this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
+
+                $('#' + this.name).on('pageshow', function() {
+                    $(CQ.Id.Main.$POPUP_RATING).popup('open');
+                    $(this).unbind('pageshow');
+                });
+            }
+        }
     },
 
     initButtons: function() {
@@ -127,6 +141,10 @@ CQ.Page.Main = {
         var randomText = this.welcomeText[Math.floor(Math.random() * this.welcomeText.length)];
         var welcomeText = "{0}さん<br/>{1}".format(CQ.User.getName(), randomText);
         $(CQ.Id.Main.$WELCOME_CONTENT).html(welcomeText);
+
+        if (CQ.Datastore.User.isAudioEnabled()) {
+            CQ.Audio.GameBackground.play();
+        }
     },
 
     setLevelStatusText: function(album, level, lastPictureIndex) {
@@ -156,8 +174,6 @@ CQ.Page.Main = {
 
             if (nextAlbum) {
                 // display next album levels
-                $(CQ.Id.Main.$ALBUM_NAME).text(nextAlbum.name);
-
                 if (CQ.Album.isAlbumLocked(nextAlbumId)) {
                     $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show();
                 } else {
@@ -185,8 +201,7 @@ CQ.Page.Main = {
                 $(CQ.Id.Main.$ALBUM_CONTAINER).show();
             }
 
-            var nextAlbumId = --CQ.Page.Main.albumId, nextAlbum = CQ.Album.getAlbum(nextAlbumId);
-            $(CQ.Id.Main.$ALBUM_NAME).text(nextAlbum.name);
+            var nextAlbumId = --CQ.Page.Main.albumId;
 
             if (CQ.Album.isAlbumLocked(nextAlbumId)) {
                 $(CQ.Id.Main.$ALBUM_EACH_LOCKED.format(nextAlbumId)).show();
@@ -268,40 +283,49 @@ CQ.Page.Main = {
         }
     },
 
-    clickUnlockableAlbum: function(event) {
-        CQ.Audio.Button.play();
-        var albumId = event.data.albumId;
+//    clickUnlockableAlbum: function(event) {
+//        CQ.Audio.Button.play();
+//        var albumId = event.data.albumId;
+//
+//        if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockAlbum.gem) {
+//            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('open');
+//            CQ.Page.Main.selectedUnlockAlbum = { albumId: albumId };
+//        } else {
+//            $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).popup('open');
+//        }
+//    },
 
-        if (CQ.Currency.account.gem >= CQ.Currency.Consume.UnlockAlbum.gem) {
-            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('open');
-            CQ.Page.Main.selectedUnlockAlbum = { albumId: albumId };
-        } else {
-            $(CQ.Id.Main.$POPUP_ALBUM_PURCHASE).popup('open');
-        }
-    },
+//    clickUnlockDisableAlbum: function() {
+//        CQ.Audio.Button.play();
+//        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
+//    },
 
-    clickUnlockDisableAlbum: function() {
-        CQ.Audio.Button.play();
-        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
-    },
-
-    clickUnlockAlbum: function() {
-        CQ.Audio.Button.play();
-        if (CQ.Page.Main.selectedUnlockAlbum) {
-            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
-            CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
-            CQ.Page.Main.selectedUnlockAlbum = null;
-        }
-    },
+//    clickUnlockAlbum: function() {
+//        CQ.Audio.Button.play();
+//        if (CQ.Page.Main.selectedUnlockAlbum) {
+//            $(CQ.Id.Main.$POPUP_ALBUM_UNLOCK).popup('close');
+//            CQ.Album.unlockAlbum(CQ.Page.Main.selectedUnlockAlbum.albumId, true);
+//            CQ.Page.Main.selectedUnlockAlbum = null;
+//        }
+//    },
 
     clickRating: function() {
-        CQ.GA.trackPage('PlayStore');
-        window.open('market://details?id=com.cyberagent.jra');
+        CQ.Audio.Button.play();
+        $(CQ.Id.Main.$POPUP_RATING).popup('close');
+        CQ.Datastore.User.setRated();
+
+        if (CQ.App.iOS()) {
+            CQ.GA.trackPage('App Store');
+            window.open('itms-apps://itunes.apple.com/app/id889870872');
+        } else if (CQ.App.android()) {
+            CQ.GA.trackPage('Play Store');
+            window.open('market://details?id=com.clay.cp');
+        }
     },
 
     clickHelp: function() {
         CQ.Audio.Button.play();
-        CQ.Page.open(CQ.Page.HelpGuide);
+        CQ.Page.open(CQ.Page.Help);
     }
 };
 
