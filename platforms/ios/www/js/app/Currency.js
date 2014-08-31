@@ -27,11 +27,11 @@ CQ.Currency = {
     },
 
     Purchase: {
-        Goods1: { id: 1, gem: 10, cost: 100, productId: "", title: "10個", description: "ボーナスなし" },
-        Goods2: { id: 2, gem: 35, cost: 300, productId: "", title: "35個", description: "5個ボーナス！" },
-        Goods3: { id: 3, gem: 75, cost: 600, productId: "", title: "75個", description: "15個ボーナス！" },
-        Goods4: { id: 4, gem: 130, cost: 1000, productId: "", title: "130個", description: "30個ボーナス！" },
-        Goods5: { id: 5, gem: 400, cost: 3000, productId: "", title: "400個", description: "100個ボーナス！" }
+        Goods1: { id: 1, gem: 10, cost: 100, productId: "com.czquiz.gem1", title: "10個", description: "ボーナスなし" },
+        Goods2: { id: 2, gem: 35, cost: 300, productId: "com.czquiz.gem2", title: "35個", description: "5個ボーナス！" },
+        Goods3: { id: 3, gem: 75, cost: 600, productId: "com.czquiz.gem3", title: "75個", description: "15個ボーナス！" },
+        Goods4: { id: 4, gem: 130, cost: 1000, productId: "com.czquiz.gem4", title: "130個", description: "30個ボーナス！" },
+        Goods5: { id: 5, gem: 400, cost: 3000, productId: "com.czquiz.gem5", title: "400個", description: "100個ボーナス！" }
     },
 
     Exchange: {

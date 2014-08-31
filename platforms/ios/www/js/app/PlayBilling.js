@@ -8,11 +8,13 @@ CQ.PlayBilling = {
         console.info('Initial play billing module');
 
         this.inAppBillingPlugin = window.plugins.inappbilling;
-        this.inAppBillingPlugin.init(
-            CQ.PlayBilling.successHandler,
-            CQ.PlayBilling.errorHandler,
-            {showLog: true},
-            ['v1_gem_001', 'v1_gem_002', 'v1_gem_003']);
+        this.inAppBillingPlugin.init(CQ.PlayBilling.successHandler, CQ.PlayBilling.errorHandler, { showLog: true }, [
+            CQ.Currency.Purchase.Goods1.productId,
+            CQ.Currency.Purchase.Goods2.productId,
+            CQ.Currency.Purchase.Goods3.productId,
+            CQ.Currency.Purchase.Goods4.productId,
+            CQ.Currency.Purchase.Goods5.productId
+        ]);
     },
 
     /**
@@ -61,11 +63,13 @@ CQ.PlayBilling = {
     },
 
     successHandler: function(result) {
+        CQ.Page.closeLoading();
         var resultText = typeof result === 'object' ? JSON.stringify(result) : result;
         console.info('Billing success, result: {0}'.format(resultText));
     },
 
     errorHandler: function(error) {
+        CQ.Page.closeLoading();
         console.error('Billing failed, error: {0}'.format(error));
         CQ.GA.track(CQ.GA.Shop.PlayStoreError, error);
     }

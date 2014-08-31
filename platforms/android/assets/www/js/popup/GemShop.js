@@ -33,27 +33,28 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
     CQ.Audio.Button.play();
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Purchase', goods.id));
 
-    if (CQ.App.iOS()) {
-        if (!CQ.dev || CQ.purchase) {
-            CQ.Page.openLoading();
-            CQ.AppStorePurchase.buy(goods.productId);
+    if (CQ.dev && !CQ.purchase) {
+        CQ.Currency.purchase(goods);
+
+        // get more 10 gem for first time purchase
+        if (CQ.Currency.history.purchase.length == 1) {
+            CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
+            CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
+            CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
         } else {
-            CQ.Currency.purchase(goods);
-
-            // get more 10 gem for first time purchase
-            if (CQ.Currency.history.purchase.length == 1) {
-                CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
-                CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
-                CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
-            } else {
-                CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
-            }
-
-            CQ.Page.refreshCurrency();
+            CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
         }
-    } else if (CQ.App.android()) {
-        // CQ.PlayBilling.buy('v1_gem_001');
-        // CQ.Currency.purchase(goods);
+
+        CQ.Page.refreshCurrency();
+    } else {
+        CQ.Page.openLoading();
+
+        if (CQ.App.iOS()) {
+            CQ.AppStorePurchase.buy(goods.productId);
+        } else if (CQ.App.android()) {
+            CQ.PlayBilling.buy(goods.productId);
+            CQ.Currency.purchase(goods);
+        }
     }
 };
 

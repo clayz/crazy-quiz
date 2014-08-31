@@ -15,10 +15,14 @@ CQ.Page.Help = {
     },
     
     clickToFacebook: function(){
-        document.location = "fb://profile/265923220277093";
-        setTimeout(function(){
+        if (CQ.App.iOS()) {
+            document.location = "fb://profile/265923220277093";
+            setTimeout(function(){
+                window.open("http://www.facebook.com/nekyou.quiz", "_system");
+            }, 300);
+        } else {
             window.open("http://www.facebook.com/nekyou.quiz", "_system");
-        }, 300);
+        }
     }
 
     /*

@@ -12,7 +12,7 @@ CQ.Audio = {
                 this.media = new Media(this.file, this.onSuccess, this.onError);
             } else {
                 var media = new Media(this.file, null, null, function(status) {
-                    if (status === Media.MEDIA_STOPPED) {
+                    if (CQ.audio && (status === Media.MEDIA_STOPPED)) {
                         media.play();
                     }
                 });
