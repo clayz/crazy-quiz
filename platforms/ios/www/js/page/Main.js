@@ -67,9 +67,10 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$ALBUM_WAITING).on('swiperight', CQ.Page.Main.swipeAlbumRight);
 
         if (CQ.App.android()) {
-            // exit and clear history buttons
             $(CQ.Id.Main.$POPUP_EXIT).bind(this.popupEvents);
-            $(CQ.Id.Main.$POPUP_EXIT_YES).click(function() {
+            this.bindPopupCloseButton(CQ.Id.Main.$POPUP_EXIT);
+            this.bindPopupNoButton(CQ.Id.Main.$POPUP_EXIT);
+            this.bindPopupYesButton(CQ.Id.Main.$POPUP_EXIT, function() {
                 navigator.app.exitApp();
             });
         }

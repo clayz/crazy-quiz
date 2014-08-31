@@ -129,8 +129,6 @@ CQ.Id = {
         $HELP: '#main-help-btn',
 
         $POPUP_EXIT: '#main-popup-exit',
-        $POPUP_EXIT_YES: '#main-popup-exit-yes',
-
         $POPUP_LEVEL_UNLOCK: '#main-popup-unlock',
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
         $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable',
