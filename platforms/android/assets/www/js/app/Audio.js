@@ -3,18 +3,31 @@ CQ.Audio = {
     playing: false,
 
     init: function() {
-        if (CQ.audio) {
+        if (!CQ.audio) return;
+
+        if (CQ.App.iOS()) {
             this.media = new Media(this.file, this.onSuccess, this.onError);
+        } else if (CQ.App.android()) {
+            if (this.loops == 1) {
+                this.media = new Media(this.file, this.onSuccess, this.onError);
+            } else {
+                var media = new Media(this.file, null, null, function(status) {
+                    if (status === Media.MEDIA_STOPPED) {
+                        media.play();
+                    }
+                });
+
+                this.media = media;
+            }
         }
     },
 
     play: function() {
         if (this.media && CQ.audio) {
-            if (CQ.App.iOS()) {
+            if (CQ.App.iOS())
                 this.media.play({ playAudioWhenScreenIsLocked: false, numberOfLoops: this.loops });
-            } else if (CQ.App.android()) {
+            else if (CQ.App.android())
                 this.media.play();
-            }
 
             this.playing = true;
         }

@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.clay.crazyquiz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Crazy Quiz</name>
+    <name>CrazyQuiz</name>
     <description></description>
-    <author email="zjclay@gmail.com" href="http://phonegap.com">Clay Zhong</author>
+    <author email="nekyou.quiz@gmail.com" href="http://crazy-quiz.appspot.com/">
+        Bulb Studio
+    </author>
 
     <feature name="http://api.phonegap.com/1.0/device"/>
     <feature name="SocialSharing">
@@ -57,6 +59,7 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024"/>
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg"/>
 
+    <access origin="*" subdomains="true" />
     <access origin="http://127.0.0.1*"/>
     <access origin="http://*.google-analytics.com"/>
     <access origin="https://*.google-analytics.com"/>

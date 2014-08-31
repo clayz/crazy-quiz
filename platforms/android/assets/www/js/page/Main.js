@@ -318,7 +318,7 @@ CQ.Page.Main = {
             window.open('itms-apps://itunes.apple.com/app/id889870872');
         } else if (CQ.App.android()) {
             CQ.GA.trackPage('Play Store');
-            window.open('market://details?id=com.clay.cp');
+            window.open("http://play.google.com/store/apps/details?id=com.clay.crazyquiz", "_system");
         }
     },
 
