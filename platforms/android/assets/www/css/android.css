@@ -536,11 +536,11 @@ p {
 #main-album-next-btn {
     width: 2em;
     height: 2.8em;
-    margin: 1.3em 1.5em 0 0;
+    margin: 1.5em 1.5em 0 0;
 }
 
 #main-album {
-    padding: 1.8em 2em .5em 2em;
+    padding: 2.8em 2em .5em 2em;
 }
 
 .main-level-cover {
@@ -551,8 +551,8 @@ p {
 .main-level {
     position: relative;
     display: inline-block;
-    width: 6.2em;
-    height: 6.2em;
+    width: 7em;
+    height: 7em;
     border: 2px solid #3e2102;
     border-radius: 5px;
 }
