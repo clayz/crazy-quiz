@@ -13,7 +13,7 @@ CQ.Audio = {
             if (CQ.App.iOS()) {
                 this.media.play({ playAudioWhenScreenIsLocked: false, numberOfLoops: this.loops });
             } else if (CQ.App.android()) {
-                // TODO add android audio support
+                this.media.play();
             }
 
             this.playing = true;
@@ -44,22 +44,22 @@ CQ.Audio = {
 };
 
 CQ.Audio.Button = {
-    file: 'audio/button.wav',
+    file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/button.wav',
     loops: 1
 };
 
 CQ.Audio.GameChar = {
-    file: 'audio/game_char.wav',
+    file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/game_char.wav',
     loops: 1
 };
 
 CQ.Audio.GameBackground = {
-    file: 'audio/game_bg.mp3',
+    file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/game_bg.mp3',
     loops: 9999
 };
 
 CQ.Audio.GamePassPicture = {
-    file: 'audio/game_pass_picture.mp3',
+    file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/game_pass_picture.mp3',
     loops: 1
 };
 
