@@ -13,7 +13,27 @@ CQ.PlayBilling = {
     init: function() {
         console.info('Initial play billing module');
         this.inAppBillingPlugin = window.plugins.inappbilling;
-        this.inAppBillingPlugin.init(CQ.PlayBilling.successHandler, CQ.PlayBilling.errorHandler, { showLog: true }, this.productIds);
+
+        this.inAppBillingPlugin.init(
+            function(result) {
+                console.info("App billing plugin initialize success.");
+                CQ.PlayBilling.successHandler(result);
+
+                // handle product that purchased but not consumed
+                var products = CQ.PlayBilling.ownedProducts();
+                console.info("Owned products: {0}".format(CQ.Utils.toString(products)));
+
+                for (var i = 0; i < products.length; i++) {
+                    var productId = products[i].productId;
+                    console.info("Consume owned product: {0}".format(productId));
+                    CQ.PlayBilling.consumePurchase(productId);
+                }
+            },
+            function(error) {
+                console.error("App billing plugin initialize failed.");
+                CQ.PlayBilling.errorHandler(error);
+            },
+            { showLog: true }, this.productIds);
 
         for (var i = 0; i < 5; i++) {
             CQ.Currency.Purchase['Goods' + (i + 1)].productId = this.productIds[i];
@@ -24,11 +44,15 @@ CQ.PlayBilling = {
      * Purchase an item. You cannot buy an item that you already own.
      */
     buy: function(productId) {
-        this.inAppBillingPlugin.buy(function(result) {
-            console.info("Buy success, productId: {0}".format(productId));
-            CQ.PlayBilling.successHandler(result);
-            CQ.PlayBilling.consumePurchase(result.productId);
-        }, this.errorHandler, productId);
+        this.inAppBillingPlugin.buy(
+            function(result) {
+                console.info("Buy success, productId: {0}".format(productId));
+                CQ.PlayBilling.successHandler(result);
+                CQ.PlayBilling.consumePurchase(result.productId);
+            }, function() {
+                console.error("Buy failed, productId: {0}".format(productId));
+                CQ.PlayBilling.errorHandler(error);
+            }, productId);
     },
 
     /**
@@ -36,52 +60,73 @@ CQ.PlayBilling = {
      * Once an item is consumed, it is not owned anymore.
      */
     consumePurchase: function(productId) {
-        this.inAppBillingPlugin.consumePurchase(function(result) {
-            console.info("Consume success, productId: {0}".format(productId));
-            CQ.PlayBilling.successHandler(result);
-            var goods = null;
+        this.inAppBillingPlugin.consumePurchase(
+            function(result) {
+                console.info("Consume success, productId: {0}".format(productId));
+                CQ.PlayBilling.successHandler(result);
+                var goods = null;
 
-            if (productId == 'com.crazyquiz.gem1') {
-                goods = CQ.Currency.Purchase.Goods1;
-            } else if (productId == 'com.crazyquiz.gem2') {
-                goods = CQ.Currency.Purchase.Goods2;
-            } else if (productId == 'com.crazyquiz.gem3') {
-                goods = CQ.Currency.Purchase.Goods3;
-            } else if (productId == 'com.crazyquiz.gem4') {
-                goods = CQ.Currency.Purchase.Goods4;
-            } else if (productId == 'com.crazyquiz.gem5') {
-                goods = CQ.Currency.Purchase.Goods5;
-            } else {
-                throw 'Unknown productId: {0}'.format(productId);
-            }
+                if (productId == 'com.crazyquiz.gem1') {
+                    goods = CQ.Currency.Purchase.Goods1;
+                } else if (productId == 'com.crazyquiz.gem2') {
+                    goods = CQ.Currency.Purchase.Goods2;
+                } else if (productId == 'com.crazyquiz.gem3') {
+                    goods = CQ.Currency.Purchase.Goods3;
+                } else if (productId == 'com.crazyquiz.gem4') {
+                    goods = CQ.Currency.Purchase.Goods4;
+                } else if (productId == 'com.crazyquiz.gem5') {
+                    goods = CQ.Currency.Purchase.Goods5;
+                } else {
+                    throw 'Unknown productId: {0}'.format(productId);
+                }
 
-            CQ.Currency.purchase(goods);
+                CQ.Currency.purchase(goods);
 
-            // get more 10 gem for first time purchase
-            if (CQ.Currency.history.purchase.length == 1) {
-                CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
-                CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
-                CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
-            } else {
-                CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
-            }
+                // get more 10 gem for first time purchase
+                if (CQ.Currency.history.purchase.length == 1) {
+                    CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
+                    CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
+                    CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
+                } else {
+                    CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
+                }
 
-            CQ.Page.refreshCurrency();
-        }, this.errorHandler, productId);
+                CQ.Page.refreshCurrency();
+            },
+            function(error) {
+                console.error("Consume failed, productId: {0}".format(productId));
+                CQ.PlayBilling.errorHandler(error);
+            }, productId);
     },
 
     /**
      * The list of owned products are retrieved from the local database.
      */
     ownedProducts: function() {
-        this.inAppBillingPlugin.getPurchases(this.successHandler, this.errorHandler);
+        this.inAppBillingPlugin.getPurchases(
+            function(result) {
+                console.info("Retrieve list of owned products success.");
+                CQ.PlayBilling.successHandler(result);
+            },
+            function(error) {
+                console.error("Retrieve list of owned products failed.");
+                CQ.PlayBilling.errorHandler(error);
+            });
     },
 
     /**
      * Subscribe to an item.
      */
     subscribe: function(subscriptionId) {
-        this.inAppBillingPlugin.subscribe(this.successHandler, this.errorHandler, subscriptionId);
+        this.inAppBillingPlugin.subscribe(
+            function(result) {
+                console.info("Subscribe products success, subscription Id: {0}".format(subscriptionId));
+                CQ.PlayBilling.successHandler(result);
+            },
+            function(error) {
+                console.error("Subscribe products failed, subscription Id: {0}".format(subscriptionId));
+                CQ.PlayBilling.errorHandler(error);
+            }, subscriptionId);
     },
 
     /**
@@ -90,14 +135,31 @@ CQ.PlayBilling = {
      * Can be used to update inventory if you need to add more skus.
      */
     getDetails: function(skus) {
-        this.inAppBillingPlugin.getProductDetails(this.successHandler, this.errorHandler, skus);
+        this.inAppBillingPlugin.getProductDetails(
+            function(result) {
+                console.info("Get details success, skus: {0}".format(CQ.Utils.toString(skus)));
+                CQ.PlayBilling.successHandler(result);
+            },
+            function(error) {
+                console.error("Get details failed, skus: {0}".format(CQ.Utils.toString(skus)));
+                CQ.PlayBilling.errorHandler(error);
+            }, skus);
     },
 
     /**
      * The list of the available product(s) in inventory.
      */
     getAvailable: function() {
-        this.inAppBillingPlugin.getAvailableProducts(this.successHandler, this.errorHandler);
+        this.inAppBillingPlugin.getAvailableProducts(
+            function(result) {
+                console.info("Retrieve list of available products success.");
+                CQ.PlayBilling.successHandler(result);
+            },
+            function(error) {
+                console.error("Retrieve list of available products failed.");
+                CQ.PlayBilling.errorHandler(error);
+            }
+        );
     },
 
     successHandler: function(result) {

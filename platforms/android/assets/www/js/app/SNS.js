@@ -19,7 +19,7 @@ CQ.SNS = {
         console.log('Share link finished, result: ' + isSuccess);
         CQ.Page.closeLoading();
 
-        if (isSuccess) {
+        if (isSuccess || CQ.App.android()) {
             var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
 
             if (lastShareDate && (lastShareDate == today)) {
@@ -49,7 +49,7 @@ CQ.SNS = {
         console.log('Share image finished, result: ' + isSuccess);
         CQ.Page.closeLoading();
 
-        if (isSuccess) {
+        if (isSuccess || CQ.App.android()) {
             if (CQ.Datastore.Picture.isPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id)) {
                 console.log('Already get share coin for this picture');
             } else {
