@@ -1,34 +1,34 @@
 CQ.PlayBilling = {
     inAppBillingPlugin: null,
+    productIds: [
+        "com.crazyquiz.gem1",
+        "com.crazyquiz.gem2",
+        "com.crazyquiz.gem3",
+        "com.crazyquiz.gem4",
+        "com.crazyquiz.gem5"],
 
     /**
      * Initialize the billing plugin.
      */
     init: function() {
         console.info('Initial play billing module');
-
         this.inAppBillingPlugin = window.plugins.inappbilling;
-        this.inAppBillingPlugin.init(CQ.PlayBilling.successHandler, CQ.PlayBilling.errorHandler, { showLog: true }, [
-            CQ.Currency.Purchase.Goods1.productId,
-            CQ.Currency.Purchase.Goods2.productId,
-            CQ.Currency.Purchase.Goods3.productId,
-            CQ.Currency.Purchase.Goods4.productId,
-            CQ.Currency.Purchase.Goods5.productId
-        ]);
+        this.inAppBillingPlugin.init(CQ.PlayBilling.successHandler, CQ.PlayBilling.errorHandler, { showLog: true }, this.productIds);
+
+        for (var i = 0; i < 5; i++) {
+            CQ.Currency.Purchase['Goods' + (i + 1)].productId = this.productIds[i];
+        }
     },
 
     /**
      * Purchase an item. You cannot buy an item that you already own.
      */
     buy: function(productId) {
-        this.inAppBillingPlugin.buy(this.successHandler, this.errorHandler, productId);
-    },
-
-    /**
-     * The list of owned products are retrieved from the local database.
-     */
-    ownedProducts: function() {
-        this.inAppBillingPlugin.getPurchases(this.successHandler, this.errorHandler);
+        this.inAppBillingPlugin.buy(function(result) {
+            console.info("Buy success, productId: {0}".format(productId));
+            CQ.PlayBilling.successHandler(result);
+            CQ.PlayBilling.consumePurchase(result.productId);
+        }, this.errorHandler, productId);
     },
 
     /**
@@ -36,7 +36,45 @@ CQ.PlayBilling = {
      * Once an item is consumed, it is not owned anymore.
      */
     consumePurchase: function(productId) {
-        this.inAppBillingPlugin.consumePurchase(this.successHandler, this.errorHandler, productId);
+        this.inAppBillingPlugin.consumePurchase(function(result) {
+            console.info("Consume success, productId: {0}".format(productId));
+            CQ.PlayBilling.successHandler(result);
+            var goods = null;
+
+            if (productId == 'com.crazyquiz.gem1') {
+                goods = CQ.Currency.Purchase.Goods1;
+            } else if (productId == 'com.crazyquiz.gem2') {
+                goods = CQ.Currency.Purchase.Goods2;
+            } else if (productId == 'com.crazyquiz.gem3') {
+                goods = CQ.Currency.Purchase.Goods3;
+            } else if (productId == 'com.crazyquiz.gem4') {
+                goods = CQ.Currency.Purchase.Goods4;
+            } else if (productId == 'com.crazyquiz.gem5') {
+                goods = CQ.Currency.Purchase.Goods5;
+            } else {
+                throw 'Unknown productId: {0}'.format(productId);
+            }
+
+            CQ.Currency.purchase(goods);
+
+            // get more 10 gem for first time purchase
+            if (CQ.Currency.history.purchase.length == 1) {
+                CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
+                CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
+                CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
+            } else {
+                CQ.Page.openPrompt('{0}個宝石を購入しました。'.format(goods.gem));
+            }
+
+            CQ.Page.refreshCurrency();
+        }, this.errorHandler, productId);
+    },
+
+    /**
+     * The list of owned products are retrieved from the local database.
+     */
+    ownedProducts: function() {
+        this.inAppBillingPlugin.getPurchases(this.successHandler, this.errorHandler);
     },
 
     /**
@@ -65,7 +103,7 @@ CQ.PlayBilling = {
     successHandler: function(result) {
         CQ.Page.closeLoading();
         var resultText = typeof result === 'object' ? JSON.stringify(result) : result;
-        console.info('Billing success, result: {0}'.format(resultText));
+        console.info('Result data: {0}'.format(resultText));
     },
 
     errorHandler: function(error) {

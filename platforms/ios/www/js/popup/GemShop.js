@@ -53,7 +53,6 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
             CQ.AppStorePurchase.buy(goods.productId);
         } else if (CQ.App.android()) {
             CQ.PlayBilling.buy(goods.productId);
-            CQ.Currency.purchase(goods);
         }
     }
 };
@@ -63,6 +62,11 @@ CQ.Popup.GemShop.prototype.refresh = function() {
         var $goodsBtn = $(CQ.Id.CSS.$POPUP_SHOP_GEM_GOODS.format(this.popup.page, i));
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_AMOUNT)).text(CQ.Currency.Purchase['Goods' + i].title);
         $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_INFO)).text(CQ.Currency.Purchase['Goods' + i].description);
-        $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text(CQ.Currency.Purchase['Goods' + i].cost);
+
+        if (CQ.App.iOS()) {
+            $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text(CQ.Currency.Purchase['Goods' + i].cost);
+        } else if (CQ.App.android()) {
+            $goodsBtn.find('.{0}'.format(CQ.Id.CSS.POPUP_SHOP_GOODS_MONEY)).text('¥' + CQ.Currency.Purchase['Goods' + i].cost);
+        }
     }
 };
