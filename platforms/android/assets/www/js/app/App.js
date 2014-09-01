@@ -51,7 +51,7 @@ CQ.App = {
         $.mobile.defaultDialogTransition = 'none';
         $.mobile.buttonMarkup.hoverDelay = 0;
 
-        if (this.android()) FastClick.attach(document.body);
+        if (CQ.App.android()) FastClick.attach(document.body);
         document.addEventListener('backbutton', CQ.App.back, false);
 
         console.log('App initialization finished.');
