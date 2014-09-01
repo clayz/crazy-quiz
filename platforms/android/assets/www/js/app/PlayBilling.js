@@ -49,7 +49,7 @@ CQ.PlayBilling = {
                 console.info("Buy success, productId: {0}".format(productId));
                 CQ.PlayBilling.successHandler(result);
                 CQ.PlayBilling.consumePurchase(result.productId);
-            }, function() {
+            }, function(error) {
                 console.error("Buy failed, productId: {0}".format(productId));
                 CQ.PlayBilling.errorHandler(error);
             }, productId);
