@@ -41,7 +41,7 @@ public class InAppBillingPlugin extends CordovaPlugin {
      * want to make it easy for an attacker to replace the public key with one
      * of their own and then fake messages from the server.
      */
-    private final String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkYbZ4R1GpZTO1GAA2FK6iC0QdXY56GT5oQtmsovDnPBALuSQ2Y02HVKh12E3r36GLzDjtyoJnNNq5UQf2jOblWxzwYHAsjl4nzhmkE7I66Twnn8G/ynqbVZxiotjSoT9L6B3RUI5vSy18ewLfxYgXq6gr46SsAa3N6urr2Wjbp5Z3rhv1LfzFcUrb2sAzy4T6QkDN9ybwYJt1X6ig58khduhh5KKjVIVGKlV51ewi9sCUGoex3F2sW/qll1mMKSXWe9qvkDKUug3dTdp2Acns/wbQVWcOGO6nwoFBR8VXPchIvHfoNmHb9eFWCW/cIlvzVipA3wOXCFPn0jwsUkq/QIDAQAB";
+    private final String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBhFaocmLvxgbbgdwrymH7KKx/efq8u3Jrnuy2npmOpXzdTHWX/NUvz5EvIF6oE9gWffoU+qI2ZF52b4PGwHCo9vAGuTHDaClq4JX0DTkjMVcDwMm/iZ0D6HVQEnOciJTF5wmgp0/MeNo+xtaAd6XitWkpwQl9iIH+zyiRHceKBx4HKFF0oqRczBMcnp8p9M+b40l+Z9PxDyxYL580178ZteKhji8Y7wsrWa9y+fTpHh8OLtu9UoRW4BybAgCAU4xWLce5JOcRtdiwN4afdk4THnbw/2SARqtJyweX3U0mlVu6mC0BzuxAk7EjdTdtX5uwSXO4EbsH45DbEUoEbsvQIDAQAB";
     
     // (arbitrary) request code for the purchase flow
     static final int RC_REQUEST = 10001;

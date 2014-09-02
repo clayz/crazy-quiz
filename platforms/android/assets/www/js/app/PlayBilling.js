@@ -20,14 +20,15 @@ CQ.PlayBilling = {
                 CQ.PlayBilling.successHandler(result);
 
                 // handle product that purchased but not consumed
-                var products = CQ.PlayBilling.ownedProducts();
-                console.info("Owned products: {0}".format(CQ.Utils.toString(products)));
+                CQ.PlayBilling.ownedProducts(function(products) {
+                    console.info("Owned products: {0}".format(CQ.Utils.toString(products)));
 
-                for (var i = 0; i < products.length; i++) {
-                    var productId = products[i].productId;
-                    console.info("Consume owned product: {0}".format(productId));
-                    CQ.PlayBilling.consumePurchase(productId);
-                }
+                    for (var i = 0; i < products.length; i++) {
+                        var productId = products[i].productId;
+                        console.info("Consume owned product: {0}".format(productId));
+                        CQ.PlayBilling.consumePurchase(productId);
+                    }
+                });
             },
             function(error) {
                 console.error("App billing plugin initialize failed.");
@@ -48,7 +49,7 @@ CQ.PlayBilling = {
             function(result) {
                 console.info("Buy success, productId: {0}".format(productId));
                 CQ.PlayBilling.successHandler(result);
-                CQ.PlayBilling.consumePurchase(result.productId);
+                CQ.PlayBilling.consumePurchase(productId);
             }, function(error) {
                 console.error("Buy failed, productId: {0}".format(productId));
                 CQ.PlayBilling.errorHandler(error);
@@ -102,11 +103,12 @@ CQ.PlayBilling = {
     /**
      * The list of owned products are retrieved from the local database.
      */
-    ownedProducts: function() {
+    ownedProducts: function(callback) {
         this.inAppBillingPlugin.getPurchases(
             function(result) {
                 console.info("Retrieve list of owned products success.");
                 CQ.PlayBilling.successHandler(result);
+                if (callback) callback(result);
             },
             function(error) {
                 console.error("Retrieve list of owned products failed.");
