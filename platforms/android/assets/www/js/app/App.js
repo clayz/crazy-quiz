@@ -1,6 +1,6 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        dev: true,
+        dev: false,
         audio: true,
         purchase: true,
 
