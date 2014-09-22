@@ -86,4 +86,7 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="AdmobPlugin">
+        <param name="ios-package" value="AdmobAdPlugin" />
+    </feature>
 </widget>

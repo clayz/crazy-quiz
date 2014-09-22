@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1AC85C44CBCD49EDB2445BB5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0969FBEEC9264AEBBD34E5A1 /* StoreKit.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -65,6 +64,11 @@
 		E525A99519486C7F00CC4099 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99419486C7F00CC4099 /* AdSupport.framework */; };
 		E525A99719486C8D00CC4099 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99619486C8D00CC4099 /* CoreData.framework */; };
 		E525A99919486C9800CC4099 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99819486C9800CC4099 /* SystemConfiguration.framework */; };
+		463086581F05432A900512B7 /* AdmobAdPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D70DFDCF649F9BA6DD702 /* AdmobAdPlugin.m */; };
+		5E76056F1A8E4FF89C48DFDF /* AdmobAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875C7D7F88A042B087A08055 /* AdmobAPI.framework */; };
+		8FD442BD5880444B9AADD1F2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC901A6BD04F44C7A0593E85 /* AVFoundation.framework */; };
+		99BC6F9017FF48A58E05AC4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1188B1A1CC4AEFA19DD18B /* Foundation.framework */; };
+		B79A9D89151A43BE8046D4D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E125B7AC17645D18AB72C1C /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +174,12 @@
 		F39FC5DC2A8F49A9B0F5900C /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SKProduct+LocalizedPrice.h"; path = "cc.fovea.plugins.inapppurchase/SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Crazy Quiz/config.xml"; sourceTree = "<group>"; };
 		FB3EAC6F12724481BB5EAB81 /* CDVSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSound.h; path = org.apache.cordova.media/CDVSound.h; sourceTree = "<group>"; };
+		C20D70DFDCF649F9BA6DD702 /* AdmobAdPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AdmobAdPlugin.m"; path = "com.admob.AdmobPlugin/AdmobAdPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		50FDDD7CB02049F3AF60818A /* AdmobAdPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AdmobAdPlugin.h"; path = "com.admob.AdmobPlugin/AdmobAdPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		875C7D7F88A042B087A08055 /* AdmobAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AdmobAPI.framework"; path = "Crazy Quiz/Plugins/com.admob.AdmobPlugin/AdmobAPI.framework"; sourceTree = "<group>"; };
+		EC901A6BD04F44C7A0593E85 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		3A1188B1A1CC4AEFA19DD18B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		5E125B7AC17645D18AB72C1C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +209,10 @@
 				31108BA8DBF5430FA4B946EF /* MessageUI.framework in Frameworks */,
 				3BEE10FAB8814A92AEFB1D7B /* libGoogleAnalyticsServices.a in Frameworks */,
 				1AC85C44CBCD49EDB2445BB5 /* StoreKit.framework in Frameworks */,
+				5E76056F1A8E4FF89C48DFDF /* AdmobAPI.framework in Frameworks */,
+				8FD442BD5880444B9AADD1F2 /* AVFoundation.framework in Frameworks */,
+				99BC6F9017FF48A58E05AC4D /* Foundation.framework in Frameworks */,
+				B79A9D89151A43BE8046D4D9 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +323,10 @@
 				1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */,
 				E79CC7B8A5A74870B62829A5 /* libsqlite3.0.dylib */,
 				0969FBEEC9264AEBBD34E5A1 /* StoreKit.framework */,
+				875C7D7F88A042B087A08055 /* AdmobAPI.framework */,
+				EC901A6BD04F44C7A0593E85 /* AVFoundation.framework */,
+				3A1188B1A1CC4AEFA19DD18B /* Foundation.framework */,
+				5E125B7AC17645D18AB72C1C /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -348,6 +366,8 @@
 				F39FC5DC2A8F49A9B0F5900C /* SKProduct+LocalizedPrice.h */,
 				578CF2095C55415FB6A376B7 /* CDVInAppBrowser.m */,
 				D49416B22526414596091D9D /* CDVInAppBrowser.h */,
+				C20D70DFDCF649F9BA6DD702 /* AdmobAdPlugin.m */,
+				50FDDD7CB02049F3AF60818A /* AdmobAdPlugin.h */,
 			);
 			name = Plugins;
 			path = "Crazy Quiz/Plugins";
@@ -555,6 +575,7 @@
 				5A5FCA410292410D972BCBB6 /* InAppPurchase.m in Sources */,
 				5B4291CCBFC3406D96324963 /* SKProduct+LocalizedPrice.m in Sources */,
 				318C1995306F4883BBFBC5FC /* CDVInAppBrowser.m in Sources */,
+				463086581F05432A900512B7 /* AdmobAdPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +665,10 @@
 				PRODUCT_NAME = "熱狂クイズ";
 				PROVISIONING_PROFILE = "5383be32-7afc-40c3-9311-d420d8f180b7";
 				TARGETED_DEVICE_FAMILY = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Crazy Quiz/Plugins/com.admob.AdmobPlugin\"",
+				);
 			};
 			name = Debug;
 		};
@@ -685,6 +710,10 @@
 				PRODUCT_NAME = "熱狂クイズ";
 				PROVISIONING_PROFILE = "5383be32-7afc-40c3-9311-d420d8f180b7";
 				TARGETED_DEVICE_FAMILY = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Crazy Quiz/Plugins/com.admob.AdmobPlugin\"",
+				);
 			};
 			name = Release;
 		};

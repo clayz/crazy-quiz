@@ -16,7 +16,7 @@
                     "SystemConfiguration.framework": [
                         {
                             "xml": "false",
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "Social.framework": [
@@ -28,7 +28,7 @@
                     "MessageUI.framework": [
                         {
                             "xml": "false",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "AssetsLibrary.framework": [
@@ -58,10 +58,40 @@
                     "StoreKit.framework": [
                         {
                             "xml": "false",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
+                        }
+                    ],
+                    "AdSupport.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AVFoundation.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "Foundation.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "UIKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AudioToolbox.framework": [
                         {
                             "xml": "false",
                             "count": 1
@@ -98,6 +128,10 @@
                         },
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AdmobPlugin\"><param name=\"ios-package\" value=\"AdmobAdPlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -136,6 +170,9 @@
             "PACKAGE_NAME": "com.clay.crazyquiz"
         },
         "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.clay.crazyquiz"
+        },
+        "com.admob.AdmobPlugin": {
             "PACKAGE_NAME": "com.clay.crazyquiz"
         }
     },

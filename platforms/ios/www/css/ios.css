@@ -281,16 +281,6 @@ p {
     z-index: 3;
 }
 
-.popup-logo {
-    position: absolute;
-    margin: -.7em 0 0 .8em;
-    width: 3em;
-    height: 4em;
-    background: url(../img/layout/popup-title.png) no-repeat;
-    background-size: 100%;
-    z-index: 1;
-}
-
 .popup-content p {
     padding: 1em;
     font-size: 1em;

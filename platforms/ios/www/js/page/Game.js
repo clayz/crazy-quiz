@@ -403,6 +403,7 @@ CQ.Page.Game = {
             if (CQ.dev) $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
         } else {
             CQ.Page.Game.open(CQ.Page.Main);
+            CQ.Ad.showInterstitial();
         }
 
         CQ.Audio.GameBackground.play();

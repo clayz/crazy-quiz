@@ -43,6 +43,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.admob.AdmobPlugin/www/AdmobPlugin.js",
+        "id": "com.admob.AdmobPlugin.AdmobAd",
+        "clobbers": [
+            "window.admobAd"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -198,6 +205,7 @@ module.exports.metadata =
     "org.apache.cordova.media": "0.2.11",
     "cc.fovea.plugins.inapppurchase": "3.4.1",
     "org.apache.cordova.inappbrowser": "0.5.1-dev",
+    "com.admob.AdmobPlugin": "1.0.0",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

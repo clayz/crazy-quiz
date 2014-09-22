@@ -10,29 +10,29 @@
 	<string>Crazy Quiz</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>47853B48-A2CC-4DB0-B2E5-989AB1033656</key>
+		<key>B38C181408ABBB036382683657DD60909D4DC73A</key>
 		<string>https://github.com/clayz/crazy-quiz.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>platforms/ios/Crazy Quiz.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>47853B48-A2CC-4DB0-B2E5-989AB1033656</key>
+		<key>B38C181408ABBB036382683657DD60909D4DC73A</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/clayz/crazy-quiz.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>47853B48-A2CC-4DB0-B2E5-989AB1033656</string>
+	<string>B38C181408ABBB036382683657DD60909D4DC73A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>47853B48-A2CC-4DB0-B2E5-989AB1033656</string>
+			<string>B38C181408ABBB036382683657DD60909D4DC73A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>crazy-quiz</string>
 		</dict>

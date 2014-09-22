@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AdmobPlugin\"><param name=\"android-package\" value=\"com.admob.cordova.plugin.AdmobAdPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -46,11 +50,11 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
@@ -66,6 +70,20 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"4452000\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" />",
                             "count": 1
                         }
                     ]
@@ -108,6 +126,9 @@
             "PACKAGE_NAME": "com.clay.crazyquiz"
         },
         "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.clay.crazyquiz"
+        },
+        "com.admob.AdmobPlugin": {
             "PACKAGE_NAME": "com.clay.crazyquiz"
         }
     },
