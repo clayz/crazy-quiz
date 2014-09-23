@@ -2,7 +2,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         dev: true,
         audio: true,
-        purchase: false,
+        purchase: true,
         ad: true,
 
         URL: {
