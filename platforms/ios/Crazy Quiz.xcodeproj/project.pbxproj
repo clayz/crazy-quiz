@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AC85C44CBCD49EDB2445BB5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0969FBEEC9264AEBBD34E5A1 /* StoreKit.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
 		1F94AA3819B02080001D15CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F94AA3719B02080001D15CA /* AudioToolbox.framework */; };
+		1FE6E8FF19D17A0300EAEB05 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE6E8FE19D17A0300EAEB05 /* StoreKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
@@ -91,7 +91,6 @@
 
 /* Begin PBXFileReference section */
 		046E040D002646BABCB8968E /* CDVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVFile.m; path = org.apache.cordova.file/CDVFile.m; sourceTree = "<group>"; };
-		0969FBEEC9264AEBBD34E5A1 /* StoreKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0F554C4864814197BE161EBF /* UniversalAnalyticsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniversalAnalyticsPlugin.m; path = com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.m; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		1F94AA3719B02080001D15CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1F94AA3919B02080001D15CA /* 熱狂クイズ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "熱狂クイズ.entitlements"; path = "Crazy Quiz/熱狂クイズ.entitlements"; sourceTree = "<group>"; };
+		1FE6E8FE19D17A0300EAEB05 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Crazy Quiz/Plugins/com.danielcwilson.plugins.googleanalytics/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -199,6 +199,7 @@
 				E525A98919486BF300CC4099 /* GAIDictionaryBuilder.h in Frameworks */,
 				E525A98A19486BF300CC4099 /* GAIFields.h in Frameworks */,
 				E525A98B19486BF300CC4099 /* GAILogger.h in Frameworks */,
+				1FE6E8FF19D17A0300EAEB05 /* StoreKit.framework in Frameworks */,
 				E525A98C19486BF300CC4099 /* GAITrackedViewController.h in Frameworks */,
 				E525A98D19486BF300CC4099 /* GAITracker.h in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
@@ -209,7 +210,6 @@
 				DB8E1CFE4A12411FB5812492 /* Social.framework in Frameworks */,
 				31108BA8DBF5430FA4B946EF /* MessageUI.framework in Frameworks */,
 				3BEE10FAB8814A92AEFB1D7B /* libGoogleAnalyticsServices.a in Frameworks */,
-				1AC85C44CBCD49EDB2445BB5 /* StoreKit.framework in Frameworks */,
 				5E76056F1A8E4FF89C48DFDF /* AdmobAPI.framework in Frameworks */,
 				8FD442BD5880444B9AADD1F2 /* AVFoundation.framework in Frameworks */,
 				99BC6F9017FF48A58E05AC4D /* Foundation.framework in Frameworks */,
@@ -302,6 +302,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FE6E8FE19D17A0300EAEB05 /* StoreKit.framework */,
 				1F94AA3719B02080001D15CA /* AudioToolbox.framework */,
 				E525A99819486C9800CC4099 /* SystemConfiguration.framework */,
 				E525A99619486C8D00CC4099 /* CoreData.framework */,
@@ -323,7 +324,6 @@
 				32D9791FFB934C8D9FBD5E92 /* MessageUI.framework */,
 				1FEA94CDEF53483F9E36D80D /* libGoogleAnalyticsServices.a */,
 				E79CC7B8A5A74870B62829A5 /* libsqlite3.0.dylib */,
-				0969FBEEC9264AEBBD34E5A1 /* StoreKit.framework */,
 				875C7D7F88A042B087A08055 /* AdmobAPI.framework */,
 				EC901A6BD04F44C7A0593E85 /* AVFoundation.framework */,
 				3A1188B1A1CC4AEFA19DD18B /* Foundation.framework */,
@@ -466,6 +466,14 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 9GBAD4TA89;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -632,8 +640,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Crazy Quiz/熱狂クイズ.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -668,7 +676,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "熱狂クイズ";
-				PROVISIONING_PROFILE = "6338f17f-34d9-4fc9-8f53-03303c719c48";
+				PROVISIONING_PROFILE = "e4d693d3-27de-4a25-ac17-2690e2b0835d";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -679,8 +687,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Crazy Quiz/熱狂クイズ.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -713,7 +721,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "熱狂クイズ";
-				PROVISIONING_PROFILE = "6338f17f-34d9-4fc9-8f53-03303c719c48";
+				PROVISIONING_PROFILE = "e4d693d3-27de-4a25-ac17-2690e2b0835d";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
