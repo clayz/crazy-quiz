@@ -640,8 +640,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Crazy Quiz/熱狂クイズ.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,7 +676,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "熱狂クイズ";
-				PROVISIONING_PROFILE = "e4d693d3-27de-4a25-ac17-2690e2b0835d";
+				PROVISIONING_PROFILE = "333b2bfd-c1ec-43ad-9124-6bfe769a6839";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -687,8 +687,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Crazy Quiz/熱狂クイズ.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JIE ZHONG (9GBAD4TA89)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JIE ZHONG (SFHSE6JERW)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -721,7 +721,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "熱狂クイズ";
-				PROVISIONING_PROFILE = "e4d693d3-27de-4a25-ac17-2690e2b0835d";
+				PROVISIONING_PROFILE = "333b2bfd-c1ec-43ad-9124-6bfe769a6839";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -1,10 +1,7 @@
 CQ.GA = {
     trackingId: {
         dev: 'UA-50843267-1',
-        production: {
-            ios: 'UA-50843267-2',
-            android: 'UA-50843267-5'
-        }
+        production: 'UA-50843267-2'
     },
 
     Page: {
@@ -59,16 +56,7 @@ CQ.GA = {
     },
 
     init: function() {
-        if (CQ.dev) {
-            analytics.startTrackerWithId(this.trackingId.dev);
-        } else {
-            if (CQ.App.iOS()) analytics.startTrackerWithId(this.trackingId.production.ios);
-            else if (CQ.App.android()) analytics.startTrackerWithId(this.trackingId.production.android);
-            else {
-                // use ios GA for other cases
-                analytics.startTrackerWithId(this.trackingId.production.ios);
-            }
-        }
+        analytics.startTrackerWithId(CQ.dev ? this.trackingId.dev : this.trackingId.production);
     },
 
     trackPage: function(page) {
