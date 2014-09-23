@@ -16,6 +16,7 @@ body {
     background-image: -webkit-gradient(
             linear,
             left top,
+            left top,
             left bottom,
             color-stop(0, #A7A7A7),
             color-stop(0.51, #E4E4E4)
@@ -167,7 +168,6 @@ p {
 }
 
 .page {
-    height: 568px;
     text-align: center;
     text-shadow: none;
     background-color: #f5eda4;
@@ -175,38 +175,39 @@ p {
 
 .header {
     width: 100%;
-    height: 7em;
+    height: 6.5em;
     background: url(../img/layout/header-bg.png) no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
+    z-index: 5;
 }
 
 .header-back {
     float: left;
-    padding: 1.3em 0 0 1em;
+    padding: 1.5em 0 0 1em;
 }
 
 .header-back-btn {
-    width: 3.5em;
-    height: 3.5em;
+    width: 3em;
+    height: 3em;
 }
 
 .header-audio-on {
     display: none;
-    padding: .5em 0 0 0;
+    padding: .3em 0 0 0;
     width: 2.8em;
     height: 2.8em;
 }
 
 .header-audio-off {
     display: none;
-    padding: .5em 0 0 0;
+    padding: .3em 0 0 0;
     width: 2.8em;
     height: 2.8em;
 }
 
 .header-currency {
     float: right;
-    padding: 1.6em .5em;
+    padding: 1.8em .5em;
 }
 
 .header-gem {
@@ -214,14 +215,13 @@ p {
 }
 
 .header-gem-btn {
-    margin-top: .2em;
     width: 2.8em;
     height: 2.8em;
 }
 
 .header-gem-add-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.8em;
+    height: 2.8em;
 }
 
 .header-coin {
@@ -230,21 +230,20 @@ p {
 }
 
 .header-coin-btn {
-    margin-top: .2em;
     width: 2.8em;
     height: 2.8em;
 }
 
 .header-coin-add-btn {
-    width: 3em;
-    height: 3em;
+    width: 2.8em;
+    height: 2.8em;
 }
 
 .header-current-currency {
     width: 3.5em;
     color: #FFFFFF;
     text-align: center;
-    margin-top: 1em;
+    margin-top: .8em;
     font-weight: bold;
     font-size: 1em;
 }
@@ -253,10 +252,6 @@ p {
     display: inline-block;
     background: url(../img/layout/header-currency-bg.png) no-repeat center;
     background-size: 70% 70%;
-}
-
-.body {
-    /*height: 100%;*/
 }
 
 .popup-container {
@@ -402,9 +397,12 @@ p {
 }
 
 #index-body {
-    position: relative;
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    position: absolute;
+    margin: 0 .5em 55px .5em;
+    top: 6.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
     z-index: 1;
@@ -458,20 +456,25 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    position: absolute;
+    margin: 0 .5em 55px .5em;
+    top: 6.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 1;
 }
 
 #main-welcome {
-    height: 7em;
+    height: 6em;
 }
 
 #main-welcome-logo {
     position: absolute;
-    width: 7em;
-    height: 9em;
+    width: 6em;
+    height: 8em;
     margin-left: 1em;
     margin-top: -1em;
     background: url(../img/logo/main.png) no-repeat;
@@ -480,9 +483,9 @@ p {
 }
 
 #main-welcome-text {
-    margin: 1em 0 0 8.5em;
+    margin: .5em 0 0 7em;
     padding: 1.4em 0 0 .5em;
-    width: 60%;
+    width: 65%;
     height: 6em;
     color: #9d5106;
     background: url(../img/layout/main-welcome-bg.png) no-repeat;
@@ -495,7 +498,7 @@ p {
     margin: auto;
     left: 0;
     right: 0;
-    height: 57%;
+    padding-bottom: 2.8em;
     text-align: center;
     background: url(../img/layout/main-album-bg.png) no-repeat;
     background-size: 100% 100%;
@@ -520,8 +523,8 @@ p {
 
 #main-album-next-btn {
     width: 2em;
-    height: 2.8em;
-    margin: 1.3em 1.5em 0 0;
+    height: 2.5em;
+    margin: 1.2em 1.5em 0 0;
 }
 
 #main-album {
@@ -536,8 +539,8 @@ p {
 .main-level {
     position: relative;
     display: inline-block;
-    width: 6.2em;
-    height: 6.2em;
+    width: 5.5em;
+    height: 5.5em;
     border: 2px solid #3e2102;
     border-radius: 5px;
 }
@@ -577,11 +580,11 @@ p {
 
 .main-level-name {
     display: inline-block;
-    width: 6.2em;
+    width: 5.5em;
     height: 1.5em;
     line-height: 1.5em;
     color: #FFFFFF;
-    margin: .2em 0 .8em 0;
+    margin: .2em 0 .5em 0;
     background-color: #482602;
     border-radius: 3px;
 }
@@ -622,12 +625,13 @@ p {
 }
 
 #main-album-waiting {
-    position: absolute;
+    position: relative;
     width: 92%;
     margin: auto;
     left: 0;
     right: 0;
-    height: 57%;
+    height: 22em;
+    padding-bottom: 2.8em;
     text-align: center;
     background: url(../img/layout/main-album-waiting-bg.png) no-repeat;
     background-size: 100% 100%;
@@ -636,7 +640,7 @@ p {
 
 #main-footer {
     position: absolute;
-    padding: .5em 0 1.5em 0;
+    padding: 0 0 .8em 0;
     bottom: 0;
     width: 100%;
     clear: both;
@@ -674,12 +678,11 @@ p {
 /*******************************************************************/
 #game-title {
     position: absolute;
-    width: 13em;
+    width: 10em;
     left: 50%;
     top: 5em;
-    margin-left: -6.5em;
-    padding-top: .5em;
-    height: 5.5em;
+    margin-left: -5em;
+    height: 4.5em;
     z-index: 9;
 }
 
@@ -687,8 +690,8 @@ p {
     position: absolute;
     width: 10em;
     left: 50%;
-    top: 10.8em;
-    margin-left: -3em;
+    top: 3em;
+    margin-left: -2em;
     padding-top: 1em;
     height: 3em;
     color: #FFFFFF;
@@ -699,38 +702,44 @@ p {
 }
 
 #game-body {
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    position: absolute;
+    margin: 0 .5em 55px .5em;
+    top: 6.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 1;
 }
 
 #game-content {
-    padding-top: 5.5em;
+    padding-top: 4em;
+    width: 100%;
 }
 
 #game-props-left {
-    width: 16%;
-    padding-left: .3em;
+    width: 20%;
+    padding: 0 .3em 0 .3em;
 }
 
 #game-props-right {
-    width: 16%;
-    padding-right: .3em;
+    width: 20%;
+    padding: 0 .3em 0 .3em;
 }
 
 .game-props-btn {
-    padding: 1.5em 0 1em 0;
+    padding: 1em 0 1em 0;
 }
 
 .game-props-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 80% !important;
+    max-width: 60%;
+    max-height: 60%;
 }
 
 .game-props-coin {
     display: inline-block;
+    width: 4.5em;
     text-align: left;
     margin-top: .5em;
     padding-left: .1em;
@@ -745,16 +754,15 @@ p {
 
 .game-props-currency {
     font-weight: bold;
-    padding-top: .3em;
+    padding: .4em .3em 0 0;
 }
 
 #game-picture-container {
     display: inline-block;
     position: relative;
     float: left;
-    width: 68%;
-    height: 0;
-    padding-bottom: 68%;
+    width: 60%;
+    padding-bottom: 60%;
     text-align: center;
     margin: auto;
 }
@@ -766,19 +774,10 @@ p {
     bottom: 0;
     right: 0;
     background: url(../img/album/default/100.jpg) no-repeat;
-    background-size: 90% 90%;
-    background-position: center .3em;
-}
-
-#game-picture-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: url(../img/layout/game-img-frame.png) no-repeat;
-    background-size: 100%;
-    z-index: 8;
+    background-size: 100% 100%;
+    border: 5px solid #f8de02;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 1px #000 inset;
 }
 
 #game-correct-answer {
@@ -792,7 +791,7 @@ p {
 #game-answer-container {
     clear: both;
     text-align: center;
-    padding-bottom: .5em;
+    padding: 1em 0 .5em 0;
 }
 
 .game-answer-btn {
@@ -809,7 +808,7 @@ p {
 
 #game-char-container {
     clear: both;
-    padding: .5em .5em 1em .5em;
+    padding: 0 .5em .5em .5em;
     text-align: center;
 }
 
@@ -966,7 +965,7 @@ p {
 
 .popup-shop .popup-content {
     width: 22em;
-    height: 38em;
+    height: 37.5em;
     background-color: transparent !important;
 }
 
@@ -1205,8 +1204,13 @@ li:hover {
 .help-body {
     overflow: scroll;
     background-color: #6F451C;
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    position: absolute;
+    margin: 0 .5em 55px .5em;
+    top: 6.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
 #help .title {
@@ -1251,7 +1255,7 @@ li:hover {
 
 #help .pay_title img {
     border: 0;
-    margin: 0px;
+    margin: 0;
     width: 40px;
     height: 40px;
 }
