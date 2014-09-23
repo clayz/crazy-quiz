@@ -171,6 +171,7 @@ p {
     text-align: center;
     text-shadow: none;
     background-color: #f5eda4;
+    min-height: 47.5em !important;
 }
 
 .header {

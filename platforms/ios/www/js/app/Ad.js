@@ -16,7 +16,7 @@ CQ.Ad = {
     },
 
     init: function() {
-        if (!CQ.adMob) return;
+        if (!CQ.ad) return;
         console.info('Initial admob banner.');
 
         this.addHomeBannerAd();
