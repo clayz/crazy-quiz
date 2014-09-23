@@ -1,9 +1,8 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         dev: true,
-        audio: true,
-        purchase: true,
         ad: true,
+        purchase: true,
 
         URL: {
             APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
@@ -51,7 +50,7 @@ CQ.App = {
         });
 
         CQ.Datastore.User.addStartTimes();
-        if (!CQ.Datastore.User.isAudioEnabled()) CQ.audio = false;
+        CQ.audio = CQ.Datastore.User.isAudioEnabled();
 
         // modify jQuery default settings
         $.mobile.defaultPageTransition = 'none';

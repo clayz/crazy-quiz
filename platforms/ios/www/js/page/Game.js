@@ -405,6 +405,7 @@ CQ.Page.Game = {
             CQ.Ad.showInterstitial();
         }
 
+        CQ.Audio.GamePassPicture.stop();
         CQ.Audio.GameBackground.play();
     },
 
