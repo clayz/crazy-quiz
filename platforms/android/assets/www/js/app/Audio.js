@@ -3,8 +3,6 @@ CQ.Audio = {
     playing: false,
 
     init: function() {
-        if (!CQ.audio) return;
-
         if (CQ.App.iOS()) {
             this.media = new Media(this.file, this.onSuccess, this.onError);
         } else if (CQ.App.android()) {
@@ -23,7 +21,7 @@ CQ.Audio = {
     },
 
     play: function() {
-        if (this.media && CQ.audio) {
+        if (this.enabled && this.media && CQ.audio) {
             if (CQ.App.iOS())
                 this.media.play({ playAudioWhenScreenIsLocked: false, numberOfLoops: this.loops });
             else if (CQ.App.android())
@@ -57,21 +55,25 @@ CQ.Audio = {
 };
 
 CQ.Audio.Button = {
+    enabled: false,
     file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/button.wav',
     loops: 1
 };
 
 CQ.Audio.GameChar = {
+    enabled: false,
     file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/game_char.wav',
     loops: 1
 };
 
 CQ.Audio.GameBackground = {
+    enabled: true,
     file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/game_bg.mp3',
     loops: 9999
 };
 
 CQ.Audio.GamePassPicture = {
+    enabled: true,
     file: (CQ.App.android() ? '/android_asset/www/' : '') + 'audio/game_pass_picture.mp3',
     loops: 1
 };

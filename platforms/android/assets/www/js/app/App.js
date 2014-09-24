@@ -1,7 +1,7 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        dev: false,
-        audio: true,
+        dev: true,
+        ad: true,
         purchase: true,
 
         URL: {
@@ -22,6 +22,12 @@ CQ.App = {
     inheritsClasses: [],
     registerClasses: [],
     registerPages: [],
+
+    device: {
+        iPhone: /iPhone/i.test(navigator.userAgent),
+        iPad: /iPad/i.test(navigator.userAgent),
+        android: /Android/i.test(navigator.userAgent)
+    },
 
     init: function() {
         this.bindEvents();
@@ -44,13 +50,14 @@ CQ.App = {
         });
 
         CQ.Datastore.User.addStartTimes();
-        if (!CQ.Datastore.User.isAudioEnabled()) CQ.audio = false;
+        CQ.audio = CQ.Datastore.User.isAudioEnabled();
 
         // modify jQuery default settings
         $.mobile.defaultPageTransition = 'none';
         $.mobile.defaultDialogTransition = 'none';
         $.mobile.buttonMarkup.hoverDelay = 0;
 
+        // add listeners and plugins
         if (CQ.App.android()) FastClick.attach(document.body);
         document.addEventListener('backbutton', CQ.App.back, false);
 
@@ -77,19 +84,19 @@ CQ.App = {
     },
 
     iOS: function() {
-        return this.iPhone() || this.iPad();
+        return CQ.App.device.iPhone || CQ.App.device.iPad;
     },
 
     iPhone: function() {
-        return /iPhone/i.test(navigator.userAgent);
+        return CQ.App.device.iPhone;
     },
 
     iPad: function() {
-        return /iPad/i.test(navigator.userAgent);
+        return CQ.App.device.iPad;
     },
 
     android: function() {
-        return /Android/i.test(navigator.userAgent);
+        return CQ.App.device.android;
     }
 };
 

@@ -46,8 +46,7 @@ CQ.Page.Game = {
             .css('background', 'url(../www/img/layout/game-picture-id-bg-{0}.png) no-repeat'.format(levelAndIndex.index + 1))
             .css('background-size', '100%');
         $(CQ.Id.Game.$PICTURE).css('background', 'url(../www/{0}) no-repeat'.format(this.album.getPicturePath(this.picture.id)))
-            .css('background-size', '90% 90%')
-            .css('background-position', 'center .3em');
+            .css('background-size', '100%');
         $(CQ.Id.Game.$PROMPT_DIV).hide();
 
         if (CQ.dev) {
@@ -403,8 +402,10 @@ CQ.Page.Game = {
             if (CQ.dev) $(CQ.Id.Game.$CORRECT_ANSWER).text(game.picture.name);
         } else {
             CQ.Page.Game.open(CQ.Page.Main);
+            CQ.Ad.showInterstitial();
         }
 
+        CQ.Audio.GamePassPicture.stop();
         CQ.Audio.GameBackground.play();
     },
 

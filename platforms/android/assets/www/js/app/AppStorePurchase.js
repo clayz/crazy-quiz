@@ -85,7 +85,7 @@ CQ.AppStorePurchase = {
     onError: function(errorCode, errorMessage) {
         console.error('Error: ' + errorMessage);
         CQ.Page.closeLoading();
-        CQ.GA.track(CQ.GA.Shop.AppStoreError, errorCode);
+        CQ.GA.track(CQ.GA.Shop.AppStoreError, "{0}, {1}".format(errorCode, errorMessage));
     },
 
     buy: function(productId) {

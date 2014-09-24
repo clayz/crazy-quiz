@@ -56,11 +56,7 @@ CQ.GA = {
     },
 
     init: function() {
-        if (CQ.dev) {
-            analytics.startTrackerWithId(this.trackingId.dev);
-        } else {
-            analytics.startTrackerWithId(this.trackingId.production);
-        }
+        analytics.startTrackerWithId(CQ.dev ? this.trackingId.dev : this.trackingId.production);
     },
 
     trackPage: function(page) {
