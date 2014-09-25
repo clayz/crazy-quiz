@@ -279,16 +279,6 @@ p {
     z-index: 3;
 }
 
-.popup-logo {
-    position: absolute;
-    margin: -.7em 0 0 .8em;
-    width: 3em;
-    height: 4em;
-    background: url(../img/layout/popup-title.png) no-repeat;
-    background-size: 100%;
-    z-index: 1;
-}
-
 .popup-content p {
     padding: 1em;
     font-size: 1em;
@@ -392,7 +382,11 @@ p {
 }
 
 #loading-progress {
-    padding: 46em 3em 0 3em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 5em;
+    padding: 0 3em;
 }
 
 /*******************************************************************/
@@ -469,7 +463,6 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
-    position: absolute;
     margin: 0 .5em 55px .5em;
     top: 6.8em;
     bottom: 0;
@@ -496,7 +489,7 @@ p {
 }
 
 #main-welcome-text {
-    margin: 1em 0 0 8.5em;
+    margin: 1em 0 0 8em;
     padding: 1.4em 0 0 .5em;
     width: 60%;
     height: 6em;
@@ -506,7 +499,7 @@ p {
 }
 
 #main-album-container {
-    position: absolute;
+    position: relative;
     width: 92%;
     margin: auto;
     left: 0;
@@ -609,11 +602,11 @@ p {
 }
 
 .main-album-paging {
-    position: absolute;
-    bottom: 0;
-    height: 3em;
+    position: relative;
+    height: 1em;
     width: 4em;
     left: 50%;
+    bottom: 0;
     margin-left: -2em;
     z-index: 20;
 }
@@ -643,7 +636,7 @@ p {
     margin: auto;
     left: 0;
     right: 0;
-    height: 26em;
+    height: 27.1em;
     padding-bottom: 2.8em;
     text-align: center;
     background: url(../img/layout/main-album-waiting-bg.png) no-repeat;
@@ -651,8 +644,17 @@ p {
     z-index: 10;
 }
 
-#main-footer {
+#main-album-waiting .main-album-paging {
     position: absolute;
+    height: 1em;
+    width: 4em;
+    left: 50%;
+    bottom: 2.9em;
+    margin: 0 0 0 -2em;
+    z-index: 20;
+}
+
+#main-footer {
     padding: 0 0 .8em 0;
     bottom: 0;
     width: 100%;
@@ -704,7 +706,7 @@ p {
     position: absolute;
     width: 10em;
     left: 50%;
-    top: 4em;
+    top: 11em;
     margin-left: -3em;
     padding-top: 1em;
     height: 3em;
@@ -716,7 +718,6 @@ p {
 }
 
 #game-body {
-    position: absolute;
     margin: 0 .5em 55px .5em;
     top: 6.8em;
     bottom: 0;
@@ -866,11 +867,10 @@ p {
 }
 
 #game-popup-pass-picture {
-    padding: 5.5em 0 0 4em;
+    padding: 5.5em 0 0 3em;
 }
 
 #game-popup-pass-picture-number {
-    position: absolute;
     float: left;
     width: 3.5em;
     height: 3.5em;
@@ -882,12 +882,11 @@ p {
 }
 
 #game-popup-pass-picture-name {
-    position: absolute;
     float: left;
     width: 11em;
     height: 2.5em;
     margin: .3em 0 0 1em;
-    padding-left: 1.5em;
+    padding-left: 0;
     background-color: #2e1901;
     border-radius: 10px;
     border: 2px dashed #f5eda4;
@@ -928,23 +927,22 @@ p {
 }
 
 #game-popup-pass-sep {
-    position: absolute;
+    position: relative;
     width: 20em;
     height: .1em;
-    margin-top: 8em;
     left: 50%;
-    margin-left: -10em;
+    margin: 8em 0 0 -10em;
     background: url(../img/layout/game-popup-sep.png) no-repeat;
     background-size: 100% 100%;
 }
 
 #game-popup-pass-current-coin {
-    position: absolute;
+    position: relative;
+    top: -2em;
     width: 10em;
     height: 1em;
-    margin-top: 9em;
     left: 50%;
-    margin-left: -5em;
+    margin: 0 0 0 -5em;
     text-shadow: none;
     color: #fccd04;
 }
@@ -1229,7 +1227,6 @@ li:hover {
 
 #help .title {
     text-align: center;
-    //padding: 2px;
     font-weight: bold;
     font-size: 21px;
     color: #FFFFFF;
