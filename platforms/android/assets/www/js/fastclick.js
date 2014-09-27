@@ -94,7 +94,7 @@
 		 *
 		 * @type number
 		 */
-		this.tapDelay = options.tapDelay || 200;
+		this.tapDelay = options.tapDelay || 50;
 	
 		if (FastClick.notNeeded(layer)) {
 			return;
