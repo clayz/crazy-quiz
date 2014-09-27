@@ -171,7 +171,6 @@ p {
     text-align: center;
     text-shadow: none;
     background-color: #f5eda4;
-    min-height: 47.3em !important;
 }
 
 .header {
@@ -718,6 +717,7 @@ p {
 }
 
 #game-body {
+    min-height: 42em;
     margin: 0 .5em 55px .5em;
     top: 6.8em;
     bottom: 0;

@@ -77,3 +77,14 @@
 * CB-6478: Fix exception when try to record audio file on windows 8
 * CB-6477: Add musicLibrary and microphone capabilities to windows 8 platform
 * CB-6491 add CONTRIBUTING.md
+
+### 0.2.12 (Aug 06, 2014)
+* CB-6127 Updated translations for docs
+* ios: Make it easier to play media and record audio simultaneously
+* code #s for MediaError
+
+### 0.2.13 (Sep 17, 2014)
+* CB-6963 renamed folder to tests + added nested plugin.xml
+* added documentation for manual tests
+* CB-6963 Port Media manual & automated tests
+* CB-6963 Port media tests to plugin-test-framework
