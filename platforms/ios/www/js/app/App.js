@@ -58,10 +58,25 @@ CQ.App = {
         $.mobile.buttonMarkup.hoverDelay = 0;
 
         // add listeners and plugins
-        if (CQ.App.android()) FastClick.attach(document.body);
         document.addEventListener('backbutton', CQ.App.back, false);
 
+        if (CQ.App.android()) {
+            document.addEventListener("pause", CQ.App.pause, false);
+            document.addEventListener("resume", CQ.App.resume, false);
+            FastClick.attach(document.body);
+        }
+
         console.log('App initialization finished.');
+    },
+
+    pause: function() {
+        CQ.audio = false;
+        CQ.Audio.GameBackground.stop();
+    },
+
+    resume: function() {
+        CQ.audio = CQ.Datastore.User.isAudioEnabled();
+        CQ.Audio.GameBackground.play();
     },
 
     inherits: function(child, parent) {

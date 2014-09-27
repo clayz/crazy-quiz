@@ -3,6 +3,8 @@ CQ.Audio = {
     playing: false,
 
     init: function() {
+        if (!this.enabled) return;
+
         if (CQ.App.iOS()) {
             this.media = new Media(this.file, this.onSuccess, this.onError);
         } else if (CQ.App.android()) {

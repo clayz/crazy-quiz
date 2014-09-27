@@ -175,14 +175,15 @@ p {
 
 .header {
     width: 100%;
-    height: 7em;
+    height: 6.8em;
     background: url(../img/layout/header-bg.png) no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
+    z-index: 5;
 }
 
 .header-back {
     float: left;
-    padding: 1.3em 0 0 1em;
+    padding: .8em 0 0 1em;
 }
 
 .header-back-btn {
@@ -190,9 +191,23 @@ p {
     height: 3.5em;
 }
 
+.header-audio-on {
+    display: none;
+    padding: .5em 0 0 0;
+    width: 2.8em;
+    height: 2.8em;
+}
+
+.header-audio-off {
+    display: none;
+    padding: .5em 0 0 0;
+    width: 2.8em;
+    height: 2.8em;
+}
+
 .header-currency {
     float: right;
-    padding: 1.6em .5em;
+    padding: 1.2em .5em;
 }
 
 .header-gem {
@@ -241,10 +256,6 @@ p {
     background-size: 70% 70%;
 }
 
-.body {
-    /*height: 100%;*/
-}
-
 .popup-container {
     border: 0 !important;
     background-color: #eae093 !important;
@@ -265,16 +276,6 @@ p {
     color: #FFFFFF;
     border-radius: 3px;
     z-index: 3;
-}
-
-.popup-logo {
-    position: absolute;
-    margin: -.7em 0 0 .8em;
-    width: 3em;
-    height: 4em;
-    background: url(../img/layout/popup-title.png) no-repeat;
-    background-size: 100%;
-    z-index: 1;
 }
 
 .popup-content p {
@@ -375,12 +376,16 @@ p {
     background-size: 100% 100%;
 }
 
-#loading-body {
+#main-popup-exit {
     width: 100%;
 }
 
 #loading-progress {
-    padding: 41em 3em 0 3em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 5em;
+    padding: 0 3em;
 }
 
 /*******************************************************************/
@@ -398,9 +403,12 @@ p {
 }
 
 #index-body {
-    position: relative;
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    position: absolute;
+    margin: 0 .5em 55px .5em;
+    top: 6.8em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
     z-index: 1;
@@ -454,10 +462,14 @@ p {
 /* Main Page */
 /*******************************************************************/
 #main-body {
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    margin: 0 .5em 55px .5em;
+    top: 6.8em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 1;
 }
 
 #main-welcome {
@@ -476,7 +488,7 @@ p {
 }
 
 #main-welcome-text {
-    margin: 1em 0 0 8.5em;
+    margin: 1em 0 0 8em;
     padding: 1.4em 0 0 .5em;
     width: 60%;
     height: 6em;
@@ -486,12 +498,12 @@ p {
 }
 
 #main-album-container {
-    position: absolute;
+    position: relative;
     width: 92%;
     margin: auto;
     left: 0;
     right: 0;
-    height: 57%;
+    padding-bottom: 2.8em;
     text-align: center;
     background: url(../img/layout/main-album-bg.png) no-repeat;
     background-size: 100% 100%;
@@ -517,11 +529,11 @@ p {
 #main-album-next-btn {
     width: 2em;
     height: 2.8em;
-    margin: 1.3em 1.5em 0 0;
+    margin: 1.5em 1.5em 0 0;
 }
 
 #main-album {
-    padding: 1.8em 2em .5em 2em;
+    padding: 2.8em 2em .5em 2em;
 }
 
 .main-level-cover {
@@ -532,8 +544,8 @@ p {
 .main-level {
     position: relative;
     display: inline-block;
-    width: 6.2em;
-    height: 6.2em;
+    width: 6.5em;
+    height: 6.5em;
     border: 2px solid #3e2102;
     border-radius: 5px;
 }
@@ -573,7 +585,7 @@ p {
 
 .main-level-name {
     display: inline-block;
-    width: 6.2em;
+    width: 6.5em;
     height: 1.5em;
     line-height: 1.5em;
     color: #FFFFFF;
@@ -589,11 +601,11 @@ p {
 }
 
 .main-album-paging {
-    position: absolute;
-    bottom: 0;
-    height: 3em;
+    position: relative;
+    height: 1em;
     width: 4em;
     left: 50%;
+    bottom: 0;
     margin-left: -2em;
     z-index: 20;
 }
@@ -618,21 +630,31 @@ p {
 }
 
 #main-album-waiting {
-    position: absolute;
+    position: relative;
     width: 92%;
     margin: auto;
     left: 0;
     right: 0;
-    height: 57%;
+    height: 27.1em;
+    padding-bottom: 2.8em;
     text-align: center;
     background: url(../img/layout/main-album-waiting-bg.png) no-repeat;
     background-size: 100% 100%;
     z-index: 10;
 }
 
-#main-footer {
+#main-album-waiting .main-album-paging {
     position: absolute;
-    padding: .5em 0 1.5em 0;
+    height: 1em;
+    width: 4em;
+    left: 50%;
+    bottom: 2.9em;
+    margin: 0 0 0 -2em;
+    z-index: 20;
+}
+
+#main-footer {
+    padding: 0 0 .8em 0;
     bottom: 0;
     width: 100%;
     clear: both;
@@ -683,7 +705,7 @@ p {
     position: absolute;
     width: 10em;
     left: 50%;
-    top: 10.8em;
+    top: 11em;
     margin-left: -3em;
     padding-top: 1em;
     height: 3em;
@@ -695,38 +717,44 @@ p {
 }
 
 #game-body {
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    min-height: 42em;
+    margin: 0 .5em 55px .5em;
+    top: 6.8em;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: url(../img/layout/game-bg.png) no-repeat;
     background-size: 100% 100%;
+    z-index: 1;
 }
 
 #game-content {
     padding-top: 5.5em;
+    width: 100%;
 }
 
 #game-props-left {
-    width: 16%;
-    padding-left: .3em;
+    width: 20%;
+    padding: 0 .3em 0 .3em;
 }
 
 #game-props-right {
-    width: 16%;
-    padding-right: .3em;
+    width: 20%;
+    padding: 0 .3em 0 .3em;
 }
 
 .game-props-btn {
-    padding: 1.5em 0 1em 0;
+    padding: 1em 0 1em 0;
 }
 
 .game-props-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 80% !important;
+    max-width: 60%;
+    max-height: 60%;
 }
 
 .game-props-coin {
     display: inline-block;
+    width: 4.5em;
     text-align: left;
     margin-top: .5em;
     padding-left: .1em;
@@ -741,16 +769,15 @@ p {
 
 .game-props-currency {
     font-weight: bold;
-    padding-top: .3em;
+    padding: .4em .3em 0 0;
 }
 
 #game-picture-container {
     display: inline-block;
     position: relative;
     float: left;
-    width: 68%;
-    height: 0;
-    padding-bottom: 68%;
+    width: 60%;
+    padding-bottom: 60%;
     text-align: center;
     margin: auto;
 }
@@ -762,19 +789,10 @@ p {
     bottom: 0;
     right: 0;
     background: url(../img/album/default/100.jpg) no-repeat;
-    background-size: 90% 90%;
-    background-position: center .3em;
-}
-
-#game-picture-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: url(../img/layout/game-img-frame.png) no-repeat;
-    background-size: 100%;
-    z-index: 8;
+    background-size: 100% 100%;
+    border: 4px solid #f8de02;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 1px #000 inset;
 }
 
 #game-correct-answer {
@@ -788,7 +806,7 @@ p {
 #game-answer-container {
     clear: both;
     text-align: center;
-    padding-bottom: .5em;
+    padding: 1em 0 .5em 0;
 }
 
 .game-answer-btn {
@@ -805,7 +823,7 @@ p {
 
 #game-char-container {
     clear: both;
-    padding: .5em .5em 1em .5em;
+    padding: 0 .5em .5em .5em;
     text-align: center;
 }
 
@@ -849,11 +867,10 @@ p {
 }
 
 #game-popup-pass-picture {
-    padding: 5.5em 0 0 4em;
+    padding: 5.5em 0 0 3em;
 }
 
 #game-popup-pass-picture-number {
-    position: absolute;
     float: left;
     width: 3.5em;
     height: 3.5em;
@@ -865,12 +882,11 @@ p {
 }
 
 #game-popup-pass-picture-name {
-    position: absolute;
     float: left;
     width: 11em;
     height: 2.5em;
     margin: .3em 0 0 1em;
-    padding-left: 1.5em;
+    padding-left: 0;
     background-color: #2e1901;
     border-radius: 10px;
     border: 2px dashed #f5eda4;
@@ -911,23 +927,22 @@ p {
 }
 
 #game-popup-pass-sep {
-    position: absolute;
+    position: relative;
     width: 20em;
     height: .1em;
-    margin-top: 3em;
     left: 50%;
-    margin-left: -10em;
+    margin: 8em 0 0 -10em;
     background: url(../img/layout/game-popup-sep.png) no-repeat;
     background-size: 100% 100%;
 }
 
 #game-popup-pass-current-coin {
-    position: absolute;
+    position: relative;
+    top: -2em;
     width: 10em;
     height: 1em;
-    margin-top: 4em;
     left: 50%;
-    margin-left: -5em;
+    margin: 0 0 0 -5em;
     text-shadow: none;
     color: #fccd04;
 }
@@ -962,7 +977,7 @@ p {
 
 .popup-shop .popup-content {
     width: 22em;
-    height: 38em;
+    height: 37.5em;
     background-color: transparent !important;
 }
 
@@ -1201,83 +1216,92 @@ li:hover {
 .help-body {
     overflow: scroll;
     background-color: #6F451C;
-    height: 84%;
-    margin: 0 .5em 0 .5em;
+    position: absolute;
+    margin: 0 .5em 55px .5em;
+    top: 6.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
-#help-guide .title {
+#help .title {
     text-align: center;
-    padding: 5px;
     font-weight: bold;
     font-size: 21px;
     color: #FFFFFF;
 }
 
-#help-guide .des {
+#help .des {
     font-size: 14px;
     text-align: left;
     color: #FFFFFF;
     margin: 5px;
 }
 
-#help-guide table {
+#help table {
     width: 100%;
     border-color: #000000;
 }
 
-#help-guide table td {
+#help table td {
     text-align: center;
 }
 
-#help-guide table td img {
+#help table td img {
     width: 40px;
     height: 50px;
     border: 0;
 }
 
-#help-guide table td.help_text {
+#help table td.help_text {
     font-size: 14px;
     text-align: left;
     color: #FFFFFF;
 }
 
-#help-guide .pay_title {
+#help .pay_title {
     text-align: center;
 }
 
-#help-guide .pay_title img {
+#help .pay_title img {
     border: 0;
-    margin: 0px;
+    margin: 0;
     width: 40px;
     height: 40px;
 }
 
-#help-guide .pay_title span {
+#help .pay_title span {
     font-size: 18px;
     font-weight: bold;
     color: #FFFFFF;
     margin: 5px;
 }
 
-#help-guide .pay_des {
+#help .pay_des {
     font-size: 14px;
     text-align: left;
     color: #FFFFFF;
     margin: 5px;
 }
 
-#help-guide .contact {
+#help .contact {
     text-align: left;
     padding: 5px;
 }
 
-#help-guide .contact span {
+#help .contact span {
     font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
 }
 
-#help-guide .home_page {
+#help .home_page {
     text-align: center;
     padding: 5px;
+}
+
+#help .fb-page-btn {
+    width: 12em;
+    height: 4em;
 }

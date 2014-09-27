@@ -371,7 +371,7 @@ CQ.Page.Game = {
     },
 
     showPassPopup: function(earned) {
-        CQ.Audio.GameBackground.stop();
+        CQ.Audio.GameBackground.pause();
         CQ.Audio.GamePassPicture.play();
 
         $(CQ.Id.Game.$POPUP_PASS_PICTURE_NUMBER).html(this.album.getPictureLevelAndIndex(this.picture.id).index + 1);

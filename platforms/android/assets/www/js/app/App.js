@@ -59,10 +59,12 @@ CQ.App = {
 
         // add listeners and plugins
         document.addEventListener('backbutton', CQ.App.back, false);
-        document.addEventListener("pause", CQ.App.pause, false);
-        document.addEventListener("resume", CQ.App.resume, false);
 
-        if (CQ.App.android()) FastClick.attach(document.body);
+        if (CQ.App.android()) {
+            document.addEventListener("pause", CQ.App.pause, false);
+            document.addEventListener("resume", CQ.App.resume, false);
+            FastClick.attach(document.body);
+        }
 
         console.log('App initialization finished.');
     },
