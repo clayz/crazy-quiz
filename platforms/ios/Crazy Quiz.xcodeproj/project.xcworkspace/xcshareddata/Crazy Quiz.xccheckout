@@ -14,7 +14,7 @@
 		<string>https://github.com/clayz/crazy-quiz.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>platforms/ios/Crazy Quiz.xcodeproj/project.xcworkspace</string>
+	<string>platforms/ios/Crazy Quiz.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B38C181408ABBB036382683657DD60909D4DC73A</key>

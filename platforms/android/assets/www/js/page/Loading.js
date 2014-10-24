@@ -5,9 +5,14 @@ CQ.Page.Loading = {
         console.info('Initial loading page');
 
         setTimeout(function() {
-            if (CQ.User.getName()) {
+            var name = CQ.User.getName();
+
+            if (name) {
+                // user already registered
                 CQ.Page.open(CQ.Page.Main, { transition: "fade" });
+                CQ.API.startup();
             } else {
+                // first time startup
                 CQ.Page.open(CQ.Page.Index, { transition: "fade" });
             }
         }, 3000);

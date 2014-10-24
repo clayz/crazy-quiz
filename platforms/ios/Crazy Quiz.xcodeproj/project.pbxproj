@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -70,6 +69,7 @@
 		E525A99519486C7F00CC4099 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99419486C7F00CC4099 /* AdSupport.framework */; };
 		E525A99719486C8D00CC4099 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99619486C8D00CC4099 /* CoreData.framework */; };
 		E525A99919486C9800CC4099 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99819486C9800CC4099 /* SystemConfiguration.framework */; };
+		5E88400C5D674175ACC0C999 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = A565E17C9CC94D5D9550B981 /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +181,8 @@
 		F39FC5DC2A8F49A9B0F5900C /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SKProduct+LocalizedPrice.h"; path = "cc.fovea.plugins.inapppurchase/SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Crazy Quiz/config.xml"; sourceTree = "<group>"; };
 		FB3EAC6F12724481BB5EAB81 /* CDVSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSound.h; path = org.apache.cordova.media/CDVSound.h; sourceTree = "<group>"; };
+		A565E17C9CC94D5D9550B981 /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		482DB9C850C2418EAE9B750F /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +371,8 @@
 				D49416B22526414596091D9D /* CDVInAppBrowser.h */,
 				C20D70DFDCF649F9BA6DD702 /* AdmobAdPlugin.m */,
 				50FDDD7CB02049F3AF60818A /* AdmobAdPlugin.h */,
+				A565E17C9CC94D5D9550B981 /* CDVDevice.m */,
+				482DB9C850C2418EAE9B750F /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = "Crazy Quiz/Plugins";
@@ -585,6 +589,7 @@
 				5B4291CCBFC3406D96324963 /* SKProduct+LocalizedPrice.m in Sources */,
 				318C1995306F4883BBFBC5FC /* CDVInAppBrowser.m in Sources */,
 				463086581F05432A900512B7 /* AdmobAdPlugin.m in Sources */,
+				5E88400C5D674175ACC0C999 /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

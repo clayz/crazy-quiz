@@ -133,6 +133,10 @@
                         {
                             "xml": "<feature name=\"AdmobPlugin\"><param name=\"ios-package\" value=\"AdmobAdPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -173,6 +177,9 @@
             "PACKAGE_NAME": "com.clay.crazyquiz"
         },
         "com.admob.AdmobPlugin": {
+            "PACKAGE_NAME": "com.clay.crazyquiz"
+        },
+        "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.clay.crazyquiz"
         }
     },

@@ -3,6 +3,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
         dev: true,
         ad: true,
         purchase: true,
+        version: '1.0',
 
         URL: {
             APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
@@ -12,7 +13,8 @@ if (typeof(CQ) == 'undefined' || !CQ) {
 
             Web: {
                 INDEX: 'http://crazy-quiz.appspot.com',
-                ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/'
+                ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/',
+                API: 'http://crazy-quiz-dev.appspot.com'
             }
         }
     };
@@ -39,6 +41,7 @@ CQ.App = {
 
     ready: function() {
         console.log('PhoneGap is ready, start app initialization.');
+        CQ.Session.UUID = device.uuid;
 
         // implement classes inherit and initialize register classes
         $.each(CQ.App.inheritsClasses, function(index, value) {
@@ -119,5 +122,5 @@ CQ.Session = {
     CURRENT_PAGE: 'loading',
     CURRENT_OPEN_POPUP: null,
 
-    USERNAME: ''
+    UUID: ''
 };

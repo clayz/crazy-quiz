@@ -50,6 +50,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -202,10 +209,11 @@ module.exports.metadata =
     "nl.x-services.plugins.socialsharing": "4.0.8",
     "com.smartmobilesoftware.inappbilling": "3.0.0",
     "com.danielcwilson.plugins.googleanalytics": "0.5.0",
-    "org.apache.cordova.media": "0.2.11",
+    "org.apache.cordova.media": "0.2.13",
     "cc.fovea.plugins.inapppurchase": "3.4.1",
     "org.apache.cordova.inappbrowser": "0.5.1-dev",
     "com.admob.AdmobPlugin": "1.0.0",
+    "org.apache.cordova.device": "0.2.13-dev",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA
