@@ -29,6 +29,48 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cc.fovea.plugins.inapppurchase/InAppPurchase.js",
+        "id": "cc.fovea.plugins.inapppurchase.InAppPurchase",
+        "clobbers": [
+            "storekit"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/com.admob.AdmobPlugin/www/AdmobPlugin.js",
+        "id": "com.admob.AdmobPlugin.AdmobAd",
+        "clobbers": [
+            "window.admobAd"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/uk.co.whiteoctober.cordova.appversion/www/AppVersionPlugin.js",
+        "id": "uk.co.whiteoctober.cordova.appversion.AppVersionPlugin",
+        "clobbers": [
+            "cordova.getAppVersion"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -181,7 +223,13 @@ module.exports.metadata =
     "com.smartmobilesoftware.inappbilling": "3.0.0",
     "nl.x-services.plugins.socialsharing": "4.0.8",
     "com.danielcwilson.plugins.googleanalytics": "0.5.0",
-    "org.apache.cordova.media": "0.2.11",
+    "org.apache.cordova.media": "0.2.13",
+    "cc.fovea.plugins.inapppurchase": "3.4.1",
+    "org.apache.cordova.inappbrowser": "0.5.1-dev",
+    "com.admob.AdmobPlugin": "1.0.0",
+    "org.apache.cordova.device": "0.2.13-dev",
+    "com.phonegap.plugins.PushPlugin": "2.4.0",
+    "uk.co.whiteoctober.cordova.appversion": "0.1.4",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

@@ -12,7 +12,7 @@ CQ.API = {
         this.post(this.Route.startup, {
             uuid: CQ.Session.UUID,
             name: CQ.User.name,
-            version: CQ.version,
+            version: CQ.Session.VERSION,
             device: this.getDevice()
         });
     },
