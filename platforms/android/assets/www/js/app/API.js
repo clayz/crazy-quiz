@@ -8,13 +8,12 @@ CQ.API = {
         exchange: '/api/audit/exchange/'
     },
 
-    startup: function() {
+    startup: function(callback) {
         this.post(this.Route.startup, {
             uuid: CQ.Session.UUID,
-            name: CQ.User.name,
             version: CQ.Session.VERSION,
             device: this.getDevice()
-        });
+        }, callback);
     },
 
     post: function(url, data, success) {

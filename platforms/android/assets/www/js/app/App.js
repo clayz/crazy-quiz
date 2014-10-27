@@ -73,6 +73,11 @@ CQ.App = {
             FastClick.attach(document.body);
         }
 
+        // register device and push notification
+        CQ.API.startup(function() {
+            CQ.Notification.init();
+        });
+
         console.log('App initialization finished.');
     },
 

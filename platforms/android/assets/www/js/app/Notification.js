@@ -48,5 +48,3 @@ CQ.Notification = {
         console.info('onNotificationAPN: {0}'.format(CQ.Utils.toString(event)));
     }
 };
-
-CQ.App.register(CQ.Notification);
