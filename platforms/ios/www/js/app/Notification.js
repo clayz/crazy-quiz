@@ -27,14 +27,17 @@ CQ.Notification = {
     },
 
     successHandler: function(result) {
+        alert(result);
         console.info('Push notification initialize success: {0}'.format(result));
     },
 
     errorHandler: function(error) {
+        alert(error);
         console.error('Push notification initialize failed: {0}'.format(error));
     },
 
     tokenHandler: function(result) {
+        alert(CQ.Utils.toString(result));
         console.info('APNS token handler result: {0}'.format(CQ.Utils.toString(result)));
     },
 

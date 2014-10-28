@@ -44,7 +44,7 @@ CQ.App = {
 
         CQ.Session.UUID = device.uuid;
         window.getAppVersion().then(function(version) {
-            CQ.Session.VERSION = version
+            CQ.Session.VERSION = version;
         });
 
         // implement classes inherit and initialize register classes
@@ -75,7 +75,7 @@ CQ.App = {
 
         // register device and push notification
         CQ.API.startup(function() {
-            CQ.Notification.init();
+            CQ.API.register_notification();
         });
 
         console.log('App initialization finished.');
@@ -132,5 +132,6 @@ CQ.Session = {
     CURRENT_OPEN_POPUP: null,
 
     UUID: '',
-    VERSION: 'N/A'
+    VERSION: 'N/A',
+    PUSH_TOKEN: ''
 };

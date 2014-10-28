@@ -57,6 +57,20 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/uk.co.whiteoctober.cordova.appversion/www/AppVersionPlugin.js",
+        "id": "uk.co.whiteoctober.cordova.appversion.AppVersionPlugin",
+        "clobbers": [
+            "window.getAppVersion"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -214,6 +228,8 @@ module.exports.metadata =
     "org.apache.cordova.inappbrowser": "0.5.1-dev",
     "com.admob.AdmobPlugin": "1.0.0",
     "org.apache.cordova.device": "0.2.13-dev",
+    "com.phonegap.plugins.PushPlugin": "2.4.0",
+    "uk.co.whiteoctober.cordova.appversion": "0.1.4",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

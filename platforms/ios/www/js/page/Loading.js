@@ -9,11 +9,10 @@ CQ.Page.Loading = {
 
             if (name) {
                 // user already registered
-                CQ.Page.open(CQ.Page.Main, { transition: "fade" });
-                CQ.API.startup();
+                CQ.Page.open(CQ.Page.Main, {transition: "fade"});
             } else {
                 // first time startup
-                CQ.Page.open(CQ.Page.Index, { transition: "fade" });
+                CQ.Page.open(CQ.Page.Index, {transition: "fade"});
             }
         }, 3000);
     },
