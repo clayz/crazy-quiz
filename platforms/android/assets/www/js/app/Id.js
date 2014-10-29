@@ -55,7 +55,12 @@ CQ.Id = {
         $POPUP_SHARE_TEXT: '.popup-share-text',
         $POPUP_SHARE_FACEBOOK: '.popup-share-fb',
         $POPUP_SHARE_TWITTER: '.popup-share-tw',
-        $POPUP_SHARE_OTHER: '.popup-share-other'
+        $POPUP_SHARE_OTHER: '.popup-share-other',
+
+        $POPUP_LOGIN_BONUS: ".popup-login-bonus",
+        $POPUP_LOGIN_BONUS_BANNER: '.login-bonus-banner',
+        $POPUP_LOGIN_BONUS_NOT_GET: ".popup-login-bonus .popup-bonus-not-get-{0}",
+        $POPUP_LOGIN_BONUS_GET: ".popup-login-bonus .popup-bonus-get-{0}"
     },
 
     Image: {
@@ -190,5 +195,17 @@ CQ.Id = {
         $TO_RULE: '#help-to-rule',
         $TO_ENQUIRY: '#help-to-enquiry',
         $TO_FACEBOOK: '#help-to-facebook'
+    },
+
+    LoginBonus: {
+        $LOGIN_BONUS: '#login-bonus',
+        $LOGIN_BONUS_IMG_TODAY: '#login-bonus-img-today',
+        $LOGIN_BONUS_AMOUNT_TODAY: '#login-bonus-amount-today',
+        $LOGIN_BONUS_IMG_DAY: '#login-bonus-img-day-{0}',
+        $LOGIN_BONUS_AMOUNT_DAY: '#popup-bonus-amount-{0}',
+        $LOGIN_BONUS_BUTTON_GET: "#login-bonus-button-get",
+        $LOGIN_BONUS_DIV_GET: '#login-bonus-div-get',
+        $LOGIN_BONUS_IMG_GET: '#login-bonus-img-get',
+        $LOGIN_BONUS_AMOUNT_GET: '#login-bonus-amount-get'
     }
 };

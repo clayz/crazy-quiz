@@ -1294,3 +1294,96 @@ li:hover {
     width: 12em;
     height: 4em;
 }
+
+/*******************************************************************/
+/* login bonus Popup */
+/*******************************************************************/
+#login-bonus .popup-login-bonus {
+
+}
+
+
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-0 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-get-0 {
+
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-1 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-get-1 {
+
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-2 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-get-2 {
+
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-3 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-got-3 {
+
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-4 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-4.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-get-4 {
+
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-5 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/coin-set-5.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-get-5 {
+
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-not-get-6 {
+    width: 4em;
+    height: 4em;
+    margin: .5em 0 0 .5em;
+    background: url(../img/icon/gem-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .popup-login-bonus .popup-bonus-get-6 {
+
+}

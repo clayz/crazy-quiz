@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ios.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">loginBonus</button>
+
+    <!-- Login bonus popup -->
+    <div data-role="popup" id="login-bonus" class="popup-login-bonus popup-shop popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <div class="login-bonus-banner">連続ログインボーナス</div>
+            <div class="login-bonus-today">
+                <div class="login-bonus-img-today"></div>
+                <div class="login-bonus-number-today"></div>
+                <div id="login-bonus-button-get" class="login-bonus-button"></div>
+            </div>
+            <div class="login-bonus-container">
+                <div class="login-bonus-goods">
+                    <div id="popup-bonus-img-0" class="left popup-bonus-img-0"></div>
+                    <div id="popup-bonus-amount-0" class="left popup-goods-amount-0"></div>
+                </div>
+                <div class="login-bonus">
+                    <div id="popup-bonus-img-1" class="left login-bonus-img-1"></div>
+                    <div id="popup-bonus-amount-1" class="left login-bonus-amount-2"></div>
+                </div>
+                <div class="popup-bonus">
+                    <div id="popup-bonus-img-2" class="left login-bonus-img-2"></div>
+                    <div id="popup-bonus-amount-2" class="left login-bonus-amount-2"></div>
+                </div>
+                <div class="popup-bonus">
+                    <div id="popup-bonus-img-3" class="left popup-bonus-img-3"></div>
+                    <div id="popup-bonus-amount-3" class="left popup-bonus-amount-3"></div>
+                </div>
+                <div class="popup-bonus">
+                    <div id="popup-bonus-img-4" class="left popup-bonus-img-4"></div>
+                    <div id="popup-bonus-amount-4" class="left popup-bonus-amount-4"></div>
+                </div>
+                <div class="popup-bonus">
+                    <div id="popup-bonus-img-5" class="left popup-bonus-img-5"></div>
+                    <div id="popup-bonus-amount-5" class="left popup-bonus-amount-5"></div>
+                </div>
+                <div class="popup-bonus">
+                    <div id="popup-bonus-img-6" class="left popup-bonus-img-6"></div>
+                    <div id="popup-bonus-amount-6" class="left popup-bonus-amount-6"></div>
+                </div>
+            </div>
+
+            <!--Popup when bonus get -->
+            <div id="login-bonus-div-get">
+                <div class="popup-bonus">
+                    <div id="login-bonus-img-get"></div>
+                    <div id="login-bonus-amount-get"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            $("#main").find('.popup-login-bonus').popup();
+            $('#main').find('.popup-login-bonus').popup('open');
+        });
+    });
+</script>
+</body>
+</html>
