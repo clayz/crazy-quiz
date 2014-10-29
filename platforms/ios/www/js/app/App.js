@@ -13,8 +13,9 @@ if (typeof(CQ) == 'undefined' || !CQ) {
             Web: {
                 INDEX: 'http://crazy-quiz.appspot.com',
                 ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/',
-                // API: 'http://crazy-quiz-dev.appspot.com'
-                API: 'http://192.168.1.100:8080' // local API testing
+                // API: 'http://crazy-quiz.appspot.com' // production API
+                API: 'http://crazy-quiz-dev.appspot.com' // dev API testing
+                // API: 'http://192.168.1.100:8080' // local API testing
             }
         }
     };
@@ -42,11 +43,6 @@ CQ.App = {
     ready: function() {
         console.log('PhoneGap is ready, start app initialization.');
 
-        CQ.Session.UUID = device.uuid;
-        window.getAppVersion().then(function(version) {
-            CQ.Session.VERSION = version;
-        });
-
         // implement classes inherit and initialize register classes
         $.each(CQ.App.inheritsClasses, function(index, value) {
             $.extend(value.child, value.parent);
@@ -73,9 +69,14 @@ CQ.App = {
             FastClick.attach(document.body);
         }
 
-        // register device and push notification
-        CQ.API.startup(function() {
-            CQ.API.register_notification();
+        // get and register device info
+        CQ.Session.UUID = device.uuid;
+        window.getAppVersion().then(function(version) {
+            CQ.Session.VERSION = version;
+
+            CQ.API.startup(function() {
+                CQ.API.register_notification();
+            });
         });
 
         console.log('App initialization finished.');
@@ -89,6 +90,10 @@ CQ.App = {
     resume: function() {
         CQ.audio = CQ.Datastore.User.isAudioEnabled();
         CQ.Audio.GameBackground.play();
+
+        CQ.API.startup(function() {
+            CQ.API.register_notification();
+        });
     },
 
     inherits: function(child, parent) {

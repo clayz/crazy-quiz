@@ -36,6 +36,7 @@ CQ.Notification = {
 
     tokenHandler: function(result) {
         console.info('APNS token handler result: {0}'.format(CQ.Utils.toString(result)));
+        CQ.Session.PUSH_TOKEN = result;
     },
 
     // Android and Amazon Fire OS

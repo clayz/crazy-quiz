@@ -30,7 +30,7 @@ CQ.API = {
             product_id: goods.productId,
             gem: goods.gem,
             cost: goods.cost,
-            date: date
+            date: this.getTimestamp(date)
         });
     },
 
@@ -39,7 +39,7 @@ CQ.API = {
             goods_id: goods.id,
             gem: goods.gem,
             coin: goods.coin,
-            date: date
+            date: this.getTimestamp(date)
         });
     },
 
@@ -48,14 +48,14 @@ CQ.API = {
             type_id: type.id,
             gem: type.gem,
             coin: type.coin,
-            date: date
+            date: this.getTimestamp(date)
         });
     },
 
     consume: function(type, date, album, level, picture) {
         var data = {
             type_id: type.id,
-            date: date
+            date: this.getTimestamp(date)
         };
 
         if (type.gem) data.gem = type.gem;
@@ -84,6 +84,10 @@ CQ.API = {
         else if (CQ.App.iPad()) return 2;
         else if (CQ.App.android()) return 3;
         else return 0;
+    },
+
+    getTimestamp: function(date) {
+        return parseInt((date % 1 === 0 ? date : date.getTime()) / 1000);
     }
 };
 
