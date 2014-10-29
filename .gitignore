@@ -1,3 +1,5 @@
 .idea/
 platforms/android/bin/
 platforms/android/CordovaLib/bin/
+platforms/android/out/
+out/production/
