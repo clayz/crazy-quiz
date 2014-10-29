@@ -1,5 +1,5 @@
 CQ.User = {
-    name: null,
+    name: '',
 
     init: function() {
         this.name = CQ.Datastore.User.getUsername();

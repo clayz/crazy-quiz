@@ -16,6 +16,7 @@ CQ.Page.Index = {
         if (name && (name != '')) {
             CQ.User.setName(name);
             CQ.Page.open(CQ.Page.Main);
+            CQ.API.register();
         }
     }
 };

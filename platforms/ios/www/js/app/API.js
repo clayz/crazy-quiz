@@ -13,7 +13,10 @@ CQ.API = {
     },
 
     startup: function(callback) {
-        this.post(this.Route.startup, { device: this.getDevice() }, callback);
+        this.post(this.Route.startup, {
+            name: CQ.User.name,
+            device: this.getDevice()
+        }, callback);
     },
 
     register: function() {

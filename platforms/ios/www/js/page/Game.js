@@ -189,21 +189,41 @@ CQ.Page.Game = {
     cutdown: function() {
         console.info('Start cutdown one answer transaction.');
         CQ.Audio.Button.play();
-        var page = CQ.Page.Game, usedPictures = page.answersData.alternativeAnswers;
+        var page = CQ.Page.Game,
+            usedPictures = page.answersData.alternativeAnswers,
+            usedTexts = page.answersData.alternativeTexts;
 
-        for (var i = 0; i < usedPictures.length; i++) {
-            if (usedPictures[i] && (usedPictures[i] != page.picture.id)) {
-                var removePicture = page.album.getPicture(usedPictures[i]), name = removePicture.name.split('');
-                console.log('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
+        if (usedTexts.length > 0) {
+            for (var k = 0; k < usedTexts.length; k++) {
+                if (usedTexts[k]) {
+                    var name = usedTexts[k].split('');
+                    console.log('Remove text: {0}'.format(usedTexts[k]));
 
-                for (var j = 0; j < name.length; j++) {
-                    page.removeChar(name[j]);
+                    for (var l = 0; l < name.length; l++) {
+                        page.removeChar(name[l]);
+                    }
+
+                    usedTexts[k] = null;
+                    CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.level, page.picture.id);
+                    page.refreshCurrency();
+                    break;
                 }
+            }
+        } else {
+            for (var i = 0; i < usedPictures.length; i++) {
+                if (usedPictures[i] && (usedPictures[i] != page.picture.id)) {
+                    var removePicture = page.album.getPicture(usedPictures[i]), name = removePicture.name.split('');
+                    console.log('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
 
-                usedPictures[i] = null;
-                CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.level, page.picture.id);
-                page.refreshCurrency();
-                break;
+                    for (var j = 0; j < name.length; j++) {
+                        page.removeChar(name[j]);
+                    }
+
+                    usedPictures[i] = null;
+                    CQ.Currency.consume(CQ.Currency.Consume.CutDown, page.album.id, page.level, page.picture.id);
+                    page.refreshCurrency();
+                    break;
+                }
             }
         }
 
