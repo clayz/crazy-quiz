@@ -69,12 +69,13 @@ CQ.App = {
             FastClick.attach(document.body);
         }
 
-        // get and register device info
+        // get and register device info, sync all history data
         CQ.Session.UUID = device.uuid;
         window.getAppVersion().then(function(version) {
             CQ.Session.VERSION = version;
 
             CQ.API.startup(function() {
+                CQ.API.sync_history(CQ.Currency.history);
                 CQ.API.register_notification();
             });
         });

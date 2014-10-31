@@ -6,6 +6,7 @@ CQ.API = {
         register_notification: '/api/user/notification/',
 
         // audit
+        sync: '/api/audit/sync/',
         purchase: '/api/audit/purchase/',
         exchange: '/api/audit/exchange/',
         earn: '/api/audit/earn/',
@@ -25,6 +26,17 @@ CQ.API = {
 
     register_notification: function() {
         this.post(this.Route.register_notification, { push_token: CQ.Session.PUSH_TOKEN });
+    },
+
+    sync_history: function(history) {
+        history.uuid = CQ.Session.UUID;
+        history.version = CQ.Session.VERSION;
+
+        $.post(CQ.URL.Web.API + this.Route.sync, JSON.stringify(history), function(response) {
+            console.log('Send sync history request success, response: {0}'.format(response));
+        }, 'json').fail(function() {
+            console.error('Send sync history request failed.');
+        });
     },
 
     purchase: function(goods, date) {
@@ -65,9 +77,9 @@ CQ.API = {
         data.uuid = CQ.Session.UUID;
         data.version = CQ.Session.VERSION;
 
-        $.post(CQ.URL.Web.API + url, data, function(data) {
-            console.log('Send request success: {0}, {1}'.format(url, CQ.Utils.toString(data)));
-            if (success) success(data);
+        $.post(CQ.URL.Web.API + url, data, function(response) {
+            console.log('Send request success: {0}, {1}, response: {2}'.format(url, CQ.Utils.toString(data), response));
+            if (success) success(response);
         }).fail(function() {
             console.error('Send request failed: {0}, {1}'.format(url, CQ.Utils.toString(data)));
         });
