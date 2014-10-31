@@ -30,9 +30,6 @@ CQ.API = {
     purchase: function(goods, date) {
         this.post(this.Route.purchase, {
             goods_id: goods.id,
-            product_id: goods.productId,
-            gem: goods.gem,
-            cost: goods.cost,
             date: this.getTimestamp(date)
         });
     },
@@ -40,8 +37,6 @@ CQ.API = {
     exchange: function(goods, date) {
         this.post(this.Route.exchange, {
             goods_id: goods.id,
-            gem: goods.gem,
-            coin: goods.coin,
             date: this.getTimestamp(date)
         });
     },
@@ -49,8 +44,6 @@ CQ.API = {
     earn: function(type, date) {
         this.post(this.Route.earn, {
             type_id: type.id,
-            gem: type.gem,
-            coin: type.coin,
             date: this.getTimestamp(date)
         });
     },
@@ -61,8 +54,6 @@ CQ.API = {
             date: this.getTimestamp(date)
         };
 
-        if (type.gem) data.gem = type.gem;
-        if (type.coin) data.coin = type.coin;
         if (album) data.album = album;
         if (level) data.level = level;
         if (picture) data.picture = picture;
