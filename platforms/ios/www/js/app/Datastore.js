@@ -166,6 +166,7 @@ CQ.Datastore.Picture = {
 CQ.Datastore.Currency = {
     Key: {
         ACCOUNT: 'ACCOUNT',
+        IS_EARNED_FIRST_PURCHASE: 'IS_EARNED_FIRST_PURCHASE',
         EARN_HISTORY: 'EARN_HISTORY',
         CONSUME_HISTORY: 'CONSUME_HISTORY',
         PURCHASE_HISTORY: 'PURCHASE_HISTORY',
@@ -223,6 +224,14 @@ CQ.Datastore.Currency = {
 
     setLastShareDate: function(date) {
         this.set(this.Key.LAST_SHARE_DATE, date);
+    },
+
+    setEarnedFirstPurchase: function() {
+        this.setBoolean(this.Key.IS_EARNED_FIRST_PURCHASE, 'true');
+    },
+
+    isEarnedFirstPurchase: function() {
+        return this.getBoolean(this.Key.IS_EARNED_FIRST_PURCHASE, false);
     }
 };
 

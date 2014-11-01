@@ -37,12 +37,14 @@ CQ.Notification = {
     tokenHandler: function(result) {
         console.info('APNS token handler result: {0}'.format(CQ.Utils.toString(result)));
         CQ.Session.PUSH_TOKEN = result;
+        CQ.API.register_notification();
     },
 
     // Android and Amazon Fire OS
     onNotification: function(event) {
         console.info('onNotification: {0}'.format(CQ.Utils.toString(event)));
         CQ.Session.PUSH_TOKEN = event.regid;
+        CQ.API.register_notification();
     },
 
     // iOS

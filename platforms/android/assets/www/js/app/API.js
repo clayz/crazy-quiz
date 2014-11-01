@@ -32,10 +32,41 @@ CQ.API = {
         history.uuid = CQ.Session.UUID;
         history.version = CQ.Session.VERSION;
 
-        $.post(CQ.URL.Web.API + this.Route.sync, JSON.stringify(history), function(response) {
-            console.log('Send sync history request success, response: {0}'.format(response));
-        }, 'json').fail(function() {
-            console.error('Send sync history request failed.');
+        $.ajax({
+            type: 'POST',
+            url: CQ.URL.Web.API + this.Route.sync,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(history)
+        }).done(function(response) {
+            console.log('Send sync history request success, response: {0}'.format(CQ.Utils.toString(response)));
+
+            var purchaseTimestamp = response.data.purchase,
+                exchangeTimestamp = response.data.exchange,
+                earnTimestamp = response.data.earn,
+                consumeTimestamp = response.data.consume,
+                history = CQ.Currency.history;
+
+            if (purchaseTimestamp)
+                for (var i = 0; i < history.purchase.length; i++)
+                    if (CQ.API.getTimestamp(history.purchase[i].date) <= purchaseTimestamp)
+                        history.purchase.splice(i, 1);
+
+            if (exchangeTimestamp)
+                for (var j = 0; j < history.exchange.length; j++)
+                    if (CQ.API.getTimestamp(history.exchange[j].date) <= exchangeTimestamp)
+                        history.exchange.splice(j, 1);
+
+            if (earnTimestamp)
+                for (var k = 0; k < history.earn.length; k++)
+                    if (CQ.API.getTimestamp(history.earn[k].date) <= earnTimestamp)
+                        history.earn.splice(k, 1);
+
+            if (consumeTimestamp)
+                for (var l = 0; l < history.consume.length; l++)
+                    if (CQ.API.getTimestamp(history.consume[l].date) <= consumeTimestamp)
+                        history.consume.splice(l, 1);
+
+            CQ.Datastore.Currency.setHistory(history);
         });
     },
 

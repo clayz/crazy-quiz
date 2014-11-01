@@ -61,6 +61,8 @@ CQ.Currency = {
         var history = CQ.Datastore.Currency.getHistory();
         if (history) this.history = history;
         else CQ.Datastore.Currency.setHistory(this.history);
+
+        if (this.history.purchase.length > 0) CQ.Datastore.Currency.setEarnedFirstPurchase();
     },
 
     updateAccount: function(gem, coin) {

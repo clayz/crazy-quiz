@@ -76,7 +76,6 @@ CQ.App = {
 
             CQ.API.startup(function() {
                 CQ.API.sync_history(CQ.Currency.history);
-                CQ.API.register_notification();
             });
         });
 
@@ -93,6 +92,7 @@ CQ.App = {
         CQ.Audio.GameBackground.play();
 
         CQ.API.startup(function() {
+            CQ.API.sync_history(CQ.Currency.history);
             CQ.API.register_notification();
         });
     },

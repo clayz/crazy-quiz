@@ -37,8 +37,10 @@ CQ.Popup.GemShop.prototype.buy = function(goods) {
         CQ.Currency.purchase(goods);
 
         // get more 10 gem for first time purchase
-        if (CQ.Currency.history.purchase.length == 1) {
+        if (!CQ.Datastore.Currency.isEarnedFirstPurchase()) {
             CQ.Currency.earn(CQ.Currency.Earn.FirstPurchase);
+            CQ.Datastore.Currency.setEarnedFirstPurchase();
+
             CQ.Page.openPrompt('{0}個宝石を購入しました。<br/>10個宝石ギフトをもらった。'.format(goods.gem));
             CQ.GA.track(CQ.GA.Gift.FirstPurchase, CQ.GA.Gift.FirstPurchase.label.format(goods.id));
         } else {
