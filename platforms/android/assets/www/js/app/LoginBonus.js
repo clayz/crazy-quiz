@@ -1,7 +1,7 @@
 CQ.LoginBonus = {
-    lastLoginTime: "",
-    continueLoginCount: -1,
-    loginBonusNow: Currency.Earn.LoginDay1,
+//    lastLoginTime: "",
+//    continueLoginCount: -1,
+//    loginBonusNow: Currency.Earn.LoginDay1,
     loginBonus: function(){
 
        var loginBonusFlg = false;
@@ -9,56 +9,39 @@ CQ.LoginBonus = {
        var now = new Date();
 
        // check last login time
-       if(lastLoginTime == ""){
+       if(CQ.Datastore.User.getLastLoginTime === null){
             //first login
             loginBonusFlg = true;
        } else {
-            var lastLoginTime = new Date(lastLoginTime);
+            var lastLoginTime = Date.parse(CQ.Datastore.User.getLastLoginTime);
 
-            if(!(lastLoginTime.getDate() == now.getDate() && lastLoginTime.getMonth() == now.getMonth()
-                && lastLoginTime.getYear() == now.getYear())){
+            var lastLoginDate = new Date("{0}-{1}-{2}".format(lastLoginTime.getYear(),
+                lastLoginTime.getMonth() + 1,lastLoginTime.getDate()));
+
+            var nowDate = new Date("{0}-{1}-{2}".format(now.getYear(),
+                now.getMonth() + 1,now.getDate()));
+
+            if(nowDate.getTime() == lastLoginDate.getTime){
                 loginBonusFlg = false;
-            } else {
-                if((now.getTime() - lastLoginTime.getTime()) > 24){
-                    isInterrupt = true;
-                }
+            } else if(((nowDate.getTime() - lastLoginDate.getTime())/(3600 * 1000)) > 24){
+                isInterrupt = true;
             }
        }
 
         if(loginBonusFlg){
+            var count = CQ.Datastore.User.getContinueLoginCount;
             // check continue login count
-            continueLoginCount++;
+            count++;
 
-            if(continueLoginCount > 6 || isInterrupt){
-                continueLoginCount = 0;
-            }
-
-            switch(continueLoginCount){
-                case 0:
-                    loginBonusNow: Currency.Earn.LoginDay1;
-                    break;
-                case 1:
-                    loginBonusNow: Currency.Earn.LoginDay2;
-                    break;
-                case 2:
-                    loginBonusNow: Currency.Earn.LoginDay3;
-                    break;
-                case 3:
-                    loginBonusNow: Currency.Earn.LoginDay4;
-                    break;
-                case 4:
-                    loginBonusNow: Currency.Earn.LoginDay5;
-                    break;
-                case 5:
-                    loginBonusNow: Currency.Earn.LoginDay6;
-                    break;
-                case 6:
-                    loginBonusNow: Currency.Earn.LoginDay7;
-                    break;
+            if(continueLoginCount > 7 || isInterrupt){
+                count = 1;
             }
 
             // set last login time to newest
-            lastLoginTime = now;
+            CQ.Datastore.User.setLastLoginTime(now);
+
+            // set count this time
+            CQ.Datastore.User.setContinueLoginCount(count);
         }
 
         return loginBonusFlg;
