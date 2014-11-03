@@ -1,42 +1,43 @@
 CQ.API = {
     Route: {
         // user
-        startup: '/api/user/startup/',
-        register: '/api/user/register/',
-        register_notification: '/api/user/notification/',
+        Startup: '/api/user/startup/',
+        Register: '/api/user/register/',
+        RegisterNotification: '/api/user/notification/',
 
         // audit
-        sync: '/api/audit/sync/',
-        purchase: '/api/audit/purchase/',
-        exchange: '/api/audit/exchange/',
-        earn: '/api/audit/earn/',
-        consume: '/api/audit/consume/'
+        Sync: '/api/audit/sync/',
+        Purchase: '/api/audit/purchase/',
+        Exchange: '/api/audit/exchange/',
+        Earn: '/api/audit/earn/',
+        Consume: '/api/audit/consume/'
     },
 
     startup: function(callback) {
-        this.post(this.Route.startup, {
+        this.post(this.Route.Startup, {
             name: CQ.User.name,
             device: this.getDevice()
         }, callback);
     },
 
     register: function() {
-        this.post(this.Route.register, { name: CQ.User.name });
+        this.post(this.Route.Register, { name: CQ.User.name });
     },
 
-    register_notification: function() {
-        this.post(this.Route.register_notification, { push_token: CQ.Session.PUSH_TOKEN });
+    registerNotification: function() {
+        this.post(this.Route.RegisterNotification, { push_token: CQ.Session.PUSH_TOKEN });
     },
 
-    sync_history: function(history) {
-        history.uuid = CQ.Session.UUID;
-        history.version = CQ.Session.VERSION;
+    syncHistory: function() {
+        var data = CQ.Currency.history;
+        data.uuid = CQ.Session.UUID;
+        data.version = CQ.Session.VERSION;
 
         $.ajax({
             type: 'POST',
-            url: CQ.URL.Web.API + this.Route.sync,
+            url: CQ.URL.Web.API + this.Route.Sync,
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(history)
+            data: JSON.stringify(data)
         }).done(function(response) {
             console.log('Send sync history request success, response: {0}'.format(CQ.Utils.toString(response)));
 
@@ -71,21 +72,21 @@ CQ.API = {
     },
 
     purchase: function(goods, date) {
-        this.post(this.Route.purchase, {
+        this.post(this.Route.Purchase, {
             goods_id: goods.id,
             date: this.getTimestamp(date)
         });
     },
 
     exchange: function(goods, date) {
-        this.post(this.Route.exchange, {
+        this.post(this.Route.Exchange, {
             goods_id: goods.id,
             date: this.getTimestamp(date)
         });
     },
 
     earn: function(type, date) {
-        this.post(this.Route.earn, {
+        this.post(this.Route.Earn, {
             type_id: type.id,
             date: this.getTimestamp(date)
         });
@@ -101,7 +102,7 @@ CQ.API = {
         if (level) data.level = level;
         if (picture) data.picture = picture;
 
-        this.post(this.Route.consume, data);
+        this.post(this.Route.Consume, data);
     },
 
     post: function(url, data, success) {

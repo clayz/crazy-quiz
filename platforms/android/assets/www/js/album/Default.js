@@ -181,7 +181,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.English,
                     answers: [109, 406, 304, 214, 206, 108],
-                    textAnswers: ['RAKUTEN', 'NAVER', 'DMM', 'HULU', 'KAKAKU']
+                    textAnswers: ['RAKUTEN', 'NAVER', 'DMM', 'HULU', 'KAKAKU', 'ZEXY']
                 },
                 {
                     id: 201,
@@ -189,7 +189,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Animation,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [509, 113, 211, 312, 309, 112],
-                    textAnswers: ['セクサロイド', 'トランスフォーマー', 'ガンヘッド', 'ダイアクロン']
+                    textAnswers: ['セクサロイド', 'トランスフォーマー', 'ガンヘッド', 'ダイアクロン', 'イエス']
                 },
                 {
                     id: 202,
@@ -197,7 +197,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [111, 513, 506, 511, 315, 502],
-                    textAnswers: ['ベローチェ', 'サンマルク', 'ドトール', 'ベックス', 'エッセンス']
+                    textAnswers: ['ベローチェ', 'サンマルク', 'ドトール', 'ベックス', 'エッセンス', 'オバマ']
                 },
                 {
                     id: 203,
@@ -205,7 +205,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [504, 313, 405, 610, 103, 110],
-                    textAnswers: ['オイシックス', 'イーベイ', 'ナニデル', 'グーオク', 'ノジマオンライン']
+                    textAnswers: ['オイシックス', 'イーベイ', 'ナニデル', 'グーオク', 'ノジマオンライン', 'プリングス']
                 },
                 {
                     id: 204,
@@ -213,7 +213,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Mix,
                     answers: [418, 205, 414, 500, 615, 410],
-                    textAnswers: ['ダース', 'パイの実', 'コアラのマーチ', 'ミルキー', '小梅', 'ピザポテト']
+                    textAnswers: ['ダース', 'パイの実', 'コアラのマーチ', 'ミルキー', '小梅', 'ピザポテト', '暴君ハバネロ']
                 },
                 {
                     id: 205,
@@ -221,7 +221,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Celebrity,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [618, 213, 104, 316, 113, 217, 511],
-                    textAnswers: ['シンプソン', 'スウィフト', 'ダイレクション', 'ビーバー', 'ウィーザー']
+                    textAnswers: ['シンプソン', 'スウィフト', 'ダイレクション', 'ビーバー', 'ウィーザー', 'チリ']
                 },
                 {
                     id: 206,
@@ -229,7 +229,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.English,
                     answers: [214, 307, 109, 119, 200],
-                    textAnswers: ['NIKE', 'PUMA', 'MIZUNO', 'UMBRO', 'KAPPA']
+                    textAnswers: ['NIKE', 'PUMA', 'MIZUNO', 'UMBRO', 'KAPPA', 'COLUMBIA']
                 },
                 {
                     id: 207,
@@ -237,7 +237,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Sports,
                     type: CQ.Album.AnswerType.Kanji,
                     answers: [414, 609, 611, 115, 600, 514, 218, 607, 101],
-                    textAnswers: ['川端絵美', '太田渉子', '伊藤有希', '安藤美姫', '村上佳菜子', '中野友加里']
+                    textAnswers: ['川端絵美', '太田渉子', '伊藤有希', '安藤美姫', '村上佳菜子', '中野友加里', '門奈裕子']
                 },
                 {
                     id: 208,
@@ -245,7 +245,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Geography,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [309, 418, 509, 603, 113],
-                    textAnswers: ['ニューヨーク', 'ヒューストン', 'サンアントニオ', 'サンディエゴ']
+                    textAnswers: ['ニューヨーク', 'ヒューストン', 'サンアントニオ', 'サンディエゴ', 'シカゴ']
                 },
                 {
                     id: 209,
@@ -253,7 +253,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Film,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [404, 103, 415, 312, 116],
-                    textAnswers: ['ゴースト', 'シザーハンズ', 'ボディガード', 'ホリデイ', 'ショコラ']
+                    textAnswers: ['ゴースト', 'シザーハンズ', 'ボディガード', 'ホリデイ', 'ショコラ', 'トライアングル']
                 },
                 {
                     id: 210,
@@ -261,7 +261,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Celebrity,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [519, 613, 508, 512, 516, 416],
-                    textAnswers: ['ジェファーソン', 'モンロー', 'ジャクソン', 'テイラー', 'フィルモア']
+                    textAnswers: ['ジェファーソン', 'モンロー', 'ジャクソン', 'テイラー', 'フィルモア', 'チャーチル']
                 },
                 {
                     id: 211,
@@ -269,7 +269,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Film,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [210, 415, 407, 117],
-                    textAnswers: ['パニック・ゲーム', 'デイ・ウォッチ', 'ブラッドレイン']
+                    textAnswers: ['パニックゲーム', 'デイウォッチ', 'ブラッドレイン', 'トワイライト']
                 },
                 {
                     id: 212,
@@ -277,7 +277,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Game,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [412, 501, 210, 318, 315, 213],
-                    textAnswers: ['フリープレイ', 'ハンターアイランド', 'マジモン', 'マイ・ドラゴン']
+                    textAnswers: ['フリープレイ', 'ハンターアイランド', 'マジモン', 'マイドラゴン', 'バーミヤン']
                 },
                 {
                     id: 213,
@@ -285,7 +285,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Geography,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [517, 519, 203, 404, 501, 513],
-                    textAnswers: ['リーズ', 'ブリストル', 'ミラノ', 'パレルモ', 'ジェノバ', 'パドヴァ', 'ケルン']
+                    textAnswers: ['リーズ', 'ブリストル', 'ミラノ', 'パレルモ', 'ジェノバ', 'パドヴァ', 'ケルン', 'ケンブリッジ']
                 },
                 {
                     id: 214,
@@ -293,7 +293,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.English,
                     answers: [515, 307, 119, 109, 106, 304],
-                    textAnswers: ['SUBWAY', 'ARBYS', 'PIZZAHUT', 'DENNYS']
+                    textAnswers: ['SUBWAY', 'ARBYS', 'PIZZAHUT', 'DENNYS', 'KFC']
                 },
                 {
                     id: 215,
@@ -301,7 +301,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Building,
                     type: CQ.Album.AnswerType.Kanji,
                     answers: [101, 607, 218, 207, 403, 219, 609],
-                    textAnswers: ['大福寺', '浅草寺', '玉川大師玉眞院', '永平寺', '大阪城', '由岐神社', '赤山禅院']
+                    textAnswers: ['大福寺', '浅草寺', '玉川大師玉眞院', '永平寺', '大阪城', '由岐神社', '赤山禅院', '鹿苑院']
                 },
                 {
                     id: 216,
@@ -309,7 +309,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Film,
                     type: CQ.Album.AnswerType.Kanji,
                     answers: [218, 514, 101, 215, 609, 414, 219, 207],
-                    textAnswers: ['富江', '伽椰子', '花子', '沙織', '優子', '美々子', '明日香', '由美', '奈津子', '美咲', '李麗', '結衣']
+                    textAnswers: ['富江', '伽椰子', '花子', '沙織', '優子', '美々子', '明日香', '由美', '奈津子', '美咲', '李麗', '結衣', '佐藤']
                 },
                 {
                     id: 217,
@@ -317,7 +317,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Geography,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [314, 610, 114, 603, 110],
-                    textAnswers: ['フランス', 'コロンビア', 'アーセナル', 'リヴァプール', 'ドルトムント']
+                    textAnswers: ['フランス', 'コロンビア', 'アーセナル', 'リヴァプール', 'ドルトムント', 'ボリビア']
                 },
                 {
                     id: 218,
@@ -325,7 +325,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Series,
                     type: CQ.Album.AnswerType.Kanji,
                     answers: [600, 514, 403, 101, 219, 414, 614, 612],
-                    textAnswers: ['沫嶋黎士', '湯川学', '羽生晴樹', '弾間龍二', '南雲準', '加賀恭一郎', '今岡勝']
+                    textAnswers: ['沫嶋黎士', '湯川学', '羽生晴樹', '弾間龍二', '南雲準', '加賀恭一郎', '今岡勝', '西島秀俊']
                 },
                 {
                     id: 219,
@@ -333,7 +333,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Place,
                     type: CQ.Album.AnswerType.Kanji,
                     answers: [419, 215, 600, 609, 414, 614, 607, 115],
-                    textAnswers: ['高円寺純情商店街', '吉祥寺サンロード', '渋谷センター街']
+                    textAnswers: ['高円寺純情商店街', '吉祥寺サンロード', '渋谷センター街', '両部鳥居']
                 }
             ]
         },
@@ -347,7 +347,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Building,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [412, 519, 310, 104, 601, 410, 201],
-                    textAnswers: ['ゴールドタワー', 'クロスランドタワー', '天王スカイタワー']
+                    textAnswers: ['ゴールドタワー', 'クロスランドタワー', '天王スカイタワー', 'セリオン']
                 },
                 {
                     id: 301,
@@ -355,7 +355,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [400, 117, 404, 401, 602],
-                    textAnswers: ['ディコス', 'ベッカーズ', 'サンテオレ', 'サブウェイ', 'ジョリビー']
+                    textAnswers: ['ディコス', 'ベッカーズ', 'サンテオレ', 'サブウェイ', 'ジョリビー', 'ソニック']
                 },
                 {
                     id: 302,
@@ -363,7 +363,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Cartoon,
                     type: CQ.Album.AnswerType.Mix,
                     answers: [618, 500, 317, 418, 204, 301],
-                    textAnswers: ['あさりちゃん', 'うしおととら', 'ちはやふる', 'ぬらりひょんの孫']
+                    textAnswers: ['あさりちゃん', 'うしおととら', 'ちはやふる', 'ぬらりひょんの孫', 'はじめの一歩']
                 },
                 {
                     id: 303,
@@ -371,7 +371,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Mix,
                     answers: [114, 315, 107, 317, 410],
-                    textAnswers: ['ハチ', 'まさお君', 'カイ', 'シンシア', 'きな子', 'サーブ', 'ゼウス', 'シロ']
+                    textAnswers: ['ハチ', 'まさお君', 'カイ', 'シンシア', 'きな子', 'サーブ', 'ゼウス', 'シロ', 'ジョニーデップ']
                 },
                 {
                     id: 304,
@@ -379,7 +379,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.English,
                     answers: [200, 406, 109, 307, 515, 214],
-                    textAnswers: ['CELINE', 'CHAUMET', 'TIFFANY', 'BURBERRY']
+                    textAnswers: ['CELINE', 'CHAUMET', 'TIFFANY', 'BURBERRY', 'COACH']
                 },
                 {
                     id: 305,
@@ -387,7 +387,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Animation,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [504, 309, 209, 217, 210],
-                    textAnswers: ['ザ・シンプソンズ‎', 'トムとジェリー‎', 'パックワールド', 'モーターシティ']
+                    textAnswers: ['ザシンプソンズ‎', 'トムとジェリー‎', 'パックワールド', 'モーターシティ', 'ファミリーガイ']
                 },
                 {
                     id: 306,
@@ -395,7 +395,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Film,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [316, 301, 418, 312, 211],
-                    textAnswers: ['マイティ・ソー', 'ゴーストライダー', 'スパイダーマン', 'ブレイド']
+                    textAnswers: ['マイティソー', 'ゴーストライダー', 'スパイダーマン', 'ブレイド', 'ジャガー']
                 },
                 {
                     id: 307,
@@ -411,7 +411,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Animation,
                     type: CQ.Album.AnswerType.Mix,
                     answers: [504, 215, 216, 607, 403, 512, 312],
-                    textAnswers: ['タイムコップ', 'マスク', '時空を超えた戦い', '暗黒魔王の陰謀']
+                    textAnswers: ['タイムコップ', 'マスク', '時空を超えた戦い', '暗黒魔王の陰謀', 'ニンジャアサシン']
                 },
                 {
                     id: 309,
@@ -419,7 +419,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [301, 512, 412, 205, 316, 100],
-                    textAnswers: ['ランボルギーニ', 'マセラティ', 'ジャガー', 'ベントレー', 'レクサス']
+                    textAnswers: ['ランボルギーニ', 'マセラティ', 'ジャガー', 'ベントレー', 'レクサス', 'アウディ']
                 },
                 {
                     id: 310,
@@ -427,7 +427,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Sports,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [316, 105, 418, 208, 311],
-                    textAnswers: ['バルセロナ', 'トッテナム', 'チェルシー', 'ベンフィカ', 'アーセナル']
+                    textAnswers: ['バルセロナ', 'トッテナム', 'チェルシー', 'ベンフィカ', 'アーセナル', 'ニューカッスル']
                 },
                 {
                     id: 311,
@@ -435,7 +435,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Film,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [102, 501, 202, 418, 111],
-                    textAnswers: ['シンデレラ', 'スピリット', 'ダイナソー', 'チキンラン', 'ターザン']
+                    textAnswers: ['シンデレラ', 'スピリット', 'ダイナソー', 'チキンラン', 'ターザン', 'デビッドベッカム']
                 },
                 {
                     id: 312,
@@ -443,7 +443,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Celebrity,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [500, 117, 407, 509, 513, 511],
-                    textAnswers: ['レディーガガ', 'トムクルーズ', 'ジャックマン', 'ティムバートン']
+                    textAnswers: ['レディーガガ', 'トムクルーズ', 'ジャックマン', 'ティムバートン', 'ニュートン']
                 },
                 {
                     id: 313,
@@ -451,7 +451,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Geography,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [412, 100, 212, 306, 117, 104],
-                    textAnswers: ['パリ', 'ロンドン', 'バルセロナ', 'サンフランシスコ', 'マラケシュ']
+                    textAnswers: ['パリ', 'ロンドン', 'バルセロナ', 'サンフランシスコ', 'マラケシュ', 'オーストリア']
                 },
                 {
                     id: 314,
@@ -459,7 +459,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Film,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [318, 205, 103, 208, 519, 111],
-                    textAnswers: ['フィラデルフィア', 'トータルリコール', 'スノーホワイト']
+                    textAnswers: ['フィラデルフィア', 'トータルリコール', 'スノーホワイト', 'ミッション']
                 },
                 {
                     id: 315,
@@ -467,7 +467,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Entertainer,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [410, 401, 618, 117, 212, 112, 217],
-                    textAnswers: ['ローラ', 'エリーローズ', 'マドモアゼルユリア', 'ゆってぃ']
+                    textAnswers: ['ローラ', 'エリーローズ', 'マドモアゼルユリア', 'ゆってぃ', 'サブウェイ']
                 },
                 {
                     id: 316,
@@ -475,7 +475,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [500, 309, 610, 111, 405, 116],
-                    textAnswers: ['ロッテリア', 'ピザハット', 'タコベル', 'ピザーラ', 'サブウェイ']
+                    textAnswers: ['ロッテリア', 'ピザハット', 'タコベル', 'ピザーラ', 'サブウェイ', 'リンカーン']
                 },
                 {
                     id: 317,
@@ -483,7 +483,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Geography,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [315, 615, 509, 103, 117, 112],
-                    textAnswers: ['セルティック', 'ラツィオ', 'セビージャ', 'プルゼニ', 'ゲンク', 'グレミオ']
+                    textAnswers: ['セルティック', 'ラツィオ', 'セビージャ', 'プルゼニ', 'ゲンク', 'グレミオ', 'レアルマドリード']
                 },
                 {
                     id: 318,
@@ -491,7 +491,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [208, 512, 502, 615, 311, 409, 114],
-                    textAnswers: ['チャイナ', 'ラーメン力', 'メゾンドユーロン', 'シェフス', 'カリュウ']
+                    textAnswers: ['チャイナ', 'ラーメン力', 'メゾンドユーロン', 'シェフス', 'カリュウ', 'ガリレオ']
                 },
                 {
                     id: 319,
@@ -499,7 +499,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Celebrity,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [317, 203, 314, 315, 610],
-                    textAnswers: ['イーダタッケ', 'モードスライ', 'リーゼマイトナー', 'オテルマ']
+                    textAnswers: ['イーダタッケ', 'モードスライ', 'リーゼマイトナー', 'オテルマ', 'マクリントック']
                 }
             ]
         },

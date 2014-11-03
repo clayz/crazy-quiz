@@ -2,7 +2,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
         dev: true,
         ad: true,
-        purchase: true,
+        purchase: false,
 
         URL: {
             APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
@@ -75,7 +75,7 @@ CQ.App = {
             CQ.Session.VERSION = version;
 
             CQ.API.startup(function() {
-                CQ.API.sync_history(CQ.Currency.history);
+                CQ.API.syncHistory();
             });
         });
 
@@ -92,8 +92,8 @@ CQ.App = {
         CQ.Audio.GameBackground.play();
 
         CQ.API.startup(function() {
-            CQ.API.sync_history(CQ.Currency.history);
-            CQ.API.register_notification();
+            CQ.API.syncHistory();
+            CQ.API.registerNotification();
         });
     },
 
