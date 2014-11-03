@@ -181,7 +181,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.English,
                     answers: [109, 406, 304, 214, 206, 108],
-                    textAnswers: ['RAKUTEN', 'NAVER', 'DMM', 'HULU', 'KAKAKU']
+                    textAnswers: ['RAKUTEN', 'NAVER', 'DMM', 'HULU', 'KAKAKU', 'ZEXY']
                 },
                 {
                     id: 201,
@@ -189,7 +189,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Animation,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [509, 113, 211, 312, 309, 112],
-                    textAnswers: ['セクサロイド', 'トランスフォーマー', 'ガンヘッド', 'ダイアクロン']
+                    textAnswers: ['セクサロイド', 'トランスフォーマー', 'ガンヘッド', 'ダイアクロン', 'イエス']
                 },
                 {
                     id: 202,
@@ -197,7 +197,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [111, 513, 506, 511, 315, 502],
-                    textAnswers: ['ベローチェ', 'サンマルク', 'ドトール', 'ベックス', 'エッセンス']
+                    textAnswers: ['ベローチェ', 'サンマルク', 'ドトール', 'ベックス', 'エッセンス', 'オバマ']
                 },
                 {
                     id: 203,
@@ -205,7 +205,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [504, 313, 405, 610, 103, 110],
-                    textAnswers: ['オイシックス', 'イーベイ', 'ナニデル', 'グーオク', 'ノジマオンライン']
+                    textAnswers: ['オイシックス', 'イーベイ', 'ナニデル', 'グーオク', 'ノジマオンライン', 'プリングス']
                 },
                 {
                     id: 204,
@@ -213,7 +213,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Brand,
                     type: CQ.Album.AnswerType.Mix,
                     answers: [418, 205, 414, 500, 615, 410],
-                    textAnswers: ['ダース', 'パイの実', 'コアラのマーチ', 'ミルキー', '小梅', 'ピザポテト']
+                    textAnswers: ['ダース', 'パイの実', 'コアラのマーチ', 'ミルキー', '小梅', 'ピザポテト', '暴君ハバネロ']
                 },
                 {
                     id: 205,
@@ -221,7 +221,7 @@ CQ.Album.Default = {
                     category: CQ.Album.Category.Celebrity,
                     type: CQ.Album.AnswerType.Katakana,
                     answers: [618, 213, 104, 316, 113, 217, 511],
-                    textAnswers: ['シンプソン', 'スウィフト', 'ダイレクション', 'ビーバー', 'ウィーザー']
+                    textAnswers: ['シンプソン', 'スウィフト', 'ダイレクション', 'ビーバー', 'ウィーザー', 'チリ']
                 },
                 {
                     id: 206,
