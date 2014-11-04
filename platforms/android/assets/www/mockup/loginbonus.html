@@ -14,54 +14,75 @@
 <body>
 <div data-role="page" id="main" class="page">
     <button id="option">loginBonus</button>
+    <button id="option2">loginBonusGET</button>
 
     <!-- Login bonus popup -->
-    <div data-role="popup" id="login-bonus" class="popup-login-bonus popup-shop popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" id="login-bonus" class="popup-login-bonus" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <div class="login-bonus-banner">連続ログインボーナス</div>
-            <div class="login-bonus-today">
-                <div class="login-bonus-img-today"></div>
-                <div class="login-bonus-number-today"></div>
-                <div id="login-bonus-button-get" class="login-bonus-button"></div>
+            <div class="login-bonus-banner">ログインボーナス</div>
+            <div class="login-bonus-all-container">
+                <div class="login-bonus-day">
+                    <div class="continue-day-1"></div>
+                    <div class="login-bonus-img day-1"></div>
+                    <div class="login-bonus-amount">10</div>
+                    <div class="continue-day">一日目</div>
+                </div>
+                <div class="login-bonus-day">
+                    <div class="continue-day-2"></div>
+                    <div class="login-bonus-img day-2"></div>
+                    <div class="login-bonus-amount">20</div>
+                    <div class="continue-day">二日目</div>
+                </div>
+                <div class="login-bonus-day">
+                    <div class="continue-day-3"></div>
+                    <div class="login-bonus-img day-3"></div>
+                    <div class="login-bonus-amount">1</div>
+                    <div class="continue-day">三日目</div>
+                </div>
+                <div class="login-bonus-day">
+                    <div class="continue-day-4"></div>
+                    <div class="login-bonus-img day-4"></div>
+                    <div class="login-bonus-amount">50</div>
+                    <div class="continue-day">四日目</div>
+                </div>
+                <div class="login-bonus-day">
+                    <div class="continue-day-5"></div>
+                    <div class="login-bonus-img day-5"></div>
+                    <div class="login-bonus-amount">60</div>
+                    <div class="continue-day">五日目</div>
+                </div>
+                <div class="login-bonus-day">
+                    <div class="continue-day-6"></div>
+                    <div class="login-bonus-img day-6"></div>
+                    <div class="login-bonus-amount">70</div>
+                    <div class="continue-day">六日目</div>
+                </div>
+                <div class="login-bonus-day">
+                    <div class="continue-day-1"></div>
+                    <div class="login-bonus-img day-1"></div>
+                    <div class="login-bonus-amount">3</div>
+                    <div class="continue-day">七日目</div>
+                </div>
             </div>
-            <div class="login-bonus-container">
-                <div class="login-bonus-goods">
-                    <div id="popup-bonus-img-0" class="left popup-bonus-img-0"></div>
-                    <div id="popup-bonus-amount-0" class="left popup-goods-amount-0"></div>
-                </div>
-                <div class="login-bonus">
-                    <div id="popup-bonus-img-1" class="left login-bonus-img-1"></div>
-                    <div id="popup-bonus-amount-1" class="left login-bonus-amount-2"></div>
-                </div>
-                <div class="popup-bonus">
-                    <div id="popup-bonus-img-2" class="left login-bonus-img-2"></div>
-                    <div id="popup-bonus-amount-2" class="left login-bonus-amount-2"></div>
-                </div>
-                <div class="popup-bonus">
-                    <div id="popup-bonus-img-3" class="left popup-bonus-img-3"></div>
-                    <div id="popup-bonus-amount-3" class="left popup-bonus-amount-3"></div>
-                </div>
-                <div class="popup-bonus">
-                    <div id="popup-bonus-img-4" class="left popup-bonus-img-4"></div>
-                    <div id="popup-bonus-amount-4" class="left popup-bonus-amount-4"></div>
-                </div>
-                <div class="popup-bonus">
-                    <div id="popup-bonus-img-5" class="left popup-bonus-img-5"></div>
-                    <div id="popup-bonus-amount-5" class="left popup-bonus-amount-5"></div>
-                </div>
-                <div class="popup-bonus">
-                    <div id="popup-bonus-img-6" class="left popup-bonus-img-6"></div>
-                    <div id="popup-bonus-amount-6" class="left popup-bonus-amount-6"></div>
+            <div class="login-bonus-today-container">
+                <div class="login-bonus-today-frame">
+                    <div id="login-bonus-today-img" class="login-bonus-img-today day-5"></div>
+                    <div id="login-bonus-today-amount" class="login-bonus-amount-today">10</div>
+                    <div class="login-bonus-explain"></div>
+                    <div id="login-bonus-button-get" class="login-bonus-button-normal"></div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!--Popup when bonus get -->
-            <div id="login-bonus-div-get">
-                <div class="popup-bonus">
-                    <div id="login-bonus-img-get"></div>
-                    <div id="login-bonus-amount-get"></div>
-                </div>
+    <!-- Login bonus popup -->
+    <div data-role="popup" id="login-bonus-get" class="popup-login-bonus-get" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <div class="login-bonus-get">
+                <div id="login-bonus-today-img-get" class="login-bonus-img day-5"></div>
+                <div id="login-bonus-today-amount-get" class="login-bonus-amount-today"></div>
             </div>
         </div>
     </div>
@@ -71,6 +92,12 @@
         $('#option').click(function() {
             $("#main").find('.popup-login-bonus').popup();
             $('#main').find('.popup-login-bonus').popup('open');
+        });
+
+        $('#login-bonus-button-get').click(function() {
+            alert("size: " + $("#main").find('.popup-login-bonus-get').length);
+            $("#main").find('.popup-login-bonus-get').popup();
+            $('#main').find('.popup-login-bonus-get').popup('open');
         });
     });
 </script>
