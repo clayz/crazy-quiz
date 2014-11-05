@@ -17,60 +17,50 @@
     <button id="option2">loginBonusGET</button>
 
     <!-- Login bonus popup -->
-    <div data-role="popup" id="login-bonus" class="popup-login-bonus" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" id="login-bonus" class="popup-login-bonus popup-container" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <div class="login-bonus-banner">ログインボーナス</div>
+            <div class="login-bonus-banner">デイリーボーナス</div>
             <div class="login-bonus-all-container">
-                <div class="login-bonus-day">
-                    <div class="continue-day-1"></div>
-                    <div class="login-bonus-img day-1"></div>
-                    <div class="login-bonus-amount">10</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-1-not-get"><span>10</span></div>
                     <div class="continue-day">一日目</div>
                 </div>
-                <div class="login-bonus-day">
-                    <div class="continue-day-2"></div>
-                    <div class="login-bonus-img day-2"></div>
-                    <div class="login-bonus-amount">20</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-2-not-get"><span>20</span></div>
                     <div class="continue-day">二日目</div>
                 </div>
-                <div class="login-bonus-day">
-                    <div class="continue-day-3"></div>
-                    <div class="login-bonus-img day-3"></div>
-                    <div class="login-bonus-amount">1</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-3-not-get"><span>1</span></div>
                     <div class="continue-day">三日目</div>
                 </div>
-                <div class="login-bonus-day">
-                    <div class="continue-day-4"></div>
-                    <div class="login-bonus-img day-4"></div>
-                    <div class="login-bonus-amount">50</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-4-not-get"><span>50</span></div>
                     <div class="continue-day">四日目</div>
                 </div>
-                <div class="login-bonus-day">
-                    <div class="continue-day-5"></div>
-                    <div class="login-bonus-img day-5"></div>
-                    <div class="login-bonus-amount">60</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-5-not-get"><span>60</span></div>
                     <div class="continue-day">五日目</div>
                 </div>
-                <div class="login-bonus-day">
-                    <div class="continue-day-6"></div>
-                    <div class="login-bonus-img day-6"></div>
-                    <div class="login-bonus-amount">70</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-6-not-get"><span>70</span></div>
                     <div class="continue-day">六日目</div>
                 </div>
-                <div class="login-bonus-day">
-                    <div class="continue-day-1"></div>
-                    <div class="login-bonus-img day-1"></div>
-                    <div class="login-bonus-amount">3</div>
+                <div class="login-bonus-day left">
+                    <div class="login-bonus-img day-7-not-get"><span>3</span></div>
                     <div class="continue-day">七日目</div>
                 </div>
             </div>
-            <div class="login-bonus-today-container">
-                <div class="login-bonus-today-frame">
-                    <div id="login-bonus-today-img" class="login-bonus-img-today day-5"></div>
-                    <div id="login-bonus-today-amount" class="login-bonus-amount-today">10</div>
-                    <div class="login-bonus-explain"></div>
-                    <div id="login-bonus-button-get" class="login-bonus-button-normal"></div>
+            <div class="login-bonus-today-container left">
+                <div class="login-bonus-today-frame left">
+                    <div id="login-bonus-today-img" class="login-bonus-img day-5-not-get"></div>
+                    <span>X20</span>
+                </div>
+                <div class="login-bonus-today-get left">
+                    <span>押してね！</span>
+                    <div id="login-bonus-button-get" class="login-bonus-button-normal">
+                        <img id="main-share-btn" src="../img/button/main-share.png">
+                    </div>
                 </div>
             </div>
         </div>

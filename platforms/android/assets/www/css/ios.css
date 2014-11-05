@@ -1298,91 +1298,132 @@ li:hover {
 /*******************************************************************/
 /* login bonus Popup */
 /*******************************************************************/
+
+
 #login-bonus .popup-login-bonus {
 
 }
 
+#login-bonus .login-bonus-day {
+    margin:0 .5em 0 .5em;
+}
 
-
-#login-bonus .popup-login-bonus .popup-bonus-not-get-0 {
+#login-bonus .login-bonus-img {
     width: 4em;
     height: 4em;
-    margin: .5em 0 0 .5em;
+    text-align: right;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+#login-bonus .login-bonus-day span {
+    margin:0 .5em 0 .5em;
+}
+
+#login-bonus .login-bonus-img.day-1-not-get {
     background: url(../img/icon/coin-set-1.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-get-0 {
-}
-
-#login-bonus .popup-login-bonus .popup-bonus-not-get-1 {
-    width: 4em;
-    height: 4em;
-    margin: .5em 0 0 .5em;
-    background: url(../img/icon/coin-set-2.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-#login-bonus .popup-login-bonus .popup-bonus-get-1 {
-
-}
-
-#login-bonus .popup-login-bonus .popup-bonus-not-get-2 {
-    width: 4em;
-    height: 4em;
-    margin: .5em 0 0 .5em;
-    background: url(../img/icon/coin-set-2.png) no-repeat;
-    background-size: 100% 100%;
-}
-
-#login-bonus .popup-login-bonus .popup-bonus-get-2 {
-
-}
-
-#login-bonus .popup-login-bonus .popup-bonus-not-get-3 {
-    width: 4em;
-    height: 4em;
-    margin: .5em 0 0 .5em;
+#login-bonus .login-bonus-img.day-1-get {
     background: url(../img/icon/gem-set-1.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-got-3 {
-
+#login-bonus .login-bonus-img.day-1-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-not-get-4 {
-    width: 4em;
-    height: 4em;
-    margin: .5em 0 0 .5em;
+#login-bonus .login-bonus-img.day-2-not-get {
+    background: url(../img/icon/coin-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-2-get {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-2-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-3-not-get {
+    background: url(../img/icon/gem-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-3-get {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-3-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-4-not-get {
+    background: url(../img/icon/coin-set-3.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-4-get {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-4-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-5-not-get {
     background: url(../img/icon/coin-set-4.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-get-4 {
-
+#login-bonus .login-bonus-img.day-5-get {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-not-get-5 {
-    width: 4em;
-    height: 4em;
-    margin: .5em 0 0 .5em;
+#login-bonus .login-bonus-img.day-5-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-6-not-get {
     background: url(../img/icon/coin-set-5.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-get-5 {
-
+#login-bonus .login-bonus-img.day-6-get {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-not-get-6 {
-    width: 4em;
-    height: 4em;
-    margin: .5em 0 0 .5em;
+#login-bonus .login-bonus-img.day-6-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-img.day-7-not-get {
     background: url(../img/icon/gem-set-2.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#login-bonus .popup-login-bonus .popup-bonus-get-6 {
+#login-bonus .login-bonus-img.day-7-get {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
 
+#login-bonus .login-bonus-img.day-7-today {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .login-bonus-today-container {
 }
