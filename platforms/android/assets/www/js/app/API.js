@@ -29,15 +29,15 @@ CQ.API = {
     },
 
     syncHistory: function() {
-        var data = CQ.Currency.history;
-        data.uuid = CQ.Session.UUID;
-        data.version = CQ.Session.VERSION;
-
         $.ajax({
             type: 'POST',
             url: CQ.URL.Web.API + this.Route.Sync,
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            data: JSON.stringify({
+                uuid: CQ.Session.UUID,
+                version: CQ.Session.VERSION,
+                history: CQ.Currency.history
+            })
         }).done(function(response) {
             console.log('Send sync history request success, response: {0}'.format(CQ.Utils.toString(response)));
 
@@ -45,29 +45,32 @@ CQ.API = {
                 exchangeTimestamp = response.data.exchange,
                 earnTimestamp = response.data.earn,
                 consumeTimestamp = response.data.consume,
-                history = CQ.Currency.history;
+                history = CQ.Currency.history,
+                newHistory = { earn: [], consume: [], purchase: [], exchange: [] };
 
             if (purchaseTimestamp)
                 for (var i = 0; i < history.purchase.length; i++)
-                    if (CQ.API.getTimestamp(history.purchase[i].date) <= purchaseTimestamp)
-                        history.purchase.splice(i, 1);
+                    if (CQ.API.getTimestamp(history.purchase[i].date) > purchaseTimestamp)
+                        newHistory.purchase.push(history.purchase[i]);
 
             if (exchangeTimestamp)
                 for (var j = 0; j < history.exchange.length; j++)
-                    if (CQ.API.getTimestamp(history.exchange[j].date) <= exchangeTimestamp)
-                        history.exchange.splice(j, 1);
+                    if (CQ.API.getTimestamp(history.exchange[j].date) > exchangeTimestamp)
+                        newHistory.exchange.push(history.exchange[j]);
 
             if (earnTimestamp)
                 for (var k = 0; k < history.earn.length; k++)
-                    if (CQ.API.getTimestamp(history.earn[k].date) <= earnTimestamp)
-                        history.earn.splice(k, 1);
+                    if (CQ.API.getTimestamp(history.earn[k].date) > earnTimestamp)
+                        newHistory.earn.push(history.earn[k]);
 
             if (consumeTimestamp)
                 for (var l = 0; l < history.consume.length; l++)
-                    if (CQ.API.getTimestamp(history.consume[l].date) <= consumeTimestamp)
-                        history.consume.splice(l, 1);
+                    if (CQ.API.getTimestamp(history.consume[l].date) > consumeTimestamp)
+                        newHistory.consume.push(history.consume[l]);
 
-            CQ.Datastore.Currency.setHistory(history);
+            CQ.Currency.history = newHistory;
+            CQ.Datastore.Currency.setHistory(newHistory);
+            console.log('Currency history after sync: {0}'.format(CQ.Utils.toString(CQ.Currency.history)));
         });
     },
 
@@ -112,8 +115,8 @@ CQ.API = {
         $.post(CQ.URL.Web.API + url, data, function(response) {
             console.log('Send request success: {0}, {1}, response: {2}'.format(url, CQ.Utils.toString(data), response));
             if (success) success(response);
-        }).fail(function() {
-            console.error('Send request failed: {0}, {1}'.format(url, CQ.Utils.toString(data)));
+        }).fail(function(error) {
+            console.error('Send request failed: {0}, {1}, error: {2}'.format(url, CQ.Utils.toString(data), CQ.Utils.toString(error)));
         });
     },
 
