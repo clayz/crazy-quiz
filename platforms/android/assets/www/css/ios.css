@@ -1300,24 +1300,161 @@ li:hover {
 /*******************************************************************/
 
 
-#login-bonus .popup-login-bonus {
+#login-bonus.popup-login-bonus {
+    background: url(../img/layout/daily_bonus_bg.png) no-repeat;
+    background-size: 100% 100%;
+}
 
+#login-bonus .login-bonus-got {
+
+}
+
+#login-bonus .login-bonus-today {
+
+}
+
+#login-bonus .popup-content-daily {
+    width: 22em;
+    min-height: 6em;
+    margin: 0em .8em .8em 1em;
+    color: #FFFFFF;
+    border-radius: 3px;
+    z-index: 3;
+    height: 26em;
+}
+
+#login-bonus .login-bonus-banner {
+    height: 5em;
+    width: 18em;
+    background: url(../img/icon/daily_bonus_title.png) no-repeat;
+    background-size: 90% 70%;
+}
+
+#login-bonus .bulb-logo {
+    float: right;
+    height: 8em;
+    width: 6.5em;
+    background: url(../img/logo/daily_bonus_logo.png) no-repeat;
+    background-size: 100% 100%;
+    align-content: center;
+    margin-top: -13em;
+}
+
+#login-bonus .daily-bonus-all-container {
+    padding-left: .8em;
+}
+
+#login-bonus .daily-bonus-today-container {
+    height: 9.5em;
+    width: 21.8em;
+    background: url(../img/layout/daily_bonus_today_banner.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#login-bonus .daily-bonus-today-frame {
+    height: 8em;
+    width: 8em;
+    background: url(../img/layout/daily_bonus_star.png) no-repeat;
+    background-size: 100% 100%;
+    margin: .4em 0em 0em 1em;
+}
+
+.login-bonus-img.today {
+    margin: 1.7em 0em 0em 2em;
+    display: block;
 }
 
 #login-bonus .login-bonus-day {
-    margin:0 .5em 0 .5em;
+    margin:0 .5em 0.2em .5em;
 }
+
+#login-bonus .login-bonus-day .continue-day {
+    height: 1.3em;
+    margin: .3em 0em 0em 1em;
+}
+
+#login-bonus .daily-bonus-today-get {
+    margin: 1em 0em 0em 0em;
+}
+
+.daily-bonus-today-msg {
+    background: url(../img/layout/daily_bonus_msg.png) no-repeat;
+    height: 2.5em;
+    width: 7em;
+    background-size: 100% 100%;
+    text-align: center;
+    color: #FF0000;
+    line-height: 2.4em;
+}
+
+#daily-bonus-button-get {
+    height: 2.5em;
+    width: 8em;
+    margin-left: 1.5em;
+}
+
+#daily-bonus-button-get.daily-bonus-button-normal {
+     background: url(../img/button/main-share.png) no-repeat;
+     height: 4em;
+     width: 9em;
+     background-size: 100% 100%;
+ }
+
+ #daily-bonus-button-get.daily-bonus-button-pressed {
+     background: url(../img/button/main-share.png) no-repeat;
+     height: 2.5em;
+     width: 8em;
+     background-size: 100% 100%;
+ }
 
 #login-bonus .login-bonus-img {
     width: 4em;
     height: 4em;
     text-align: right;
-    display: table-cell;
     vertical-align: bottom;
 }
 
+#login-bonus .login-bonus-day .login-bonus-img {
+    display: table-cell;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-1{
+    background: url(../img/icon/daily_bonus_day1.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-2{
+    background: url(../img/icon/daily_bonus_day2.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-3{
+    background: url(../img/icon/daily_bonus_day3.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-4{
+    background: url(../img/icon/daily_bonus_day4.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-5{
+    background: url(../img/icon/daily_bonus_day5.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-6{
+    background: url(../img/icon/daily_bonus_day6.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#login-bonus .login-bonus-day .continue-day.day-7{
+    background: url(../img/icon/daily_bonus_day7.png) no-repeat;
+    background-size: 70% 70%;
+}
+
 #login-bonus .login-bonus-day span {
-    margin:0 .5em 0 .5em;
+    margin:0 .2em 0 .2em;
 }
 
 #login-bonus .login-bonus-img.day-1-not-get {
@@ -1423,7 +1560,4 @@ li:hover {
 #login-bonus .login-bonus-img.day-7-today {
     background: url(../img/icon/coin-set-1.png) no-repeat;
     background-size: 100% 100%;
-}
-
-#login-bonus .login-bonus-today-container {
 }
