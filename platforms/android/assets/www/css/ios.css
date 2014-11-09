@@ -1308,12 +1308,13 @@ li:hover {
 
 #daily-bonus .popup-content-daily {
     width: 22em;
+    height: 27em;
     min-height: 6em;
     margin: 0em .8em .8em 1em;
-    color: #FFFFFF;
+    color: RGB(251, 244, 180);
     border-radius: 3px;
     z-index: 3;
-    height: 26em;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #daily-bonus .daily-bonus-banner {
@@ -1328,7 +1329,7 @@ li:hover {
 }
 
 #daily-bonus .daily-bonus-today-container {
-    height: 9.5em;
+    height: 9.7em;
     width: 21.8em;
     background: url(../img/layout/daily_bonus_today_banner.png) no-repeat;
     background-size: 100% 100%;
@@ -1357,14 +1358,15 @@ li:hover {
     width: 7em;
     background-size: 100% 100%;
     text-align: center;
-    color: #FF0000;
+    color: RGB(146, 36, 0);
     line-height: 2.4em;
+    text-shadow: none;
 }
 
 #daily-bonus-button-get {
     height: 4em;
     width: 9em;
-    margin-left: 1.5em;
+    margin: .5em 0em 0em 1.5em;
 }
 
 #daily-bonus-button-get:hover {
@@ -1493,7 +1495,7 @@ li:hover {
     position: absolute;
     width: 3em;
     height: 2.5em;
-    margin: .7em 0em 0em .7em;
+    margin: .8em 0em 0em .6em;
     background: url(../img/icon/daily_bonus_get.png) no-repeat;
     background-size: 100% 100%;
 }
