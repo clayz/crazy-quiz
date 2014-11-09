@@ -17,47 +17,73 @@
     <button id="option2">loginBonusGET</button>
 
     <!-- Login bonus popup -->
-    <div data-role="popup" id="login-bonus" class="popup-login-bonus" data-overlay-theme="b" data-dismissible="false">
-        <div class="popup-close"></div>
+    <div data-role="popup" id="daily-bonus" class="popup-daily-bonus" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close">
+            <img class="popup-close-btn" src="../img/button/popup-close-btn.png"/>
+        </div>
         <div class="popup-content-daily">
-            <div class="login-bonus-banner"></div>
+            <div class="daily-bonus-banner"></div>
             <div class="daily-bonus-all-container">
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-content">
-                        <div class="login-bonus-img day-1-not-get"><span>10</span></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-1"><span>10</span></div>
                         <div class="continue-day day-1"></div>
                     </div>
-                    <div class="login-bonus-got"></div>
-                    <div class="login-bonus-today"></div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-img day-2-not-get"><span>20</span></div>
-                    <div class="continue-day day-2"></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-2"><span>20</span></div>
+                        <div class="continue-day day-2"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-img day-3-not-get"><span>1</span></div>
-                    <div class="continue-day day-3"></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-3"><span>1</span></div>
+                        <div class="continue-day day-3"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-img day-4-not-get"><span>50</span></div>
-                    <div class="continue-day day-4"></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-4"><span>50</span></div>
+                        <div class="continue-day day-4"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-img day-5-not-get"><span>60</span></div>
-                    <div class="continue-day day-5"></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-5"><span>60</span></div>
+                        <div class="continue-day day-5"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-img day-6-not-get"><span>70</span></div>
-                    <div class="continue-day day-6"></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-6"><span>70</span></div>
+                        <div class="continue-day day-6"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
-                <div class="login-bonus-day left">
-                    <div class="login-bonus-img day-7-not-get"><span>3</span></div>
-                    <div class="continue-day day-7"></div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-7"><span>3</span></div>
+                        <div class="continue-day day-7"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
                 </div>
             </div>
             <div class="daily-bonus-today-container left">
                 <div class="daily-bonus-today-frame left">
-                    <div id="daily-bonus-today-img" class="login-bonus-img day-5-not-get today"></div>
+                    <div id="daily-bonus-today-img" class="daily-bonus-img day-5 today"></div>
                     <span>X20</span>
                 </div>
                 <div class="daily-bonus-today-get left">
@@ -70,12 +96,12 @@
     </div>
 
     <!-- Login bonus popup -->
-    <div data-role="popup" id="login-bonus-get" class="popup-login-bonus-get" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" id="daily-bonus-get" class="popup-daily-bonus-get" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close"></div>
         <div class="popup-content">
-            <div class="login-bonus-get">
-                <div id="login-bonus-today-img-get" class="login-bonus-img day-5"></div>
-                <div id="login-bonus-today-amount-get" class="login-bonus-amount-today"></div>
+            <div class="daily-bonus-get">
+                <div id="daily-bonus-today-img-get" class="daily-bonus-img day-5"></div>
+                <div id="daily-bonus-today-amount-get" class="daily-bonus-amount-today"></div>
             </div>
         </div>
     </div>
@@ -83,14 +109,14 @@
 <script>
     $(function() {
         $('#option').click(function() {
-            $("#main").find('.popup-login-bonus').popup();
-            $('#main').find('.popup-login-bonus').popup('open');
+            $("#main").find('.popup-daily-bonus').popup();
+            $('#main').find('.popup-daily-bonus').popup('open');
         });
 
-        $('#login-bonus-button-get').click(function() {
-            alert("size: " + $("#main").find('.popup-login-bonus-get').length);
-            $("#main").find('.popup-login-bonus-get').popup();
-            $('#main').find('.popup-login-bonus-get').popup('open');
+        $('#daily-bonus-button-get').click(function() {
+            alert("size: " + $("#main").find('.popup-daily-bonus-get').length);
+            $("#main").find('.popup-daily-bonus-get').popup();
+            $('#main').find('.popup-daily-bonus-get').popup('open');
         });
     });
 </script>
