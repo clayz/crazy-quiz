@@ -61,13 +61,6 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D531D7A7D6DF402F997DAC50 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF94982D28E4C2CB44CDA9E /* AppDelegate+notification.m */; };
 		DB8E1CFE4A12411FB5812492 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE48C5FC57844DCACAD4C63 /* Social.framework */; };
-		E525A98819486BF300CC4099 /* GAI.h in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98219486BF300CC4099 /* GAI.h */; };
-		E525A98919486BF300CC4099 /* GAIDictionaryBuilder.h in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98319486BF300CC4099 /* GAIDictionaryBuilder.h */; };
-		E525A98A19486BF300CC4099 /* GAIFields.h in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98419486BF300CC4099 /* GAIFields.h */; };
-		E525A98B19486BF300CC4099 /* GAILogger.h in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98519486BF300CC4099 /* GAILogger.h */; };
-		E525A98C19486BF300CC4099 /* GAITrackedViewController.h in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98619486BF300CC4099 /* GAITrackedViewController.h */; };
-		E525A98D19486BF300CC4099 /* GAITracker.h in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98719486BF300CC4099 /* GAITracker.h */; };
-		E525A98F19486C0600CC4099 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A98E19486C0600CC4099 /* libGoogleAnalyticsServices.a */; };
 		E525A99119486C1400CC4099 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99019486C1400CC4099 /* libsqlite3.dylib */; };
 		E525A99319486C7700CC4099 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99219486C7700CC4099 /* libz.dylib */; };
 		E525A99519486C7F00CC4099 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E525A99419486C7F00CC4099 /* AdSupport.framework */; };
@@ -206,14 +199,7 @@
 				1F94AA3819B02080001D15CA /* AudioToolbox.framework in Frameworks */,
 				E525A99319486C7700CC4099 /* libz.dylib in Frameworks */,
 				E525A99119486C1400CC4099 /* libsqlite3.dylib in Frameworks */,
-				E525A98F19486C0600CC4099 /* libGoogleAnalyticsServices.a in Frameworks */,
-				E525A98819486BF300CC4099 /* GAI.h in Frameworks */,
-				E525A98919486BF300CC4099 /* GAIDictionaryBuilder.h in Frameworks */,
-				E525A98A19486BF300CC4099 /* GAIFields.h in Frameworks */,
-				E525A98B19486BF300CC4099 /* GAILogger.h in Frameworks */,
 				1FE6E8FF19D17A0300EAEB05 /* StoreKit.framework in Frameworks */,
-				E525A98C19486BF300CC4099 /* GAITrackedViewController.h in Frameworks */,
-				E525A98D19486BF300CC4099 /* GAITracker.h in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
