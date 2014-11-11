@@ -26,6 +26,17 @@
             </intent-filter>
         </receiver>
         <service android:name="com.plugin.gcm.GCMIntentService" />
+        <meta-data android:name="appc_media_key" android:value="d64e9ba1a2b6b2183542eae252b8f30612a33b5e" />
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen" android:name="net.app_c.cloud.sdk.AppCAdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen" android:name="net.app_c.cloud.sdk.AppCRecoveryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen" android:name="net.app_c.cloud.sdk.AppCAgreementActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen" android:name="net.app_c.cloud.sdk.AppCRewardActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <receiver android:enabled="true" android:exported="false" android:label="BootStrap" android:name="net.app_c.cloud.sdk.AppCPkgReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
     </application>
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

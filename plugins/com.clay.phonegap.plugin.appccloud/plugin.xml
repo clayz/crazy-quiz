@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.clay.phonegap.plugin.appccloud"
+        version="1.0.0">
+
+    <name>AppCCloudPlugin</name>
+    <description>Plugin for supporting appC cloud ad on Android and iOS.</description>
+    <author>Clay Zhong</author>
+    <keywords>appc,ad</keywords>
+    <license>Apache 2.0 License</license>
+
+    <repo>https://github.com/clayz/appc-cloud-plugin.git</repo>
+    <issue>https://github.com/clayz/appc-cloud-plugin/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+
+    <js-module src="www/appccloud.js" name="AppCCloud">
+        <clobbers target="window.appccloud"/>
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AppCCloud">
+                <param name="android-package" value="com.clay.phonegap.plugin.appccloud.AppCCloudPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- AppC Core Setting Start -->
+            <meta-data android:name="appc_media_key" android:value="[media_key]"/>
+            <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+            <activity android:name="net.app_c.cloud.sdk.AppCAdActivity"
+                      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen"
+                      android:screenOrientation="portrait"
+                      android:theme="@android:style/Theme.NoTitleBar">
+            </activity>
+            <activity android:name="net.app_c.cloud.sdk.AppCRecoveryActivity"
+                      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen"
+                      android:screenOrientation="portrait"
+                      android:theme="@android:style/Theme.NoTitleBar">
+            </activity>
+            <activity android:name="net.app_c.cloud.sdk.AppCAgreementActivity"
+                      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen"
+                      android:screenOrientation="portrait"
+                      android:theme="@android:style/Theme.NoTitleBar">
+            </activity>
+            <!-- AppC Core Setting End -->
+
+            <!-- AppC Reward Setting Start -->
+            <activity android:name="net.app_c.cloud.sdk.AppCRewardActivity"
+                      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen"
+                      android:screenOrientation="portrait"
+                      android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            </activity>
+            <!-- AppC Reward Setting End -->
+
+            <!-- AppC Core Setting Start -->
+            <receiver android:name="net.app_c.cloud.sdk.AppCPkgReceiver"
+                      android:enabled="true"
+                      android:exported="false"
+                      android:label="BootStrap">
+                <intent-filter>
+                    <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                    <data android:scheme="package">
+                    </data>
+                </intent-filter>
+            </receiver>
+            <!-- AppC Core Setting End -->
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <!-- AppC Core Setting Start -->
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <!-- AppC Core Setting End -->
+        </config-file>
+
+        <source-file src="lib/appc_cloud_2.2.0_non_gcm_non_billing.jar" target-dir="libs" framework="true"/>
+        <source-file src="src/android/AppCCloudPlugin.java" target-dir="src/com/clay/phonegap/plugin/appccloud"/>
+    </platform>
+
+    <!--<platform name="ios">-->
+    <!--<config-file target="config.xml" parent="/*">-->
+    <!--<feature name="AppCCloud">-->
+    <!--<param name="ios-package" value="CDVAppCCloud"/>-->
+    <!--</feature>-->
+    <!--</config-file>-->
+    <!--<header-file src="src/ios/CDVAppCCloud.h"/>-->
+    <!--<source-file src="src/ios/CDVAppCCloud.m"/>-->
+    <!--</platform>-->
+
+</plugin>

@@ -71,7 +71,7 @@ CQ.App = {
 
         // get and register device info, sync all history data
         CQ.Session.UUID = device.uuid;
-        window.getAppVersion().then(function(version) {
+        cordova.getAppVersion().then(function(version) {
             CQ.Session.VERSION = version;
 
             CQ.API.startup(function() {

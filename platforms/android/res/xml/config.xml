@@ -87,4 +87,7 @@
     <feature name="AppVersion">
         <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
     </feature>
+    <feature name="AppCCloud">
+        <param name="android-package" value="com.clay.phonegap.plugin.appccloud.AppCCloudPlugin" />
+    </feature>
 </widget>

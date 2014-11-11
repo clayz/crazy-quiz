@@ -1,4 +1,4 @@
-cordova.define("uk.co.whiteoctober.cordova.appversion.AppVersionPlugin", function(require, exports, module) {// Returns a jQuery or AngularJS deferred object, or pass a success and fail callbacks if you don't want to use jQuery or AngularJS
+cordova.define("uk.co.whiteoctober.cordova.appversion.AppVersionPlugin", function(require, exports, module) { // Returns a jQuery or AngularJS deferred object, or pass a success and fail callbacks if you don't want to use jQuery or AngularJS
 var getAppVersion = function (success, fail) {
   var toReturn, deferred;
   if ((typeof success) === 'undefined') {
@@ -22,4 +22,5 @@ var getAppVersion = function (success, fail) {
 };
 
 module.exports = getAppVersion;
+
 });

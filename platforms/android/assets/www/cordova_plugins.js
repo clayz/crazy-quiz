@@ -67,7 +67,14 @@ module.exports = [
         "file": "plugins/uk.co.whiteoctober.cordova.appversion/www/AppVersionPlugin.js",
         "id": "uk.co.whiteoctober.cordova.appversion.AppVersionPlugin",
         "clobbers": [
-            "window.getAppVersion"
+            "cordova.getAppVersion"
+        ]
+    },
+    {
+        "file": "plugins/com.clay.phonegap.plugin.appccloud/www/appccloud.js",
+        "id": "com.clay.phonegap.plugin.appccloud.AppCCloud",
+        "clobbers": [
+            "window.appccloud"
         ]
     },
     {
@@ -230,6 +237,7 @@ module.exports.metadata =
     "org.apache.cordova.device": "0.2.13-dev",
     "com.phonegap.plugins.PushPlugin": "2.4.0",
     "uk.co.whiteoctober.cordova.appversion": "0.1.4",
+    "com.clay.phonegap.plugin.appccloud": "1.0.0",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA
