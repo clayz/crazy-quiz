@@ -44,6 +44,7 @@
     <script type="text/javascript" charset="utf-8" src="js/popup/GemShop.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/GemNotEnough.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/popup/CoinNotEnough.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/popup/DailyBonus.js"></script>
 
     <!-- app pages -->
     <script type="text/javascript" charset="utf-8" src="js/page/Page.js"></script>
@@ -794,6 +795,85 @@
                 <div class="ui-block-c center no-shadow">
                     <img src="img/icon/share-other.png" class="popup-share-other popup-share-btn"><br/>その他
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Daily bonus popup -->
+    <div data-role="popup" id="daily-bonus" class="popup-daily-bonus" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close">
+            <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
+        </div>
+        <div class="popup-content-daily">
+            <div class="daily-bonus-banner"></div>
+            <div class="daily-bonus-all-container">
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-1"><span>10</span></div>
+                        <div class="continue-day day-1"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-2"><span>20</span></div>
+                        <div class="continue-day day-2"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-3"><span>1</span></div>
+                        <div class="continue-day day-3"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-4"><span>50</span></div>
+                        <div class="continue-day day-4"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-5"><span>60</span></div>
+                        <div class="continue-day day-5"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-6"><span>70</span></div>
+                        <div class="continue-day day-6"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-7"><span>3</span></div>
+                        <div class="continue-day day-7"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+            </div>
+            <div class="daily-bonus-today-container left">
+                <div class="daily-bonus-today-frame left">
+                    <div id="daily-bonus-today-img" class="daily-bonus-img day-5 today"></div>
+                    <span>X20</span>
+                </div>
+                <div class="daily-bonus-today-get left">
+                    <div class="daily-bonus-today-msg">押してね！</div>
+                    <div id="daily-bonus-button-get" class="daily-bonus-button-normal"></div>
+                </div>
+                <div class="bulb-logo"></div>
             </div>
         </div>
     </div>

@@ -93,20 +93,32 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
 
-        // open rating popup if required
-        if (!CQ.Datastore.User.isRated()) {
-            var startTimes = CQ.Datastore.User.getStartTimes();
+        // open daily bonus popup if required
+        var dailyBonus = new CQ.Popup.DailyBonus(this.name);
 
-            if ((startTimes > 0) && (startTimes % 5 == 0)) {
-                $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
-                this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
-                this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
-                this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
-
-                $('#' + this.name).on('pageshow', function() {
-                    $(CQ.Id.Main.$POPUP_RATING).popup('open');
-                    $(this).unbind('pageshow');
-                });
+        if(dailyBonus.ifGetBonusToday()){
+            dailyBonus.refresh();
+            $('#' + this.name).on('pageshow', function() {
+                $("#main").find('.popup-daily-bonus').popup();
+                $('#main').find('.popup-daily-bonus').popup('open');
+                $(this).unbind('pageshow');
+            });
+        } else {
+            // open rating popup if required
+            if (!CQ.Datastore.User.isRated()) {
+                var startTimes = CQ.Datastore.User.getStartTimes();
+                
+                if ((startTimes > 0) && (startTimes % 5 == 0)) {
+                    $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
+                    this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
+                    this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
+                    this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
+                    
+                    $('#' + this.name).on('pageshow', function() {
+                        $(CQ.Id.Main.$POPUP_RATING).popup('open');
+                        $(this).unbind('pageshow');
+                    });
+                }
             }
         }
     },

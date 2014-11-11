@@ -78,7 +78,7 @@ CQ.App = {
                 CQ.API.syncHistory();
             });
         });
-
+        
         console.log('App initialization finished.');
     },
 

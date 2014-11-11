@@ -57,10 +57,14 @@ CQ.Id = {
         $POPUP_SHARE_TWITTER: '.popup-share-tw',
         $POPUP_SHARE_OTHER: '.popup-share-other',
 
-        $POPUP_LOGIN_BONUS: ".popup-login-bonus",
-        $POPUP_LOGIN_BONUS_BANNER: '.login-bonus-banner',
-        $POPUP_LOGIN_BONUS_NOT_GET: ".popup-login-bonus .popup-bonus-not-get-{0}",
-        $POPUP_LOGIN_BONUS_GET: ".popup-login-bonus .popup-bonus-get-{0}"
+        $POPUP_DAILY_BONUS: '.popup-daily-bonus',
+        $POPUP_DAILY_BONUS_DAY: '.daily-bonus-day',
+        $POPUP_DAILY_BONUS_DAY_GOT: '.daily-bonus-got',
+        $POPUP_DAILY_BONUS_DAY_TODAY: '.daily-bonus-today',
+        $POPUP_DAILY_BONUS_TODAY_IMG: 'daily-bonus-img day-{0} today',
+        $POPUP_DAILY_BONUS_TODAY_FRAME: '.daily-bonus-today-frame',
+        $POPUP_DAILY_BONUS_TODAY_GET_NORMAL: "daily-bonus-button-normal",
+        $POPUP_DAILY_BONUS_TODAY_GET_PRESSED: "daily-bonus-button-pressed"
     },
 
     Image: {
@@ -197,15 +201,9 @@ CQ.Id = {
         $TO_FACEBOOK: '#help-to-facebook'
     },
 
-    LoginBonus: {
-        $LOGIN_BONUS: '#login-bonus',
-        $LOGIN_BONUS_IMG_TODAY: '#login-bonus-img-today',
-        $LOGIN_BONUS_AMOUNT_TODAY: '#login-bonus-amount-today',
-        $LOGIN_BONUS_IMG_DAY: '#login-bonus-img-day-{0}',
-        $LOGIN_BONUS_AMOUNT_DAY: '#popup-bonus-amount-{0}',
-        $LOGIN_BONUS_BUTTON_GET: "#login-bonus-button-get",
-        $LOGIN_BONUS_DIV_GET: '#login-bonus-div-get',
-        $LOGIN_BONUS_IMG_GET: '#login-bonus-img-get',
-        $LOGIN_BONUS_AMOUNT_GET: '#login-bonus-amount-get'
+    DailyBonus: {
+        $DAILY_BONUS: '#daily-bonus',
+        $DAILY_BONUS_BUTTON_GET: '#daily-bonus-button-get',
+        $DAILY_BONUS_IMG_TODAY: '#daily-bonus-today-img'
     }
 };
