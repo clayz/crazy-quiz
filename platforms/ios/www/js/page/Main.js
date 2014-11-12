@@ -3,6 +3,8 @@ CQ.Page.Main = {
     albumId: 1,
     selectedUnlockAlbum: null,
     selectedUnlockLevel: null,
+    dailyBonus:null,
+    dailyBonusGot: null,
 
     welcomeText: [
         'お帰りなさい!',
@@ -94,13 +96,13 @@ CQ.Page.Main = {
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
 
         // open daily bonus popup if required
-        var dailyBonus = new CQ.Popup.DailyBonus(this.name);
+        dailyBonusGot = new CQ.Popup.DailyBonusGot(this.name);
+        dailyBonus = new CQ.Popup.DailyBonus(this.name, dailyBonusGot);
 
         if(dailyBonus.ifGetBonusToday()){
             dailyBonus.refresh();
             $('#' + this.name).on('pageshow', function() {
-                $("#main").find('.popup-daily-bonus').popup();
-                $('#main').find('.popup-daily-bonus').popup('open');
+                CQ.Page.openPopup(dailyBonus);
                 $(this).unbind('pageshow');
             });
         } else {

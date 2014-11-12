@@ -1,12 +1,11 @@
-CQ.Popup.DailyBonus = function(page){
+CQ.Popup.DailyBonus = function(page, dailyBonusGot){
     this.popup = new CQ.Popup(CQ.Id.CSS.$POPUP_DAILY_BONUS, page);
 
     $(CQ.Id.DailyBonus.$DAILY_BONUS_BUTTON_GET).bind('click', function(){
-        //this.getBonus();
-        alert('Get bonus!');
-        //close this window and open windows of bonus get
-        CQ.Page.closePopup();
+        dailyBonusGot.getBonus();
 
+        //close this window and open windows of bonus get
+        CQ.Page.openPopup(dailyBonusGot);
 
     }).bind('touchstart', function(){
         $(this).removeClass().addClass(CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_GET_PRESSED);
@@ -24,52 +23,23 @@ CQ.Popup.DailyBonus.prototype.ifGetBonusToday = function(){
         //first login
         dailyBonusFlg = true;
     } else {
-        var lastLoginTime = new Date(CQ.Datastore.User.getLastDailyTime());
+        var lastDailyTime = new Date(CQ.Datastore.User.getLastDailyTime());
 
-        var lastLoginDate = new Date("{0}-{1}-{2}".format(lastLoginTime.getYear(),
-                                                          lastLoginTime.getMonth() + 1,lastLoginTime.getDate()));
+        var lastDailyDate = new Date("{0}-{1}-{2}".format(lastDailyTime.getFullYear(),
+            lastDailyTime.getMonth() + 1, lastDailyTime.getDate()));
 
-        var nowDate = new Date("{0}-{1}-{2}".format(now.getYear(),
-                                                    now.getMonth() + 1,now.getDate()));
-
-        if(nowDate.getTime() == lastLoginDate.getTime()){
+        var nowDate = new Date("{0}-{1}-{2}".format(now.getFullYear(),
+            now.getMonth() + 1, now.getDate()));
+        //alert("nowDate: " + "{0}-{1}-{2}".format(now.getFullYear(),
+        //    now.getMonth() + 1,now.getDate()));
+        //alert("lastDate: " + "{0}-{1}-{2}".format(lastDailyTime.getFullYear(),
+        //    lastDailyTime.getMonth() + 1, lastDailyTime.getDate()));
+        if(nowDate.getTime() != lastDailyDate.getTime()){
             dailyBonusFlg = true;
         }
     }
 
     return dailyBonusFlg;
-};
-
-CQ.Popup.DailyBonus.prototype.getBonus = function(){
-    var isInterrupt = false;
-
-    var lastLoginTime = new Date(CQ.Datastore.User.getLastDailyTime());
-    var lastLoginDate = new Date("{0}-{1}-{2}".format(lastLoginTime.getYear(),
-                                                      lastLoginTime.getMonth() + 1,lastLoginTime.getDate()));
-
-    var now = new Date();
-    var nowDate = new Date("{0}-{1}-{2}".format(now.getYear(),
-                                                now.getMonth() + 1,now.getDate()));
-
-    if(((nowDate.getTime() - lastLoginDate.getTime())/(3600 * 1000)) > 24){
-        isInterrupt = true;
-    }
-
-    var count = CQ.Datastore.User.getContinueDailyCount();
-
-    // check continue login count
-    count++;
-
-    if(continueLoginCount > 7 || isInterrupt){
-        count = 0;
-    }
-
-    // set last login time to newest
-    CQ.Datastore.User.setLastDailyTime(now.getTime());
-
-    // set count this time
-    CQ.Datastore.User.setContinueDailyCount(count);
-
 };
 
 CQ.Popup.DailyBonus.prototype.refresh = function() {
@@ -98,13 +68,16 @@ CQ.Popup.DailyBonus.prototype.refresh = function() {
     $(CQ.Id.DailyBonus.$DAILY_BONUS_IMG_TODAY).removeClass().addClass(
         CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_IMG.format(nextCount));
 
+    $(CQ.Id.DailyBonus.$DAILY_BONUS_IMG_TODAY_GOT).removeClass().addClass(
+        CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_GOT_IMG.format(nextCount));
+
     // set bonus amount today
     var earnType = CQ.Currency.Earn['DailyDay' + nextCount];
     if(earnType.coin == 0){
         $(CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_FRAME).find('span').text('X' + earnType.gem);
-//            $(CQ.Id.LoginBonus.$LOGIN_BONUS_AMOUNT_GET).text(earnType.gem);
+        $(CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_GOT_TEXT).text('X' + earnType.gem);
     } else {
         $(CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_FRAME).find('span').text('X' + earnType.coin);
-//            $(CQ.Id.LoginBonus.$LOGIN_BONUS_AMOUNT_GET).text(earnType.coin);
+        $(CQ.Id.CSS.$POPUP_DAILY_BONUS_TODAY_GOT_TEXT).text('X' + earnType.coin);
     }
 };
