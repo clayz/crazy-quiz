@@ -323,7 +323,6 @@ CQ.Page.Main = {
     },
 
     clickHelp: function() {
-//        appccloud.listView();
         CQ.Audio.Button.play();
         CQ.Page.open(CQ.Page.Help);
     }
