@@ -1442,48 +1442,48 @@ li:hover {
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-img {
+.daily-bonus-img {
     width: 4em;
     height: 4em;
     text-align: right;
     vertical-align: bottom;
 }
 
-#daily-bonus .daily-bonus-day .daily-bonus-img {
+.daily-bonus-day .daily-bonus-img {
     display: table-cell;
 }
 
-#daily-bonus .daily-bonus-img.day-1 {
+.daily-bonus-img.day-1 {
     background: url(../img/icon/coin-set-1.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#daily-bonus .daily-bonus-img.day-2 {
+.daily-bonus-img.day-2 {
     background: url(../img/icon/coin-set-2.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#daily-bonus .daily-bonus-img.day-3 {
+.daily-bonus-img.day-3 {
     background: url(../img/icon/gem-set-1.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#daily-bonus .daily-bonus-img.day-4 {
+.daily-bonus-img.day-4 {
     background: url(../img/icon/coin-set-3.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#daily-bonus .daily-bonus-img.day-5 {
+.daily-bonus-img.day-5 {
     background: url(../img/icon/coin-set-4.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#daily-bonus .daily-bonus-img.day-6 {
+.daily-bonus-img.day-6 {
     background: url(../img/icon/coin-set-5.png) no-repeat;
     background-size: 100% 100%;
 }
 
-#daily-bonus .daily-bonus-img.day-7 {
+.daily-bonus-img.day-7 {
     background: url(../img/icon/gem-set-2.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -1504,4 +1504,88 @@ li:hover {
     margin: -.5em 0em 0em -.5em;
     background: url(../img/layout/daily_bonus_today.png) no-repeat;
     background-size: 100% 100%;
+}
+
+.popup-daily-bonus-got {
+    background: none;
+}
+
+.daily-bonus-img.today-got {
+    margin: 1.5em 0em 0em 4em;
+    display: block;
+}
+
+.daily-bonus-got-banner-1 {
+    height: 3em;
+    width: 12em;
+    background: url(../img/icon/text_bonus.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-got-banner-2 {
+    height: 3em;
+    width: 12em;
+    background: url(../img/icon/text_get.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-got-amount{
+    color: RGB(146, 36, 0);
+    line-height: 2.4em;
+    text-shadow: none;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+.daily-bonus-got-rays {
+    position: absolute;
+    top: -5.5em;
+    left: -6em;
+    width: 25em;
+    height: 25em;
+    z-index: -1;
+    background: url(../img/layout/daily_bonus_get_bg.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 40000ms; /* 40 seconds */
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-animation-name: spin;
+    -moz-animation-duration: 40000ms; /* 40 seconds */
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    -ms-animation-name: spin;
+    -ms-animation-duration: 40000ms; /* 40 seconds */
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    /* boooo opera */
+    -o-transition: rotate(3600deg); /* works */
 }

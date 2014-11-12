@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ios.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">loginBonus</button>
+    <button id="option2">loginBonusGET</button>
+
+    <!-- Login bonus popup -->
+    <div data-role="popup" id="daily-bonus" class="popup-daily-bonus" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close">
+            <img class="popup-close-btn" src="../img/button/popup-close-btn.png"/>
+        </div>
+        <div class="popup-content-daily">
+            <div class="daily-bonus-banner"></div>
+            <div class="daily-bonus-all-container">
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-1"><span>10</span></div>
+                        <div class="continue-day day-1"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-2"><span>20</span></div>
+                        <div class="continue-day day-2"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-3"><span>1</span></div>
+                        <div class="continue-day day-3"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-4"><span>50</span></div>
+                        <div class="continue-day day-4"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-5"><span>60</span></div>
+                        <div class="continue-day day-5"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-6"><span>70</span></div>
+                        <div class="continue-day day-6"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+                <div class="daily-bonus-day left">
+                    <div class="daily-bonus-content">
+                        <div class="daily-bonus-img day-7"><span>3</span></div>
+                        <div class="continue-day day-7"></div>
+                    </div>
+                    <div class="daily-bonus-got"></div>
+                    <div class="daily-bonus-today"></div>
+                </div>
+            </div>
+            <div class="daily-bonus-today-container left">
+                <div class="daily-bonus-today-frame left">
+                    <div id="daily-bonus-today-img" class="daily-bonus-img day-5 today"></div>
+                    <span>X20</span>
+                </div>
+                <div class="daily-bonus-today-get left">
+                    <div class="daily-bonus-today-msg">押してね！</div>
+                    <div id="daily-bonus-button-get" class="daily-bonus-button-normal"></div>
+                </div>
+                <div class="bulb-logo"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login bonus popup -->
+    <div data-role="popup" id="daily-bonus-get" class="popup-daily-bonus-get" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close"></div>
+        <div class="popup-content">
+            <div class="daily-bonus-get">
+                <div id="daily-bonus-today-img-get" class="daily-bonus-img day-5"></div>
+                <div id="daily-bonus-today-amount-get" class="daily-bonus-amount-today"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            $("#main").find('.popup-daily-bonus').popup();
+            $('#main').find('.popup-daily-bonus').popup('open');
+        });
+
+        $('#daily-bonus-button-get').click(function() {
+            alert("size: " + $("#main").find('.popup-daily-bonus-get').length);
+            $("#main").find('.popup-daily-bonus-get').popup();
+            $('#main').find('.popup-daily-bonus-get').popup('open');
+        });
+    });
+</script>
+</body>
+</html>
