@@ -100,7 +100,7 @@ CQ.Datastore.User = {
    },
 
    setLastDailyTime: function(timestamp){
-        this.setInt(this.Key.LAST_DAILY_TIME, timestamp);
+        this.set(this.Key.LAST_DAILY_TIME, timestamp);
    }
 };
 

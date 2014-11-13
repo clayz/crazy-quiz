@@ -64,7 +64,10 @@ CQ.Id = {
         $POPUP_DAILY_BONUS_TODAY_IMG: 'daily-bonus-img day-{0} today',
         $POPUP_DAILY_BONUS_TODAY_FRAME: '.daily-bonus-today-frame',
         $POPUP_DAILY_BONUS_TODAY_GET_NORMAL: "daily-bonus-button-normal",
-        $POPUP_DAILY_BONUS_TODAY_GET_PRESSED: "daily-bonus-button-pressed"
+        $POPUP_DAILY_BONUS_TODAY_GET_PRESSED: "daily-bonus-button-pressed",
+        $POPUP_DAILY_BONUS_TODAY_GOT_IMG: 'daily-bonus-img day-{0} today-got',
+        $POPUP_DAILY_BONUS_TODAY_GOT: '.popup-daily-bonus-got',
+        $POPUP_DAILY_BONUS_TODAY_GOT_TEXT: '.popup-daily-bonus-got .daily-bonus-got-amount'
     },
 
     Image: {
@@ -204,6 +207,9 @@ CQ.Id = {
     DailyBonus: {
         $DAILY_BONUS: '#daily-bonus',
         $DAILY_BONUS_BUTTON_GET: '#daily-bonus-button-get',
-        $DAILY_BONUS_IMG_TODAY: '#daily-bonus-today-img'
+        $DAILY_BONUS_IMG_TODAY: '#daily-bonus-today-img',
+        $DAILY_BONUS_IMG_TODAY_GOT: '#daily-bonus-got-img',
+        $DAILY_BONUS_GOT: '#daily-bonus-got'
+
     }
 };
