@@ -1,10 +1,11 @@
 CQ.Page.Main = {
     name: 'main',
     albumId: 1,
-    selectedUnlockAlbum: null,
-    selectedUnlockLevel: null,
-    dailyBonus:null,
-    dailyBonusGot: null,
+    ratePopupDisplayed: false,
+    selectedUnlockAlbum: {},
+    selectedUnlockLevel: {},
+    dailyBonus: {},
+    dailyBonusGot: {},
 
     welcomeText: [
         'お帰りなさい!',
@@ -50,7 +51,10 @@ CQ.Page.Main = {
                         $(CQ.Id.Main.$ALBUM_LEVEL_LOCK.format(album.id, level)).hide();
                         CQ.Page.Main.setLevelStatusText(album, level, lastPictureIndex);
                     } else if (level == (lastLevel + 1)) {
-                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({
+                            albumId: album.id,
+                            level: level
+                        }, CQ.Page.Main.clickUnlockableLevel);
                     } else {
                         $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click(CQ.Page.Main.clickUnlockDisableLevel);
                     }
@@ -95,34 +99,31 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
 
-        // open daily bonus popup if required
-        dailyBonusGot = new CQ.Popup.DailyBonusGot(this.name);
-        dailyBonus = new CQ.Popup.DailyBonus(this.name, dailyBonusGot);
+        // rate popup
+        $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
+        this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
+        this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
 
-        if(dailyBonus.ifGetBonusToday()){
-            dailyBonus.refresh();
-            $('#' + this.name).on('pageshow', function() {
-                CQ.Page.openPopup(dailyBonus);
-                $(this).unbind('pageshow');
-            });
-        } else {
-            // open rating popup if required
-            if (!CQ.Datastore.User.isRated()) {
+        // open daily bonus popup if required
+        this.dailyBonusGot = new CQ.Popup.DailyBonusGot(this.name);
+        this.dailyBonus = new CQ.Popup.DailyBonus(this.name, this.dailyBonusGot);
+
+        $('#' + this.name).on('pageshow', function() {
+            if (CQ.Page.Main.dailyBonus.ifGetBonusToday()) {
+                CQ.Page.openPopup(CQ.Page.Main.dailyBonus);
+            } else if (!CQ.Datastore.User.isRated()) {
+                // open rating popup if required
                 var startTimes = CQ.Datastore.User.getStartTimes();
-                
-                if ((startTimes > 0) && (startTimes % 5 == 0)) {
-                    $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
-                    this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
-                    this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
-                    this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
-                    
-                    $('#' + this.name).on('pageshow', function() {
-                        $(CQ.Id.Main.$POPUP_RATING).popup('open');
-                        $(this).unbind('pageshow');
-                    });
+
+                if ((startTimes > 0) && (startTimes % 5 == 0) && !CQ.Page.Main.ratePopupDisplayed) {
+                    $(CQ.Id.Main.$POPUP_RATING).popup('open');
+                    CQ.Page.Main.ratePopupDisplayed = true;
+                } else {
+                    CQ.Page.Main.ratePopupDisplayed = false;
                 }
             }
-        }
+        });
     },
 
     initButtons: function() {
@@ -339,6 +340,7 @@ CQ.Page.Main = {
     clickHelp: function() {
         CQ.Audio.Button.play();
         CQ.Page.open(CQ.Page.Help);
+        // CQ.Datastore.User.setLastDailyTime(0);
     }
 };
 

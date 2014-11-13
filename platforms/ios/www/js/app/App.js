@@ -78,7 +78,7 @@ CQ.App = {
                 CQ.API.syncHistory();
             });
         });
-        
+
         console.log('App initialization finished.');
     },
 
@@ -90,6 +90,7 @@ CQ.App = {
     resume: function() {
         CQ.audio = CQ.Datastore.User.isAudioEnabled();
         CQ.Audio.GameBackground.play();
+        CQ.Datastore.User.addStartTimes();
 
         CQ.API.startup(function() {
             CQ.API.syncHistory();
