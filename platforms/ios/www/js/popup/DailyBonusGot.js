@@ -43,8 +43,8 @@ CQ.Popup.DailyBonusGot.prototype.getBonus = function(){
 
         // set count this time
         CQ.Datastore.User.setContinueDailyCount(count);
-        alert('count now: ' + CQ.Datastore.User.getContinueDailyCount());
-    } else {
-        alert('save failed');
+
+        //refresh coin and gem
+        CQ.Page.refreshCurrency();
     }
 };
