@@ -60,7 +60,7 @@ CQ.GA = {
     },
 
     trackPage: function(page) {
-        // console.info('Tracking page: {0}'.format(page));
+        CQ.Log.debug('Tracking page: {0}'.format(page));
         analytics.trackView(CQ.Utils.getCapitalName(page));
     },
 
@@ -71,7 +71,7 @@ CQ.GA = {
     trackEvent: function(category, action, label, value) {
         if (!label) label = '';
         if (!value) value = 1;
-        // console.info('Tracking event, category: {0}, action: {1}, label: {2}, value: {3}'.format(category, action, label, value));
+        CQ.Log.debug('Tracking event, category: {0}, action: {1}, label: {2}, value: {3}'.format(category, action, label, value));
         analytics.trackEvent(category, action, label, value);
     }
 };

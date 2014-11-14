@@ -52,7 +52,7 @@ CQ.Audio = {
     },
 
     onError: function(error) {
-        console.info('Play media failed, code: {0}, message: {1}'.format(error.code, error.message));
+        CQ.Log.error('Play media failed, code: {0}, message: {1}'.format(error.code, error.message));
     }
 };
 

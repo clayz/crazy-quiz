@@ -7,6 +7,17 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.0.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/ios.css"/>
 
+    <!-- JS logging -->
+    <script src="//cdn.ravenjs.com/1.1.15/jquery,native/raven.min.js"></script>
+    <script>
+        Raven.config('https://988f27d147634ef8addaba57a24b6ba7@app.getsentry.com/33230', {
+            whitelistUrls: ['crazyquiz.com/scripts/']
+        }).install();
+
+        // record a simple message
+        Raven.captureMessage('hello world!')
+    </script>
+
     <!-- plugins -->
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery-1.10.2.min.js"></script>
@@ -812,7 +823,7 @@
             <div class="daily-bonus-got-rays"></div>
         </div>
     </div>
-    
+
     <!-- Daily bonus popup -->
     <div data-role="popup" id="daily-bonus" class="popup-daily-bonus" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close">

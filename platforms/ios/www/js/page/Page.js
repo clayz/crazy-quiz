@@ -129,7 +129,7 @@ CQ.Page = {
             wrappedParams.from = this.name;
         }
 
-        console.log('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
+        CQ.Log.debug('Open page: {0}, params: {1}'.format(pageName, CQ.Utils.toString(wrappedParams)));
         var result = page.load(wrappedParams);
         CQ.Session.CURRENT_PAGE = pageName;
 
@@ -155,7 +155,7 @@ CQ.Page = {
             CQ.Session.CURRENT_OPEN_POPUP = CQ.Id.Main.$POPUP_EXIT;
         } else {
             var from = (this.params && this.params.from) ? this.params.from : CQ.Page.Main.name;
-            console.log('Back to page: {0}'.format(from));
+            CQ.Log.debug('Back to page: {0}'.format(from));
 
             CQ.Session.CURRENT_PAGE = from;
             $.mobile.changePage('#' + from);

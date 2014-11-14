@@ -137,3 +137,31 @@ CQ.Utils = {
         return JSON.stringify(obj);
     }
 };
+
+CQ.Log = {
+    debug: function(msg) {
+        console.log(msg);
+    },
+
+    info: function(msg) {
+        console.info(msg);
+        Raven.captureMessage(msg, {
+            tags: {
+                level: "info",
+                uuid: CQ.Session.UUID,
+                version: CQ.Session.VERSION
+            }
+        });
+    },
+
+    error: function(msg) {
+        console.error(msg);
+        Raven.captureMessage(msg, {
+            tags: {
+                level: "error",
+                uuid: CQ.Session.UUID,
+                version: CQ.Session.VERSION
+            }
+        });
+    }
+};

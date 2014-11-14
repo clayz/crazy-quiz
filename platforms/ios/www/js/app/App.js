@@ -41,7 +41,7 @@ CQ.App = {
     },
 
     ready: function() {
-        console.log('PhoneGap is ready, start app initialization.');
+        CQ.Log.debug('PhoneGap is ready, start app initialization.');
 
         // implement classes inherit and initialize register classes
         $.each(CQ.App.inheritsClasses, function(index, value) {
@@ -79,7 +79,7 @@ CQ.App = {
             });
         });
 
-        console.log('App initialization finished.');
+        CQ.Log.debug('App initialization finished.');
     },
 
     pause: function() {

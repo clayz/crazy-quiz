@@ -2,7 +2,7 @@ CQ.Page.Index = {
     name: 'index',
 
     init: function() {
-        console.info('Initial index page');
+        CQ.Log.debug('Initial index page');
         this.initCommon({ header: false });
         this.bindClickButton(CQ.Id.Index.$START, this.clickStart, CQ.Id.Image.INDEX_START_TAP, CQ.Id.Image.INDEX_START);
     },

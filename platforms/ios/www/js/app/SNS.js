@@ -16,14 +16,14 @@ CQ.SNS = {
     },
 
     shareFinish: function(isSuccess) {
-        console.log('Share link finished, result: ' + isSuccess);
+        CQ.Log.debug('Share link finished, result: ' + isSuccess);
         CQ.Page.closeLoading();
 
         if (isSuccess || CQ.App.android()) {
             var today = new Date().format("yyyy-mm-dd"), lastShareDate = CQ.Datastore.Currency.getLastShareDate();
 
             if (lastShareDate && (lastShareDate == today)) {
-                console.log('Already get share coin today: {0}'.format(today));
+                CQ.Log.debug('Already get share coin today: {0}'.format(today));
             } else {
                 CQ.Datastore.Currency.setLastShareDate(today);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
@@ -38,7 +38,7 @@ CQ.SNS = {
     },
 
     shareError: function(error) {
-        console.error('Share link failed, error: ' + error);
+        CQ.Log.error('Share link failed, error: ' + error);
         CQ.Page.closeLoading();
 
         CQ.Page.openPrompt('シェア失敗しました。');
@@ -46,12 +46,12 @@ CQ.SNS = {
     },
 
     shareImageFinish: function(isSuccess) {
-        console.log('Share image finished, result: ' + isSuccess);
+        CQ.Log.debug('Share image finished, result: ' + isSuccess);
         CQ.Page.closeLoading();
 
         if (isSuccess || CQ.App.android()) {
             if (CQ.Datastore.Picture.isPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id)) {
-                console.log('Already get share coin for this picture');
+                CQ.Log.debug('Already get share coin for this picture');
             } else {
                 CQ.Datastore.Picture.setPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
@@ -66,7 +66,7 @@ CQ.SNS = {
     },
 
     shareImageError: function(error) {
-        console.error('Share image failed, error: ' + error);
+        CQ.Log.error('Share image failed, error: ' + error);
         CQ.Page.closeLoading();
 
         CQ.Page.openPrompt('シェア失敗しました。');

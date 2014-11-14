@@ -2,7 +2,7 @@ CQ.Page.Loading = {
     name: 'loading',
 
     init: function() {
-        console.info('Initial loading page');
+        CQ.Log.debug('Initial loading page');
 
         setTimeout(function() {
             var name = CQ.User.getName();

@@ -13,7 +13,7 @@ CQ.Page.Main = {
     ],
 
     init: function() {
-        console.info('Initial main page');
+        CQ.Log.debug('Initial main page');
 
         this.initCommon({
             header: true,
@@ -29,7 +29,7 @@ CQ.Page.Main = {
 
         for (var albumId = 1; albumId <= CQ.Album.TOTAL_ALBUM; albumId++) {
             var album = CQ.Album.getAlbum(albumId), lastLevel = CQ.Datastore.Picture.getLastLevel(album.id);
-            console.log('Album {0}, last level {1}'.format(albumId, lastLevel));
+            CQ.Log.debug('Album {0}, last level {1}'.format(albumId, lastLevel));
 
             // render and bind events for all levels
             for (var level = 1; level <= album.levels.length; level++) {
@@ -48,7 +48,10 @@ CQ.Page.Main = {
                         $(CQ.Id.Main.$ALBUM_LEVEL_LOCK.format(album.id, level)).hide();
                         CQ.Page.Main.setLevelStatusText(album, level, lastPictureIndex);
                     } else if (level == (lastLevel + 1)) {
-                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({ albumId: album.id, level: level }, CQ.Page.Main.clickUnlockableLevel);
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click({
+                            albumId: album.id,
+                            level: level
+                        }, CQ.Page.Main.clickUnlockableLevel);
                     } else {
                         $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click(CQ.Page.Main.clickUnlockDisableLevel);
                     }

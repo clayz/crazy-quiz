@@ -8,7 +8,7 @@ CQ.Page.Game = {
     answersData: null,
 
     init: function() {
-        console.info('Initial game page');
+        CQ.Log.debug('Initial game page');
 
         this.initCommon({ header: true, back: true, share: true });
         this.initPopups();
@@ -32,7 +32,7 @@ CQ.Page.Game = {
         }
 
         var lastPictureId = CQ.Datastore.Picture.getLastPictureId(this.album.id, this.level);
-        console.info('Album: {0}, level: {1}, last picture: {2}'.format(this.album.id, this.level, lastPictureId));
+        CQ.Log.debug('Album: {0}, level: {1}, last picture: {2}'.format(this.album.id, this.level, lastPictureId));
         this.picture = lastPictureId ? this.album.getNextPicture(lastPictureId) : this.album.getFirstPicture(this.level);
 
         if (!this.picture) {
@@ -187,7 +187,7 @@ CQ.Page.Game = {
     },
 
     cutdown: function() {
-        console.info('Start cutdown one answer transaction.');
+        CQ.Log.debug('Start cutdown one answer transaction.');
         CQ.Audio.Button.play();
         var page = CQ.Page.Game,
             usedPictures = page.answersData.alternativeAnswers,
@@ -197,7 +197,7 @@ CQ.Page.Game = {
             for (var k = 0; k < usedTexts.length; k++) {
                 if (usedTexts[k]) {
                     var name = usedTexts[k].split('');
-                    console.log('Remove text: {0}'.format(usedTexts[k]));
+                    CQ.Log.debug('Remove text: {0}'.format(usedTexts[k]));
 
                     for (var l = 0; l < name.length; l++) {
                         page.removeChar(name[l]);
@@ -213,7 +213,7 @@ CQ.Page.Game = {
             for (var i = 0; i < usedPictures.length; i++) {
                 if (usedPictures[i] && (usedPictures[i] != page.picture.id)) {
                     var removePicture = page.album.getPicture(usedPictures[i]), name = removePicture.name.split('');
-                    console.log('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
+                    CQ.Log.debug('Remove picture: ' + removePicture.id + ', name: ' + removePicture.name);
 
                     for (var j = 0; j < name.length; j++) {
                         page.removeChar(name[j]);
@@ -242,7 +242,7 @@ CQ.Page.Game = {
     },
 
     getchar: function() {
-        console.info('Start get one character transaction.');
+        CQ.Log.debug('Start get one character transaction.');
         CQ.Audio.Button.play();
         var page = CQ.Page.Game, name = page.picture.name.split('');
         page.closePopup();
@@ -286,7 +286,7 @@ CQ.Page.Game = {
     },
 
     showPrompt: function() {
-        console.info('Start get prompt transaction.');
+        CQ.Log.debug('Start get prompt transaction.');
         CQ.Audio.Button.play();
         var page = CQ.Page.Game, $prompt = $(CQ.Id.Game.$PROMPT_DIV);
 
@@ -412,7 +412,7 @@ CQ.Page.Game = {
         var game = CQ.Page.Game, nextPicture = game.album.getNextPicture(game.picture.id);
 
         if (nextPicture) {
-            console.info('Play next picture: ' + nextPicture.id);
+            CQ.Log.debug('Play next picture: ' + nextPicture.id);
 
             game.picture = nextPicture;
             game.load();
@@ -430,7 +430,7 @@ CQ.Page.Game = {
     },
 
     removeChar: function(char) {
-        console.info('Remove character: ' + char);
+        CQ.Log.debug('Remove character: ' + char);
 
         // remove char from random char fields
         for (var i = 0; i < this.options.length; i++) {
@@ -453,7 +453,7 @@ CQ.Page.Game = {
             }
         }
 
-        console.warn('Remove character not found: ' + char);
+        CQ.Log.error('Remove character not found: ' + char);
     },
 
     removeCharText: function(id) {

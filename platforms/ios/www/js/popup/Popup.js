@@ -53,12 +53,12 @@ CQ.Popup.prototype.getId = function() {
 };
 
 CQ.Popup.prototype.open = function() {
-    console.info('Open popup: #{0} {1}'.format(this.page, this.name));
+    CQ.Log.debug('Open popup: #{0} {1}'.format(this.page, this.name));
     $('#{0} {1}'.format(this.page, this.name)).popup('open');
 };
 
 CQ.Popup.prototype.close = function() {
-    console.info('Close popup: #{0} {1}'.format(this.page, this.name));
+    CQ.Log.debug('Close popup: #{0} {1}'.format(this.page, this.name));
     $('#{0} {1}'.format(this.page, this.name)).popup('close');
 };
 

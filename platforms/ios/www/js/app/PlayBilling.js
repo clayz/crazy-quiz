@@ -11,27 +11,27 @@ CQ.PlayBilling = {
      * Initialize the billing plugin.
      */
     init: function() {
-        console.info('Initial play billing module');
+        CQ.Log.debug('Initial play billing module');
         this.inAppBillingPlugin = window.plugins.inappbilling;
 
         this.inAppBillingPlugin.init(
             function(result) {
-                console.info("App billing plugin initialize success.");
+                CQ.Log.debug("App billing plugin initialize success.");
                 CQ.PlayBilling.successHandler(result);
 
                 // handle product that purchased but not consumed
                 CQ.PlayBilling.ownedProducts(function(products) {
-                    console.info("Owned products: {0}".format(CQ.Utils.toString(products)));
+                    CQ.Log.debug("Owned products: {0}".format(CQ.Utils.toString(products)));
 
                     for (var i = 0; i < products.length; i++) {
                         var productId = products[i].productId;
-                        console.info("Consume owned product: {0}".format(productId));
+                        CQ.Log.debug("Consume owned product: {0}".format(productId));
                         CQ.PlayBilling.consumePurchase(productId);
                     }
                 });
             },
             function(error) {
-                console.error("App billing plugin initialize failed.");
+                CQ.Log.error("App billing plugin initialize failed.");
                 CQ.PlayBilling.errorHandler(error);
             },
             { showLog: true }, this.productIds);
@@ -47,11 +47,11 @@ CQ.PlayBilling = {
     buy: function(productId) {
         this.inAppBillingPlugin.buy(
             function(result) {
-                console.info("Buy success, productId: {0}".format(productId));
+                CQ.Log.debug("Buy success, productId: {0}".format(productId));
                 CQ.PlayBilling.successHandler(result);
                 CQ.PlayBilling.consumePurchase(productId);
             }, function(error) {
-                console.error("Buy failed, productId: {0}".format(productId));
+                CQ.Log.error("Buy failed, productId: {0}".format(productId));
                 CQ.PlayBilling.errorHandler(error);
             }, productId);
     },
@@ -63,7 +63,7 @@ CQ.PlayBilling = {
     consumePurchase: function(productId) {
         this.inAppBillingPlugin.consumePurchase(
             function(result) {
-                console.info("Consume success, productId: {0}".format(productId));
+                CQ.Log.debug("Consume success, productId: {0}".format(productId));
                 CQ.PlayBilling.successHandler(result);
                 var goods = null;
 
@@ -97,7 +97,7 @@ CQ.PlayBilling = {
                 CQ.Page.refreshCurrency();
             },
             function(error) {
-                console.error("Consume failed, productId: {0}".format(productId));
+                CQ.Log.error("Consume failed, productId: {0}".format(productId));
                 CQ.PlayBilling.errorHandler(error);
             }, productId);
     },
@@ -108,12 +108,12 @@ CQ.PlayBilling = {
     ownedProducts: function(callback) {
         this.inAppBillingPlugin.getPurchases(
             function(result) {
-                console.info("Retrieve list of owned products success.");
+                CQ.Log.debug("Retrieve list of owned products success.");
                 CQ.PlayBilling.successHandler(result);
                 if (callback) callback(result);
             },
             function(error) {
-                console.error("Retrieve list of owned products failed.");
+                CQ.Log.error("Retrieve list of owned products failed.");
                 CQ.PlayBilling.errorHandler(error);
             });
     },
@@ -124,11 +124,11 @@ CQ.PlayBilling = {
     subscribe: function(subscriptionId) {
         this.inAppBillingPlugin.subscribe(
             function(result) {
-                console.info("Subscribe products success, subscription Id: {0}".format(subscriptionId));
+                CQ.Log.debug("Subscribe products success, subscription Id: {0}".format(subscriptionId));
                 CQ.PlayBilling.successHandler(result);
             },
             function(error) {
-                console.error("Subscribe products failed, subscription Id: {0}".format(subscriptionId));
+                CQ.Log.error("Subscribe products failed, subscription Id: {0}".format(subscriptionId));
                 CQ.PlayBilling.errorHandler(error);
             }, subscriptionId);
     },
@@ -141,11 +141,11 @@ CQ.PlayBilling = {
     getDetails: function(skus) {
         this.inAppBillingPlugin.getProductDetails(
             function(result) {
-                console.info("Get details success, skus: {0}".format(CQ.Utils.toString(skus)));
+                CQ.Log.debug("Get details success, skus: {0}".format(CQ.Utils.toString(skus)));
                 CQ.PlayBilling.successHandler(result);
             },
             function(error) {
-                console.error("Get details failed, skus: {0}".format(CQ.Utils.toString(skus)));
+                CQ.Log.error("Get details failed, skus: {0}".format(CQ.Utils.toString(skus)));
                 CQ.PlayBilling.errorHandler(error);
             }, skus);
     },
@@ -156,11 +156,11 @@ CQ.PlayBilling = {
     getAvailable: function() {
         this.inAppBillingPlugin.getAvailableProducts(
             function(result) {
-                console.info("Retrieve list of available products success.");
+                CQ.Log.debug("Retrieve list of available products success.");
                 CQ.PlayBilling.successHandler(result);
             },
             function(error) {
-                console.error("Retrieve list of available products failed.");
+                CQ.Log.error("Retrieve list of available products failed.");
                 CQ.PlayBilling.errorHandler(error);
             }
         );
@@ -169,12 +169,12 @@ CQ.PlayBilling = {
     successHandler: function(result) {
         CQ.Page.closeLoading();
         var resultText = typeof result === 'object' ? JSON.stringify(result) : result;
-        console.info('Result data: {0}'.format(resultText));
+        CQ.Log.debug('Result data: {0}'.format(resultText));
     },
 
     errorHandler: function(error) {
         CQ.Page.closeLoading();
-        console.error('Billing failed, error: {0}'.format(error));
+        CQ.Log.error('Billing failed, error: {0}'.format(error));
         CQ.GA.track(CQ.GA.Shop.PlayStoreError, error);
     }
 };

@@ -29,7 +29,7 @@ CQ.Popup.CoinShop = function(page) {
 };
 
 CQ.Popup.CoinShop.prototype.exchange = function(goods) {
-    console.log('Start coin exchange, goods id: ' + goods.id);
+    CQ.Log.debug('Start coin exchange, goods id: ' + goods.id);
     CQ.Audio.Button.play();
     CQ.GA.track(CQ.GA.Shop.Click, CQ.GA.Shop.Click.label.format('Exchange', goods.id));
 

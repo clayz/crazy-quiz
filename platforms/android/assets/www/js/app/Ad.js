@@ -17,7 +17,7 @@ CQ.Ad = {
 
     init: function() {
         if (!CQ.ad) return;
-        console.info('Initial admob banner.');
+        CQ.Log.debug('Initial admob banner.');
 
         this.addHomeBannerAd();
         this.addInterstitial();
@@ -53,13 +53,13 @@ CQ.Ad = {
 
     onInterstitialReceive: function(message) {
         //show Interstitial after receive or after game over
-        console.info('OnInterstitialReceive: {0}'.format(message));
+        CQ.Log.debug('OnInterstitialReceive: {0}'.format(message));
         CQ.Ad.isInterstitialReady = true;
     },
 
     showInterstitial: function() {
         if (CQ.Ad.isInterstitialReady) {
-            console.info('Show interstitial advertising.');
+            CQ.Log.debug('Show interstitial advertising.');
             admobAd.showInterstitial();
 
             // reactive interstitial ad

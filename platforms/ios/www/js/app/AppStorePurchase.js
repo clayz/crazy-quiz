@@ -9,7 +9,7 @@ CQ.AppStorePurchase = {
         if (CQ.dev && !CQ.purchase) return;
 
         if (!window.storekit) {
-            console.log("In-App Purchases not available.");
+            CQ.Log.debug("In-App Purchases not available.");
             return;
         }
 
@@ -38,7 +38,7 @@ CQ.AppStorePurchase = {
             CQ.Page.refreshShops();
 
             for (var i = 0; i < invalidIds.length; ++i) {
-                console.error("Could not load " + invalidIds[i]);
+                CQ.Log.error("Could not load " + invalidIds[i]);
             }
         });
     },
@@ -85,7 +85,7 @@ CQ.AppStorePurchase = {
     },
 
     onError: function(errorCode, errorMessage) {
-        console.error('Error: ' + errorMessage);
+        CQ.Log.error('Error: ' + errorMessage);
         CQ.Page.closeLoading();
         CQ.GA.track(CQ.GA.Shop.AppStoreError, "{0}, {1}".format(errorCode, errorMessage));
     },

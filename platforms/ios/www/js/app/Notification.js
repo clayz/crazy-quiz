@@ -2,7 +2,7 @@ CQ.Notification = {
     GCM_SENDER_ID: '314883138635',
 
     init: function() {
-        console.info('Initial notification module');
+        CQ.Log.debug('Initial notification module');
         var pushNotification = window.plugins.pushNotification;
 
         if (CQ.App.android()) {
@@ -27,29 +27,29 @@ CQ.Notification = {
     },
 
     successHandler: function(result) {
-        console.info('Push notification initialize success: {0}'.format(result));
+        CQ.Log.debug('Push notification initialize success: {0}'.format(result));
     },
 
     errorHandler: function(error) {
-        console.error('Push notification initialize failed: {0}'.format(error));
+        CQ.Log.error('Push notification initialize failed: {0}'.format(error));
     },
 
     tokenHandler: function(result) {
-        console.info('APNS token handler result: {0}'.format(CQ.Utils.toString(result)));
+        CQ.Log.debug('APNS token handler result: {0}'.format(CQ.Utils.toString(result)));
         CQ.Session.PUSH_TOKEN = result;
         CQ.API.registerNotification();
     },
 
     // Android and Amazon Fire OS
     onNotification: function(event) {
-        console.info('onNotification: {0}'.format(CQ.Utils.toString(event)));
+        CQ.Log.debug('onNotification: {0}'.format(CQ.Utils.toString(event)));
         CQ.Session.PUSH_TOKEN = event.regid;
         CQ.API.registerNotification();
     },
 
     // iOS
     onNotificationAPN: function(event) {
-        console.info('onNotificationAPN: {0}'.format(CQ.Utils.toString(event)));
+        CQ.Log.debug('onNotificationAPN: {0}'.format(CQ.Utils.toString(event)));
     }
 };
 

@@ -39,7 +39,7 @@ CQ.API = {
                 history: CQ.Currency.history
             })
         }).done(function(response) {
-            console.log('Send sync history request success, response: {0}'.format(CQ.Utils.toString(response)));
+            CQ.Log.debug('Send sync history request success, response: {0}'.format(CQ.Utils.toString(response)));
 
             var purchaseTimestamp = response.data.purchase,
                 exchangeTimestamp = response.data.exchange,
@@ -70,7 +70,7 @@ CQ.API = {
 
             CQ.Currency.history = newHistory;
             CQ.Datastore.Currency.setHistory(newHistory);
-            console.log('Currency history after sync: {0}'.format(CQ.Utils.toString(CQ.Currency.history)));
+            CQ.Log.debug('Currency history after sync: {0}'.format(CQ.Utils.toString(CQ.Currency.history)));
         });
     },
 
@@ -113,10 +113,10 @@ CQ.API = {
         data.version = CQ.Session.VERSION;
 
         $.post(CQ.URL.Web.API + url, data, function(response) {
-            console.log('Send request success: {0}, {1}, response: {2}'.format(url, CQ.Utils.toString(data), response));
+            CQ.Log.debug('Send request success: {0}, {1}, response: {2}'.format(url, CQ.Utils.toString(data), response));
             if (success) success(response);
         }).fail(function(error) {
-            console.error('Send request failed: {0}, {1}, error: {2}'.format(url, CQ.Utils.toString(data), CQ.Utils.toString(error)));
+            CQ.Log.error('Send request failed: {0}, {1}, error: {2}'.format(url, CQ.Utils.toString(data), CQ.Utils.toString(error)));
         });
     },
 

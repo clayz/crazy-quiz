@@ -52,7 +52,7 @@ CQ.Currency = {
     },
 
     init: function() {
-        console.info('Initial currency module');
+        CQ.Log.error('Initial currency module');
 
         var account = CQ.Datastore.Currency.getAccount();
         if (account) this.account = account;
@@ -66,7 +66,7 @@ CQ.Currency = {
     },
 
     updateAccount: function(gem, coin) {
-        console.info('Update account, gem: {0}, coin: {1}'.format(gem, coin));
+        CQ.Log.debug('Update account, gem: {0}, coin: {1}'.format(gem, coin));
         this.account.gem += gem;
         this.account.coin += coin;
         CQ.Datastore.Currency.setAccount(this.account);
@@ -81,7 +81,7 @@ CQ.Currency = {
     },
 
     earn: function(type) {
-        console.info('Earn type: {0}'.format(type.id));
+        CQ.Log.debug('Earn type: {0}'.format(type.id));
 
         // update account and save history
         this.updateAccount(type.gem || 0, type.coin || 0);
@@ -97,7 +97,7 @@ CQ.Currency = {
     },
 
     consume: function(type, album, level, picture) {
-        console.info('Consume {0}'.format(CQ.Utils.toString(type)));
+        CQ.Log.debug('Consume {0}'.format(CQ.Utils.toString(type)));
 
         if (type.coin) {
             if (this.account.coin >= type.coin) {
@@ -116,7 +116,7 @@ CQ.Currency = {
                 CQ.Datastore.Currency.setConsumeHistory(this.history.consume);
                 return true;
             } else {
-                console.info('No enough coin, current coin: {0}'.format(this.account.coin));
+                CQ.Log.error('No enough coin, current coin: {0}'.format(this.account.coin));
                 return false;
             }
         } else if (type.gem) {
@@ -136,7 +136,7 @@ CQ.Currency = {
                 CQ.Datastore.Currency.setConsumeHistory(this.history.consume);
                 return true;
             } else {
-                console.info('No enough gem, current gem: {0}'.format(this.account.gem));
+                CQ.Log.error('No enough gem, current gem: {0}'.format(this.account.gem));
                 return false;
             }
         } else {
@@ -145,7 +145,7 @@ CQ.Currency = {
     },
 
     purchase: function(goods) {
-        console.info('Purchase gem, goods: {0}'.format(goods.id));
+        CQ.Log.debug('Purchase gem, goods: {0}'.format(goods.id));
         this.updateAccount(goods.gem, 0);
 
         // save operation history
@@ -163,7 +163,7 @@ CQ.Currency = {
     },
 
     exchange: function(goods) {
-        console.info('Exchange coin, goods: {0}'.format(goods.id));
+        CQ.Log.debug('Exchange coin, goods: {0}'.format(goods.id));
 
         if (this.account.gem >= goods.gem) {
             this.updateAccount(-goods.gem, goods.coin);
@@ -181,7 +181,7 @@ CQ.Currency = {
 
             return true;
         } else {
-            console.info('No enough gem, current gem: {0}'.format(this.account.gem));
+            CQ.Log.error('No enough gem, current gem: {0}'.format(this.account.gem));
             return false;
         }
     }

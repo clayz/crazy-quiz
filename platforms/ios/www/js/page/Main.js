@@ -16,7 +16,7 @@ CQ.Page.Main = {
     ],
 
     init: function() {
-        console.info('Initial main page');
+        CQ.Log.debug('Initial main page');
 
         this.initCommon({
             header: true,
@@ -32,7 +32,7 @@ CQ.Page.Main = {
 
         for (var albumId = 1; albumId <= CQ.Album.TOTAL_ALBUM; albumId++) {
             var album = CQ.Album.getAlbum(albumId), lastLevel = CQ.Datastore.Picture.getLastLevel(album.id);
-            console.log('Album {0}, last level {1}'.format(albumId, lastLevel));
+            CQ.Log.debug('Album {0}, last level {1}'.format(albumId, lastLevel));
 
             // render and bind events for all levels
             for (var level = 1; level <= album.levels.length; level++) {

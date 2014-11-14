@@ -2,7 +2,7 @@ CQ.Page.Help = {
     name: 'help',
 
     init: function() {
-        console.info('Initial help page');
+        CQ.Log.debug('Initial help page');
         this.initCommon({ header: true, back: true });
 
         $(CQ.Id.Help.$TO_FACEBOOK).click(CQ.Page.Help.clickToFacebook);
@@ -53,7 +53,7 @@ CQ.Page.Help = {
  name: 'helpGuide',
 
  init: function() {
- console.info('Initial help guide page');
+ CQ.Log.debug('Initial help guide page');
  this.initCommon({ header: true, back: true });
  },
 
@@ -67,7 +67,7 @@ CQ.Page.Help = {
  name: 'helpQuestion',
 
  init: function() {
- console.info('Initial help question page');
+ CQ.Log.debug('Initial help question page');
  this.initCommon({ header: true, back: true });
  },
 
@@ -81,7 +81,7 @@ CQ.Page.Help = {
  name: 'helpRule',
 
  init: function() {
- console.info('Initial help rule page');
+ CQ.Log.debug('Initial help rule page');
  this.initCommon({ header: true, back: true });
  },
 
@@ -95,7 +95,7 @@ CQ.Page.Help = {
  name: 'helpEnquiry',
 
  init: function() {
- console.info('Initial help enquiry page');
+ CQ.Log.debug('Initial help enquiry page');
  this.initCommon({ header: true, back: true });
  },
 
