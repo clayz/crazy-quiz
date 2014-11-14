@@ -1,15 +1,15 @@
 CQ.AppStorePurchase = {
     productIds: ["com.czquiz.gem1",
-        "com.czquiz.gem2",
-        "com.czquiz.gem3",
-        "com.czquiz.gem4",
-        "com.czquiz.gem5"],
+                 "com.czquiz.gem2",
+                 "com.czquiz.gem3",
+                 "com.czquiz.gem4",
+                 "com.czquiz.gem5"],
 
     init: function() {
         if (CQ.dev && !CQ.purchase) return;
 
         if (!window.storekit) {
-            CQ.Log.error("In-App Purchases not available.");
+            CQ.Log.debug("In-App Purchases not available.");
             return;
         }
 

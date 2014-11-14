@@ -413,6 +413,7 @@ CQ.Page.Game = {
 
         if (nextPicture) {
             CQ.Log.debug('Play next picture: ' + nextPicture.id);
+
             game.picture = nextPicture;
             game.load();
             $(CQ.Id.Game.$POPUP_PASS).popup('close');

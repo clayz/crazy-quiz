@@ -85,7 +85,7 @@ CQ.AppStorePurchase = {
     },
 
     onError: function(errorCode, errorMessage) {
-        CQ.Log.error('Error: ' + errorMessage);
+        CQ.Log.error('App store plugin error: ' + errorMessage);
         CQ.Page.closeLoading();
         CQ.GA.track(CQ.GA.Shop.AppStoreError, "{0}, {1}".format(errorCode, errorMessage));
     },

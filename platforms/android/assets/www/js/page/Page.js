@@ -2,13 +2,13 @@ CQ.Page = {
     params: {},
 
     // popups
-    gemShop: null,
-    coinShop: null,
-    gemNotEnough: null,
-    coinNotEnough: null,
-    share: null,
-    prompt: null,
-    confirm: null,
+    gemShop: {},
+    coinShop: {},
+    gemNotEnough: {},
+    coinNotEnough: {},
+    share: {},
+    prompt: {},
+    confirm: {},
 
     popupEvents: {
         popupafteropen: function() {

@@ -1,8 +1,11 @@
 CQ.Page.Main = {
     name: 'main',
     albumId: 1,
-    selectedUnlockAlbum: null,
-    selectedUnlockLevel: null,
+    ratePopupDisplayed: false,
+    selectedUnlockAlbum: {},
+    selectedUnlockLevel: {},
+    dailyBonus: {},
+    dailyBonusGot: {},
 
     welcomeText: [
         'お帰りなさい!',
@@ -96,22 +99,31 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
 
-        // open rating popup if required
-        if (!CQ.Datastore.User.isRated()) {
-            var startTimes = CQ.Datastore.User.getStartTimes();
+        // rate popup
+        $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
+        this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
+        this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
 
-            if ((startTimes > 0) && (startTimes % 5 == 0)) {
-                $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
-                this.bindPopupCloseButton(CQ.Id.Main.$POPUP_RATING);
-                this.bindPopupYesButton(CQ.Id.Main.$POPUP_RATING, CQ.Page.Main.clickRating);
-                this.bindPopupNoButton(CQ.Id.Main.$POPUP_RATING);
+        // open daily bonus popup if required
+        this.dailyBonusGot = new CQ.Popup.DailyBonusGot(this.name);
+        this.dailyBonus = new CQ.Popup.DailyBonus(this.name, this.dailyBonusGot);
 
-                $('#' + this.name).on('pageshow', function() {
+        $('#' + this.name).on('pageshow', function() {
+            if (CQ.Page.Main.dailyBonus.ifGetBonusToday()) {
+                CQ.Page.openPopup(CQ.Page.Main.dailyBonus);
+            } else if (!CQ.Datastore.User.isRated()) {
+                // open rating popup if required
+                var startTimes = CQ.Datastore.User.getStartTimes();
+
+                if ((startTimes > 0) && (startTimes % 5 == 0) && !CQ.Page.Main.ratePopupDisplayed) {
                     $(CQ.Id.Main.$POPUP_RATING).popup('open');
-                    $(this).unbind('pageshow');
-                });
+                    CQ.Page.Main.ratePopupDisplayed = true;
+                } else {
+                    CQ.Page.Main.ratePopupDisplayed = false;
+                }
             }
-        }
+        });
     },
 
     initButtons: function() {

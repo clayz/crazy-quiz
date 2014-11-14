@@ -2,27 +2,27 @@ CQ.Album = {
     TOTAL_ALBUM: 1,
 
     Category: {
-        Film: {id: 1, name: '映画'},
-        Series: {id: 2, name: 'ドラマ'},
-        Cartoon: {id: 3, name: '漫画'},
-        Entertainer: {id: 4, name: '芸能人'},
-        Brand: {id: 5, name: 'ブランド'},
-        Celebrity: {id: 6, name: '有名人'},
-        Game: {id: 7, name: 'ゲーム'},
-        Sports: {id: 8, name: 'スポーツ'},
-        Animation: {id: 9, name: 'アニメ'},
-        Building: {id: 10, name: '建物'},
-        History: {id: 11, name: '歴史'},
-        Place: {id: 12, name: '場所'},
-        Geography: {id: 13, name: '地理'}
+        Film: { id: 1, name: '映画' },
+        Series: { id: 2, name: 'ドラマ' },
+        Cartoon: { id: 3, name: '漫画' },
+        Entertainer: { id: 4, name: '芸能人' },
+        Brand: { id: 5, name: 'ブランド' },
+        Celebrity: { id: 6, name: '有名人' },
+        Game: { id: 7, name: 'ゲーム' },
+        Sports: { id: 8, name: 'スポーツ' },
+        Animation: { id: 9, name: 'アニメ' },
+        Building: { id: 10, name: '建物' },
+        History: { id: 11, name: '歴史' },
+        Place: { id: 12, name: '場所' },
+        Geography: { id: 13, name: '地理' }
     },
 
     AnswerType: {
-        English: {id: 1, pictures: []},
-        Kanji: {id: 2, pictures: []},
-        Hiragana: {id: 3, pictures: []},
-        Katakana: {id: 4, pictures: []},
-        Mix: {id: 5, pictures: []}
+        English: { id: 1, pictures: [] },
+        Kanji: { id: 2, pictures: [] },
+        Hiragana: { id: 3, pictures: [] },
+        Katakana: { id: 4, pictures: [] },
+        Mix: { id: 5, pictures: [] }
     },
 
     init: function() {

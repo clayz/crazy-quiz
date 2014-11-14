@@ -89,7 +89,7 @@ CQ.Album = {
     },
 
     unlockLevel: function(albumId, level, isPurchase) {
-        CQ.Log.info('Unlock album {0} level {1}, is purchase: {2}'.format(albumId, level, isPurchase));
+        CQ.Log.debug('Unlock album {0} level {1}, is purchase: {2}'.format(albumId, level, isPurchase));
         var lastLevel = CQ.Datastore.Picture.getLastLevel(albumId), album = CQ.Album.getAlbum(albumId);
 
         if (level > album.levels.length) {

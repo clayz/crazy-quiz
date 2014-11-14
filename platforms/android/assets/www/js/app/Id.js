@@ -57,12 +57,17 @@ CQ.Id = {
         $POPUP_SHARE_TWITTER: '.popup-share-tw',
         $POPUP_SHARE_OTHER: '.popup-share-other',
 
-        $POPUP_LOGIN_BONUS: ".popup-login-bonus",
-        $POPUP_LOGIN_BONUS_BANNER: '.login-bonus-banner',
-        $POPUP_LOGIN_BONUS_DAY_IMG: ".login-bonus-day login-bonus-img",
-        $POPUP_LOGIN_BONUS_DAY_IMG_GET: ".login-bonus-day login-bonus-img day-{0}-get",
-        $POPUP_LOGIN_BONUS_DAY_IMG_NOT_GET: ".login-bonus-day login-bonus-img day-{0}-not-get",
-        $POPUP_LOGIN_BONUS_DAY_TODAY: ".login-bonus-day login-bonus-img day-{0}-today"
+        $POPUP_DAILY_BONUS: '.popup-daily-bonus',
+        $POPUP_DAILY_BONUS_DAY: '.daily-bonus-day',
+        $POPUP_DAILY_BONUS_DAY_GOT: '.daily-bonus-got',
+        $POPUP_DAILY_BONUS_DAY_TODAY: '.daily-bonus-today',
+        $POPUP_DAILY_BONUS_TODAY_IMG: 'daily-bonus-img day-{0} today',
+        $POPUP_DAILY_BONUS_TODAY_FRAME: '.daily-bonus-today-frame',
+        $POPUP_DAILY_BONUS_TODAY_GET_NORMAL: "daily-bonus-button-normal",
+        $POPUP_DAILY_BONUS_TODAY_GET_PRESSED: "daily-bonus-button-pressed",
+        $POPUP_DAILY_BONUS_TODAY_GOT_IMG: 'daily-bonus-img day-{0} today-got',
+        $POPUP_DAILY_BONUS_TODAY_GOT: '.popup-daily-bonus-got',
+        $POPUP_DAILY_BONUS_TODAY_GOT_TEXT: '.popup-daily-bonus-got .daily-bonus-got-amount'
     },
 
     Image: {
@@ -199,13 +204,12 @@ CQ.Id = {
         $TO_FACEBOOK: '#help-to-facebook'
     },
 
-    LoginBonus: {
-        $LOGIN_BONUS: "login-bonus-get",
-        $LOGIN_BONUS_TODAY_IMG: "login-bonus-today-img",
-        $LOGIN_BONUS_TODAY_AMOUNT: "login-bonus-today-amount",
-        $LOGIN_BONUS_GET: "login-bonus-get",
-        $LOGIN_BONUS_TODAY_IMG_GET: "login-bonus-today-img-get",
-        $LOGIN_BONUS_TODAY_AMOUNT_GET: "login-bonus-today-amount-get",
-        $LOGIN_BONUS_BUTTON_GET: "#login-bonus-button-get"
+    DailyBonus: {
+        $DAILY_BONUS: '#daily-bonus',
+        $DAILY_BONUS_BUTTON_GET: '#daily-bonus-button-get',
+        $DAILY_BONUS_IMG_TODAY: '#daily-bonus-today-img',
+        $DAILY_BONUS_IMG_TODAY_GOT: '#daily-bonus-got-img',
+        $DAILY_BONUS_GOT: '#daily-bonus-got'
+
     }
 };

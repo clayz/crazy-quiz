@@ -113,7 +113,7 @@ CQ.API = {
         data.version = CQ.Session.VERSION;
 
         $.post(CQ.URL.Web.API + url, data, function(response) {
-            CQ.Log.debug('Send request success: {0}, {1}, response: {2}'.format(url, CQ.Utils.toString(data), response));
+            CQ.Log.debug('Send request success: {0}, {1}, response: {2}'.format(url, CQ.Utils.toString(data), CQ.Utils.toString(response)));
             if (success) success(response);
         }).fail(function(error) {
             CQ.Log.error('Send request failed: {0}, {1}, error: {2}'.format(url, CQ.Utils.toString(data), CQ.Utils.toString(error)));

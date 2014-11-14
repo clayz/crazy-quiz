@@ -14,14 +14,14 @@ CQ.Currency = {
         // gem
         FirstPurchase: { id: 101, gem: 10 },
 
-        // login
-        LoginDay1: { id: 201, coin: 10, gem: 0 },
-        LoginDay2: { id: 202, coin: 20, gem: 0 },
-        LoginDay3: { id: 203, coin: 0, gem: 1 },
-        LoginDay4: { id: 204, coin: 50, gem: 0 },
-        LoginDay5: { id: 205, coin: 60, gem: 0 },
-        LoginDay6: { id: 206, coin: 70, gem: 0 },
-        LoginDay7: { id: 207, coin: 0, gem: 3 }
+        // daily
+        DailyDay1: { id: 201, coin: 10, gem: 0 },
+        DailyDay2: { id: 202, coin: 20, gem: 0 },
+        DailyDay3: { id: 203, coin: 0, gem: 1 },
+        DailyDay4: { id: 204, coin: 50, gem: 0 },
+        DailyDay5: { id: 205, coin: 60, gem: 0 },
+        DailyDay6: { id: 206, coin: 70, gem: 0 },
+        DailyDay7: { id: 207, coin: 0, gem: 3 }
     },
 
     Consume: {

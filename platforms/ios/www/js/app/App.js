@@ -43,41 +43,45 @@ CQ.App = {
     ready: function() {
         CQ.Log.debug('PhoneGap is ready, start app initialization.');
 
-        // implement classes inherit and initialize register classes
-        $.each(CQ.App.inheritsClasses, function(index, value) {
-            $.extend(value.child, value.parent);
-        });
-
-        $.each(CQ.App.registerClasses, function(index, value) {
-            if (value.init) value.init();
-        });
-
-        CQ.Datastore.User.addStartTimes();
-        CQ.audio = CQ.Datastore.User.isAudioEnabled();
-
-        // modify jQuery default settings
-        $.mobile.defaultPageTransition = 'none';
-        $.mobile.defaultDialogTransition = 'none';
-        $.mobile.buttonMarkup.hoverDelay = 0;
-
-        // add listeners and plugins
-        document.addEventListener('backbutton', CQ.App.back, false);
-
-        if (CQ.App.android()) {
-            document.addEventListener("pause", CQ.App.pause, false);
-            document.addEventListener("resume", CQ.App.resume, false);
-            FastClick.attach(document.body);
-        }
-
-        // get and register device info, sync all history data
-        CQ.Session.UUID = device.uuid;
-        cordova.getAppVersion().then(function(version) {
-            CQ.Session.VERSION = version;
-
-            CQ.API.startup(function() {
-                CQ.API.syncHistory();
+        try {
+            // implement classes inherit and initialize register classes
+            $.each(CQ.App.inheritsClasses, function(index, value) {
+                $.extend(value.child, value.parent);
             });
-        });
+
+            $.each(CQ.App.registerClasses, function(index, value) {
+                if (value.init) value.init();
+            });
+
+            CQ.Datastore.User.addStartTimes();
+            CQ.audio = CQ.Datastore.User.isAudioEnabled();
+
+            // modify jQuery default settings
+            $.mobile.defaultPageTransition = 'none';
+            $.mobile.defaultDialogTransition = 'none';
+            $.mobile.buttonMarkup.hoverDelay = 0;
+
+            // add listeners and plugins
+            document.addEventListener('backbutton', CQ.App.back, false);
+
+            if (CQ.App.android()) {
+                document.addEventListener("pause", CQ.App.pause, false);
+                document.addEventListener("resume", CQ.App.resume, false);
+                FastClick.attach(document.body);
+            }
+
+            // get and register device info, sync all history data
+            CQ.Session.UUID = device.uuid;
+            cordova.getAppVersion().then(function(version) {
+                CQ.Session.VERSION = version;
+
+                CQ.API.startup(function() {
+                    CQ.API.syncHistory();
+                });
+            });
+        } catch (e) {
+            Raven.captureException(e);
+        }
 
         CQ.Log.debug('App initialization finished.');
     },

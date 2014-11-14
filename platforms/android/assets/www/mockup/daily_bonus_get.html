@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/android.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">loginBonus</button>
+    <button id="option2">loginBonusGET</button>
+
+    <!-- Daily bonus get popup -->
+    <div data-role="popup" id="daily-bonus-got" class="popup-daily-bonus-got" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-content-bonus-got">
+            <div class="daily-bonus-got">
+                <div class="daily-bonus-got-banner-1"></div>
+                <div id="daily-bonus-got-img" class="daily-bonus-img day-5 today-got"></div>
+                <div class="daily-bonus-got-amount">X20</div>
+                <div class="daily-bonus-got-banner-2"></div>
+            </div>
+            <div class="daily-bonus-got-rays"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            $("#main").find('.popup-daily-bonus-got').popup();
+            $('#main').find('.popup-daily-bonus-got').popup('open');
+        });
+
+        $('#daily-bonus-button-get').click(function() {
+            alert("size: " + $("#main").find('.popup-daily-bonus-get').length);
+            $("#main").find('.popup-daily-bonus-get').popup();
+            $('#main').find('.popup-daily-bonus-get').popup('open');
+        });
+
+
+        $('#main').find('.daily-bonus-got').click(function(){
+
+        });
+    });
+</script>
+</body>
+</html>

@@ -94,6 +94,7 @@ CQ.App = {
     resume: function() {
         CQ.audio = CQ.Datastore.User.isAudioEnabled();
         CQ.Audio.GameBackground.play();
+        CQ.Datastore.User.addStartTimes();
 
         CQ.API.startup(function() {
             CQ.API.syncHistory();

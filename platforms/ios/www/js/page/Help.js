@@ -13,11 +13,11 @@ CQ.Page.Help = {
 
     load: function() {
     },
-    
-    clickToFacebook: function(){
+
+    clickToFacebook: function() {
         if (CQ.App.iOS()) {
             document.location = "fb://profile/265923220277093";
-            setTimeout(function(){
+            setTimeout(function() {
                 window.open("http://www.facebook.com/nekyou.quiz", "_system");
             }, 300);
         } else {

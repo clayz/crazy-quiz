@@ -51,8 +51,8 @@ CQ.Datastore.User = {
         AUDIO_ENABLED: 'AUDIO_ENABLED',
         START_TIMES: 'START_TIMES',
         RATED: 'RATED',
-        CONTINUE_LOGIN_COUNT: "CONTINUE_LOGIN_COUNT",
-        LAST_LOGIN_TIME: "LAST_LOGIN_TIME"
+        CONTINUE_DAILY_COUNT: "CONTINUE_DAILY_COUNT",
+        LAST_DAILY_TIME: "LAST_DAILY_TIME"
     },
 
     getUsername: function() {
@@ -87,20 +87,20 @@ CQ.Datastore.User = {
         this.setBoolean(this.Key.RATED, true);
     },
 
-   getContinueLoginCount: function(){
-        return this.getInt(this.Key.CONTINUE_LOGIN_COUNT);
+   getContinueDailyCount: function(){
+        return this.getInt(this.Key.CONTINUE_DAILY_COUNT);
    },
 
-   setContinueLoginCount: function(count){
-        this.set(this.Key.CONTINUE_LOGIN_COUNT, count);
+   setContinueDailyCount: function(count){
+        this.set(this.Key.CONTINUE_DAILY_COUNT, count);
    },
 
-   getLastLoginTime: function(){
-        return this.getInt(this.Key.LAST_LOGIN_TIME);
+   getLastDailyTime: function(){
+        return this.getInt(this.Key.LAST_DAILY_TIME);
    },
 
-   setLastLoginTime: function(timestamp){
-        this.setInt(this.Key.LAST_LOGIN_TIME, timestamp);
+   setLastDailyTime: function(timestamp){
+        this.set(this.Key.LAST_DAILY_TIME, timestamp);
    }
 };
 

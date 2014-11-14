@@ -52,7 +52,7 @@ CQ.Currency = {
     },
 
     init: function() {
-        CQ.Log.error('Initial currency module');
+        CQ.Log.debug('Initial currency module');
 
         var account = CQ.Datastore.Currency.getAccount();
         if (account) this.account = account;
