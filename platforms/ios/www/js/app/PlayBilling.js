@@ -31,7 +31,6 @@ CQ.PlayBilling = {
                 });
             },
             function(error) {
-                CQ.Log.error("App billing plugin initialize failed.");
                 CQ.PlayBilling.errorHandler(error);
             },
             { showLog: true }, this.productIds);
@@ -174,8 +173,11 @@ CQ.PlayBilling = {
 
     errorHandler: function(error) {
         CQ.Page.closeLoading();
-        CQ.Log.error('Billing failed, error: {0}'.format(error));
         CQ.GA.track(CQ.GA.Shop.PlayStoreError, error);
+
+        if (!CQ.dev) {
+            CQ.Log.error('Billing failed, error: {0}'.format(error));
+        }
     }
 };
 

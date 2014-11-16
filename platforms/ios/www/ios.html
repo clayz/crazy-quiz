@@ -8,14 +8,11 @@
     <link rel="stylesheet" type="text/css" href="css/ios.css"/>
 
     <!-- JS logging -->
-    <script src="//cdn.ravenjs.com/1.1.15/jquery,native/raven.min.js"></script>
+    <script src="js/raven.min.js"></script>
     <script>
         Raven.config('https://988f27d147634ef8addaba57a24b6ba7@app.getsentry.com/33230', {
             whitelistUrls: ['crazyquiz.com/scripts/']
         }).install();
-
-        // record a simple message
-        Raven.captureMessage('hello world!')
     </script>
 
     <!-- plugins -->

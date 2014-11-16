@@ -74,13 +74,12 @@ CQ.App = {
             CQ.Session.UUID = device.uuid;
             cordova.getAppVersion().then(function(version) {
                 CQ.Session.VERSION = version;
-
                 CQ.API.startup(function() {
                     CQ.API.syncHistory();
                 });
             });
         } catch (e) {
-            Raven.captureException(e);
+            CQ.Log.error('App init failed: {0}'.format(e));
         }
 
         CQ.Log.debug('App initialization finished.');
