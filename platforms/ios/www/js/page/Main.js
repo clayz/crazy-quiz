@@ -111,6 +111,7 @@ CQ.Page.Main = {
 
         $('#' + this.name).on('pageshow', function() {
             if (CQ.Page.Main.dailyBonus.ifGetBonusToday()) {
+                CQ.Page.Main.dailyBonus.refresh();
                 CQ.Page.openPopup(CQ.Page.Main.dailyBonus);
             } else if (!CQ.Datastore.User.isRated()) {
                 // open rating popup if required
