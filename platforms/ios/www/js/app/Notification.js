@@ -31,7 +31,8 @@ CQ.Notification = {
     },
 
     errorHandler: function(error) {
-        CQ.Log.error('Push notification initialize failed: {0}'.format(error));
+        if (!CQ.dev)
+            CQ.Log.error('Push notification initialize failed: {0}'.format(error));
     },
 
     tokenHandler: function(result) {

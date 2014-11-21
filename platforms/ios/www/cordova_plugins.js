@@ -71,6 +71,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.oauthio.plugins.oauthio/www/dist/oauth.js",
+        "id": "com.oauthio.plugins.oauthio.OAuth",
+        "merges": [
+            "OAuth"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -230,6 +237,7 @@ module.exports.metadata =
     "org.apache.cordova.device": "0.2.13-dev",
     "com.phonegap.plugins.PushPlugin": "2.4.0",
     "uk.co.whiteoctober.cordova.appversion": "0.1.4",
+    "com.oauthio.plugins.oauthio": "0.2.4",
     "org.apache.cordova.file": "1.2.0"
 }
 // BOTTOM OF METADATA

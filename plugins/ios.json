@@ -137,6 +137,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://oauth.io\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -189,6 +193,9 @@
             "PACKAGE_NAME": "com.clay.crazyquiz"
         },
         "uk.co.whiteoctober.cordova.appversion": {
+            "PACKAGE_NAME": "com.clay.crazyquiz"
+        },
+        "com.oauthio.plugins.oauthio": {
             "PACKAGE_NAME": "com.clay.crazyquiz"
         }
     },

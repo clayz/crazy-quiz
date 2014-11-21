@@ -1,7 +1,13 @@
 CQ.SNS = {
+    OAUTH_IO_PUBLIC_KEY: '0bqiaeolMpLpbRhpa05K0xs0868',
+
     Message: {
         MAIN_PAGE: '私と一緒に熱狂クイズを楽しもう！',
         GAME_PAGE: 'この画像知ってる？答えを教えて！'
+    },
+
+    init: function() {
+        OAuth.initialize(this.OAUTH_IO_PUBLIC_KEY);
     },
 
     share: function(message, image) {
@@ -75,6 +81,15 @@ CQ.SNS = {
 };
 
 CQ.SNS.Facebook = {
+    login: function() {
+        OAuth.popup('facebook')
+            .done(function(result) {
+                alert(CQ.Utils.toString(result));
+            }).fail(function(err) {
+                alert(err);
+            });
+    },
+
     share: function(message, image) {
         CQ.Page.openLoading();
 
@@ -88,6 +103,15 @@ CQ.SNS.Facebook = {
 };
 
 CQ.SNS.Twitter = {
+    login: function() {
+        OAuth.popup('twitter')
+            .done(function(result) {
+                alert(CQ.Utils.toString(result));
+            }).fail(function(err) {
+                alert(err);
+            });
+    },
+
     share: function(message, image) {
         CQ.Page.openLoading();
 
@@ -97,6 +121,17 @@ CQ.SNS.Twitter = {
         } else {
             window.plugins.socialsharing.shareViaTwitter(message, null, CQ.URL.FACEBOOK, CQ.SNS.shareFinish, CQ.SNS.shareError);
         }
+    }
+};
+
+CQ.SNS.Instagram = {
+    login: function() {
+        OAuth.popup('instagram')
+            .done(function(result) {
+                alert(CQ.Utils.toString(result));
+            }).fail(function(err) {
+                alert(err);
+            });
     }
 };
 
@@ -112,3 +147,5 @@ CQ.SNS.Line = {
         }
     }
 };
+
+CQ.App.register(CQ.SNS);
