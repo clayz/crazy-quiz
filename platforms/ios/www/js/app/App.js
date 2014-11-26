@@ -15,7 +15,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
                 ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/',
                 // API: 'http://crazy-quiz.appspot.com' // production API
                 API: 'http://crazy-quiz-dev.appspot.com' // dev API testing
-                //API: 'http://192.192.1.100:8080' // local API testing
+                // API: 'http://0.0.0.0:8080' // local API testing
             }
         }
     };

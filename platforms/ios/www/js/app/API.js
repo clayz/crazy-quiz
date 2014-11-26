@@ -10,7 +10,12 @@ CQ.API = {
         Purchase: '/api/audit/purchase/',
         Exchange: '/api/audit/exchange/',
         Earn: '/api/audit/earn/',
-        Consume: '/api/audit/consume/'
+        Consume: '/api/audit/consume/',
+
+        // sns
+        AuthFacebook: '/api/auth/facebook',
+        AuthTwitter: '/api/auth/twitter',
+        AuthInstagram: '/api/auth/instagram'
     },
 
     startup: function(callback) {
@@ -106,6 +111,29 @@ CQ.API = {
         if (picture) data.picture = picture;
 
         this.post(this.Route.Consume, data);
+    },
+
+    authFacebook: function(accessToken, expires, code) {
+        this.post(this.Route.AuthFacebook, {
+            access_token: accessToken,
+            expires: expires,
+            code: code
+        });
+    },
+
+    authTwitter: function(token, tokenSecret, code) {
+        this.post(this.Route.AuthTwitter, {
+            token: token,
+            token_secret: tokenSecret,
+            code: code
+        });
+    },
+
+    authInstagram: function(accessToken, code) {
+        this.post(this.Route.AuthInstagram, {
+            access_token: accessToken,
+            code: code
+        });
     },
 
     post: function(url, data, success, fail) {
