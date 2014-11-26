@@ -108,7 +108,7 @@ CQ.API = {
         this.post(this.Route.Consume, data);
     },
 
-    post: function(url, data, success) {
+    post: function(url, data, success, fail) {
         data.uuid = CQ.Session.UUID;
         data.version = CQ.Session.VERSION;
 
@@ -117,6 +117,7 @@ CQ.API = {
             if (success) success(response);
         }).fail(function(error) {
             CQ.Log.error('Send request failed: {0}, {1}, error: {2}'.format(url, CQ.Utils.toString(data), CQ.Utils.toString(error)));
+            if (fail) fail(error);
         });
     },
 

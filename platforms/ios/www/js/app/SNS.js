@@ -82,12 +82,15 @@ CQ.SNS = {
 
 CQ.SNS.Facebook = {
     login: function() {
-        OAuth.popup('facebook')
-            .done(function(result) {
-                alert(CQ.Utils.toString(result));
-            }).fail(function(err) {
-                alert(err);
-            });
+        OAuth.popup('facebook', {
+            cache: true,
+            state: CQ.Session.UUID
+        }).done(function(result) {
+            CQ.Log.debug(CQ.Utils.toString(result));
+            var accessToken = result.access_token, expires = result.expires_in, code = result.code;
+        }).fail(function(err) {
+            CQ.Log.error('Facebook oauth error: {0}'.format(err));
+        });
     },
 
     share: function(message, image) {
@@ -104,12 +107,15 @@ CQ.SNS.Facebook = {
 
 CQ.SNS.Twitter = {
     login: function() {
-        OAuth.popup('twitter')
-            .done(function(result) {
-                alert(CQ.Utils.toString(result));
-            }).fail(function(err) {
-                alert(err);
-            });
+        OAuth.popup('twitter', {
+            cache: true,
+            state: CQ.Session.UUID
+        }).done(function(result) {
+            CQ.Log.debug(CQ.Utils.toString(result));
+            var token = result.oauth_token, tokenSecret = result.oauth_token_secret, code = result.code;
+        }).fail(function(err) {
+            CQ.Log.error('Twitter oauth error: {0}'.format(err));
+        });
     },
 
     share: function(message, image) {
@@ -126,12 +132,15 @@ CQ.SNS.Twitter = {
 
 CQ.SNS.Instagram = {
     login: function() {
-        OAuth.popup('instagram')
-            .done(function(result) {
-                alert(CQ.Utils.toString(result));
-            }).fail(function(err) {
-                alert(err);
-            });
+        OAuth.popup('instagram', {
+            cache: true,
+            state: CQ.Session.UUID
+        }).done(function(result) {
+            CQ.Log.debug(CQ.Utils.toString(result));
+            var accessToken = result.access_token, code = result.code;
+        }).fail(function(err) {
+            CQ.Log.error('Instagram oauth error: {0}'.format(err));
+        });
     }
 };
 
