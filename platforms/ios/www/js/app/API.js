@@ -13,9 +13,10 @@ CQ.API = {
         Consume: '/api/audit/consume/',
 
         // sns
-        AuthFacebook: '/api/auth/facebook',
-        AuthTwitter: '/api/auth/twitter',
-        AuthInstagram: '/api/auth/instagram'
+        AuthFacebook: '/api/auth/facebook/',
+        ShareFacebook: '/api/share/facebook/',
+        AuthTwitter: '/api/auth/twitter/',
+        ShareTwitter: '/api/share/twitter/'
     },
 
     startup: function(callback) {
@@ -121,6 +122,13 @@ CQ.API = {
         });
     },
 
+    shareFacebook: function(message, picture) {
+        this.post(this.Route.ShareFacebook, {
+            message: message,
+            picture: picture
+        });
+    },
+
     authTwitter: function(token, tokenSecret, code) {
         this.post(this.Route.AuthTwitter, {
             token: token,
@@ -129,10 +137,10 @@ CQ.API = {
         });
     },
 
-    authInstagram: function(accessToken, code) {
-        this.post(this.Route.AuthInstagram, {
-            access_token: accessToken,
-            code: code
+    shareTwitter: function(message, picture) {
+        this.post(this.Route.ShareTwitter, {
+            message: message,
+            picture: picture
         });
     },
 

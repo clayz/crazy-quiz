@@ -130,20 +130,6 @@ CQ.SNS.Twitter = {
     }
 };
 
-CQ.SNS.Instagram = {
-    login: function() {
-        OAuth.popup('instagram', {
-            cache: true,
-            state: CQ.Session.UUID
-        }).done(function(result) {
-            CQ.Log.debug(CQ.Utils.toString(result));
-            var accessToken = result.access_token, code = result.code;
-        }).fail(function(err) {
-            CQ.Log.error('Instagram oauth error: {0}'.format(err));
-        });
-    }
-};
-
 CQ.SNS.Line = {
     share: function(message, subject, image) {
         CQ.Page.openLoading();
