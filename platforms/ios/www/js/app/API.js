@@ -4,6 +4,8 @@ CQ.API = {
         Startup: '/api/user/startup/',
         Register: '/api/user/register/',
         RegisterNotification: '/api/user/notification/',
+        DailyBonus: '/api/user/bonus/daily/',
+        DailyBonusSave: '/api/user/bonus/daily/save/',
 
         // audit
         Sync: '/api/audit/sync/',
@@ -32,6 +34,14 @@ CQ.API = {
 
     registerNotification: function() {
         this.post(this.Route.RegisterNotification, { push_token: CQ.Session.PUSH_TOKEN });
+    },
+
+    dailyBonus: function(success){
+        this.post(this.Route.DailyBonus, {}, success);
+    },
+
+    dailyBonusSave: function(success){
+        this.post(this.Route.DailyBonusSave, {}, success);
     },
 
     syncHistory: function() {
