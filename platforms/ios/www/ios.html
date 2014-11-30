@@ -788,23 +788,31 @@
     </div>
 
     <!-- Share popup -->
-    <div data-role="popup" class="popup-share popup-container-no-btn ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" class="popup-share ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close">
             <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
         </div>
-        <div class="popup-content">
+        <div class="popup-title">
+            <img class="popup-title-share" src="img/layout/popup-share-title.png"/>
+        </div>
+        <div class="popup-share-content">
             <p class="popup-share-text"></p>
-            <div class="ui-grid-b">
-                <div class="ui-block-a center no-shadow">
-                    <img src="img/icon/share-facebook.png" class="popup-share-fb popup-share-btn"><br/>Facebook
+            <div class="ui-grid-a">
+                <div class="ui-block-a no-shadow">
+                    <div class="popup-share-fb-block">
+                        <img src="img/icon/share-facebook.png" class="popup-share-fb popup-share-btn"><br/>Facebook
+                    </div>
                 </div>
-                <div class="ui-block-b center no-shadow">
-                    <img src="img/icon/share-twitter.png" class="popup-share-tw popup-share-btn"><br/>Twitter
-                </div>
-                <div class="ui-block-c center no-shadow">
-                    <img src="img/icon/share-other.png" class="popup-share-other popup-share-btn"><br/>その他
+                <div class="ui-block-b no-shadow">
+                    <div class="popup-share-tw-block">
+                        <img src="img/icon/share-twitter.png" class="popup-share-tw popup-share-btn"><br/>Twitter
+                    </div>
                 </div>
             </div>
+            <textarea class="popup-share-message">私と一緒に熱狂クイズを楽しもう！</textarea>
+        </div>
+        <div class="popup-buttons clear-both">
+            <img class="popup-button-center popup-share-yes" src="img/button/button-share.png"/>
         </div>
     </div>
 

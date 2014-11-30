@@ -74,7 +74,12 @@ CQ.App = {
             CQ.Session.UUID = device.uuid;
             cordova.getAppVersion().then(function(version) {
                 CQ.Session.VERSION = version;
-                CQ.API.startup(function() {
+
+                // save app startup and retrieve user info
+                CQ.API.startup(function(response) {
+                    var data = CQ.API.getResponseData(response);
+                    CQ.Session.FACEBOOK_AUTH = data.facebook;
+                    CQ.Session.TWITTER_AUTH = data.twitter;
                     CQ.API.syncHistory();
                 });
             });
@@ -143,5 +148,8 @@ CQ.Session = {
 
     UUID: '',
     VERSION: 'N/A',
-    PUSH_TOKEN: ''
+    PUSH_TOKEN: '',
+
+    FACEBOOK_AUTH: false,
+    TWITTER_AUTH: false
 };

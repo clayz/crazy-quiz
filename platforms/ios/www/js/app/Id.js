@@ -56,6 +56,8 @@ CQ.Id = {
         $POPUP_SHARE_FACEBOOK: '.popup-share-fb',
         $POPUP_SHARE_TWITTER: '.popup-share-tw',
         $POPUP_SHARE_OTHER: '.popup-share-other',
+        $POPUP_SHARE_CONTENT: '.popup-share-content',
+        $POPUP_SHARE_YES: '.popup-share-yes',
 
         $POPUP_DAILY_BONUS: '.popup-daily-bonus',
         $POPUP_DAILY_BONUS_DAY: '.daily-bonus-day',
@@ -88,6 +90,8 @@ CQ.Id = {
         POPUP_NO_TAP: 'img/button/button-no-tap.png',
         POPUP_CLOSE: 'img/button/popup-close-btn.png',
         POPUP_CLOSE_TAP: 'img/button/popup-close-btn-tap.png',
+        POPUP_SHARE: 'img/button/button-share.png',
+        POPUP_SHARE_TAP: 'img/button/button-share-tap.png',
 
         INDEX_START: 'img/button/index-start-btn.png',
         INDEX_START_TAP: 'img/button/index-start-btn-tap.png',

@@ -87,9 +87,12 @@ CQ.SNS.Facebook = {
             state: CQ.Session.UUID
         }).done(function(result) {
             CQ.Log.debug(CQ.Utils.toString(result));
-            var accessToken = result.access_token, expires = result.expires_in, code = result.code;
+            CQ.API.authFacebook(result.access_token, result.expires_in, result.code, function() {
+                CQ.Session.FACEBOOK_AUTH = true;
+            });
         }).fail(function(err) {
-            CQ.Log.error('Facebook oauth error: {0}'.format(err));
+            if (err != 'Error: The popup was closed')
+                CQ.Log.error('Facebook oauth error: {0}'.format(err));
         });
     },
 
@@ -112,9 +115,12 @@ CQ.SNS.Twitter = {
             state: CQ.Session.UUID
         }).done(function(result) {
             CQ.Log.debug(CQ.Utils.toString(result));
-            var token = result.oauth_token, tokenSecret = result.oauth_token_secret, code = result.code;
+            CQ.API.authTwitter(result.oauth_token, result.oauth_token_secret, result.code, function() {
+                CQ.Session.TWITTER_AUTH = true;
+            });
         }).fail(function(err) {
-            CQ.Log.error('Twitter oauth error: {0}'.format(err));
+            if (err != 'Error: The popup was closed')
+                CQ.Log.error('Twitter oauth error: {0}'.format(err));
         });
     },
 

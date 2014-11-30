@@ -39,8 +39,8 @@ body {
     height: 50px; /* text area height */
     width: 225px; /* text area width */
     text-align: center;
-    padding: 180px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
-    margin: -115px 0px 0px -112px; /* offset vertical: half of image height and text area height */
+    padding: 180px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: -115px 0 0 -112px; /* offset vertical: half of image height and text area height */
     /* offset horizontal: half of text area width */
 }
 
@@ -48,8 +48,8 @@ body {
 @media screen and (min-aspect-ratio: 1/1) and (min-width: 400px) {
     .app {
         background-position: left center;
-        padding: 75px 0px 75px 170px; /* padding-top + padding-bottom + text area = image height */
-        margin: -90px 0px 0px -198px; /* offset vertical: half of image height */
+        padding: 75px 0 75px 170px; /* padding-top + padding-bottom + text area = image height */
+        margin: -90px 0 0 -198px; /* offset vertical: half of image height */
         /* offset horizontal: half of image width and text area width */
     }
 }
@@ -73,8 +73,8 @@ p {
     -webkit-border-radius: 4px;
     color: #FFFFFF;
     font-size: 12px;
-    margin: 0px 30px;
-    padding: 2px 0px;
+    margin: 0 30px;
+    padding: 2px 0;
 }
 
 .event.listening {
@@ -283,6 +283,13 @@ p {
     text-shadow: none;
 }
 
+.popup-title {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-top: -.5em;
+}
+
 .popup-close {
     position: absolute;
     right: 0;
@@ -296,7 +303,9 @@ p {
 }
 
 .popup-buttons {
-    margin-bottom: -5em;
+    position: absolute;
+    margin: -1.3em;
+    width: 100%;
 }
 
 .popup-button-left {
@@ -347,7 +356,7 @@ p {
 
 @keyframes loadbar {
     0% {
-        width: 0%;
+        width: 0;
     }
 
     100% {
@@ -357,7 +366,7 @@ p {
 
 @-webkit-keyframes loadbar {
     0% {
-        width: 0%;
+        width: 0;
     }
 
     100% {
@@ -1299,7 +1308,6 @@ li:hover {
 /* daily bonus Popup */
 /*******************************************************************/
 
-
 #daily-bonus.popup-daily-bonus {
     background: url(../img/layout/daily_bonus_bg.png) no-repeat;
     background-size: 100% 100%;
@@ -1310,7 +1318,7 @@ li:hover {
     width: 22em;
     height: 27em;
     min-height: 6em;
-    margin: 0em .8em .8em 1em;
+    margin: 0 .8em .8em 1em;
     color: RGB(251, 244, 180);
     border-radius: 3px;
     z-index: 3;
@@ -1340,17 +1348,17 @@ li:hover {
     width: 8em;
     background: url(../img/layout/daily_bonus_star.png) no-repeat;
     background-size: 100% 100%;
-    margin: .4em 0em 0em 1em;
+    margin: .4em 0 0 1em;
     text-align: center;
 }
 
 .daily-bonus-img.today {
-    margin: 1.7em 0em 0em 2em;
+    margin: 1.7em 0 0 2em;
     display: block;
 }
 
 #daily-bonus .daily-bonus-today-get {
-    margin: 1em 0em 0em 0em;
+    margin: 1em 0 0 0;
 }
 
 .daily-bonus-today-msg {
@@ -1367,18 +1375,18 @@ li:hover {
 #daily-bonus-button-get {
     height: 4em;
     width: 9em;
-    margin: .5em 0em 0em 1.5em;
+    margin: .5em 0 0 1.5em;
 }
 
 #daily-bonus-button-get.daily-bonus-button-normal {
-     background: url(../img/button/daily-bonus-get.png) no-repeat;
-     background-size: 100% 100%;
- }
+    background: url(../img/button/daily-bonus-get.png) no-repeat;
+    background-size: 100% 100%;
+}
 
- #daily-bonus-button-get.daily-bonus-button-pressed {
-     background: url(../img/button/daily-bonus-get-tap.png) no-repeat;
-     background-size: 100% 100%;
- }
+#daily-bonus-button-get.daily-bonus-button-pressed {
+    background: url(../img/button/daily-bonus-get-tap.png) no-repeat;
+    background-size: 100% 100%;
+}
 
 #daily-bonus .bulb-logo {
     float: right;
@@ -1391,7 +1399,7 @@ li:hover {
 }
 
 #daily-bonus .daily-bonus-day {
-    margin:0 4.5em 5.8em .5em;
+    margin: 0 4.5em 5.8em .5em;
 }
 
 #daily-bonus .daily-bonus-content {
@@ -1399,45 +1407,45 @@ li:hover {
 }
 
 #daily-bonus .daily-bonus-day span {
-    margin:0 .4em 0 0;
+    margin: 0 .4em 0 0;
 }
 
 #daily-bonus .daily-bonus-day .continue-day {
     height: 1.3em;
-    margin: .3em 0em 0em 1em;
+    margin: .3em 0 0 1em;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-1{
+#daily-bonus .daily-bonus-day .continue-day.day-1 {
     background: url(../img/icon/daily_bonus_day1.png) no-repeat;
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-2{
+#daily-bonus .daily-bonus-day .continue-day.day-2 {
     background: url(../img/icon/daily_bonus_day2.png) no-repeat;
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-3{
+#daily-bonus .daily-bonus-day .continue-day.day-3 {
     background: url(../img/icon/daily_bonus_day3.png) no-repeat;
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-4{
+#daily-bonus .daily-bonus-day .continue-day.day-4 {
     background: url(../img/icon/daily_bonus_day4.png) no-repeat;
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-5{
+#daily-bonus .daily-bonus-day .continue-day.day-5 {
     background: url(../img/icon/daily_bonus_day5.png) no-repeat;
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-6{
+#daily-bonus .daily-bonus-day .continue-day.day-6 {
     background: url(../img/icon/daily_bonus_day6.png) no-repeat;
     background-size: 70% 70%;
 }
 
-#daily-bonus .daily-bonus-day .continue-day.day-7{
+#daily-bonus .daily-bonus-day .continue-day.day-7 {
     background: url(../img/icon/daily_bonus_day7.png) no-repeat;
     background-size: 70% 70%;
 }
@@ -1492,7 +1500,7 @@ li:hover {
     position: absolute;
     width: 3em;
     height: 2.5em;
-    margin: .8em 0em 0em .6em;
+    margin: .8em 0 0 .6em;
     background: url(../img/icon/daily_bonus_get.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -1501,7 +1509,7 @@ li:hover {
     position: absolute;
     width: 5em;
     height: 5em;
-    margin: -.5em 0em 0em -.5em;
+    margin: -.5em 0 0 -.5em;
     background: url(../img/layout/daily_bonus_today.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -1515,7 +1523,7 @@ li:hover {
 }
 
 .daily-bonus-img.today-got {
-    margin: 1.5em 0em 0em 4em;
+    margin: 1.5em 0 0 4em;
     display: block;
 }
 
@@ -1533,7 +1541,7 @@ li:hover {
     background-size: 100% 100%;
 }
 
-.daily-bonus-got-amount{
+.daily-bonus-got-amount {
     text-align: center;
     color: RGB(146, 36, 0);
     line-height: 2.4em;
@@ -1593,4 +1601,65 @@ li:hover {
 
     /* boooo opera */
     -o-transition: rotate(3600deg); /* works */
+}
+
+/*******************************************************************/
+/* Share Popup */
+/*******************************************************************/
+
+.popup-share {
+    background: url(../img/layout/popup-share-bg.png) no-repeat !important;
+    background-size: 100% 100% !important;
+    border: 0 !important;
+}
+
+.popup-share-content {
+    width: 22em;
+    min-height: 22em;
+    margin: 1em .8em .8em .8em;
+    color: #3a2108;
+    border-radius: 3px;
+    z-index: 3;
+}
+
+.popup-share-content p {
+    padding: 2em 1em 0 1em;
+    font-size: 1em;
+    text-align: left;
+    text-shadow: none;
+    color: #3a2108;
+}
+
+.popup-title-share {
+    width: 15em;
+    margin-left: -7.5em;
+}
+
+.popup-share-fb-block {
+    float: right;
+    padding-right: 2em;
+}
+
+.popup-share-tw-block {
+    float: left;
+    padding-left: 1em;
+}
+
+.popup-share-fb {
+    width: 5em;
+    height: 5em;
+}
+
+.popup-share-tw {
+    width: 5em;
+    height: 5em;
+}
+
+.popup-share-message {
+    height: 8em !important;
+    color: #ffffff !important;
+    background: #3a2108 !important;
+    text-shadow: none !important;
+    border-radius: .5em;
+    width: 94% !important;
 }
