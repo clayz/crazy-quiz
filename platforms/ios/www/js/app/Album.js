@@ -1,5 +1,5 @@
 CQ.Album = {
-    TOTAL_ALBUM: 1,
+    TOTAL_ALBUM: 2,
 
     Category: {
         Film: { id: 1, name: '映画' },
@@ -17,40 +17,15 @@ CQ.Album = {
         Geography: { id: 13, name: '地理' }
     },
 
-    AnswerType: {
-        English: { id: 1, pictures: [] },
-        Kanji: { id: 2, pictures: [] },
-        Hiragana: { id: 3, pictures: [] },
-        Katakana: { id: 4, pictures: [] },
-        Mix: { id: 5, pictures: [] }
-    },
-
     init: function() {
-        // this logic is for generating picture answers during development before alternative text was defined
-        //if (CQ.dev) {
-        //    for (var i = 1; i <= 6; i++)
-        //        for (var j = 0; j < 20; j++) {
-        //            var picture = this.getPicture(this.getPictureId(i, j));
-        //
-        //            if (CQ.Album.AnswerType.English === picture.type)
-        //                CQ.Album.AnswerType.English.pictures.push(picture);
-        //            else if (CQ.Album.AnswerType.Kanji === picture.type)
-        //                CQ.Album.AnswerType.Kanji.pictures.push(picture);
-        //            else if (CQ.Album.AnswerType.Hiragana === picture.type)
-        //                CQ.Album.AnswerType.Hiragana.pictures.push(picture);
-        //            else if (CQ.Album.AnswerType.Katakana === picture.type)
-        //                CQ.Album.AnswerType.Katakana.pictures.push(picture);
-        //            else {
-        //                // does not support auto generate answers for this type
-        //            }
-        //        }
-        //}
     },
 
     getAlbum: function(id) {
         switch (id) {
             case CQ.Album.Default.id:
                 return CQ.Album.Default;
+            case CQ.Album.Second.id:
+                return CQ.Album.Second;
             default:
                 return null;
         }
@@ -188,49 +163,7 @@ CQ.Album = {
                     break;
                 }
             }
-        } else {
-            // no alternative answers, generate random chars
-            while (remainingChars > 0) {
-                // generate random picture id which does not been used
-                var candidates = null;
-
-                if (CQ.Album.AnswerType.English === picture.type)
-                    candidates = CQ.Album.AnswerType.English.pictures;
-                else if (CQ.Album.AnswerType.Kanji === picture.type)
-                    candidates = CQ.Album.AnswerType.Kanji.pictures
-                        .concat(CQ.Album.AnswerType.Mix.pictures);
-                else if (CQ.Album.AnswerType.Katakana === picture.type)
-                    candidates = CQ.Album.AnswerType.Katakana.pictures
-                        .concat(CQ.Album.AnswerType.Mix.pictures);
-                else
-                    candidates = CQ.Album.AnswerType.Kanji.pictures
-                        .concat(CQ.Album.AnswerType.Hiragana.pictures)
-                        .concat(CQ.Album.AnswerType.Katakana.pictures)
-                        .concat(CQ.Album.AnswerType.Mix.pictures);
-
-                var randomIndex = Math.floor(Math.random() * candidates.length);
-                CQ.Log.debug('Candidates length: {0}, Random index: {1}'.format(candidates.length, randomIndex));
-                var randomPicture = candidates[randomIndex], randomId = randomPicture.id;
-
-                if ($.inArray(randomId, alternativeAnswers) == -1) {
-                    var randomName = this.getPicture(randomId).name;
-
-                    // get characters from random picture name
-                    if (remainingChars > randomName.length) {
-                        chars = chars.concat(randomName.split(''));
-                        alternativeAnswers.push(randomId);
-                        remainingChars -= randomName.length;
-                    } else if (remainingChars == randomName.length) {
-                        chars = chars.concat(randomName.split(''));
-                        alternativeAnswers.push(randomId);
-                        break;
-                    } else {
-                        chars = chars.concat(randomName.split('').slice(0, remainingChars));
-                        break;
-                    }
-                }
-            }
-        }
+        } else CQ.Log.error('Neither answer text nor answer id been defined.');
 
         return {
             chars: CQ.Album.shuffle(chars),

@@ -137,11 +137,12 @@ CQ.API = {
         }, success);
     },
 
-    shareFacebook: function(message, picture) {
+    shareFacebook: function(message, album, picture, success, fail) {
         this.post(this.Route.ShareFacebook, {
             message: message,
+            album: album,
             picture: picture
-        });
+        }, success, fail);
     },
 
     authTwitter: function(token, tokenSecret, code) {
@@ -152,11 +153,12 @@ CQ.API = {
         });
     },
 
-    shareTwitter: function(message, picture) {
+    shareTwitter: function(message, album, picture, success, fail) {
         this.post(this.Route.ShareTwitter, {
             message: message,
+            album: album,
             picture: picture
-        });
+        }, success, fail);
     },
 
     post: function(url, data, success, fail) {
@@ -181,6 +183,10 @@ CQ.API = {
 
     getTimestamp: function(date) {
         return parseInt((date % 1 === 0 ? date : date.getTime()) / 1000);
+    },
+
+    isSuccess: function(response) {
+        return this.APIStatus.SUCCESS == response.status;
     },
 
     getResponseData: function(response) {

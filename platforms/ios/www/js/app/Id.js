@@ -58,6 +58,7 @@ CQ.Id = {
         $POPUP_SHARE_OTHER: '.popup-share-other',
         $POPUP_SHARE_CONTENT: '.popup-share-content',
         $POPUP_SHARE_YES: '.popup-share-yes',
+        $POPUP_SHARE_MESSAGE: '.popup-share-message',
 
         $POPUP_DAILY_BONUS: '.popup-daily-bonus',
         $POPUP_DAILY_BONUS_DAY: '.daily-bonus-day',
@@ -102,6 +103,8 @@ CQ.Id = {
         MAIN_HELP_TAP: 'img/button/main-help-tap.png',
         MAIN_ALBUM_NEXT: 'img/button/album-arrows.png',
         MAIN_ALBUM_NEXT_TAP: 'img/button/album-arrows-tap.png',
+        MAIN_PAGING_ON: 'img/layout/main-paging-on.png',
+        MAIN_PAGING_OFF: 'img/layout/main-paging-off.png',
 
         GAME_CUT_DOWN: 'img/button/game-cutdown.png',
         GAME_CUT_DOWN_TAP: 'img/button/game-cutdown-tap.png',
@@ -131,9 +134,9 @@ CQ.Id = {
         $ALBUM: '#main-album',
         $ALBUM_HEADER: '#main-album-header',
         $ALBUM_EACH: '#main-album{0}',
-        $ALBUM_EACH_LOCKED: '#main-album{0}-locked',
         $ALBUM_NAME: '#main-album-name',
         $ALBUM_NEXT: '#main-album-next-btn',
+        $ALBUM_PAGING: '#main-album-paging-{0}',
 
         $ALBUM_LEVEL: '#main-album{0}-level{1}',
         $ALBUM_LEVEL_LOCK: '#main-album{0}-level{1}-lock',
@@ -145,7 +148,7 @@ CQ.Id = {
         $HELP: '#main-help-btn',
 
         $POPUP_EXIT: '#main-popup-exit',
-        $POPUP_LEVEL_UNLOCK: '#main-popup-unlock',
+        $POPUP_LEVEL_UNLOCK: '#main-popup-level-unlock',
         $POPUP_LEVEL_PURCHASE: '#main-popup-level-purchase',
         $POPUP_LEVEL_CANNOT_UNLOCK: '#main-popup-level-disable',
 

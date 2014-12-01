@@ -87,21 +87,21 @@ CQ.Datastore.User = {
         this.setBoolean(this.Key.RATED, true);
     },
 
-   getContinueDailyCount: function(){
+    getContinueDailyCount: function() {
         return this.getInt(this.Key.CONTINUE_DAILY_COUNT);
-   },
+    },
 
-   setContinueDailyCount: function(count){
+    setContinueDailyCount: function(count) {
         this.set(this.Key.CONTINUE_DAILY_COUNT, count);
-   },
+    },
 
-   getLastDailyTime: function(){
+    getLastDailyTime: function() {
         return this.getInt(this.Key.LAST_DAILY_TIME);
-   },
+    },
 
-   setLastDailyTime: function(timestamp){
+    setLastDailyTime: function(timestamp) {
         this.set(this.Key.LAST_DAILY_TIME, timestamp);
-   }
+    }
 };
 
 /**
@@ -130,7 +130,7 @@ CQ.Datastore.Picture = {
     },
 
     getLastLevel: function(albumId) {
-        return parseInt(this.get(this.Key.LAST_LEVEL.format(albumId))) || 1;
+        return parseInt(this.get(this.Key.LAST_LEVEL.format(albumId))) || (albumId == 1 ? 1 : 0);
     },
 
     setLastLevel: function(albumId, level) {

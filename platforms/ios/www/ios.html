@@ -42,6 +42,7 @@
 
     <!-- album pictures -->
     <script type="text/javascript" charset="utf-8" src="js/album/Default.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/album/Second.js"></script>
 
     <!-- popup -->
     <script type="text/javascript" charset="utf-8" src="js/popup/Popup.js"></script>
@@ -202,22 +203,102 @@
                         <div id="main-album1-level6-name" class="main-level-name"></div>
                     </div>
                 </div>
+
+                <!-- album 2 -->
+                <div id="main-album2" class="ui-grid-b hidden">
+                    <div class="ui-block-a">
+                        <div class="main-level-cover">
+                            <div id="main-album2-level1" class="main-level">
+                                <div id="main-album2-level1-status" class="hidden">
+                                    <div class="main-level-status"></div>
+                                    <div class="main-level-status-bg"></div>
+                                </div>
+                                <div id="main-album2-level1-lock" class="main-level-lock"></div>
+                            </div>
+                        </div>
+                        <div id="main-album2-level1-name" class="main-level-name"></div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="main-level-cover">
+                            <div id="main-album2-level2" class="main-level">
+                                <div id="main-album2-level2-status" class="hidden">
+                                    <div class="main-level-status"></div>
+                                    <div class="main-level-status-bg"></div>
+                                </div>
+                            </div>
+                            <div id="main-album2-level2-lock" class="main-level-lock"></div>
+                        </div>
+                        <div id="main-album2-level2-name" class="main-level-name"></div>
+                    </div>
+                    <div class="ui-block-c">
+                        <div class="main-level-cover">
+                            <div id="main-album2-level3" class="main-level">
+                                <div id="main-album2-level3-status" class="hidden">
+                                    <div class="main-level-status"></div>
+                                    <div class="main-level-status-bg"></div>
+                                </div>
+                            </div>
+                            <div id="main-album2-level3-lock" class="main-level-lock"></div>
+                        </div>
+                        <div id="main-album2-level3-name" class="main-level-name"></div>
+                    </div>
+                    <div class="ui-block-a">
+                        <div class="main-level-cover">
+                            <div id="main-album2-level4" class="main-level">
+                                <div id="main-album2-level4-status" class="hidden">
+                                    <div class="main-level-status"></div>
+                                    <div class="main-level-status-bg"></div>
+                                </div>
+                            </div>
+                            <div id="main-album2-level4-lock" class="main-level-lock"></div>
+                        </div>
+                        <div id="main-album2-level4-name" class="main-level-name"></div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="main-level-cover">
+                            <div id="main-album2-level5" class="main-level">
+                                <div id="main-album2-level5-status" class="hidden">
+                                    <div class="main-level-status"></div>
+                                    <div class="main-level-status-bg"></div>
+                                </div>
+                            </div>
+                            <div id="main-album2-level5-lock" class="main-level-lock"></div>
+                        </div>
+                        <div id="main-album2-level5-name" class="main-level-name"></div>
+                    </div>
+                    <div class="ui-block-c">
+                        <div class="main-level-cover">
+                            <div id="main-album2-level6" class="main-level">
+                                <div id="main-album2-level6-status" class="hidden">
+                                    <div class="main-level-status"></div>
+                                    <div class="main-level-status-bg"></div>
+                                </div>
+                            </div>
+                            <div id="main-album2-level6-lock" class="main-level-lock"></div>
+                        </div>
+                        <div id="main-album2-level6-name" class="main-level-name"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="main-album-paging ui-grid-a">
-                <div id="main-album-paging-1" class="ui-block-a">
-                    <img src="img/layout/main-paging-on.png" class="main-album-paging-img"/>
+            <div class="main-album-paging ui-grid-b">
+                <div class="ui-block-a">
+                    <img id="main-album-paging-1" src="img/layout/main-paging-on.png" class="main-album-paging-img"/>
                 </div>
-                <div id="main-album-paging-2" class="ui-block-b">
-                    <img src="img/layout/main-paging-off.png" class="main-album-paging-img"/>
+                <div class="ui-block-b">
+                    <img id="main-album-paging-2" src="img/layout/main-paging-off.png" class="main-album-paging-img"/>
+                </div>
+                <div class="ui-block-c">
+                    <img id="main-album-paging-3" src="img/layout/main-paging-off.png" class="main-album-paging-img"/>
                 </div>
             </div>
         </div>
 
         <div id="main-album-waiting" class="hidden">
-            <div class="main-album-paging ui-grid-a">
+            <div class="main-album-paging ui-grid-b">
                 <div class="ui-block-a"><img src="img/layout/main-paging-off.png" class="main-album-paging-img"/></div>
-                <div class="ui-block-b"><img src="img/layout/main-paging-on.png" class="main-album-paging-img"/></div>
+                <div class="ui-block-b"><img src="img/layout/main-paging-off.png" class="main-album-paging-img"/></div>
+                <div class="ui-block-c"><img src="img/layout/main-paging-on.png" class="main-album-paging-img"/></div>
             </div>
         </div>
 
@@ -231,7 +312,7 @@
     </div>
 
     <!-- unlock level confirm popup -->
-    <div data-role="popup" id="main-popup-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" id="main-popup-level-unlock" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close">
             <img class="popup-close-btn" src="img/button/popup-close-btn.png"/>
         </div>
@@ -337,12 +418,12 @@
                     </div>
                 </div>
             </div>
+
             <!-- game picture -->
             <div id="game-picture-container" class="ui-block-b">
-                <div id="game-picture">
-                    <!--<div id="game-correct-answer"></div>-->
-                </div>
+                <div id="game-picture"></div>
             </div>
+
             <!-- right site buttons -->
             <div id="game-props-right" class="ui-block-c">
                 <div id="game-prompt-btn" class="game-props-btn">
@@ -514,57 +595,30 @@
 <!------------------------------------------------------------------>
 <!-- Help Page -->
 <!------------------------------------------------------------------>
-<!--
-<div data-role="page" id="help" class="page">
-    <div class="help-body" style="overflow:scroll;">
-        <ul class="ul-help-main">
-            <li id="help-to-guide" class="li-help-coloum">遊びかたへ</li>
-            <li id="help-to-enquiry" class="li-help-coloum">お問い合わせ</li>
-        </ul>
-    </div>
-</div> -->
 
 <div id="help" class="page" data-role="page">
     <div class="help-body">
         <p class="p1 title">
             <span>遊びかた</span>
         </p>
-        <p class="p1 des">
-            イラストを見て、そのイラストが何を表すか当てよう！イラストを見てもわからない時は...
-        </p>
+        <p class="p1 des">イラストを見て、そのイラストが何を表すか当てよう！イラストを見てもわからない時は...</p>
         <table cellpadding="2" cellspacing="0" border="0" class="ke-zeroborder">
             <tbody>
             <tr>
-                <td>
-                    <img src="img/button/game-prompt.png" alt=""/>
-                </td>
-                <td class="help_text">
-                    30コイン使うと、そのイラストに関するヒントがもらえます。（例：映画　etc）
-                </td>
+                <td><img src="img/button/game-prompt.png" alt=""/></td>
+                <td class="help_text">30コイン使うと、そのイラストに関するヒントがもらえます。（例：映画　etc）</td>
             </tr>
             <tr>
-                <td>
-                    <img src="img/button/game-cutdown.png" alt=""/>
-                </td>
-                <td class="help_text">
-                    50コイン使うと、下に表示されている文字を何個か消すことができます。
-                </td>
+                <td><img src="img/button/game-cutdown.png" alt=""/></td>
+                <td class="help_text">50コイン使うと、下に表示されている文字を何個か消すことができます。</td>
             </tr>
             <tr>
-                <td>
-                    <img src="img/button/game-getchar.png" alt=""/>
-                </td>
-                <td class="help_text">
-                    90コイン使うと、答えが1文字表示されます。
-                </td>
+                <td><img src="img/button/game-getchar.png" alt=""/></td>
+                <td class="help_text">90コイン使うと、答えが1文字表示されます。</td>
             </tr>
             <tr>
-                <td>
-                    <img src="img/button/game-share.png" alt=""/>
-                </td>
-                <td class="help_text">
-                    シェアをして友達に聞いてみるのも良いですね！シェアをすると1日10コインがGETできます。
-                </td>
+                <td><img src="img/button/game-share.png" alt=""/></td>
+                <td class="help_text">シェアをして友達に聞いてみるのも良いですね！シェアをすると1日10コインがGETできます。</td>
             </tr>
             </tbody>
         </table>
@@ -573,26 +627,17 @@
             <img src="img/icon/gem-one.png" alt=""/>
             <span>宝石について</span>
         </p>
-        <p dir="ltr" class="pay_des">
-            宝石を使ってステージのロックを解除することができるよ！（１ステージ＝１０宝石）
-        </p>
-        <p dir="ltr" class="pay_des">
-            宝石をコインに変えることもできます。（１宝石＝３０コイン）
-        </p>
+        <p dir="ltr" class="pay_des">宝石を使ってステージのロックを解除することができるよ！（１ステージ＝１０宝石）</p>
+        <p dir="ltr" class="pay_des">宝石をコインに変えることもできます。（１宝石＝３０コイン）</p>
 
         <p class="p1 pay_title">
             <img src="img/icon/coin-one.png" alt=""/>
             <span>コインについて</span>
         </p>
-        <p dir="ltr" class="pay_des">
-            １つのステージをクリアすると１００コインをGETすることができます。
-        </p>
-        <p dir="ltr" class="pay_des">
-            SNSシェアで１日1回10コインGETすることができます。
-        </p>
-        <p dir="ltr" class="pay_des">
-            コインを使って様々なヒントをもらうことができます。
-        </p>
+        <p dir="ltr" class="pay_des">１つのステージをクリアすると１００コインをGETすることができます。</p>
+        <p dir="ltr" class="pay_des">SNSシェアで１日1回10コインGETすることができます。</p>
+        <p dir="ltr" class="pay_des">コインを使って様々なヒントをもらうことができます。</p>
+
         <p class="p1 contact">
             <span>熱狂クイズ運営事務局：</span>
             <a href="mailto:nekyou.quiz@gmail.com">
