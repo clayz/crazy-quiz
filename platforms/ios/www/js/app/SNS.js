@@ -57,6 +57,12 @@ CQ.SNS = {
             CQ.Page.openPrompt('シェア失敗しました、後ほど再度お試しください。');
             CQ.GA.track(CQ.GA.Share.Error, CQ.GA.Share.Error.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
         }
+    },
+
+    fail: function() {
+        CQ.Page.closeLoading();
+        CQ.Page.openPrompt('シェア失敗しました、後ほど再度お試しください。');
+        CQ.GA.track(CQ.GA.Share.Fail);
     }
 };
 
