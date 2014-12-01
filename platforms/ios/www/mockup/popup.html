@@ -15,7 +15,7 @@
 <div data-role="page" id="main" class="page">
     <button id="option">Popup</button>
 
-    <div data-role="popup" class="popup-confirm popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
+    <div data-role="popup" id="main-popup-level-purchase" class="popup-container ui-content" data-overlay-theme="b" data-dismissible="false">
         <div class="popup-close">
             <img class="popup-close-btn" src="../img/button/popup-close-btn.png"/>
         </div>
@@ -23,22 +23,41 @@
             <img class="popup-title-share" src="../img/layout/popup-title-hint.png"/>
         </div>
         <div class="popup-content">
-            <p class="popup-confirm-text">test</p>
+            <p>
+                このステージに進むには、前のステージのクリアが必要だよ！<br/><br/>
+                もしくは宝石を10個使うとこのステージで遊ぶことができるよ！<br/><br/>
+                宝石を買いにいく？
+            </p>
         </div>
-        <div class="popup-buttons ui-grid-a clear-both">
-            <div class="ui-block-a">
-                <img class="popup-button-left popup-yes" src="../img/button/button-yes.png"/>
-            </div>
-            <div class="ui-block-b">
-                <img class="popup-button-right popup-no" src="../img/button/button-no.png"/>
-            </div>
+        <div class="popup-buttons clear-both">
+            <img class="popup-button-center popup-yes" src="../img/button/button-yes.png"/>
         </div>
     </div>
+
+    <!--<div data-role="popup" class="popup-confirm popup-container ui-content" data-overlay-theme="b" data-dismissible="false">-->
+    <!--<div class="popup-close">-->
+    <!--<img class="popup-close-btn" src="../img/button/popup-close-btn.png"/>-->
+    <!--</div>-->
+    <!--<div class="popup-title">-->
+    <!--<img class="popup-title-share" src="../img/layout/popup-title-hint.png"/>-->
+    <!--</div>-->
+    <!--<div class="popup-content">-->
+    <!--<p class="popup-confirm-text">test</p>-->
+    <!--</div>-->
+    <!--<div class="popup-buttons ui-grid-a clear-both">-->
+    <!--<div class="ui-block-a">-->
+    <!--<img class="popup-button-left popup-yes" src="../img/button/button-yes.png"/>-->
+    <!--</div>-->
+    <!--<div class="ui-block-b">-->
+    <!--<img class="popup-button-right popup-no" src="../img/button/button-no.png"/>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
 </div>
 <script>
     $(function() {
         $('#option').click(function() {
-            var $popup = $(".popup-confirm");
+            var $popup = $("#main-popup-level-purchase");
             $popup.popup();
             $popup.popup('open');
         });

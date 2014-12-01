@@ -23,11 +23,12 @@ CQ.SNS = {
 
             if (lastShareDate && (lastShareDate == today)) {
                 CQ.Log.debug('Already get share coin today: {0}'.format(today));
+                CQ.Page.openPrompt('シェアが完了しました。');
             } else {
                 CQ.Datastore.Currency.setLastShareDate(today);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
                 CQ.Page.refreshCurrency();
-                CQ.Page.openPrompt('シェアが完了しました。<br/>10コインをGET！');
+                CQ.Page.openPrompt('シェアが完了しました。10コインをGET！');
             }
 
             CQ.GA.track(CQ.GA.Share.Success);
@@ -44,11 +45,12 @@ CQ.SNS = {
         if (CQ.API.isSuccess(response)) {
             if (CQ.Datastore.Picture.isPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id)) {
                 CQ.Log.debug('Already get share coin for this picture');
+                CQ.Page.openPrompt('シェアが完了しました。');
             } else {
                 CQ.Datastore.Picture.setPictureShared(CQ.Page.Game.album.id, CQ.Page.Game.picture.id);
                 CQ.Currency.earn(CQ.Currency.Earn.Share);
                 CQ.Page.refreshCurrency();
-                CQ.Page.openPrompt('シェアが完了しました。<br/>10コインをGET！');
+                CQ.Page.openPrompt('シェアが完了しました。10コインをGET！');
             }
 
             CQ.GA.track(CQ.GA.Share.Success, CQ.GA.Share.Success.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
@@ -67,7 +69,7 @@ CQ.SNS = {
 };
 
 CQ.SNS.Facebook = {
-    login: function() {
+    login: function(success) {
         OAuth.popup('facebook', {
             cache: true,
             state: CQ.Session.UUID
@@ -76,6 +78,8 @@ CQ.SNS.Facebook = {
             CQ.API.authFacebook(result.access_token, result.expires_in, result.code, function() {
                 CQ.Session.FACEBOOK_AUTH = true;
             });
+
+            if (success) success();
         }).fail(function(err) {
             if (err != 'Error: The popup was closed')
                 CQ.Log.error('Facebook oauth error: {0}'.format(err));
@@ -86,17 +90,17 @@ CQ.SNS.Facebook = {
         CQ.Page.openLoading();
 
         if (album && picture) {
-            CQ.API.shareFacebook(message, album, picture, this.sharePictureSuccess, this.fail);
+            CQ.API.shareFacebook(message, album, picture, CQ.SNS.sharePictureSuccess, CQ.SNS.fail);
             CQ.GA.track(CQ.GA.Share.FB, CQ.GA.Share.FB.label.format(album, picture));
         } else {
-            CQ.API.shareFacebook(message, album, picture, this.shareSuccess, this.fail);
+            CQ.API.shareFacebook(message, album, picture, CQ.SNS.shareSuccess, CQ.SNS.fail);
             CQ.GA.track(CQ.GA.Share.FB, CQ.Utils.getCapitalName(CQ.Session.CURRENT_PAGE));
         }
     }
 };
 
 CQ.SNS.Twitter = {
-    login: function() {
+    login: function(success) {
         OAuth.popup('twitter', {
             cache: true,
             state: CQ.Session.UUID
@@ -105,6 +109,8 @@ CQ.SNS.Twitter = {
             CQ.API.authTwitter(result.oauth_token, result.oauth_token_secret, result.code, function() {
                 CQ.Session.TWITTER_AUTH = true;
             });
+
+            if (success) success();
         }).fail(function(err) {
             if (err != 'Error: The popup was closed')
                 CQ.Log.error('Twitter oauth error: {0}'.format(err));
@@ -115,10 +121,10 @@ CQ.SNS.Twitter = {
         CQ.Page.openLoading();
 
         if (album && picture) {
-            CQ.API.shareTwitter(message, album, picture, this.sharePictureSuccess, this.fail);
+            CQ.API.shareTwitter(message, album, picture, CQ.SNS.sharePictureSuccess, CQ.SNS.fail);
             CQ.GA.track(CQ.GA.Share.TW, CQ.GA.Share.TW.label.format(album, picture));
         } else {
-            CQ.API.shareTwitter(message, album, picture, this.shareSuccess, this.fail);
+            CQ.API.shareTwitter(message, album, picture, CQ.SNS.shareSuccess, CQ.SNS.fail);
             CQ.GA.track(CQ.GA.Share.TW, CQ.Utils.getCapitalName(CQ.Session.CURRENT_PAGE));
         }
     }

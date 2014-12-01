@@ -93,6 +93,10 @@ CQ.Id = {
         POPUP_CLOSE_TAP: 'img/button/popup-close-btn-tap.png',
         POPUP_SHARE: 'img/button/button-share.png',
         POPUP_SHARE_TAP: 'img/button/button-share-tap.png',
+        POPUP_SHARE_FACEBOOK: 'img/icon/share-facebook.png',
+        POPUP_SHARE_FACEBOOK_ON: 'img/icon/share-facebook-on.png',
+        POPUP_SHARE_TWITTER: 'img/icon/share-twitter.png',
+        POPUP_SHARE_TWITTER_ON: 'img/icon/share-twitter-on.png',
 
         INDEX_START: 'img/button/index-start-btn.png',
         INDEX_START_TAP: 'img/button/index-start-btn-tap.png',

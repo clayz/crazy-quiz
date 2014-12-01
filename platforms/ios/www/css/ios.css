@@ -272,7 +272,7 @@ p {
     display: table;
     width: 22em;
     min-height: 10em;
-    margin: 2em 1em 1em 1em;
+    margin: 1.5em 1em 1em 1em;
     color: #FFFFFF;
     border-radius: 3px;
     z-index: 3;
@@ -309,6 +309,7 @@ p {
 .popup-buttons {
     position: absolute;
     width: 100%;
+    margin-top: -1em;
 }
 
 .popup-button-left {
@@ -1614,14 +1615,14 @@ li:hover {
     background: url(../img/layout/popup-share-bg.png) no-repeat !important;
     background-size: 100% 100% !important;
     border: 0 !important;
+    padding: 1em 0 1em 0;
 }
 
 .popup-share-content {
     width: 22em;
     min-height: 22em;
-    margin: 1em .8em .8em .8em;
+    margin: 1em 1em .8em 1em;
     color: #3a2108;
-    border-radius: 3px;
     z-index: 3;
 }
 
@@ -1640,29 +1641,28 @@ li:hover {
 
 .popup-share-fb-block {
     float: right;
-    padding-right: 2em;
+    padding-right: 1.5em;
 }
 
 .popup-share-tw-block {
     float: left;
-    padding-left: 1em;
+    padding-left: 1.5em;
 }
 
 .popup-share-fb {
-    width: 5em;
-    height: 5em;
+    width: 6em;
+    height: 6em;
 }
 
 .popup-share-tw {
-    width: 5em;
-    height: 5em;
+    width: 6em;
+    height: 6em;
 }
 
 .popup-share-message {
-    height: 8em !important;
+    height: 7em !important;
     color: #ffffff !important;
     background: #3a2108 !important;
     text-shadow: none !important;
     border-radius: .5em;
-    width: 94% !important;
 }
