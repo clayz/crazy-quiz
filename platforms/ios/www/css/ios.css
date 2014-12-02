@@ -270,16 +270,17 @@ p {
 
 .popup-content {
     display: table;
+    background-color: #331c05;
     width: 22em;
     min-height: 10em;
-    margin: 1.5em 1em 1em 1em;
+    margin: 0 1em 0 1em;
     color: #FFFFFF;
-    border-radius: 3px;
+    border-radius: .5em;
     z-index: 3;
 }
 
 .popup-content p {
-    padding: 1em;
+    padding: 3em 1em 3em 1em;
     font-size: 1em;
     text-align: left;
     text-shadow: none;
@@ -309,7 +310,7 @@ p {
 .popup-buttons {
     position: absolute;
     width: 100%;
-    margin-top: -1em;
+    margin-top: -1.5em;
 }
 
 .popup-button-left {
@@ -513,7 +514,7 @@ p {
     right: 0;
     padding-bottom: 2.8em;
     text-align: center;
-    background: url(../img/layout/main-album-bg.png) no-repeat;
+    background: url(../img/layout/main-album1-bg.png) no-repeat;
     background-size: 100% 100%;
     z-index: 10;
 }
@@ -871,11 +872,11 @@ p {
 
 #game-popup-pass-content {
     width: 22em;
-    height: 17em;
+    height: 18em;
 }
 
 #game-popup-pass-picture {
-    padding: 5.5em 0 0 4em;
+    padding: 5.5em 0 0 3.5em;
 }
 
 #game-popup-pass-picture-number {
@@ -906,7 +907,7 @@ p {
 }
 
 #game-popup-pass-info {
-    margin: 5em 0 0 4em;
+    margin: 5em 0 0 3.5em;
 }
 
 #game-popup-pass-bonus-bg {
@@ -997,6 +998,7 @@ p {
     width: 22em;
     height: 28em;
     background-color: transparent !important;
+    margin: 1.5em 1em 1em 1em !important;
 }
 
 .popup-shop .popup-gem-banner {

@@ -49,8 +49,10 @@ CQ.Album = {
 
         if (!isPurchase || CQ.Currency.consume(CQ.Currency.Consume.UnlockAlbum, albumId)) {
             CQ.Datastore.Picture.setLastAlbumId(albumId);
+            CQ.Datastore.Picture.setLastLevel(albumId, 1);
             CQ.Page.Main.refreshCurrency();
             CQ.Page.Main.enableAlbum(albumId);
+            CQ.Page.Main.enableLevel(albumId, 1);
 
             if (isPurchase) CQ.GA.track(CQ.GA.Album.UnlockPurchase, CQ.GA.Album.UnlockPurchase.label.format(albumId));
             else CQ.GA.track(CQ.GA.Album.Unlock, CQ.GA.Album.Unlock.label.format(albumId));

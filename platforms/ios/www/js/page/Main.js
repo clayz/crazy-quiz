@@ -177,6 +177,10 @@ CQ.Page.Main = {
                 $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show();
                 $(CQ.Id.Main.$ALBUM_PAGING.format(nextAlbumId)).attr('src', CQ.Id.Image.MAIN_PAGING_ON);
 
+                var $albumContainer = $(CQ.Id.Main.$ALBUM_CONTAINER);
+                $albumContainer.css('background', 'url(../www/{0}) no-repeat'.format(CQ.Id.Image.MAIN_ALBUM_BG.format(nextAlbumId)));
+                $albumContainer.css('background-size', '100% 100%');
+
                 for (var i = 1; i < nextAlbumId; i++) {
                     $(CQ.Id.Main.$ALBUM_PAGING.format(i)).attr('src', CQ.Id.Image.MAIN_PAGING_OFF);
                 }
@@ -201,9 +205,12 @@ CQ.Page.Main = {
                 $(CQ.Id.Main.$ALBUM_CONTAINER).show();
             }
 
-            var nextAlbumId = --CQ.Page.Main.albumId;
+            var nextAlbumId = --CQ.Page.Main.albumId, $albumContainer = $(CQ.Id.Main.$ALBUM_CONTAINER);
             $(CQ.Id.Main.$ALBUM_EACH.format(nextAlbumId)).show();
             $(CQ.Id.Main.$ALBUM_PAGING.format(nextAlbumId)).attr('src', CQ.Id.Image.MAIN_PAGING_ON);
+
+            $albumContainer.css('background', 'url(../www/{0}) no-repeat'.format(CQ.Id.Image.MAIN_ALBUM_BG.format(nextAlbumId)));
+            $albumContainer.css('background-size', '100% 100%');
 
             for (var i = currentAlbumId; i <= CQ.Album.TOTAL_ALBUM; i++) {
                 $(CQ.Id.Main.$ALBUM_PAGING.format(i)).attr('src', CQ.Id.Image.MAIN_PAGING_OFF);

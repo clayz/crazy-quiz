@@ -139,19 +139,19 @@ CQ.Album.Second = {
                     id: 200,
                     name: 'EVA',
                     category: CQ.Album.Category.Brand,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 201,
                     name: 'EVERNOTE',
                     category: CQ.Album.Category.Animation,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 202,
                     name: 'FC東京',
                     category: CQ.Album.Category.Brand,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 203,
@@ -265,19 +265,19 @@ CQ.Album.Second = {
                     id: 300,
                     name: 'NIKKON',
                     category: CQ.Album.Category.Building,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 301,
                     name: 'NTT',
                     category: CQ.Album.Category.Brand,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 302,
                     name: 'SAMSUNG',
                     category: CQ.Album.Category.Cartoon,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 303,
@@ -391,19 +391,19 @@ CQ.Album.Second = {
                     id: 400,
                     name: 'WII',
                     category: CQ.Album.Category.Celebrity,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 401,
                     name: 'アームストロング',
                     category: CQ.Album.Category.Game,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 402,
                     name: 'アイルランド',
                     category: CQ.Album.Category.Animation,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 403,
@@ -517,19 +517,19 @@ CQ.Album.Second = {
                     id: 500,
                     name: 'アテナ',
                     category: CQ.Album.Category.Geography,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 501,
                     name: 'アテネ',
                     category: CQ.Album.Category.Animation,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 502,
                     name: 'アベンジャーズ',
                     category: CQ.Album.Category.Sports,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 503,
@@ -643,19 +643,19 @@ CQ.Album.Second = {
                     id: 600,
                     name: 'アントニオ猪木',
                     category: CQ.Album.Category.History,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 601,
                     name: 'アンブレラ',
                     category: CQ.Album.Category.Celebrity,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 602,
                     name: 'イギリス',
                     category: CQ.Album.Category.Geography,
-                    textAnswers: []
+                    textAnswers: ['ペレ', 'ジーコ', 'ドゥンガ', 'マラドーナ', 'ロマリオ', 'クライフ', 'ネドベド', 'フレンズ']
                 },
                 {
                     id: 603,

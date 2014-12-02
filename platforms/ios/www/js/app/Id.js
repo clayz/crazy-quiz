@@ -111,6 +111,7 @@ CQ.Id = {
         MAIN_ALBUM_NEXT_TAP: 'img/button/album-arrows-right-tap.png',
         MAIN_PAGING_ON: 'img/layout/main-paging-on.png',
         MAIN_PAGING_OFF: 'img/layout/main-paging-off.png',
+        MAIN_ALBUM_BG: 'img/layout/main-album{0}-bg.png',
 
         GAME_CUT_DOWN: 'img/button/game-cutdown.png',
         GAME_CUT_DOWN_TAP: 'img/button/game-cutdown-tap.png',

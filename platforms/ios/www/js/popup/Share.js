@@ -37,6 +37,7 @@ CQ.Popup.Share = function(page) {
 CQ.Popup.Share.prototype.initMain = function() {
     var popup = this, popupId = this.popup.getId();
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('1日1回シェアして10コインGET！<br/>クイズをシェアして、みんなで楽しもう！');
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(CQ.SNS.Message.MAIN_PAGE);
 
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_YES)).click(function() {
         var message = $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val();
@@ -59,6 +60,7 @@ CQ.Popup.Share.prototype.initMain = function() {
 CQ.Popup.Share.prototype.initGame = function() {
     var popup = this, popupId = this.popup.getId();
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('画像をシェアして10コインゲット！<br/>1問につき1回まで。');
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(CQ.SNS.Message.GAME_PAGE);
 
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_YES)).click(function() {
         var message = $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(),
