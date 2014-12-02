@@ -111,7 +111,7 @@ CQ.Id = {
         MAIN_ALBUM_NEXT_TAP: 'img/button/album-arrows-right-tap.png',
         MAIN_PAGING_ON: 'img/layout/main-paging-on.png',
         MAIN_PAGING_OFF: 'img/layout/main-paging-off.png',
-        MAIN_ALBUM_BG: 'img/layout/main-album{0}-bg.png',
+        MAIN_ALBUM_TITLE: 'img/layout/main-album{0}-title.png',
 
         GAME_CUT_DOWN: 'img/button/game-cutdown.png',
         GAME_CUT_DOWN_TAP: 'img/button/game-cutdown-tap.png',
@@ -151,6 +151,7 @@ CQ.Id = {
         $ALBUM_LEVEL_STATUS: '#main-album{0}-level{1}-status',
         $ALBUM_LEVEL_STATUS_TEXT: '#main-album{0}-level{1}-status > .main-level-status',
         $ALBUM_LEVEL_NAME: '#main-album{0}-level{1}-name',
+        $ALBUM_TITLE: '#main-album-title',
 
         $SHARE: '#main-share-btn',
         $HELP: '#main-help-btn',
