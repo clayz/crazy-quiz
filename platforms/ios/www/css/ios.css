@@ -530,6 +530,16 @@ p {
     font-size: 1.5em;
 }
 
+#main-album-previous {
+    width: 20%;
+}
+
+#main-album-previous-btn {
+    width: 2em;
+    height: 2.5em;
+    margin: 1.2em 0 0 1.2em;
+}
+
 #main-album-next {
     width: 20%;
 }

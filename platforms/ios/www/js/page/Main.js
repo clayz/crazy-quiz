@@ -110,6 +110,11 @@ CQ.Page.Main = {
 
     initButtons: function() {
         // previous and next album button
+        this.bindClickButton($(CQ.Id.Main.$ALBUM_PREVIOUS), function() {
+            CQ.Audio.Button.play();
+            CQ.Page.Main.swipeAlbumRight();
+        }, CQ.Id.Image.MAIN_ALBUM_PREVIOUS_TAP, CQ.Id.Image.MAIN_ALBUM_PREVIOUS);
+
         this.bindClickButton($(CQ.Id.Main.$ALBUM_NEXT), function() {
             CQ.Audio.Button.play();
             CQ.Page.Main.swipeAlbumLeft();

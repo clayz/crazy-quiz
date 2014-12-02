@@ -105,8 +105,10 @@ CQ.Id = {
         MAIN_SHARE_TAP: 'img/button/main-share-tap.png',
         MAIN_HELP: 'img/button/main-help.png',
         MAIN_HELP_TAP: 'img/button/main-help-tap.png',
-        MAIN_ALBUM_NEXT: 'img/button/album-arrows.png',
-        MAIN_ALBUM_NEXT_TAP: 'img/button/album-arrows-tap.png',
+        MAIN_ALBUM_PREVIOUS: 'img/button/album-arrows-left.png',
+        MAIN_ALBUM_PREVIOUS_TAP: 'img/button/album-arrows-left-tap.png',
+        MAIN_ALBUM_NEXT: 'img/button/album-arrows-right.png',
+        MAIN_ALBUM_NEXT_TAP: 'img/button/album-arrows-right-tap.png',
         MAIN_PAGING_ON: 'img/layout/main-paging-on.png',
         MAIN_PAGING_OFF: 'img/layout/main-paging-off.png',
 
@@ -139,6 +141,7 @@ CQ.Id = {
         $ALBUM_HEADER: '#main-album-header',
         $ALBUM_EACH: '#main-album{0}',
         $ALBUM_NAME: '#main-album-name',
+        $ALBUM_PREVIOUS: '#main-album-previous-btn',
         $ALBUM_NEXT: '#main-album-next-btn',
         $ALBUM_PAGING: '#main-album-paging-{0}',
 
