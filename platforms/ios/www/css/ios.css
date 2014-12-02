@@ -986,9 +986,16 @@ p {
 /* Gem And Coin Shop Popup */
 /*******************************************************************/
 
+.popup-shop {
+    background: url(../img/layout/popup-shop-bg.png) no-repeat !important;
+    background-size: 100% 100% !important;
+    border: 0 !important;
+    padding: 1em 0 0.1em 0;
+}
+
 .popup-shop .popup-content {
     width: 22em;
-    height: 37.5em;
+    height: 28em;
     background-color: transparent !important;
 }
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Crazy Quiz</title>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ios.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main" class="page">
+    <button id="option">Share Popup</button>
+
+    <!-- Gem shop popup -->
+    <div data-role="popup" class="popup-gem-shop popup-shop ui-content" data-overlay-theme="b" data-dismissible="false">
+        <div class="popup-close">
+            <img class="popup-close-btn" src="../img/button/popup-close-btn.png"/>
+        </div>
+        <div class="popup-content">
+            <div class="popup-gem-banner"></div>
+            <div class="popup-goods-container">
+                <div class="popup-goods popup-goods-1">
+                    <div class="left popup-gem-set-1"></div>
+                    <div class="left popup-goods-amount"></div>
+                    <div class="left popup-goods-info"></div>
+                    <div class="right popup-goods-money"></div>
+                </div>
+                <div class="popup-goods popup-goods-2">
+                    <div class="left popup-gem-set-2"></div>
+                    <div class="left popup-goods-amount"></div>
+                    <div class="left popup-goods-info"></div>
+                    <div class="right popup-goods-money"></div>
+                </div>
+                <div class="popup-goods popup-goods-3">
+                    <div class="left popup-gem-set-3"></div>
+                    <div class="left popup-goods-amount"></div>
+                    <div class="left popup-goods-info"></div>
+                    <div class="right popup-goods-money"></div>
+                </div>
+                <div class="popup-goods popup-goods-4">
+                    <div class="left popup-gem-set-4"></div>
+                    <div class="left popup-goods-amount"></div>
+                    <div class="left popup-goods-info"></div>
+                    <div class="right popup-goods-money"></div>
+                </div>
+                <div class="popup-goods popup-goods-5">
+                    <div class="left popup-gem-set-5"></div>
+                    <div class="left popup-goods-amount"></div>
+                    <div class="left popup-goods-info"></div>
+                    <div class="right popup-goods-money"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#option').click(function() {
+            var $popup = $(".popup-gem-shop");
+            $popup.popup();
+            $popup.popup('open');
+        });
+    });
+</script>
+</body>
+</html>
