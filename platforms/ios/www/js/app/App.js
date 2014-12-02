@@ -87,6 +87,10 @@ CQ.App = {
             CQ.Log.error('App init failed: {0}'.format(e));
         }
 
+        window.onerror = function(errorMsg, url, lineNumber) {
+            CQ.Log.error('App Error, url: {0}, message: {1}, line: {2}'.format(url, errorMsg, lineNumber));
+        };
+
         CQ.Log.debug('App initialization finished.');
     },
 

@@ -13,13 +13,17 @@ CQ.Popup.Share = function(page) {
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).click(function() {
         CQ.Audio.Button.play();
         if (CQ.Session.FACEBOOK_AUTH) popup.enableFacebook();
-        else CQ.SNS.Facebook.login(popup.enableFacebook);
+        else CQ.SNS.Facebook.login(function() {
+            popup.enableFacebook();
+        });
     });
 
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TWITTER)).click(function() {
         CQ.Audio.Button.play();
         if (CQ.Session.TWITTER_AUTH) popup.enableTwitter();
-        else CQ.SNS.Twitter.login(popup.enableTwitter);
+        else CQ.SNS.Twitter.login(function() {
+            popup.enableTwitter();
+        });
     });
 
     $('#{0} {1} {2}'.format(page, CQ.Id.CSS.$POPUP_SHARE, CQ.Id.CSS.$POPUP_SHARE_YES))
@@ -40,10 +44,14 @@ CQ.Popup.Share.prototype.initMain = function() {
 
         if (CQ.SNS.ShareType.FACEBOOK == popup.shareType) {
             if (CQ.Session.FACEBOOK_AUTH) CQ.SNS.Facebook.share(message);
-            else CQ.SNS.Facebook.login(popup.enableFacebook);
+            else CQ.SNS.Facebook.login(function() {
+                popup.enableFacebook();
+            });
         } else if (CQ.SNS.ShareType.TWITTER == popup.shareType) {
             if (CQ.Session.TWITTER_AUTH) CQ.SNS.Twitter.share(message);
-            else CQ.SNS.Twitter.login(popup.enableTwitter);
+            else CQ.SNS.Twitter.login(function() {
+                popup.enableTwitter();
+            });
         } else CQ.Log.error('Unsupported share type: {0}'.format(popup.shareType));
     });
 };
@@ -53,15 +61,20 @@ CQ.Popup.Share.prototype.initGame = function() {
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('画像をシェアして10コインゲット！<br/>1問につき1回まで。');
 
     $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_YES)).click(function() {
-        var message = $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(), album = CQ.Game.album.id, picture = CQ.Game.picture.id;
+        var message = $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(),
+            album = CQ.Page.Game.album.id, picture = CQ.Page.Game.picture.id;
         CQ.Log.debug('Share message: {0}, album: {1}, picture: {2}'.format(message, album, picture));
 
         if (CQ.SNS.ShareType.FACEBOOK == popup.shareType) {
             if (CQ.Session.FACEBOOK_AUTH) CQ.SNS.Facebook.share(message, album, picture);
-            else CQ.SNS.Facebook.login(popup.enableFacebook);
+            else CQ.SNS.Facebook.login(function() {
+                popup.enableFacebook();
+            });
         } else if (CQ.SNS.ShareType.TWITTER == popup.shareType) {
             if (CQ.Session.TWITTER_AUTH) CQ.SNS.Twitter.share(message, album, picture);
-            else CQ.SNS.Twitter.login(popup.enableTwitter);
+            else CQ.SNS.Twitter.login(function() {
+                popup.enableTwitter();
+            });
         } else CQ.Log.error('Unsupported share type: {0}'.format(popup.shareType));
     });
 };

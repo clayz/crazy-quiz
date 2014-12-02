@@ -77,9 +77,8 @@ CQ.SNS.Facebook = {
             CQ.Log.debug(CQ.Utils.toString(result));
             CQ.API.authFacebook(result.access_token, result.expires_in, result.code, function() {
                 CQ.Session.FACEBOOK_AUTH = true;
+                if (success) success();
             });
-
-            if (success) success();
         }).fail(function(err) {
             if (err != 'Error: The popup was closed')
                 CQ.Log.error('Facebook oauth error: {0}'.format(err));
@@ -108,9 +107,8 @@ CQ.SNS.Twitter = {
             CQ.Log.debug(CQ.Utils.toString(result));
             CQ.API.authTwitter(result.oauth_token, result.oauth_token_secret, result.code, function() {
                 CQ.Session.TWITTER_AUTH = true;
+                if (success) success();
             });
-
-            if (success) success();
         }).fail(function(err) {
             if (err != 'Error: The popup was closed')
                 CQ.Log.error('Twitter oauth error: {0}'.format(err));

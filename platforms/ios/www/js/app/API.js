@@ -145,12 +145,12 @@ CQ.API = {
         }, success, fail);
     },
 
-    authTwitter: function(token, tokenSecret, code) {
+    authTwitter: function(token, tokenSecret, code, success) {
         this.post(this.Route.AuthTwitter, {
             token: token,
             token_secret: tokenSecret,
             code: code
-        });
+        }, success);
     },
 
     shareTwitter: function(message, album, picture, success, fail) {
