@@ -14,7 +14,11 @@ CQ.Album = {
         Building: { id: 10, name: '建物' },
         History: { id: 11, name: '歴史' },
         Place: { id: 12, name: '場所' },
-        Geography: { id: 13, name: '地理' }
+        Geography: { id: 13, name: '地理' },
+        Culture: { id: 14, name: '文化' },
+        Music: { id: 15, name: '音楽' },
+        Art: { id: 16, name: 'アート' },
+        Product: { id: 17, name: '製品' }
     },
 
     init: function() {
@@ -73,7 +77,7 @@ CQ.Album = {
             CQ.Log.error('There is no such level to unlock: {0}'.format(level));
             return false;
         } else if (level != (lastLevel + 1)) {
-            CQ.Log.error('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
+            CQ.Log.info('Incorrect unlock level {0}, last level {1}'.format(level, lastLevel));
             return false;
         }
 
