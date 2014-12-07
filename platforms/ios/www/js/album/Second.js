@@ -168,7 +168,7 @@ CQ.Album.Second = {
                 {
                     id: 205,
                     name: '初音ミク',
-                    category: CQ.Album.Category.Animation,
+                    category: CQ.Album.Category.Music,
                     textAnswers: ['美神令子', '氷室キヌ', '桂木美香', '上原美佳', '閻魔あい', '芹澤レイラ', '杉村清']
                 },
                 {
@@ -300,7 +300,7 @@ CQ.Album.Second = {
                 {
                     id: 306,
                     name: 'リトルマーメイド',
-                    category: CQ.Album.Category.Animation,
+                    category: CQ.Album.Category.Film,
                     textAnswers: ['コルドロン', '三人の騎士', 'シンデレラ', 'アラジン', 'ヘラクレス']
                 },
                 {
@@ -487,7 +487,7 @@ CQ.Album.Second = {
                     id: 416,
                     name: 'ブリュッセル',
                     category: CQ.Album.Category.Geography,
-                    textAnswers: ['アテネ‎', 'ヴィリニュス‎', 'キエフ', 'ザグレブ', 'スコピエ', 'ソフィア', 'ダブリン']
+                    textAnswers: ['アテネ', 'ヴィリニュス', 'キエフ', 'ザグレブ', 'スコピエ', 'ソフィア', 'ダブリン']
                 },
                 {
                     id: 417,
@@ -547,7 +547,7 @@ CQ.Album.Second = {
                     id: 505,
                     name: 'EVA',
                     category: CQ.Album.Category.Film,
-                    textAnswers: ['ALEX', 'BRIT', 'CUT', 'USA', 'INT', 'DERBY', 'PUPPY']
+                    textAnswers: ['ALEX', 'BRIT', 'CUT', 'USA', 'INT', 'DERBY', 'PUPPY', 'HOT']
                 },
                 {
                     id: 506,
@@ -733,7 +733,8 @@ CQ.Album.Second = {
                     id: 615,
                     name: 'ヒックとドラゴン',
                     category: CQ.Album.Category.Animation,
-                    textAnswers: ['ぴちぴちピッチ', 'ひだまりスケッチ‎', 'ヒゲぴよ', 'ひみつのアッコちゃん']
+                    textAnswers: ['ぴちぴちピッチ', 'ひだまりスケッチ', 'ヒゲぴよ', 'ひみつのアッコちゃん']
+
                 },
                 {
                     id: 616,

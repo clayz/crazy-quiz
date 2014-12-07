@@ -63,7 +63,7 @@ CQ.Popup.DailyBonus.prototype.dailyBonus = function(){
                         // open rating popup if required
                         var startTimes = CQ.Datastore.User.getStartTimes();
 
-                        if ((startTimes > 0) && (startTimes % 5 == 0) && !CQ.Page.Main.ratePopupDisplayed) {
+                        if ((startTimes > 1) && (startTimes % 5 == 0) && !CQ.Page.Main.ratePopupDisplayed) {
                             $(CQ.Id.Main.$POPUP_RATING).popup('open');
                             CQ.Page.Main.ratePopupDisplayed = true;
                         } else {

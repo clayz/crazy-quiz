@@ -56,6 +56,8 @@ CQ.Page.Main = {
                             albumId: album.id,
                             level: level
                         }, CQ.Page.Main.clickUnlockableLevel);
+                    } else if ((lastAlbumId < albumId) && (level == 1)) {
+                        $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click(CQ.Page.Main.clickUnlockDisableAlbum);
                     } else {
                         $levelButton.addClass(CQ.Id.CSS.MAIN_LEVEL_LOCKED).click(CQ.Page.Main.clickUnlockDisableLevel);
                     }
@@ -92,6 +94,9 @@ CQ.Page.Main = {
 
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).bind(this.popupEvents);
         this.bindPopupCloseButton(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK);
+
+        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).bind(this.popupEvents);
+        this.bindPopupCloseButton(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK);
 
         // rate popup
         $(CQ.Id.Main.$POPUP_RATING).bind(this.popupEvents);
@@ -261,6 +266,10 @@ CQ.Page.Main = {
         $(CQ.Id.Main.$POPUP_LEVEL_CANNOT_UNLOCK).popup('open');
     },
 
+    clickUnlockDisableAlbum: function() {
+        CQ.Audio.Button.play();
+        $(CQ.Id.Main.$POPUP_ALBUM_CANNOT_UNLOCK).popup('open');
+    },
 
     clickUnlockLevel: function() {
         CQ.Audio.Button.play();
