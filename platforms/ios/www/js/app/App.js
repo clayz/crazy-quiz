@@ -1,8 +1,8 @@
 if (typeof(CQ) == 'undefined' || !CQ) {
     var CQ = {
-        dev: true,
+        dev: false,
         ad: true,
-        purchase: false,
+        purchase: true,
 
         URL: {
             APP_STORE: 'http://itunes.apple.com/jp/app/id889870872',
@@ -13,8 +13,8 @@ if (typeof(CQ) == 'undefined' || !CQ) {
             Web: {
                 INDEX: 'http://crazy-quiz.appspot.com',
                 ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/',
-                // API: 'http://crazy-quiz.appspot.com' // production API
-                API: 'http://crazy-quiz-dev.appspot.com' // dev API testing
+                API: 'http://crazy-quiz.appspot.com' // production API
+                // API: 'http://crazy-quiz-dev.appspot.com' // dev API testing
                 // API: 'http://0.0.0.0:8080' // local API testing
             }
         }
