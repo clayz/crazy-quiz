@@ -1,69 +1,96 @@
 CQ.Popup.Share = function(page) {
     this.popup = new CQ.Popup(CQ.Id.CSS.$POPUP_SHARE, page);
+    var popup = this, popupId = this.popup.getId();
 
-    if (CQ.Page.Game.name == page) {
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('画像をシェアして10コインゲット！<br/>1問につき1回まで。');
+    if (CQ.Page.Game.name == page) this.initGame();
+    else this.initMain();
 
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).click(function() {
-            CQ.Audio.Button.play();
+    // init default share type
+    if (CQ.Session.FACEBOOK_AUTH || (!CQ.Session.FACEBOOK_AUTH && !CQ.Session.TWITTER_AUTH)) this.enableFacebook();
+    else this.enableTwitter();
 
-            // check facebook auth
-            CQ.SNS.Facebook.login();
-
-            //CQ.SNS.Facebook.share(CQ.SNS.Message.GAME_PAGE, '{0}{1}{2}.png'.format(CQ.URL.Web.ALBUM_IMAGE, CQ.Page.Game.album.path, CQ.Page.Game.picture.id));
-            CQ.GA.track(CQ.GA.Share.FB, CQ.GA.Share.FB.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
+    // binding button events
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).click(function() {
+        CQ.Audio.Button.play();
+        if (CQ.Session.FACEBOOK_AUTH) popup.enableFacebook();
+        else CQ.SNS.Facebook.login(function() {
+            popup.enableFacebook();
         });
+    });
 
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_TWITTER)).click(function() {
-            CQ.Audio.Button.play();
-
-            // check twitter auth
-            CQ.SNS.Twitter.login();
-
-            //CQ.SNS.Twitter.share(CQ.SNS.Message.GAME_PAGE, '{0}{1}{2}.png'.format(CQ.URL.Web.ALBUM_IMAGE, CQ.Page.Game.album.path, CQ.Page.Game.picture.id));
-            CQ.GA.track(CQ.GA.Share.TW, CQ.GA.Share.TW.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TWITTER)).click(function() {
+        CQ.Audio.Button.play();
+        if (CQ.Session.TWITTER_AUTH) popup.enableTwitter();
+        else CQ.SNS.Twitter.login(function() {
+            popup.enableTwitter();
         });
+    });
 
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_OTHER)).click(function() {
-            CQ.Audio.Button.play();
-
-            // check instagram auth
-            CQ.SNS.Instagram.login();
-
-            //CQ.SNS.share(CQ.SNS.Message.GAME_PAGE, '{0}{1}{2}.png'.format(CQ.URL.Web.ALBUM_IMAGE, CQ.Page.Game.album.path, CQ.Page.Game.picture.id));
-            CQ.GA.track(CQ.GA.Share.Other, CQ.GA.Share.Other.label.format(CQ.Page.Game.album.id, CQ.Page.Game.picture.id));
+    $('#{0} {1} {2}'.format(page, CQ.Id.CSS.$POPUP_SHARE, CQ.Id.CSS.$POPUP_SHARE_YES))
+        .bind('touchstart', function() {
+            $(this).attr('src', CQ.Id.Image.POPUP_SHARE_TAP);
+        }).bind('touchend', function() {
+            $(this).attr('src', CQ.Id.Image.POPUP_SHARE);
         });
-    } else {
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('1日1回シェアして10コインGET！<br/>クイズをシェアして、みんなで楽しもう！');
+};
 
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).click(function() {
-            CQ.Audio.Button.play();
+CQ.Popup.Share.prototype.initMain = function() {
+    var popup = this, popupId = this.popup.getId();
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('1日1回シェアして10コインGET！<br/>クイズをシェアして、みんなで楽しもう！');
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(CQ.SNS.Message.MAIN_PAGE);
 
-            // check facebook auth
-            CQ.SNS.Facebook.login();
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_YES)).click(function() {
+        var message = $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val();
+        CQ.Log.debug('Share message: {0}'.format(message));
 
-            //CQ.SNS.Facebook.share(CQ.SNS.Message.MAIN_PAGE, null);
-            CQ.GA.track(CQ.GA.Share.FB, CQ.Utils.getCapitalName(page));
-        });
+        if (CQ.SNS.ShareType.FACEBOOK == popup.shareType) {
+            if (CQ.Session.FACEBOOK_AUTH) CQ.SNS.Facebook.share(message);
+            else CQ.SNS.Facebook.login(function() {
+                popup.enableFacebook();
+            });
+        } else if (CQ.SNS.ShareType.TWITTER == popup.shareType) {
+            if (CQ.Session.TWITTER_AUTH) CQ.SNS.Twitter.share(message);
+            else CQ.SNS.Twitter.login(function() {
+                popup.enableTwitter();
+            });
+        } else CQ.Log.error('Unsupported share type: {0}'.format(popup.shareType));
+    });
+};
 
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_TWITTER)).click(function() {
-            CQ.Audio.Button.play();
+CQ.Popup.Share.prototype.initGame = function() {
+    var popup = this, popupId = this.popup.getId();
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TEXT)).html('画像をシェアして10コインゲット！<br/>1問につき1回まで。');
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(CQ.SNS.Message.GAME_PAGE);
 
-            // check twitter auth
-            CQ.SNS.Twitter.login();
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_YES)).click(function() {
+        var message = $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_MESSAGE)).val(),
+            album = CQ.Page.Game.album.id, picture = CQ.Page.Game.picture.id;
+        CQ.Log.debug('Share message: {0}, album: {1}, picture: {2}'.format(message, album, picture));
 
-            //CQ.SNS.Twitter.share(CQ.SNS.Message.MAIN_PAGE, null);
-            CQ.GA.track(CQ.GA.Share.TW, CQ.Utils.getCapitalName(page));
-        });
+        if (CQ.SNS.ShareType.FACEBOOK == popup.shareType) {
+            if (CQ.Session.FACEBOOK_AUTH) CQ.SNS.Facebook.share(message, album, picture);
+            else CQ.SNS.Facebook.login(function() {
+                popup.enableFacebook();
+            });
+        } else if (CQ.SNS.ShareType.TWITTER == popup.shareType) {
+            if (CQ.Session.TWITTER_AUTH) CQ.SNS.Twitter.share(message, album, picture);
+            else CQ.SNS.Twitter.login(function() {
+                popup.enableTwitter();
+            });
+        } else CQ.Log.error('Unsupported share type: {0}'.format(popup.shareType));
+    });
+};
 
-        $('{0} {1}'.format(this.popup.getId(), CQ.Id.CSS.$POPUP_SHARE_OTHER)).click(function() {
-            CQ.Audio.Button.play();
+CQ.Popup.Share.prototype.enableFacebook = function() {
+    var popupId = this.popup.getId();
+    this.shareType = CQ.SNS.ShareType.FACEBOOK;
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TWITTER)).attr('src', CQ.Id.Image.POPUP_SHARE_TWITTER);
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).attr('src', CQ.Id.Image.POPUP_SHARE_FACEBOOK_ON);
+};
 
-            // check instagram auth
-            CQ.SNS.Instagram.login();
-
-            //CQ.SNS.share(CQ.SNS.Message.MAIN_PAGE);
-            CQ.GA.track(CQ.GA.Share.Other, CQ.Utils.getCapitalName(page));
-        });
-    }
+CQ.Popup.Share.prototype.enableTwitter = function() {
+    var popupId = this.popup.getId();
+    this.shareType = CQ.SNS.ShareType.TWITTER;
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_FACEBOOK)).attr('src', CQ.Id.Image.POPUP_SHARE_FACEBOOK);
+    $('{0} {1}'.format(popupId, CQ.Id.CSS.$POPUP_SHARE_TWITTER)).attr('src', CQ.Id.Image.POPUP_SHARE_TWITTER_ON);
 };

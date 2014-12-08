@@ -15,7 +15,7 @@ if (typeof(CQ) == 'undefined' || !CQ) {
                 ALBUM_IMAGE: 'http://crazy-quiz.appspot.com/static/',
                 // API: 'http://crazy-quiz.appspot.com' // production API
                 API: 'http://crazy-quiz-dev.appspot.com' // dev API testing
-                // API: 'http://192.168.1.100:8080' // local API testing
+                // API: 'http://0.0.0.0:8080' // local API testing
             }
         }
     };
@@ -74,13 +74,22 @@ CQ.App = {
             CQ.Session.UUID = device.uuid;
             cordova.getAppVersion().then(function(version) {
                 CQ.Session.VERSION = version;
-                CQ.API.startup(function() {
+
+                // save app startup and retrieve user info
+                CQ.API.startup(function(response) {
+                    var data = CQ.API.getResponseData(response);
+                    CQ.Session.FACEBOOK_AUTH = data.facebook;
+                    CQ.Session.TWITTER_AUTH = data.twitter;
                     CQ.API.syncHistory();
                 });
             });
         } catch (e) {
             CQ.Log.error('App init failed: {0}'.format(e));
         }
+
+        window.onerror = function(errorMsg, url, lineNumber) {
+            CQ.Log.error('App Error, url: {0}, message: {1}, line: {2}'.format(url, errorMsg, lineNumber));
+        };
 
         CQ.Log.debug('App initialization finished.');
     },
@@ -143,5 +152,8 @@ CQ.Session = {
 
     UUID: '',
     VERSION: 'N/A',
-    PUSH_TOKEN: ''
+    PUSH_TOKEN: '',
+
+    FACEBOOK_AUTH: false,
+    TWITTER_AUTH: false
 };

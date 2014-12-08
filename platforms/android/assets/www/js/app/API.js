@@ -4,13 +4,26 @@ CQ.API = {
         Startup: '/api/user/startup/',
         Register: '/api/user/register/',
         RegisterNotification: '/api/user/notification/',
+        DailyBonus: '/api/user/bonus/daily/',
+        DailyBonusSave: '/api/user/bonus/daily/save/',
 
         // audit
         Sync: '/api/audit/sync/',
         Purchase: '/api/audit/purchase/',
         Exchange: '/api/audit/exchange/',
         Earn: '/api/audit/earn/',
-        Consume: '/api/audit/consume/'
+        Consume: '/api/audit/consume/',
+
+        // sns
+        AuthFacebook: '/api/sns/auth/facebook/',
+        ShareFacebook: '/api/sns/share/facebook/',
+        AuthTwitter: '/api/sns/auth/twitter/',
+        ShareTwitter: '/api/sns/share/twitter/'
+    },
+
+    APIStatus: {
+        SUCCESS: 100000,
+        ERROR: 999999
     },
 
     startup: function(callback) {
@@ -26,6 +39,14 @@ CQ.API = {
 
     registerNotification: function() {
         this.post(this.Route.RegisterNotification, { push_token: CQ.Session.PUSH_TOKEN });
+    },
+
+    dailyBonus: function(success) {
+        this.post(this.Route.DailyBonus, {}, success);
+    },
+
+    dailyBonusSave: function(success) {
+        this.post(this.Route.DailyBonusSave, {}, success);
     },
 
     syncHistory: function() {
@@ -108,6 +129,38 @@ CQ.API = {
         this.post(this.Route.Consume, data);
     },
 
+    authFacebook: function(accessToken, expires, code, success) {
+        this.post(this.Route.AuthFacebook, {
+            access_token: accessToken,
+            expires: expires,
+            code: code
+        }, success);
+    },
+
+    shareFacebook: function(message, album, picture, success, fail) {
+        this.post(this.Route.ShareFacebook, {
+            message: message,
+            album: album,
+            picture: picture
+        }, success, fail);
+    },
+
+    authTwitter: function(token, tokenSecret, code, success) {
+        this.post(this.Route.AuthTwitter, {
+            token: token,
+            token_secret: tokenSecret,
+            code: code
+        }, success);
+    },
+
+    shareTwitter: function(message, album, picture, success, fail) {
+        this.post(this.Route.ShareTwitter, {
+            message: message,
+            album: album,
+            picture: picture
+        }, success, fail);
+    },
+
     post: function(url, data, success, fail) {
         data.uuid = CQ.Session.UUID;
         data.version = CQ.Session.VERSION;
@@ -130,6 +183,19 @@ CQ.API = {
 
     getTimestamp: function(date) {
         return parseInt((date % 1 === 0 ? date : date.getTime()) / 1000);
+    },
+
+    isSuccess: function(response) {
+        return this.APIStatus.SUCCESS == response.status;
+    },
+
+    getResponseData: function(response) {
+        if (this.APIStatus.SUCCESS == response.status) {
+            return response.data;
+        } else {
+            CQ.Log.error('API request failed, response: {0}'.format(CQ.Utils.toString(response)));
+            return null;
+        }
     }
 };
 
