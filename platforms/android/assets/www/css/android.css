@@ -39,8 +39,8 @@ body {
     height: 50px; /* text area height */
     width: 225px; /* text area width */
     text-align: center;
-    padding: 180px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
-    margin: -115px 0px 0px -112px; /* offset vertical: half of image height and text area height */
+    padding: 180px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: -115px 0 0 -112px; /* offset vertical: half of image height and text area height */
     /* offset horizontal: half of text area width */
 }
 
@@ -48,8 +48,8 @@ body {
 @media screen and (min-aspect-ratio: 1/1) and (min-width: 400px) {
     .app {
         background-position: left center;
-        padding: 75px 0px 75px 170px; /* padding-top + padding-bottom + text area = image height */
-        margin: -90px 0px 0px -198px; /* offset vertical: half of image height */
+        padding: 75px 0 75px 170px; /* padding-top + padding-bottom + text area = image height */
+        margin: -90px 0 0 -198px; /* offset vertical: half of image height */
         /* offset horizontal: half of image width and text area width */
     }
 }
@@ -73,8 +73,8 @@ p {
     -webkit-border-radius: 4px;
     color: #FFFFFF;
     font-size: 12px;
-    margin: 0px 30px;
-    padding: 2px 0px;
+    margin: 0 30px;
+    padding: 2px 0;
 }
 
 .event.listening {
@@ -257,32 +257,44 @@ p {
 }
 
 .popup-container {
+    background: url(../img/layout/popup-bg.png) no-repeat !important;
+    background-size: 100% 100% !important;
     border: 0 !important;
-    background-color: #eae093 !important;
-    padding: 1em 0 2em 0;
+    padding: 1em 0 1em 0;
 }
 
 .popup-container-no-btn {
+    background: url(../img/layout/popup-bg.png) no-repeat !important;
+    background-size: 100% 100% !important;
     border: 0 !important;
-    background-color: #eae093 !important;
     padding: 1em 0 1em 0;
 }
 
 .popup-content {
+    display: table;
+    background-color: #331c05;
     width: 22em;
-    min-height: 6em;
-    background-color: #6d3805 !important;
-    margin: 1em .8em .8em .8em;
+    min-height: 10em;
+    margin: 0 1em 0 1em;
     color: #FFFFFF;
-    border-radius: 3px;
+    border-radius: .5em;
     z-index: 3;
 }
 
 .popup-content p {
-    padding: 1em;
+    padding: 3em 1em 3em 1em;
     font-size: 1em;
     text-align: left;
     text-shadow: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.popup-title {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-top: -.8em;
 }
 
 .popup-close {
@@ -298,7 +310,9 @@ p {
 }
 
 .popup-buttons {
-    margin-bottom: -5em;
+    position: absolute;
+    width: 100%;
+    margin-top: -1.5em;
 }
 
 .popup-button-left {
@@ -349,7 +363,7 @@ p {
 
 @keyframes loadbar {
     0% {
-        width: 0%;
+        width: 0;
     }
 
     100% {
@@ -359,7 +373,7 @@ p {
 
 @-webkit-keyframes loadbar {
     0% {
-        width: 0%;
+        width: 0;
     }
 
     100% {
@@ -520,6 +534,20 @@ p {
     font-weight: bold;
     padding-top: 1.1em;
     font-size: 1.5em;
+}
+
+#main-album-title img {
+    width: 55%;
+}
+
+#main-album-previous {
+    width: 20%;
+}
+
+#main-album-previous-btn {
+    width: 2em;
+    height: 2.5em;
+    margin: 1.2em 0 0 1.2em;
 }
 
 #main-album-next {
@@ -1304,4 +1332,363 @@ li:hover {
 #help .fb-page-btn {
     width: 12em;
     height: 4em;
+}
+
+/*******************************************************************/
+/* daily bonus Popup */
+/*******************************************************************/
+
+#daily-bonus.popup-daily-bonus {
+    background: url(../img/layout/daily_bonus_bg.png) no-repeat;
+    background-size: 100% 100%;
+    border: 0;
+}
+
+#daily-bonus .popup-content-daily {
+    width: 22em;
+    height: 27em;
+    min-height: 6em;
+    margin: 0 .8em .8em 1em;
+    color: RGB(251, 244, 180);
+    border-radius: 3px;
+    z-index: 3;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#daily-bonus .daily-bonus-banner {
+    height: 4.8em;
+    width: 19em;
+    background: url(../img/icon/daily_bonus_title.png) no-repeat;
+    background-size: 90% 70%;
+}
+
+#daily-bonus .daily-bonus-all-container {
+    padding-left: .6em;
+}
+
+#daily-bonus .daily-bonus-today-container {
+    height: 9.7em;
+    width: 21.8em;
+    background: url(../img/layout/daily_bonus_today_banner.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#daily-bonus .daily-bonus-today-frame {
+    height: 8em;
+    width: 8em;
+    background: url(../img/layout/daily_bonus_star.png) no-repeat;
+    background-size: 100% 100%;
+    margin: .4em 0 0 1em;
+    text-align: center;
+}
+
+.daily-bonus-img.today {
+    margin: 1.7em 0 0 2em;
+    display: block;
+}
+
+#daily-bonus .daily-bonus-today-get {
+    margin: 1em 0 0 0;
+}
+
+.daily-bonus-today-msg {
+    background: url(../img/layout/daily_bonus_msg.png) no-repeat;
+    height: 2.5em;
+    width: 7em;
+    background-size: 100% 100%;
+    text-align: center;
+    color: RGB(146, 36, 0);
+    line-height: 2.4em;
+    text-shadow: none;
+}
+
+#daily-bonus-button-get {
+    height: 4em;
+    width: 9em;
+    margin: .5em 0 0 1.5em;
+}
+
+#daily-bonus-button-get.daily-bonus-button-normal {
+    background: url(../img/button/daily-bonus-get.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#daily-bonus-button-get.daily-bonus-button-pressed {
+    background: url(../img/button/daily-bonus-get-tap.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#daily-bonus .bulb-logo {
+    float: right;
+    height: 7.5em;
+    width: 6.5em;
+    background: url(../img/logo/daily_bonus_logo.png) no-repeat;
+    background-size: 100% 100%;
+    align-content: center;
+    margin-top: -13em;
+}
+
+#daily-bonus .daily-bonus-day {
+    margin: 0 4.5em 5.8em .5em;
+}
+
+#daily-bonus .daily-bonus-content {
+    position: absolute;
+}
+
+#daily-bonus .daily-bonus-day span {
+    margin: 0 .4em 0 0;
+}
+
+#daily-bonus .daily-bonus-day .continue-day {
+    height: 1.3em;
+    margin: .3em 0 0 1em;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-1 {
+    background: url(../img/icon/daily_bonus_day1.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-2 {
+    background: url(../img/icon/daily_bonus_day2.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-3 {
+    background: url(../img/icon/daily_bonus_day3.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-4 {
+    background: url(../img/icon/daily_bonus_day4.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-5 {
+    background: url(../img/icon/daily_bonus_day5.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-6 {
+    background: url(../img/icon/daily_bonus_day6.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+#daily-bonus .daily-bonus-day .continue-day.day-7 {
+    background: url(../img/icon/daily_bonus_day7.png) no-repeat;
+    background-size: 70% 70%;
+}
+
+.daily-bonus-img {
+    width: 4em;
+    height: 4em;
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.daily-bonus-day .daily-bonus-img {
+    display: table-cell;
+}
+
+.daily-bonus-img.day-1 {
+    background: url(../img/icon/coin-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-img.day-2 {
+    background: url(../img/icon/coin-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-img.day-3 {
+    background: url(../img/icon/gem-set-1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-img.day-4 {
+    background: url(../img/icon/coin-set-3.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-img.day-5 {
+    background: url(../img/icon/coin-set-4.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-img.day-6 {
+    background: url(../img/icon/coin-set-5.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-img.day-7 {
+    background: url(../img/icon/gem-set-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#daily-bonus .daily-bonus-got {
+    position: absolute;
+    width: 3em;
+    height: 2.5em;
+    margin: .8em 0 0 .6em;
+    background: url(../img/icon/daily_bonus_get.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#daily-bonus .daily-bonus-today {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    margin: -.5em 0 0 -.5em;
+    background: url(../img/layout/daily_bonus_today.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-daily-bonus-got {
+    background: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none !important;;
+}
+
+.daily-bonus-img.today-got {
+    margin: 1.5em 0 0 4em;
+    display: block;
+}
+
+.daily-bonus-got-banner-1 {
+    height: 3em;
+    width: 12em;
+    background: url(../img/icon/text_bonus.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-got-banner-2 {
+    height: 3em;
+    width: 12em;
+    background: url(../img/icon/text_get.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.daily-bonus-got-amount {
+    text-align: center;
+    color: RGB(146, 36, 0);
+    line-height: 2.4em;
+    text-shadow: none;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+.daily-bonus-got-rays {
+    position: absolute;
+    top: -5.5em;
+    left: -6em;
+    width: 25em;
+    height: 25em;
+    z-index: -1;
+    background: url(../img/layout/daily_bonus_get_bg.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 40000ms; /* 40 seconds */
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-animation-name: spin;
+    -moz-animation-duration: 40000ms; /* 40 seconds */
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    -ms-animation-name: spin;
+    -ms-animation-duration: 40000ms; /* 40 seconds */
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    /* boooo opera */
+    -o-transition: rotate(3600deg); /* works */
+}
+
+/*******************************************************************/
+/* Share Popup */
+/*******************************************************************/
+
+.popup-share {
+    background: url(../img/layout/popup-share-bg.png) no-repeat !important;
+    background-size: 100% 100% !important;
+    border: 0 !important;
+    padding: 1em 0 1em 0;
+}
+
+.popup-share-content {
+    width: 22em;
+    min-height: 22em;
+    margin: 1em 1em .8em 1em;
+    color: #3a2108;
+    z-index: 3;
+}
+
+.popup-share-content p {
+    padding: 2em 1em 0 1em;
+    font-size: 1em;
+    text-align: left;
+    text-shadow: none;
+    color: #3a2108;
+}
+
+.popup-title-share {
+    width: 15em;
+    margin-left: -7.5em;
+}
+
+.popup-share-fb-block {
+    float: right;
+    padding-right: 1.5em;
+}
+
+.popup-share-tw-block {
+    float: left;
+    padding-left: 1.5em;
+}
+
+.popup-share-fb {
+    width: 6em;
+    height: 6em;
+}
+
+.popup-share-tw {
+    width: 6em;
+    height: 6em;
+}
+
+.popup-share-message {
+    height: 7em !important;
+    color: #ffffff !important;
+    background: #3a2108 !important;
+    text-shadow: none !important;
+    border-radius: .5em;
 }
