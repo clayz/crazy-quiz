@@ -6,45 +6,26 @@ CQ.Popup.DailyBonusGot = function(page){
     });
 };
 
-CQ.Popup.DailyBonusGot.prototype.getBonus = function(){
-    var isInterrupt = false;
-    var now = new Date();
+CQ.Popup.DailyBonusGot.prototype.dailyBonusSave = function(){
+    CQ.API.dailyBonusSave(function(response){
+        CQ.Log.debug('Daily bonus save request success, response: {0}'.format(CQ.Utils.toString(response)));
 
-    if(CQ.Datastore.User.getLastDailyTime() != 0){
-        var lastDailyTime = new Date(CQ.Datastore.User.getLastDailyTime());
-        var lastDailyDate = new Date("{0}-{1}-{2}".format(lastDailyTime.getFullYear(),
-            lastDailyTime.getMonth() + 1, lastDailyTime.getDate()));
+        switch (response.status) {
+            case 100000:
 
-        var nowDate = new Date("{0}-{1}-{2}".format(now.getFullYear(),
-            now.getMonth() + 1, now.getDate()));
+                // save coin or gem
+                if(CQ.Currency.earn(CQ.Currency.Earn['DailyDay' + response.data.saved_count])) {
+                    //refresh coin and gem
+                    CQ.Page.refreshCurrency();
 
-        //alert(lastDailyDate);
-        //alert(nowDate);
-        //alert((nowDate.getTime() - lastDailyDate.getTime())/(3600 * 1000));
-
-        if(((nowDate.getTime() - lastDailyDate.getTime())/(3600 * 1000)) > 24){
-            isInterrupt = true;
+                    // open popup of daily bonus got
+                    CQ.Page.openPopup(CQ.Page.Main.dailyBonusGot);
+                }
+                break;
+            default:
+                CQ.Log.error('Daily bonus check failed, response: {0}'.format(CQ.Utils.toString(response)));
+                // alert error message
+                break;
         }
-    }
-
-    var count = CQ.Datastore.User.getContinueDailyCount();
-
-    // check continue login count
-    count += 1;
-
-    if(count > 7 || isInterrupt){
-        count = 1;
-    }
-
-    // save coin or gem
-    if(CQ.Currency.earn(CQ.Currency.Earn['DailyDay' + count])){
-        // set last login time to newest
-        CQ.Datastore.User.setLastDailyTime(now.getTime());
-
-        // set count this time
-        CQ.Datastore.User.setContinueDailyCount(count);
-
-        //refresh coin and gem
-        CQ.Page.refreshCurrency();
-    }
+    });
 };
