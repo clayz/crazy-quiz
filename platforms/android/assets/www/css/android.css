@@ -532,8 +532,7 @@ p {
     width: 60%;
     color: #FFFFFF;
     font-weight: bold;
-    padding-top: 1.1em;
-    font-size: 1.5em;
+    padding-top: 2em;
 }
 
 #main-album-title img {
@@ -546,8 +545,8 @@ p {
 
 #main-album-previous-btn {
     width: 2em;
-    height: 2.5em;
-    margin: 1.2em 0 0 1.2em;
+    height: 2.8em;
+    margin: 1.5em 0 0 1.2em;
 }
 
 #main-album-next {
@@ -557,7 +556,7 @@ p {
 #main-album-next-btn {
     width: 2em;
     height: 2.8em;
-    margin: 1.5em 1.5em 0 0;
+    margin: 1.5em 1.2em 0 0;
 }
 
 #main-album {
@@ -696,7 +695,6 @@ p {
 #main-help-btn {
     width: 10em;
     height: 4.5em;
-    padding-right: 1.8em;
 }
 
 /*******************************************************************/
@@ -1003,10 +1001,18 @@ p {
 /* Gem And Coin Shop Popup */
 /*******************************************************************/
 
+.popup-shop {
+    background: url(../img/layout/popup-shop-bg.png) no-repeat !important;
+    background-size: 100% 100% !important;
+    border: 0 !important;
+    padding: 1em 0 0.1em 0;
+}
+
 .popup-shop .popup-content {
     width: 22em;
-    height: 37.5em;
+    height: 28em;
     background-color: transparent !important;
+    margin: 1.5em 1em 1em 1em !important;
 }
 
 .popup-shop .popup-gem-banner {
@@ -1255,6 +1261,7 @@ li:hover {
 
 #help .title {
     text-align: center;
+    padding: 5px;
     font-weight: bold;
     font-size: 21px;
     color: #FFFFFF;
